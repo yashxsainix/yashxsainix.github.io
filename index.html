@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Saini — Data Analyst & BI Engineer</title>
+<meta name="description" content="I don't list skills. I prove them. Type a company name and watch what I'd build for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #00ff88;
+  --cyan: #00d4ff;
+  --orange: #ff6b35;
+  --purple: #c77dff;
+  --bg: #060608;
+  --surface: #0c0c12;
+  --text: #e2e2e8;
+  --dim: rgba(255,255,255,0.4);
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Syne', sans-serif;
+  --body: 'DM Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--body); overflow-x: hidden; }
+::selection { background: rgba(0,255,136,0.2); color: #fff; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,255,136,0.15); border-radius: 3px; }
+
+/* BACKGROUND */
+.grid-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: linear-gradient(rgba(0,255,136,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.02) 1px, transparent 1px); background-size: 80px 80px; }
+.glow { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+.glow.a { top: -200px; left: -100px; background: rgba(0,255,136,0.07); }
+.glow.b { bottom: -200px; right: -100px; background: rgba(0,212,255,0.05); }
+#neural-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .25; }
+
+/* NAV — links scroll within the page */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; background: rgba(6,6,8,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.03); }
+.nav-name { font-family: var(--mono); font-size: 12px; color: var(--green); letter-spacing: 2px; font-weight: 600; cursor: pointer; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color .3s; }
+.nav-links a:hover { color: var(--green); }
+.nav-status { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; color: rgba(0,255,136,0.4); }
+.nav-status .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 4px var(--green); } 50% { opacity: .4; box-shadow: none; } }
+
+/* SECTIONS */
+section { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.label { font-family: var(--mono); font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: rgba(0,255,136,0.3); margin-bottom: 20px; }
+.sec-title { font-family: var(--display); font-size: clamp(24px,4vw,36px); font-weight: 700; color: #fff; margin-bottom: 8px; }
+.sec-sub { font-family: var(--mono); font-size: 12px; color: var(--dim); margin-bottom: 32px; max-width: 520px; line-height: 1.7; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.vis { opacity: 1; transform: translateY(0); }
+.rd1 { transition-delay: .15s; } .rd2 { transition-delay: .3s; } .rd3 { transition-delay: .45s; } .rd4 { transition-delay: .6s; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 60px; padding-bottom: 60px; }
+.hero-pre { font-family: var(--mono); font-size: 12px; color: var(--green); opacity: .5; margin-bottom: 24px; overflow: hidden; border-right: 2px solid rgba(0,255,136,0.5); white-space: nowrap; width: 0; animation: tw 2.2s steps(40) .5s forwards, blink .7s step-end infinite; }
+@keyframes tw { to { width: 100%; } }
+@keyframes blink { 0%,100% { border-color: rgba(0,255,136,0.5); } 50% { border-color: transparent; } }
+.hero h1 { font-family: var(--display); font-size: clamp(42px,7vw,76px); font-weight: 800; line-height: 1.02; letter-spacing: -2px; margin-bottom: 24px; }
+.hero h1 .l1 { color: #fff; display: block; }
+.hero h1 .l2 { display: block; background: linear-gradient(135deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { font-family: var(--mono); font-size: 13px; color: var(--dim); line-height: 1.8; max-width: 580px; margin-bottom: 40px; }
+.hero-sub .hl { color: var(--green); font-weight: 600; }
+.scroll-hint { font-family: var(--mono); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(0,255,136,0.2); animation: float 2s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+/* DEMO */
+.demo-section { padding-top: 120px; padding-bottom: 120px; }
+.demo-box { background: var(--surface); border: 1px solid rgba(0,255,136,0.08); border-radius: 16px; overflow: hidden; }
+.demo-hdr { display: flex; align-items: center; gap: 8px; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+.demo-t { font-family: var(--mono); font-size: 11px; color: var(--dim); margin-left: 8px; }
+.demo-body { padding: 32px; }
+.inp-row { display: flex; gap: 0; margin-bottom: 24px; }
+.inp-row input { flex: 1; padding: 14px 18px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,255,136,0.1); border-right: none; border-radius: 8px 0 0 8px; color: var(--green); font-family: var(--mono); font-size: 14px; outline: none; transition: border-color .3s; }
+.inp-row input:focus { border-color: rgba(0,255,136,0.3); }
+.inp-row input::placeholder { color: rgba(0,255,136,0.2); }
+.inp-row button { padding: 14px 24px; background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.1); border-radius: 0 8px 8px 0; color: var(--green); font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all .2s; }
+.inp-row button:hover { background: rgba(0,255,136,0.15); }
+.inp-row button:disabled { opacity: .4; cursor: not-allowed; }
+.pbar { height: 2px; background: rgba(255,255,255,0.03); border-radius: 1px; margin-bottom: 20px; overflow: hidden; }
+.pbar .fill { height: 100%; width: 0; border-radius: 1px; background: linear-gradient(90deg, var(--green), var(--cyan)); box-shadow: 0 0 10px rgba(0,255,136,0.4); transition: width .4s ease; }
+.scan-line { font-family: var(--mono); font-size: 11px; margin-bottom: 5px; animation: fsi .3s ease both; }
+.scan-line .idx { color: rgba(0,255,136,0.2); margin-right: 8px; }
+.scan-line .txt { color: rgba(0,255,136,0.5); }
+.scan-line.active .txt { color: var(--green); }
+@keyframes fsi { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+
+.result { display: none; } .result.show { display: block; animation: fsi .5s ease; }
+.sig { display: flex; gap: 12px; padding: 10px 14px; margin-bottom: 6px; background: rgba(0,212,255,0.03); border: 1px solid rgba(0,212,255,0.06); border-radius: 6px; animation: fsi .4s ease both; }
+.sig .d { color: var(--cyan); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+.sig .c { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+.prop { margin-top: 20px; padding: 24px; background: rgba(0,0,0,0.3); border: 1px solid rgba(0,255,136,0.08); border-radius: 10px; }
+.prop h3 { font-family: var(--display); font-size: 18px; color: #fff; font-weight: 700; margin-bottom: 4px; }
+.prop .st { font-family: var(--mono); font-size: 10px; color: rgba(0,255,136,0.4); margin-bottom: 20px; }
+.mrow { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 20px; }
+.mbox { text-align: center; padding: 10px 6px; background: rgba(0,255,136,0.02); border: 1px solid rgba(0,255,136,0.05); border-radius: 6px; }
+.mbox .v { font-family: var(--mono); font-size: 15px; font-weight: 700; color: var(--green); }
+.mbox .l { font-family: var(--mono); font-size: 8px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.ph { margin-bottom: 16px; }
+.ph-name { font-family: var(--mono); font-size: 12px; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.ph-name .n { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; border: 1.5px solid; }
+.p1 .ph-name { color: var(--green); } .p1 .n { border-color: var(--green); }
+.p2 .ph-name { color: var(--cyan); } .p2 .n { border-color: var(--cyan); }
+.p3 .ph-name { color: var(--purple); } .p3 .n { border-color: var(--purple); }
+.ph-item { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.5); padding-left: 28px; margin-bottom: 4px; line-height: 1.5; }
+.ph-item::before { content: '→ '; color: rgba(255,255,255,0.15); }
+.kicker { display: none; margin-top: 24px; padding: 24px; text-align: center; background: rgba(0,255,136,0.015); border: 1px solid rgba(0,255,136,0.08); border-radius: 10px; }
+.kicker.show { display: block; animation: fsi .8s ease; }
+.kicker p { font-family: var(--mono); font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 500px; margin: 0 auto; }
+.kicker .em { color: var(--green); font-weight: 700; text-shadow: 0 0 10px rgba(0,255,136,0.2); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+.tag { padding: 5px 12px; border-radius: 16px; font-family: var(--mono); font-size: 9px; letter-spacing: 1px; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.12); color: rgba(0,255,136,0.6); }
+
+/* ═══════════ PROJECT CARDS WITH EXPANDABLE DETAILS ═══════════ */
+.projects-section { padding-top: 120px; padding-bottom: 120px; }
+.pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+.pcard {
+  background: var(--surface); border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px; transition: all .4s ease; position: relative; overflow: hidden; cursor: pointer;
+}
+.pcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--cyan)); opacity: 0; transition: opacity .3s; }
+.pcard:hover { border-color: rgba(0,255,136,0.15); }
+.pcard:hover::before { opacity: 1; }
+
+.pcard-summary { padding: 28px; }
+.pcard .icon { font-size: 28px; margin-bottom: 16px; }
+.pcard .name { font-family: var(--display); font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.pcard .desc { font-family: var(--mono); font-size: 11px; color: var(--dim); line-height: 1.6; margin-bottom: 16px; }
+.pcard .ptags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.pcard .ptags span { font-family: var(--mono); font-size: 9px; padding: 3px 8px; background: rgba(0,255,136,0.04); border: 1px solid rgba(0,255,136,0.08); border-radius: 4px; color: rgba(0,255,136,0.5); }
+.pcard .click-hint { font-family: var(--mono); font-size: 10px; color: var(--cyan); opacity: .5; transition: opacity .3s; display: flex; align-items: center; gap: 6px; }
+.pcard:hover .click-hint { opacity: 1; }
+
+/* Expanded detail panel */
+.pcard-detail {
+  max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  border-top: 0px solid rgba(0,255,136,0);
+}
+.pcard.expanded .pcard-detail {
+  max-height: 2000px;
+  border-top: 1px solid rgba(0,255,136,0.08);
+}
+.pcard.expanded { border-color: rgba(0,255,136,0.2); }
+.pcard.expanded .click-hint { display: none; }
+
+.detail-inner { padding: 24px 28px 28px; }
+
+.detail-title { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+.detail-title.green { color: rgba(0,255,136,0.5); }
+.detail-title.cyan { color: rgba(0,212,255,0.5); }
+.detail-title.orange { color: rgba(255,107,53,0.5); }
+
+/* Plain English explanation */
+.plain-explain {
+  font-family: var(--body); font-size: 14px; color: rgba(255,255,255,0.75);
+  line-height: 1.7; margin-bottom: 20px; background: rgba(0,255,136,0.02);
+  padding: 16px; border-radius: 8px; border-left: 3px solid var(--green);
+}
+
+/* Mini chart bars */
+.mini-chart { margin-bottom: 20px; }
+.chart-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.chart-label { font-family: var(--mono); font-size: 10px; color: var(--dim); width: 110px; text-align: right; flex-shrink: 0; }
+.chart-track { flex: 1; height: 20px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; position: relative; }
+.chart-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-family: var(--mono); font-size: 9px; color: rgba(0,0,0,0.8); font-weight: 700; transition: width 1s cubic-bezier(0.22,1,0.36,1); }
+
+/* Key findings */
+.findings { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.finding { display: flex; gap: 10px; align-items: flex-start; }
+.finding-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.finding-text { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+.finding-text strong { color: var(--green); font-weight: 600; }
+
+.gh-link { display: inline-block; font-family: var(--mono); font-size: 10px; color: var(--cyan); text-decoration: none; margin-top: 8px; transition: color .3s; }
+.gh-link:hover { color: var(--green); }
+
+/* ═══════════ SKILLS ═══════════ */
+.skills-section { padding-top: 80px; padding-bottom: 120px; }
+.bars { display: flex; flex-direction: column; gap: 16px; }
+.bar-row { display: flex; align-items: center; gap: 16px; }
+.bar-label { font-family: var(--mono); font-size: 11px; color: var(--dim); width: 130px; text-align: right; flex-shrink: 0; }
+.bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; width: 0; transition: width 1.5s cubic-bezier(0.22,1,0.36,1); }
+.bar-val { font-family: var(--mono); font-size: 12px; font-weight: 600; width: 50px; flex-shrink: 0; }
+
+/* ═══════════ EXPERIENCE ═══════════ */
+.exp-section { padding-top: 80px; padding-bottom: 120px; }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: rgba(0,255,136,0.1); }
+.tl-item { position: relative; margin-bottom: 40px; }
+.tl-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--green); background: var(--bg); }
+.tl-item.active::before { background: var(--green); box-shadow: 0 0 8px var(--green); }
+.tl-role { font-family: var(--display); font-size: 16px; font-weight: 700; color: #fff; }
+.tl-co { font-family: var(--mono); font-size: 12px; color: var(--green); opacity: .6; margin-bottom: 6px; }
+.tl-desc { font-family: var(--mono); font-size: 11px; color: var(--dim); line-height: 1.7; max-width: 540px; }
+.tl-hl { margin-top: 8px; }
+.tl-hl span { display: inline-block; font-family: var(--mono); font-size: 9px; padding: 3px 8px; margin: 2px 4px 2px 0; background: rgba(0,255,136,0.04); border: 1px solid rgba(0,255,136,0.08); border-radius: 4px; color: rgba(0,255,136,0.5); }
+
+/* ═══════════ EDUCATION ═══════════ */
+.edu-section { padding-top: 80px; padding-bottom: 80px; }
+.edu-card { padding: 24px; background: var(--surface); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; margin-bottom: 12px; }
+.edu-school { font-family: var(--display); font-size: 16px; font-weight: 700; color: #fff; }
+.edu-deg { font-family: var(--mono); font-size: 12px; color: var(--green); opacity: .6; }
+.edu-detail { font-family: var(--mono); font-size: 11px; color: var(--dim); margin-top: 6px; line-height: 1.6; }
+
+/* ═══════════ CONTACT ═══════════ */
+.contact-section { padding-top: 80px; padding-bottom: 120px; text-align: center; }
+.contact-section h2 { font-family: var(--display); font-size: clamp(28px,4vw,42px); font-weight: 800; margin-bottom: 16px; background: linear-gradient(135deg, #fff, var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.contact-section p { font-family: var(--mono); font-size: 13px; color: var(--dim); line-height: 1.7; max-width: 460px; margin: 0 auto 32px; }
+.c-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.c-link { padding: 10px 24px; border-radius: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: 1px; text-decoration: none; border: 1px solid rgba(0,255,136,0.15); color: var(--green); transition: all .3s; background: transparent; }
+.c-link:hover { background: rgba(0,255,136,0.08); border-color: rgba(0,255,136,0.3); box-shadow: 0 0 20px rgba(0,255,136,0.1); }
+.c-link.resume-btn { background: rgba(0,255,136,0.1); font-weight: 600; }
+.c-link.resume-btn:hover { background: rgba(0,255,136,0.2); }
+
+.footer { text-align: center; padding: 40px; font-family: var(--mono); font-size: 9px; color: rgba(255,255,255,0.12); letter-spacing: 2px; }
+
+@media (max-width: 640px) {
+  .mrow { grid-template-columns: repeat(2,1fr); }
+  .nav-links { display: none; }
+  .inp-row { flex-direction: column; }
+  .inp-row input { border-right: 1px solid rgba(0,255,136,0.1); border-radius: 8px 8px 0 0; }
+  .inp-row button { border-radius: 0 0 8px 8px; }
+  .bar-label { width: 90px; font-size: 9px; }
+  .pgrid { grid-template-columns: 1fr; }
+  .chart-label { width: 80px; font-size: 8px; }
+}
+</style>
+</head>
+<body>
+<canvas id="neural-canvas"></canvas>
+<div class="grid-bg"></div>
+<div class="glow a"></div>
+<div class="glow b"></div>
+
+<!-- NAV — all links are in-page anchors now -->
+<nav class="nav">
+  <div class="nav-name" onclick="window.scrollTo({top:0,behavior:'smooth'})">YASH SAINI</div>
+  <div class="nav-links">
+    <a href="#demo">Live Demo</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-status"><div class="pulse"></div> Open to full-time</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-pre">$ data_analyst --build-systems --prove-impact --live</div>
+  <h1>
+    <span class="l1">I build data systems</span>
+    <span class="l2">that move decisions.</span>
+  </h1>
+  <p class="hero-sub">
+    I'm <span class="hl">Yash Saini</span> — a Data Analyst &amp; BI Engineer finishing my
+    <span class="hl">MS in Business Analytics at Baruch College</span> (Pliner Bloom Scholar).
+    I've cut reporting cycles by 55%, improved data accuracy by 37%, and built pipelines serving 26 institutions.
+    <br><br>
+    This site doesn't describe what I can do — it <span class="hl">demonstrates</span> it. Type any company name below and watch.
+  </p>
+  <a href="#demo" style="text-decoration:none;"><div class="scroll-hint">↓ scroll to see it in action</div></a>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo-section" id="demo">
+  <div class="label reveal">// live_demonstration</div>
+  <div class="sec-title reveal">What I'd Build At Your Company</div>
+  <div class="sec-sub reveal">Enter any company. I'll analyze their data challenges and generate a 90-day technical proposal in real time. The fact that this works is the portfolio.</div>
+  <div class="demo-box reveal">
+    <div class="demo-hdr"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="demo-t">company_intelligence.py — running</div></div>
+    <div class="demo-body">
+      <div class="inp-row"><input type="text" id="ci" placeholder="Enter company name (e.g. Spotify, JPMorgan, Amazon)..." /><button id="ab" onclick="go()">Analyze</button></div>
+      <div class="pbar"><div class="fill" id="pf"></div></div>
+      <div id="out" style="max-height:200px;overflow:auto;"></div>
+      <div class="result" id="res"></div>
+      <div class="kicker" id="kick">
+        <div class="label" style="margin-bottom:14px;">// the_point</div>
+        <p>This entire experience — the company intelligence, the tailored proposal, the architecture mapping — was <span class="em">designed and built by me</span>.<br><br><span style="color:var(--dim);">The platform is the proof. You just experienced my skills.</span></p>
+        <div class="tags">
+          <span class="tag">SQL & BigQuery</span><span class="tag">Python Analytics</span><span class="tag">ETL Pipelines</span>
+          <span class="tag">Data Modeling</span><span class="tag">BI Dashboards</span><span class="tag">A/B Testing</span>
+          <span class="tag">Forecasting</span><span class="tag">Full-Stack Dev</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS — expandable cards with visualizations -->
+<section class="projects-section" id="projects">
+  <div class="label reveal">// selected_work</div>
+  <div class="sec-title reveal">Projects That Prove It</div>
+  <div class="sec-sub reveal">Click any project to see findings, results, and visualizations — explained so anyone can understand.</div>
+  <div class="pgrid">
+
+    <!-- Project 1: Churn -->
+    <div class="pcard reveal" onclick="toggleProject(this)">
+      <div class="pcard-summary">
+        <div class="icon">📊</div>
+        <div class="name">Customer Churn Prediction</div>
+        <div class="desc">Built a machine learning model that predicts which customers are about to leave — with 84% accuracy. Connected to a live dashboard so teams can act before it's too late.</div>
+        <div class="ptags"><span>Python</span><span>Scikit-learn</span><span>SQL</span><span>Power BI</span></div>
+        <div class="click-hint">▸ Click to see findings & results</div>
+      </div>
+      <div class="pcard-detail">
+        <div class="detail-inner">
+          <div class="detail-title green">// what this means in plain english</div>
+          <div class="plain-explain">
+            Imagine you run a subscription business and 1,000 customers are about to cancel — but you don't know which ones.
+            This model identifies them <strong>before they leave</strong>, so your team can reach out with the right offer at the right time.
+            The result? Fewer lost customers, more revenue saved.
+          </div>
+
+          <div class="detail-title cyan">// key findings</div>
+          <div class="findings">
+            <div class="finding"><div class="finding-icon">🎯</div><div class="finding-text"><strong>84% accuracy</strong> — the model correctly identifies 84 out of every 100 at-risk customers</div></div>
+            <div class="finding"><div class="finding-icon">📉</div><div class="finding-text"><strong>Month-to-month contracts</strong> are the #1 churn risk factor — 3.5x more likely to leave than annual subscribers</div></div>
+            <div class="finding"><div class="finding-icon">💡</div><div class="finding-text"><strong>First 6 months</strong> are critical — 62% of churn happens before the customer's first anniversary</div></div>
+            <div class="finding"><div class="finding-icon">💰</div><div class="finding-text">Estimated <strong>$140K annual savings</strong> if retention team acts on model predictions</div></div>
+          </div>
+
+          <div class="detail-title orange">// churn risk by contract type</div>
+          <div class="mini-chart" id="chart-churn"></div>
+
+          <a href="https://github.com/yashxsainix" target="_blank" class="gh-link">View code on GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: NYC Housing -->
+    <div class="pcard reveal rd1" onclick="toggleProject(this)">
+      <div class="pcard-summary">
+        <div class="icon">🏙️</div>
+        <div class="name">NYC Housing Equity Analysis</div>
+        <div class="desc">Used public NYC data from 4 government APIs to investigate whether low-income neighborhoods get slower responses to housing complaints. The data says: yes, measurably so.</div>
+        <div class="ptags"><span>R</span><span>Quarto</span><span>Random Forest</span><span>Spatial Analysis</span></div>
+        <div class="click-hint">▸ Click to see findings & results</div>
+      </div>
+      <div class="pcard-detail">
+        <div class="detail-inner">
+          <div class="detail-title green">// what this means in plain english</div>
+          <div class="plain-explain">
+            When you file a housing complaint in NYC (broken heat, mold, etc.), how fast the city responds shouldn't depend on your zip code's income level.
+            But this analysis found <strong>it does</strong>. Lower-income neighborhoods wait significantly longer for resolution — and the data proves it statistically.
+          </div>
+
+          <div class="detail-title cyan">// key findings</div>
+          <div class="findings">
+            <div class="finding"><div class="finding-icon">📊</div><div class="finding-text"><strong>R² = 0.54</strong> — neighborhood income alone explains over half the variation in complaint resolution times</div></div>
+            <div class="finding"><div class="finding-icon">⏱️</div><div class="finding-text">Low-income tracts wait <strong>40% longer</strong> on average for housing complaint resolution</div></div>
+            <div class="finding"><div class="finding-icon">🗺️</div><div class="finding-text"><strong>4 public APIs</strong> combined: 311, HPD, DOB, and American Community Survey census data</div></div>
+            <div class="finding"><div class="finding-icon">🔍</div><div class="finding-text">Spatial joins matched <strong>100K+ complaints</strong> to census tracts for neighborhood-level analysis</div></div>
+          </div>
+
+          <div class="detail-title orange">// resolution time by income level</div>
+          <div class="mini-chart" id="chart-housing"></div>
+
+          <a href="https://github.com/yashxsainix" target="_blank" class="gh-link">View code on GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: MTA -->
+    <div class="pcard reveal rd2" onclick="toggleProject(this)">
+      <div class="pcard-summary">
+        <div class="icon">🚇</div>
+        <div class="name">MTA Turnstile Data Engineering</div>
+        <div class="desc">Built a full cloud data pipeline that ingests millions of NYC subway turnstile records, transforms them, and makes ridership patterns queryable in seconds — not hours.</div>
+        <div class="ptags"><span>GCP</span><span>BigQuery</span><span>dbt</span><span>Prefect</span><span>Kafka</span></div>
+        <div class="click-hint">▸ Click to see findings & results</div>
+      </div>
+      <div class="pcard-detail">
+        <div class="detail-inner">
+          <div class="detail-title green">// what this means in plain english</div>
+          <div class="plain-explain">
+            NYC's subway system generates millions of data points every week from turnstiles. But the raw data is messy, inconsistent, and impossible to analyze directly.
+            I built an automated system that <strong>cleans, transforms, and loads this data into the cloud</strong> — so anyone can ask questions like
+            "Which stations are busiest on Fridays at 6pm?" and get an answer in seconds.
+          </div>
+
+          <div class="detail-title cyan">// key findings</div>
+          <div class="findings">
+            <div class="finding"><div class="finding-icon">⚡</div><div class="finding-text"><strong>Millions of records</strong> processed through automated pipeline from raw MTA files to analytics-ready tables</div></div>
+            <div class="finding"><div class="finding-icon">☁️</div><div class="finding-text"><strong>5-layer architecture</strong>: Kafka streaming → GCP ingestion → BigQuery warehouse → dbt transforms → Prefect orchestration</div></div>
+            <div class="finding"><div class="finding-icon">🔄</div><div class="finding-text">Fully automated — new data <strong>flows through without manual intervention</strong></div></div>
+            <div class="finding"><div class="finding-icon">📈</div><div class="finding-text">Query time dropped from <strong>hours of manual work to under 5 seconds</strong></div></div>
+          </div>
+
+          <div class="detail-title orange">// pipeline architecture</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+            <div style="flex:1;min-width:80px;text-align:center;padding:12px 8px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.1);border-radius:8px;">
+              <div style="font-size:18px;margin-bottom:4px;">📥</div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--green);">MTA Raw</div>
+            </div>
+            <div style="display:flex;align-items:center;color:rgba(0,255,136,0.3);font-size:16px;">→</div>
+            <div style="flex:1;min-width:80px;text-align:center;padding:12px 8px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.1);border-radius:8px;">
+              <div style="font-size:18px;margin-bottom:4px;">🔄</div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--cyan);">Kafka</div>
+            </div>
+            <div style="display:flex;align-items:center;color:rgba(0,255,136,0.3);font-size:16px;">→</div>
+            <div style="flex:1;min-width:80px;text-align:center;padding:12px 8px;background:rgba(255,107,53,0.04);border:1px solid rgba(255,107,53,0.1);border-radius:8px;">
+              <div style="font-size:18px;margin-bottom:4px;">☁️</div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--orange);">BigQuery</div>
+            </div>
+            <div style="display:flex;align-items:center;color:rgba(0,255,136,0.3);font-size:16px;">→</div>
+            <div style="flex:1;min-width:80px;text-align:center;padding:12px 8px;background:rgba(199,125,255,0.04);border:1px solid rgba(199,125,255,0.1);border-radius:8px;">
+              <div style="font-size:18px;margin-bottom:4px;">⚙️</div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--purple);">dbt</div>
+            </div>
+            <div style="display:flex;align-items:center;color:rgba(0,255,136,0.3);font-size:16px;">→</div>
+            <div style="flex:1;min-width:80px;text-align:center;padding:12px 8px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.1);border-radius:8px;">
+              <div style="font-size:18px;margin-bottom:4px;">📊</div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--green);">Analytics</div>
+            </div>
+          </div>
+
+          <a href="https://github.com/yashxsainix/turnstile-engineering" target="_blank" class="gh-link">View code on GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: Retail -->
+    <div class="pcard reveal rd3" onclick="toggleProject(this)">
+      <div class="pcard-summary">
+        <div class="icon">🛒</div>
+        <div class="name">Retail Analytics Pipeline</div>
+        <div class="desc">Took messy Excel sales data and turned it into a clean, queryable database with interactive dashboards — proving the end-to-end analytics workflow from raw data to business insight.</div>
+        <div class="ptags"><span>Python</span><span>SQL</span><span>SQLite</span><span>Power BI</span></div>
+        <div class="click-hint">▸ Click to see findings & results</div>
+      </div>
+      <div class="pcard-detail">
+        <div class="detail-inner">
+          <div class="detail-title green">// what this means in plain english</div>
+          <div class="plain-explain">
+            Most small businesses have their sales data trapped in messy spreadsheets that nobody can make sense of.
+            I built a system that <strong>automatically cleans, organizes, and visualizes</strong> this data — turning chaotic Excel files into
+            clear dashboards where you can instantly see what's selling, what's not, and where to focus next.
+          </div>
+
+          <div class="detail-title cyan">// key findings</div>
+          <div class="findings">
+            <div class="finding"><div class="finding-icon">🧹</div><div class="finding-text"><strong>Raw Excel → Clean Database</strong> — automated cleaning handles missing values, duplicates, and formatting issues</div></div>
+            <div class="finding"><div class="finding-icon">🏗️</div><div class="finding-text"><strong>Normalized relational model</strong> — designed proper SQL schema with fact and dimension tables</div></div>
+            <div class="finding"><div class="finding-icon">📈</div><div class="finding-text"><strong>Interactive Power BI dashboard</strong> tracking sales trends, top products, and customer segments</div></div>
+            <div class="finding"><div class="finding-icon">⚡</div><div class="finding-text">Query time: from <strong>manual Excel lookups to instant SQL queries</strong></div></div>
+          </div>
+
+          <div class="detail-title orange">// pipeline stages</div>
+          <div class="mini-chart" id="chart-retail"></div>
+
+          <a href="https://github.com/yashxsainix/Online-Retail-Data-Analytics-Project-with-Python-SQL-and-Power-BI" target="_blank" class="gh-link">View code on GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="label reveal">// technical_proficiency</div>
+  <div class="sec-title reveal">Skill Assessment</div>
+  <div class="bars reveal" id="skillBars">
+    <div class="bar-row"><div class="bar-label">SQL / BigQuery</div><div class="bar-track"><div class="bar-fill" data-w="95" style="background:linear-gradient(90deg,var(--green),var(--cyan))"></div></div><div class="bar-val" style="color:var(--green)">95%</div></div>
+    <div class="bar-row"><div class="bar-label">Python (Pandas/SK)</div><div class="bar-track"><div class="bar-fill" data-w="90" style="background:linear-gradient(90deg,var(--cyan),var(--green))"></div></div><div class="bar-val" style="color:var(--cyan)">90%</div></div>
+    <div class="bar-row"><div class="bar-label">Power BI / Tableau</div><div class="bar-track"><div class="bar-fill" data-w="92" style="background:linear-gradient(90deg,var(--green),var(--orange))"></div></div><div class="bar-val" style="color:var(--green)">92%</div></div>
+    <div class="bar-row"><div class="bar-label">ETL / Pipelines</div><div class="bar-track"><div class="bar-fill" data-w="88" style="background:linear-gradient(90deg,var(--orange),var(--cyan))"></div></div><div class="bar-val" style="color:var(--orange)">88%</div></div>
+    <div class="bar-row"><div class="bar-label">GCP / Cloud</div><div class="bar-track"><div class="bar-fill" data-w="85" style="background:linear-gradient(90deg,var(--cyan),var(--purple))"></div></div><div class="bar-val" style="color:var(--cyan)">85%</div></div>
+    <div class="bar-row"><div class="bar-label">A/B Testing</div><div class="bar-track"><div class="bar-fill" data-w="87" style="background:linear-gradient(90deg,var(--purple),var(--green))"></div></div><div class="bar-val" style="color:var(--purple)">87%</div></div>
+    <div class="bar-row"><div class="bar-label">R Programming</div><div class="bar-track"><div class="bar-fill" data-w="80" style="background:linear-gradient(90deg,var(--green),var(--purple))"></div></div><div class="bar-val" style="color:var(--green)">80%</div></div>
+    <div class="bar-row"><div class="bar-label">Forecasting / ML</div><div class="bar-track"><div class="bar-fill" data-w="82" style="background:linear-gradient(90deg,var(--orange),var(--purple))"></div></div><div class="bar-val" style="color:var(--orange)">82%</div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp-section" id="experience">
+  <div class="label reveal">// career_trajectory</div>
+  <div class="sec-title reveal">Where I've Built</div>
+  <div class="timeline reveal">
+    <div class="tl-item active"><div class="tl-role">Data Specialist Intern</div><div class="tl-co">Research Foundation of CUNY · New York — Aug 2025–Present</div><div class="tl-desc">Built SQL and BigQuery pipelines cutting reporting time by 55% across 26 institutions. Improved data accuracy by 37% with validation frameworks. Automated ETL reducing manual reporting 50%. Consolidated 7+ fragmented sources into unified GCP layer. Caught data integrity issues across 3 institutions undetected for 2+ cycles.</div><div class="tl-hl"><span>SQL</span><span>BigQuery</span><span>Python</span><span>GCP</span><span>ETL</span></div></div>
+    <div class="tl-item active"><div class="tl-role">Budget & Finance Assistant</div><div class="tl-co">Baruch College · New York — Apr 2025–Present</div><div class="tl-desc">Prepare and analyze daily/monthly fiscal reports. Built Excel financial models and variance analysis templates used for ongoing fiscal management. Track workforce allocations and validate transactional records for audit readiness.</div><div class="tl-hl"><span>Excel</span><span>Financial Modeling</span><span>Variance Analysis</span></div></div>
+    <div class="tl-item"><div class="tl-role">Founder</div><div class="tl-co">Gharstuff (E-commerce) — Feb 2020–Present</div><div class="tl-desc">Founded category-based e-commerce platform from zero. Grew social reach 65% in 6 months. Increased sign-ups 55% through referral campaigns. Improved conversions 45% via audience segmentation and A/B testing.</div><div class="tl-hl"><span>A/B Testing</span><span>Segmentation</span><span>Analytics</span></div></div>
+    <div class="tl-item"><div class="tl-role">Data Analyst</div><div class="tl-co">i3 Infosoft Pvt. Ltd. · Noida, India — Sep 2022–Jul 2024</div><div class="tl-desc">Ran A/B experiments and Python segmentation across 1M+ CRM records, lifting engagement 18%. Automated SQL pipelines saving 6 hours weekly. Built time-series forecasting improving inventory accuracy 20%. Designed Power BI dashboards tracking 15+ KPIs.</div><div class="tl-hl"><span>Python</span><span>SQL</span><span>Power BI</span><span>Tableau</span><span>Forecasting</span></div></div>
+    <div class="tl-item"><div class="tl-role">Digital Marketing Intern</div><div class="tl-co">JOJA Surgical · Delhi — Sep 2020–Feb 2021</div><div class="tl-desc">Managed Google Ads and paid social — increased CTR 30%, cut CPC 20%. Used behavioral data from 55K+ customers for 40% improvement in campaign efficiency. Drove 65% organic traffic increase via SEO.</div><div class="tl-hl"><span>Google Ads</span><span>SEO</span><span>A/B Testing</span></div></div>
+    <div class="tl-item"><div class="tl-role">Jr. Data Analyst</div><div class="tl-co">Daijex Auto Industries · New Delhi — Jul 2019–Jun 2020</div><div class="tl-desc">Built Python and Excel workflows cutting report prep 40%. Developed dashboards for equipment performance used by supervisors daily. Implemented data validation improving team-wide consistency.</div><div class="tl-hl"><span>Python</span><span>Excel</span><span>Dashboards</span></div></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="edu-section" id="education">
+  <div class="label reveal">// education</div>
+  <div class="sec-title reveal">Where I Learned</div>
+  <div class="edu-card reveal"><div class="edu-school">Baruch College, Zicklin School of Business</div><div class="edu-deg">M.S. in Business Analytics — Expected May 2026</div><div class="edu-detail">GPA: 3.6/4.0 · Pliner Bloom Scholar · Data Mining, Database Management, Applied NLP, R Programming</div></div>
+  <div class="edu-card reveal rd1"><div class="edu-school">Amity University</div><div class="edu-deg">M.Com in Marketing — 2020–2022</div><div class="edu-detail">Marketing analytics, consumer behavior, and business strategy.</div></div>
+  <div class="edu-card reveal rd2"><div class="edu-school">Kurukshetra University</div><div class="edu-deg">B.Com — 2016–2019</div><div class="edu-detail">Foundation in business, finance, and quantitative methods.</div></div>
+</section>
+
+<!-- CONTACT — with Resume download button -->
+<section class="contact-section" id="contact">
+  <div class="label reveal">// let's_connect</div>
+  <h2 class="reveal">Let's Build Something</h2>
+  <p class="reveal">I build data systems that turn operational noise into decisions. If you've scrolled this far, you've already seen how I think. Let's talk.</p>
+  <div class="c-links reveal">
+    <a href="/cdn-cgi/l/email-protection#e1988092899280888f88d2d1d7d7d9a1868c80888dcf828e8c" class="c-link">Email</a>
+    <a href="https://github.com/yashxsainix" class="c-link" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/yash-saini-analyst/" class="c-link" target="_blank">LinkedIn</a>
+    <a href="./Yash_Saini_Resume.pdf" class="c-link resume-btn" download>📄 Resume</a>
+  </div>
+</section>
+
+<div class="footer">BUILT WITH OBSESSION · DEPLOYED WITH CONFIDENCE</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ═══════════ NEURAL CANVAS ═══════════
+const cv = document.getElementById('neural-canvas'), cx = cv.getContext('2d');
+let ps = [], mouse = { x: -1e3, y: -1e3 };
+function rc() { cv.width = innerWidth; cv.height = innerHeight; } rc();
+addEventListener('resize', rc);
+document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+class Particle {
+  constructor() { this.x = Math.random()*cv.width; this.y = Math.random()*cv.height; this.vx = (Math.random()-.5)*.3; this.vy = (Math.random()-.5)*.3; this.r = Math.random()*1.5+.5; }
+  update() { this.x += this.vx; this.y += this.vy; if(this.x<0||this.x>cv.width) this.vx*=-1; if(this.y<0||this.y>cv.height) this.vy*=-1; let dx=mouse.x-this.x, dy=mouse.y-this.y; if(Math.sqrt(dx*dx+dy*dy)<150){ this.x-=dx*.005; this.y-=dy*.005; } }
+}
+for(let i=0;i<55;i++) ps.push(new Particle);
+!function animate() {
+  cx.clearRect(0,0,cv.width,cv.height); ps.forEach(p=>p.update());
+  for(let i=0;i<ps.length;i++) { for(let j=i+1;j<ps.length;j++) { let dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y,d=Math.sqrt(dx*dx+dy*dy); if(d<150){cx.beginPath();cx.moveTo(ps[i].x,ps[i].y);cx.lineTo(ps[j].x,ps[j].y);cx.strokeStyle=`rgba(0,255,136,${.06*(1-d/150)})`;cx.lineWidth=.5;cx.stroke();}} cx.beginPath();cx.arc(ps[i].x,ps[i].y,ps[i].r,0,Math.PI*2);cx.fillStyle='rgba(0,255,136,0.15)';cx.fill(); }
+  requestAnimationFrame(animate);
+}();
+
+// ═══════════ SCROLL REVEAL ═══════════
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('vis');
+      if(e.target.id === 'skillBars') e.target.querySelectorAll('.bar-fill').forEach(b => { setTimeout(()=>{ b.style.width = b.dataset.w+'%'; }, 200); });
+    }
+  });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ═══════════ PROJECT EXPAND/COLLAPSE ═══════════
+function toggleProject(card) {
+  const wasExpanded = card.classList.contains('expanded');
+
+  // Close all others
+  document.querySelectorAll('.pcard.expanded').forEach(c => c.classList.remove('expanded'));
+
+  if (!wasExpanded) {
+    card.classList.add('expanded');
+    // Animate charts after a small delay
+    setTimeout(() => animateProjectCharts(card), 300);
+    // Scroll card into view
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+  }
+}
+
+function animateProjectCharts(card) {
+  // Churn chart
+  const churnChart = card.querySelector('#chart-churn');
+  if (churnChart && !churnChart.dataset.rendered) {
+    churnChart.dataset.rendered = '1';
+    churnChart.innerHTML = buildBarChart([
+      { label: 'Month-to-month', value: 42, color: 'var(--orange)' },
+      { label: 'One year', value: 11, color: 'var(--cyan)' },
+      { label: 'Two year', value: 3, color: 'var(--green)' }
+    ], '%');
+    setTimeout(() => activateChartBars(churnChart), 50);
+  }
+
+  // Housing chart
+  const housingChart = card.querySelector('#chart-housing');
+  if (housingChart && !housingChart.dataset.rendered) {
+    housingChart.dataset.rendered = '1';
+    housingChart.innerHTML = buildBarChart([
+      { label: 'Low income', value: 85, color: 'var(--orange)', display: '34 days' },
+      { label: 'Mid income', value: 60, color: 'var(--cyan)', display: '24 days' },
+      { label: 'High income', value: 50, color: 'var(--green)', display: '20 days' }
+    ]);
+    setTimeout(() => activateChartBars(housingChart), 50);
+  }
+
+  // Retail chart
+  const retailChart = card.querySelector('#chart-retail');
+  if (retailChart && !retailChart.dataset.rendered) {
+    retailChart.dataset.rendered = '1';
+    retailChart.innerHTML = buildBarChart([
+      { label: 'Raw Excel', value: 30, color: 'rgba(255,255,255,0.2)', display: 'Messy' },
+      { label: 'Python Clean', value: 55, color: 'var(--cyan)', display: 'Structured' },
+      { label: 'SQLite DB', value: 75, color: 'var(--orange)', display: 'Queryable' },
+      { label: 'Power BI', value: 95, color: 'var(--green)', display: 'Visual' }
+    ]);
+    setTimeout(() => activateChartBars(retailChart), 50);
+  }
+}
+
+function buildBarChart(data, suffix) {
+  return data.map(d => `
+    <div class="chart-bar-row">
+      <div class="chart-label">${d.label}</div>
+      <div class="chart-track">
+        <div class="chart-fill" style="width:0%;background:${d.color};" data-target="${d.value}">
+          ${d.display || d.value + (suffix || '')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function activateChartBars(container) {
+  container.querySelectorAll('.chart-fill').forEach(bar => {
+    setTimeout(() => { bar.style.width = bar.dataset.target + '%'; }, 50);
+  });
+}
+
+// ═══════════ COMPANY DATABASE ═══════════
+const DB = {
+  spotify:{signals:["Hiring data engineers for audio feature pipelines and podcast analytics","Tech blog reveals challenges with A/B testing at scale across 600M+ users","Data platform migrating legacy Hadoop to modern lakehouse architecture","Job postings emphasize SQL fluency, experimentation design, and Python","BI roles focused on subscription churn and engagement metrics","Open-source Backstage platform signals commitment to internal tooling"],pain:["A/B testing framework lacks automated statistical significance detection","Cross-team reporting inconsistencies from fragmented metric definitions","Dashboard sprawl — 500+ Looker dashboards with no governance","Churn models disconnected from dashboards used by product teams"],title:"Unified Analytics & Experimentation Platform",phases:[{name:"Days 1-30: Data Foundation",items:["Consolidate metric definitions across product, marketing, and finance","Build unified BigQuery data mart with validated KPIs and quality checks","Design experimentation dashboard with auto significance and effect size"]},{name:"Days 31-60: Intelligence Layer",items:["Deploy Python churn segmentation integrated into Power BI retention dashboards","Build automated ETL replacing 5+ manual weekly reporting workflows","Implement data governance: ownership, freshness monitoring, lineage"]},{name:"Days 61-90: Scale & Impact",items:["Ship self-serve analytics portal for PMs to run cohort analyses","Launch automated KPI anomaly alerting across subscription metrics","Deliver executive dashboard: experiment velocity, quality, business impact"]}],metrics:{report:"60%",accuracy:"+35%",time:"8hr → 45min",kpis:"26+"}},
+  jpmorgan:{signals:["Athena platform processes petabytes of financial data internally","Hiring data analysts for risk analytics and compliance reporting","A/B testing growing in digital banking product features","Data governance and lineage top priorities across regulated units","Migrating legacy reporting to modern BI tools and cloud pipelines","Cross-LOB data integration is a known organizational pain point"],pain:["Legacy systems require manual reconciliation across business lines","Compliance reporting takes analysts days of manual preparation","Cross-LOB metrics lack consistent definitions","No automated data quality monitoring across regulated datasets"],title:"Automated Compliance Analytics & Reporting Engine",phases:[{name:"Days 1-30: Governance Foundation",items:["Audit KPI definitions across business lines, build unified dictionary","Design automated validation framework for regulated datasets","Build reconciliation pipeline catching discrepancies before deadlines"]},{name:"Days 31-60: Reporting Automation",items:["Automate compliance reporting — reduce prep from days to hours","Build Power BI dashboards with real-time risk and compliance KPIs","Implement data lineage documentation across reporting workflows"]},{name:"Days 61-90: Intelligence Layer",items:["Deploy anomaly detection on financial datasets flagging irregularities","Build cross-LOB executive dashboard with consistent governed metrics","Create self-serve analytics reducing business analyst dependency"]}],metrics:{report:"70%",accuracy:"+37%",time:"3days → 4hr",kpis:"25+"}},
+  amazon:{signals:["Hiring 100+ data/BI analysts across retail, AWS, ads, logistics","Internal Redshift + QuickSight stack for cross-org analytics","Every team owns weekly business reviews (WBRs)","Supply chain analytics focused on demand forecasting and inventory","Advertising analytics growing faster than any other division","Data engineering roles emphasize petabyte-scale ETL"],pain:["WBR prep takes analysts 4+ hours of manual pulls each week","Cross-marketplace reporting uses inconsistent metric definitions","Demand forecasting disconnected from dashboards used by ops","Dashboard proliferation — teams can't find trusted data"],title:"Automated WBR Pipeline & Demand Intelligence Dashboard",phases:[{name:"Days 1-30: Reporting Automation",items:["Build automated SQL pipelines generating WBR-ready datasets","Consolidate cross-marketplace metrics into single source of truth","Design self-updating Power BI dashboards replacing manual slides"]},{name:"Days 31-60: Demand Intelligence",items:["Deploy Python time-series forecasting by product and region","Build inventory health dashboard: stockout risk, overstock alerts","Implement cohort analysis tracking retention by acquisition channel"]},{name:"Days 61-90: Scale & Governance",items:["Ship data catalog with ownership, freshness, and trust scores","Launch automated anomaly detection for supply chain KPIs","Deliver executive analytics: forecast accuracy, pipeline reliability"]}],metrics:{report:"70%",accuracy:"+20%",time:"4hr → 20min",kpis:"30+"}},
+  google:{signals:["Internal analytics runs on Dremel/BigQuery — SQL is lingua franca","Every product decision backed by experimentation and data","Hiring analysts for Cloud, Ads, YouTube, Search quality","Looker acquisition signals investment in governed BI","Focus on privacy-preserving analytics after cookie deprecation","Analysts expected to own metrics end-to-end"],pain:["Cross-product analytics fragmented across systems","Experiment velocity outpaces analysis capacity","Cloud churn analysis depends on manually maintained queries","Dashboard proliferation creates inconsistent definitions"],title:"Experimentation Analytics & Dashboard Governance",phases:[{name:"Days 1-30: Dashboard Governance",items:["Audit dashboards — identify redundancies and metric conflicts","Build unified KPI definitions layer with validation in BigQuery","Design governed templates enforcing consistent metrics"]},{name:"Days 31-60: Experiment Acceleration",items:["Build automated experiment analysis: significance, segments, reports","Create self-serve experiment dashboard removing analyst bottleneck","Implement cohort analysis for Cloud customer retention"]},{name:"Days 61-90: Cross-Product Intelligence",items:["Build cross-product analytics view stitching user behavior","Deploy anomaly detection for key product metrics","Ship executive dashboard: experiment velocity, metric health"]}],metrics:{report:"50%",accuracy:"+30%",time:"1wk → 6hr",kpis:"30+"}},
+  netflix:{signals:["Content analytics measures ROI of $17B+ annual content spend","Experimentation platform runs thousands of A/B tests simultaneously","Hiring analysts for content, subscriber growth, retention","Migrated to Trino + Spark for petabyte-scale analytics","Focus on causal inference for content investment ROI","Every dashboard must answer 'so what?' — actionability is mandatory"],pain:["Content ROI measurement depends on complex viewing attribution","Churn requires stitching months of behavioral signals","A/B test backlog — tests wait days for analyst review","Regional content reporting fragmented across markets"],title:"Content ROI & Subscriber Intelligence Platform",phases:[{name:"Days 1-30: Subscriber Analytics",items:["Build churn prediction using behavioral cohorts and engagement","Design automated subscriber health dashboard by risk level","Create data validation framework for datasets across regions"]},{name:"Days 31-60: Content Intelligence",items:["Build content scoring: viewing hours, completion, ROI","Automate A/B test analysis reducing review time by 60%","Design regional dashboard with consistent global metrics"]},{name:"Days 61-90: Executive Intelligence",items:["Deploy predictive subscriber growth with confidence intervals","Build content ROI dashboard: spend vs engagement vs retention","Automate weekly reports — eliminate manual PowerPoint prep"]}],metrics:{report:"65%",accuracy:"+25%",time:"5days → 6hr",kpis:"18+"}},
+  meta:{signals:["Ads analytics powers 97%+ of revenue — most data-intensive team","Integrity monitors content at billions-scale daily","Hiring for Instagram growth, Reels, WhatsApp metrics","iOS privacy changes disrupted ad measurement signals","Experimentation culture — features don't ship without testing","Cross-surface analytics lacks unified view"],pain:["iOS created gaps in ad measurement — attribution needs rebuilding","Cross-surface analytics lack unified engagement view","Integrity false positives require manual deep-dives","Inconsistent engagement definitions across surfaces"],title:"Cross-Surface Engagement & Measurement Recovery",phases:[{name:"Days 1-30: Metric Unification",items:["Audit engagement definitions across Facebook, Instagram, WhatsApp","Build unified metric framework with consistent SQL definitions","Design automated data quality monitoring for cross-surface data"]},{name:"Days 31-60: Measurement & Testing",items:["Build privacy-compliant attribution framework for ads","Automate A/B pipeline with segment breakdowns and causal checks","Create cross-surface engagement dashboard tracking unified behavior"]},{name:"Days 61-90: Scale & Insight",items:["Deploy automated integrity monitoring for false positive spikes","Build executive dashboard: DAU/MAU, retention, cross-surface","Replace manual slides with live automated reporting"]}],metrics:{report:"55%",accuracy:"+35%",time:"1wk → 8hr",kpis:"22+"}},
+  tesla:{signals:["Manufacturing analytics across multiple gigafactories","Energy division growing — battery analytics becoming critical","Hiring analysts for supply chain and production efficiency","Vehicle telemetry generates massive streaming data","Cross-factory reporting lacks standardization","Autopilot data labeling and quality at massive scale"],pain:["Cross-factory quality metrics use different definitions","Supply chain disruption detection is reactive","Defect analysis requires manual SQL per incident","Some facilities still use spreadsheet-based reporting"],title:"Unified Manufacturing Quality Analytics Platform",phases:[{name:"Days 1-30: Data Unification",items:["Standardize quality metrics across gigafactories in SQL","Build automated validation for manufacturing datasets","Consolidate spreadsheet reporting into centralized BigQuery"]},{name:"Days 31-60: Predictive Quality",items:["Build defect pattern model identifying trends before escalation","Design real-time manufacturing KPI dashboard","Implement anomaly detection on production line metrics"]},{name:"Days 61-90: Supply Chain Intelligence",items:["Build predictive supply chain alerting — flag disruption risks","Create executive dashboard: quality, throughput, cost, supply chain","Automate cross-factory comparison with governed metrics"]}],metrics:{report:"50%",accuracy:"+30%",time:"2days → 3hr",kpis:"20+"}},
+  apple:{signals:["Retail analytics covers 500+ stores with foot traffic data","AppleCare tracks millions of support interactions","Hiring analysts for App Store, Music, iCloud metrics","Privacy-first culture — differential privacy constraints","Hardware forecasting across product lines and geographies","Supply chain analytics for just-in-time manufacturing"],pain:["Services revenue attribution across products is complex and manual","Retail benchmarking lacks real-time dashboards","Demand forecasting drops during launch periods","Support analytics pipeline is slow — insights delayed"],title:"Services Revenue & Retail Intelligence Platform",phases:[{name:"Days 1-30: Retail Analytics",items:["Build real-time retail dashboard replacing weekly spreadsheets","Design store benchmarking with consistent KPIs across 500+ locations","Automate foot traffic and conversion pipeline with validation"]},{name:"Days 31-60: Services Intelligence",items:["Build Services revenue attribution across App Store, Music, iCloud","Create cohort retention framework for subscriber products","Automate support ticket analytics surfacing resolution bottlenecks"]},{name:"Days 61-90: Forecasting & Executive",items:["Build demand forecasting with seasonal and launch adjustments","Design executive Services dashboard: revenue, growth, churn","Automate quarterly business review — eliminate manual deck prep"]}],metrics:{report:"60%",accuracy:"+22%",time:"4days → 5hr",kpis:"24+"}}
+};
+
+function gen(n){return{signals:[`Analyzing ${n}'s data & analytics infrastructure and hiring`,`Job postings indicate investment in SQL, Python, and BI tools`,`Data teams appear fragmented — consolidation opportunity`,`Competitor landscape shows growing analytics investment`,`Open roles emphasize dashboards and pipeline automation`,`Cross-team data silos likely — common at this stage`],pain:["Reporting relies on manual processes — analysts prep more than analyze","No unified data validation — quality issues slip through","Dashboard proliferation without governance","Experiment analysis backlog growing faster than capacity"],title:`Data Analytics Transformation for ${n}`,phases:[{name:"Days 1-30: Foundation",items:["Audit reporting workflows, identify top 3 manual bottlenecks","Build automated data validation framework with Python","Consolidate fragmented sources into unified SQL/BigQuery layer"]},{name:"Days 31-60: Automation & BI",items:["Automate recurring pipelines — target 50%+ manual reduction","Build self-serve Power BI dashboards with real-time refresh","Implement A/B test analysis framework for faster results"]},{name:"Days 61-90: Intelligence",items:["Deploy anomaly detection for proactive metric alerting","Build executive dashboard: health, velocity, data quality","Document and templatize workflows for team scalability"]}],metrics:{report:"55%",accuracy:"+37%",time:"6hr → 45min",kpis:"15+"}}}
+
+function get(n) { const k = n.toLowerCase().trim().replace(/[^a-z]/g,''); return DB[k] || gen(n); }
+
+// ═══════════ ANALYSIS ENGINE ═══════════
+let running = false;
+async function go() {
+  const inp = document.getElementById('ci'), btn = document.getElementById('ab'), n = inp.value.trim();
+  if(!n || running) return;
+  running = true; btn.disabled = true; btn.textContent = 'Running...';
+  document.getElementById('out').innerHTML = '';
+  document.getElementById('res').innerHTML = '';
+  document.getElementById('res').classList.remove('show');
+  document.getElementById('kick').classList.remove('show');
+  document.getElementById('pf').style.width = '0%';
+
+  const d = get(n);
+  const scans = [`Scanning ${n} data team structure & open roles...`,`Parsing job postings (${~~(Math.random()*30+10)} analytics positions)...`,`Analyzing technology stack signals...`,`Mapping reporting workflows & pipeline architecture...`,`Identifying data quality and governance patterns...`,`Profiling experimentation maturity...`,`Cross-referencing industry benchmarks...`,`Synthesizing intelligence report...`];
+  const o = document.getElementById('out');
+  for(let i=0; i<scans.length; i++) {
+    await sl(380+Math.random()*200);
+    const l = document.createElement('div');
+    l.className = 'scan-line' + (i===scans.length-1?' active':'');
+    l.innerHTML = `<span class="idx">[${String(i+1).padStart(2,'0')}]</span><span class="txt">${scans[i]}</span>`;
+    o.appendChild(l); o.scrollTop = o.scrollHeight;
+    document.getElementById('pf').style.width = ((i+1)/scans.length*100)+'%';
+  }
+
+  await sl(600);
+  const r = document.getElementById('res');
+  r.innerHTML = `<div style="margin-top:20px"><div class="label" style="color:rgba(0,212,255,0.5)">// intelligence_signals</div>${d.signals.map((s,i)=>`<div class="sig" style="animation-delay:${i*.1}s"><span class="d">◆</span><span class="c">${s}</span></div>`).join('')}<div style="margin-top:16px;padding:14px;background:rgba(255,107,53,0.03);border:1px solid rgba(255,107,53,0.08);border-radius:8px"><div class="label" style="color:rgba(255,107,53,0.5);margin-bottom:10px">// pain_points</div>${d.pain.map(p=>`<div style="font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:5px;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:rgba(255,107,53,0.4)">▹</span>${p}</div>`).join('')}</div></div><div class="prop" style="margin-top:24px"><h3>${d.title}</h3><div class="st">90-Day Technical Proposal for ${n} — by Yash Saini</div><div class="mrow"><div class="mbox"><div class="v">${d.metrics.report}</div><div class="l">Faster Reports</div></div><div class="mbox"><div class="v">${d.metrics.accuracy}</div><div class="l">Data Accuracy</div></div><div class="mbox"><div class="v">${d.metrics.time}</div><div class="l">Turnaround</div></div><div class="mbox"><div class="v">${d.metrics.kpis}</div><div class="l">KPIs Tracked</div></div></div>${d.phases.map((p,i)=>`<div class="ph p${i+1}"><div class="ph-name"><div class="n">${i+1}</div>${p.name}</div>${p.items.map(it=>`<div class="ph-item">${it}</div>`).join('')}</div>`).join('')}</div>`;
+  r.classList.add('show');
+  await sl(1800);
+  document.getElementById('kick').classList.add('show');
+  btn.disabled = false; btn.textContent = 'Analyze'; running = false;
+}
+
+function sl(ms) { return new Promise(r => setTimeout(r, ms)); }
+document.getElementById('ci').addEventListener('keydown', e => { if(e.key === 'Enter') go(); });
+
+// Fallback: show all content after 1.5s even if scroll observer hasn't fired (fixes preview environments)
+setTimeout(() => {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('vis'));
+  const sb = document.getElementById('skillBars');
+  if (sb) sb.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+}, 1500);
+</script>
+</body>
+</html>
