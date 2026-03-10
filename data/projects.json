@@ -1,0 +1,20 @@
+[
+  {
+    "name": "MTA Turnstile Ridership Explorer",
+    "description": "Interactive heatmap and charting tool analysing subway ridership data.",
+    "impact": "Optimised platform usage and allowed 55 % faster reporting",
+    "tags": ["python", "sql", "visualisation", "public data"]
+  },
+  {
+    "name": "Company Intelligence Engine",
+    "description": "Built a streaming pipeline (Kafka + BigQuery) to scrape and analyse news articles for investment signals.",
+    "impact": "Enabled real‑time insights across 10 000+ companies",
+    "tags": ["kafka", "bigquery", "streaming", "machine learning"]
+  },
+  {
+    "name": "Customer Churn Dashboard",
+    "description": "Power BI dashboard with predictive insights into customer churn and retention drivers.",
+    "impact": "Reduced churn by 8 % through targeted retention campaigns",
+    "tags": ["powerbi", "ml", "sql", "business"]
+  }
+]
