@@ -8,17 +8,14 @@
 <meta name="keywords" content="data analyst, BI engineer, business analytics, SQL, BigQuery, Python, Power BI, ETL, data pipelines, Baruch College, New York">
 <meta name="author" content="Yash Saini">
 <meta name="robots" content="index, follow">
-<!-- Open Graph -->
 <meta property="og:title" content="Yash Saini - Data Analyst & BI Engineer">
 <meta property="og:description" content="I build analytics systems that turn messy data into decisions. Explore my interactive company intelligence engine and project case studies.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yashxsainix.github.io">
 <meta property="og:image" content="https://yashxsainix.github.io/photo.png">
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yash Saini - Data Analyst & BI Engineer">
 <meta name="twitter:description" content="I build analytics systems that turn messy data into decisions.">
-<!-- Structured Data -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yash Saini","jobTitle":"Data Analyst & BI Engineer","url":"https://yashxsainix.github.io","sameAs":["https://github.com/yashxsainix","https://www.linkedin.com/in/yash-saini-analyst/"],"alumniOf":{"@type":"EducationalOrganization","name":"Baruch College, Zicklin School of Business"},"knowsAbout":["SQL","Python","BigQuery","Power BI","ETL","Data Engineering","Business Intelligence"]}</script>
 <link rel="canonical" href="https://yashxsainix.github.io">
 <meta name="theme-color" content="#060608">
@@ -255,6 +252,75 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 .cl.res-btn{background:rgba(0,255,136,0.1);font-weight:600}
 .footer{text-align:center;padding:40px 24px;font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:1px;line-height:1.8;max-width:500px;margin:0 auto}
 
+/* ======================================================== */
+/* CUNY ARCHITECTURE CASE STUDY (ENTERPRISE SCALE)          */
+/* ======================================================== */
+.cuny-s { padding-top: 100px; padding-bottom: 100px; }
+.cuny-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+
+/* 1. Mess vs Machine Architecture */
+.arch-compare { display: flex; background: var(--sf); border: 1px solid rgba(0,255,136,0.1); border-radius: 14px; overflow: hidden; position: relative; }
+.arch-compare > div { flex: 1; padding: 32px; position: relative; }
+.arch-mess { background: rgba(255, 95, 87, 0.03); border-right: 1px dashed rgba(255,255,255,0.05); }
+.arch-machine { background: rgba(0, 255, 136, 0.02); }
+.arch-lbl { font-family: var(--mn); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+.m-title { color: #ff5f57; }
+.mac-title { color: var(--g); }
+
+/* The Mess Nodes */
+.mess-nodes { height: 160px; position: relative; }
+.m-node { position: absolute; padding: 6px 10px; background: rgba(255, 95, 87, 0.1); border: 1px solid rgba(255, 95, 87, 0.3); border-radius: 4px; font-family: var(--mn); font-size: 9px; color: #ff5f57; box-shadow: 0 0 10px rgba(255, 95, 87, 0.1); }
+.m-node:nth-child(1) { top: 10px; left: 10%; transform: rotate(-10deg); }
+.m-node:nth-child(2) { top: 40px; right: 20%; transform: rotate(15deg); }
+.m-node:nth-child(3) { bottom: 30px; left: 30%; transform: rotate(-5deg); }
+.m-node:nth-child(4) { top: 80px; left: 5%; transform: rotate(20deg); opacity: 0.6; }
+.m-node:nth-child(5) { bottom: 10px; right: 10%; transform: rotate(-15deg); opacity: 0.8; }
+.m-node:nth-child(6) { top: 60px; right: 40%; transform: rotate(8deg); }
+.m-warning { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); padding: 8px 12px; border: 1px solid #ff5f57; border-radius: 6px; color: #ff5f57; font-family: var(--mn); font-size: 10px; z-index: 2; white-space: nowrap; box-shadow: 0 0 20px rgba(255, 95, 87, 0.2); animation: pulse-red 2s infinite; }
+
+/* The Machine Flow */
+.mac-flow { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; height: 160px; position: relative; }
+.mac-node { padding: 10px 24px; background: rgba(0, 0, 0, 0.5); border: 1px solid var(--g); border-radius: 6px; font-family: var(--mn); font-size: 11px; color: var(--g); text-align: center; width: 100%; max-width: 240px; box-shadow: 0 0 15px rgba(0, 255, 136, 0.1); z-index: 2; }
+.mac-node.gcp { border-color: var(--c); color: var(--c); box-shadow: 0 0 15px rgba(0, 212, 255, 0.1); }
+.data-stream { width: 2px; height: 20px; background: linear-gradient(to bottom, transparent, var(--g), transparent); animation: data-flow 1.5s linear infinite; }
+.data-stream.cyan { background: linear-gradient(to bottom, transparent, var(--c), transparent); }
+
+/* 2. Anomaly Catch Terminal */
+.cuny-term { background: #0c0c12; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.term-h { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); background: #060608; }
+.term-h .dot { width: 10px; height: 10px; border-radius: 50%; }
+.term-path { font-family: var(--mn); font-size: 11px; color: var(--dm); margin-left: auto; }
+.term-b { padding: 20px; font-family: var(--mn); font-size: 12px; line-height: 1.6; min-height: 180px; }
+.tl { opacity: 0; display: none; }
+.tl.show { display: block; animation: term-fade 0.1s forwards; }
+.t-cmd { color: var(--g); margin-bottom: 8px; }
+.t-info { color: rgba(255,255,255,0.6); }
+.t-err { color: #ff5f57; font-weight: 700; background: rgba(255, 95, 87, 0.1); padding: 4px 8px; border-left: 3px solid #ff5f57; margin: 8px 0; text-shadow: 0 0 8px rgba(255, 95, 87, 0.4); }
+.t-succ { color: var(--g); font-weight: 700; margin-top: 8px; }
+
+/* 3. Scale & Impact Grid */
+.impact-grid { position: relative; background: var(--sf); border: 1px solid rgba(0,212,255,0.1); border-radius: 14px; padding: 40px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; min-height: 240px; }
+.ig-bg { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(13, 1fr); gap: 10px; padding: 20px; opacity: 0.3; }
+.ig-dot { width: 6px; height: 6px; background: var(--c); border-radius: 50%; justify-self: center; align-self: center; animation: pulse-dot 3s infinite alternate; }
+.ig-content { position: relative; z-index: 2; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 24px; text-align: center; }
+.ig-stat { background: rgba(6, 6, 8, 0.85); border: 1px solid rgba(0, 212, 255, 0.2); padding: 20px 30px; border-radius: 12px; backdrop-filter: blur(10px); flex: 1; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(20px); opacity: 0; transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.ig-stat.vis { transform: translateY(0); opacity: 1; }
+.ig-val { font-family: var(--mn); font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0 15px rgba(0,212,255,0.4); margin-bottom: 4px; }
+.ig-val span { color: var(--c); font-size: 24px; }
+.ig-lbl { font-family: var(--mn); font-size: 10px; color: var(--dm); letter-spacing: 1px; text-transform: uppercase; }
+
+/* Animations */
+@keyframes pulse-red { 0%, 100% { box-shadow: 0 0 15px rgba(255, 95, 87, 0.2); } 50% { box-shadow: 0 0 25px rgba(255, 95, 87, 0.5); } }
+@keyframes data-flow { 0% { transform: translateY(-100%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(100%); opacity: 0; } }
+@keyframes term-fade { to { opacity: 1; } }
+@keyframes pulse-dot { 0% { opacity: 0.2; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 8px var(--c); } }
+
+@media(max-width: 768px) {
+  .arch-compare { flex-direction: column; }
+  .arch-mess { border-right: none; border-bottom: 1px dashed rgba(255,255,255,0.05); }
+  .ig-content { flex-direction: column; }
+}
+
 /* BACK TO TOP */
 .btt{position:fixed;bottom:32px;right:32px;width:44px;height:44px;border-radius:50%;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.2);color:var(--g);font-size:18px;cursor:pointer;z-index:40;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all .3s ease;backdrop-filter:blur(10px)}
 .btt.show{opacity:1;pointer-events:auto}
@@ -296,7 +362,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <a class="nav-n" href="#top">YASH SAINI</a>
   <div class="nav-l">
     <a href="#demo">Live Demo</a>
-    <a href="#case">Case Study</a>
+    <a href="#case">MTA Case Study</a>
+    <a href="#cuny-architecture">Architecture</a>
     <a href="#explorer">Explorer</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
@@ -304,7 +371,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <div class="nav-s"><div class="dot"></div> Open to full-time</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-text">
@@ -332,7 +398,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- LIVE DEMO -->
 <section class="demo-s" id="demo">
   <div class="lbl rv">// live_demonstration</div>
   <div class="stl rv">What I'd Build At Your Company</div>
@@ -353,7 +418,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- FEATURED CASE STUDY -->
 <section class="case-s" id="case">
   <div class="lbl rv">// featured_case_study</div>
   <div class="stl rv">MTA Turnstile Data Engineering</div>
@@ -391,7 +455,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
             <div class="pipe-ar">-></div>
             <div class="pipe-nd" style="background:rgba(255,107,53,0.04);border:1px solid rgba(255,107,53,0.12)"><div class="pipe-ic">☁️</div><div class="pipe-tx" style="color:var(--o)">BigQuery</div></div>
             <div class="pipe-ar">-></div>
-            <div class="pipe-nd" style="background:rgba(199,125,255,0.04);border:1px solid rgba(199,125,255,0.12)"><div class="pipe-ic">⚙️</div><div class="pipe-tx" style="color:var(--p)">dbt Models</div></div>
+            <div class="pipe-nd" style="background:rgba(199,125,255,0.04);border:1px solid rgba(199,125,255,0.12)"><div class="pipeic">⚙️</div><div class="pipe-tx" style="color:var(--p)">dbt Models</div></div>
             <div class="pipe-ar">-></div>
             <div class="pipe-nd" style="background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.12)"><div class="pipe-ic">📊</div><div class="pipe-tx" style="color:var(--g)">Analytics</div></div>
           </div>
@@ -432,7 +496,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- MTA RIDERSHIP EXPLORER -->
 <section class="explore-s" id="explorer">
   <div class="lbl rv">// interactive_data_explorer</div>
   <div class="stl rv">NYC Subway Ridership Explorer</div>
@@ -472,7 +535,76 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- PROJECTS -->
+<section class="cuny-s" id="cuny-architecture">
+  <div class="lbl rv">// enterprise_scale_architecture</div>
+  <div class="stl rv">Architecting a Unified GCP Data Layer</div>
+  <div class="ssub rv" style="max-width: 650px;">
+    To solve a massive reporting crisis at the CUNY Research Foundation, I designed and orchestrated a centralized data warehouse, replacing 7+ fragmented systems across 26 institutions with a programmatic validation framework.
+  </div>
+
+  <div class="cuny-grid">
+    <div class="arch-compare rv">
+      <div class="arch-mess">
+        <div class="arch-lbl m-title">The 26-Institution Mess</div>
+        <div class="mess-nodes">
+          <div class="m-node">Legacy Excel</div>
+          <div class="m-node">Fragmented CSVs</div>
+          <div class="m-node">Local DB (Inst. 12)</div>
+          <div class="m-node">Mismatched Schemas</div>
+          <div class="m-node">Manual Exports</div>
+          <div class="m-node">Untracked Edits</div>
+          <div class="m-warning">Data Integrity Compromised</div>
+        </div>
+      </div>
+      <div class="arch-machine">
+        <div class="arch-lbl mac-title">Unified Reporting Engine</div>
+        <div class="mac-flow">
+          <div class="mac-node gcp">☁️ Google Cloud Ingestion</div>
+          <div class="data-stream cyan"></div>
+          <div class="mac-node gcp">BigQuery Unified Layer + dbt</div>
+          <div class="data-stream"></div>
+          <div class="mac-node">📊 Self-Serve Operations Dashboard</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cuny-term rv" id="term-trigger">
+      <div class="term-h">
+        <div class="dd r"></div><div class="dd y"></div><div class="dd g"></div>
+        <div class="term-path">~/cuny/orchestration/run_validation_eda.py</div>
+      </div>
+      <div class="term-b" id="term-out">
+        <div class="tl t-cmd">$ python run_validation_eda.py --env=production</div>
+        <div class="tl t-info">[INFO] Connecting to BigQuery unified_layer... OK</div>
+        <div class="tl t-info">[INFO] Executing cross-institutional schema normalization... OK</div>
+        <div class="tl t-info">[INFO] Running temporal cross-checks across 26 sub-entities...</div>
+        <div class="tl t-info">... scanning workforce allocations ...</div>
+        <div class="tl t-err">[!] ANOMALY DETECTED: 2-Cycle Integrity Gap found across 3 institutions.</div>
+        <div class="tl t-info">[INFO] Cross-referencing timestamp logs to isolate variance...</div>
+        <div class="tl t-succ">[✓] Resolution: Schema patched and data reconciled 48 hours before reporting deadline.</div>
+      </div>
+    </div>
+
+    <div class="impact-grid rv">
+      <div class="ig-bg" id="ig-dots"></div>
+      <div class="ig-content">
+        <div class="ig-stat rv d1">
+          <div class="ig-val"><span>-</span>55<span>%</span></div>
+          <div class="ig-lbl">Reporting Latency</div>
+        </div>
+        <div class="ig-stat rv d2">
+          <div class="ig-val"><span>+</span>37<span>%</span></div>
+          <div class="ig-lbl">Data Accuracy Gain</div>
+        </div>
+        <div class="ig-stat rv d3">
+          <div class="ig-val"><span>-</span>50<span>%</span></div>
+          <div class="ig-lbl">Manual ETL Workload</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="proj-s" id="projects">
   <div class="lbl rv">// selected_work</div>
   <div class="stl rv">Projects That Prove It</div>
@@ -531,7 +663,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- HOW I APPROACH DATA PROBLEMS -->
 <section class="meth-s" id="method">
   <div class="lbl rv">// methodology</div>
   <div class="stl rv">How I Approach Data Problems</div>
@@ -545,7 +676,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section class="exp-s" id="experience">
   <div class="lbl rv">// where_ive_built</div>
   <div class="stl rv">Work Experience</div>
@@ -566,7 +696,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="sk-s" id="skills">
   <div class="lbl rv">// how_i_work</div>
   <div class="stl rv">Skills, With Receipts</div>
@@ -583,7 +712,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section class="edu-s" id="education">
   <div class="lbl rv">// education</div>
   <div class="stl rv">Where I Studied</div>
@@ -597,7 +725,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <div class="edu-sm rv d2"><div class="edu-sch">Kurukshetra University</div><div class="edu-deg">B.Com, 2016-2019</div></div>
 </section>
 
-<!-- CURRENTLY EXPLORING -->
 <section class="now-s" id="now">
   <div class="lbl rv">// currently_exploring</div>
   <div class="stl rv">What I'm Building & Learning Right Now</div>
@@ -611,7 +738,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="ct-s" id="contact">
   <div class="lbl rv">// let's_talk</div>
   <h2 class="rv">I'd rather show you than tell you.</h2>
@@ -645,9 +771,6 @@ document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
 const pipeObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const nodes=e.target.querySelectorAll('.pipe-nd');nodes.forEach((n,i)=>{setTimeout(()=>n.classList.add('lit'),i*400)})}})},{threshold:.3});
 document.querySelectorAll('.pipe-viz').forEach(el=>pipeObs.observe(el));
 
-// Fallback
-setTimeout(()=>{document.querySelectorAll('.rv').forEach(el=>el.classList.add('vis'));document.querySelectorAll('.counter .num').forEach(el=>{el.textContent=el.dataset.target+el.dataset.suffix});document.querySelectorAll('.pipe-nd').forEach(n=>n.classList.add('lit'))},2500);
-
 // ======== PROJECT TOGGLE + CHARTS ========
 function togP(c){const was=c.classList.contains('exp');document.querySelectorAll('.pc.exp').forEach(x=>x.classList.remove('exp'));if(!was){c.classList.add('exp');setTimeout(()=>renderProjectCharts(c),400);setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'nearest'}),150)}}
 
@@ -666,11 +789,6 @@ function renderProjectCharts(card){
 const mtaObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done='1';new Chart(document.getElementById('mtaChart'),{type:'bar',data:{labels:['Times Sq','Grand Central','Herald Sq','Union Sq','Fulton St','Penn Station','14 St','59 St','Jay St','Atlantic'],datasets:[{label:'Avg Daily Ridership',data:[215,198,172,155,148,142,131,118,105,98],backgroundColor:'rgba(0,255,136,0.3)',borderColor:'#00ff88',borderWidth:1,borderRadius:4}]},options:{...chartOpts,plugins:{legend:{display:false},title:{display:true,text:'Top 10 Stations by Avg Daily Entries (Thousands)',color:'rgba(255,255,255,0.3)',font:{family:'JetBrains Mono',size:10}}}}})}})},{threshold:.3});
 document.querySelectorAll('.case-chart').forEach(el=>mtaObs.observe(el));
 
-
-
-
-
-
 // ================================================================
 // COMPANY INTELLIGENCE SYSTEM v7.0
 // Strict typed pipeline | No field contamination | Full render
@@ -679,9 +797,7 @@ document.querySelectorAll('.case-chart').forEach(el=>mtaObs.observe(el));
 
 function pick(a,n){const s=[...a];for(let i=s.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[s[i],s[j]]=[s[j],s[i]]}return s.slice(0,n)}
 
-// ============================================================
-// COMPANY PROFILES - each field is isolated, no cross-contamination
-// ============================================================
+// COMPANY PROFILES
 const PROFILES={
 nvidia:{
   classification:{sectors:['Semiconductors','AI Computing','Cloud Infrastructure'],confidence:'high'},
@@ -775,9 +891,7 @@ panasonic:{
 },
 };
 
-// ============================================================
-// SECTOR TEMPLATES - for companies not in PROFILES
-// ============================================================
+// SECTOR TEMPLATES 
 const SECTORS={
 technology:{classification:{sectors:['Technology','Software','Cloud Computing'],confidence:'medium'},profile:{organizationType:'Technology company',operatingModel:'Software/platform development and cloud services',summary:'Technology company building software products and platform services'},sources:['Application telemetry','Infrastructure metrics','User behavior events','CI/CD pipeline data','Cloud billing records','Experiment logs'],challenges:['Experiment analysis bottlenecks feature release velocity','Cross-product user journey analytics fragmented across silos','ML model monitoring lacks automated drift detection','Cloud cost attribution to teams is inaccurate'],architecture:{name:'Engineering Analytics Platform',rationale:'Centralized telemetry and experiment analytics for engineering productivity',stages:['App + Infra Telemetry','Stream Processing','Analytics Warehouse','ML Pipeline','Internal Dashboards'],colors:['#00ff88','#00d4ff','#ff6b35','#c77dff','#00ff88'],tooling:['Kafka / Datadog','BigQuery / Snowflake','dbt','MLflow / Vertex AI','Looker / Grafana']},kpis:{groups:[{name:'Engineering',metrics:['Deploy frequency','Incident MTTR','Experiment throughput','Review cycle time']},{name:'Infrastructure',metrics:['Cost per user','API latency (p95)','Pipeline SLA %','Error rate']},{name:'Product',metrics:['Feature adoption','User journey completion','A/B test velocity','Model accuracy']}]},useCases:['Experiment velocity dashboards for product and engineering teams','Infrastructure cost allocation by team and feature with optimization flags','ML model drift monitoring with automated retraining triggers','Developer productivity analytics across code, review, and deployment'],roadmap:{month1:['Audit telemetry and monitoring coverage','Map experiment infrastructure bottlenecks','Define engineering productivity metrics','Baseline cloud cost patterns'],month2:['Deploy unified telemetry pipeline','Build experiment analysis automation','Implement cost allocation model','Create ML model monitoring'],month3:['Launch experiment velocity dashboards','Deploy cost optimization tracking','Build productivity analytics','Implement user journey mapping']}},
 retail:{classification:{sectors:['Retail','Consumer','Commerce'],confidence:'medium'},profile:{organizationType:'Retail company',operatingModel:'Store-based and/or digital retail',summary:'Sells products to consumers through stores and/or online channels'},sources:['POS transactions','Customer loyalty data','Inventory systems','Supplier feeds','Store operations logs','Digital engagement data'],challenges:['Demand forecasting degrades during promotions and seasonal shifts','Customer identity fragmented across channels','Inventory replenishment timing inconsistent across locations','Supplier tracking relies on periodic reviews, not continuous monitoring'],architecture:{name:'Retail Analytics Platform',rationale:'Event-driven pipeline for transaction, inventory, and customer analytics',stages:['POS + Customer + Inventory','Event Processing','Retail Warehouse','Demand Models','Store Dashboards'],colors:['#00ff88','#00d4ff','#ff6b35','#c77dff','#00ff88'],tooling:['Kafka / Debezium','BigQuery / Snowflake','dbt','Prophet / XGBoost','Looker / Power BI']},kpis:{groups:[{name:'Customer',metrics:['Basket size','CLV','Loyalty engagement','Cross-channel ratio']},{name:'Operations',metrics:['Inventory turnover','Stockout rate','Shrinkage','Fulfillment time']},{name:'Marketing',metrics:['Promotion ROI','Conversion rate','Acquisition cost','Attribution']}]},useCases:['Demand forecasting by location and category for replenishment','Unified customer profile for personalized marketing','Promotion effectiveness with incrementality measurement','Supplier scoring with automated delivery and quality alerts'],roadmap:{month1:['Audit transaction and customer data','Map inventory and supplier flows','Define demand and customer KPIs','Baseline sales patterns'],month2:['Deploy unified transaction pipeline','Build retail warehouse','Implement demand models','Create customer identity resolution'],month3:['Launch replenishment dashboards','Deploy promotion analytics','Build supplier scorecards','Implement segmentation']}},
@@ -789,9 +903,6 @@ manufacturing:{classification:{sectors:['Manufacturing','Industrial','Production
 general:{classification:{sectors:['Business Operations','Analytics','Data Intelligence'],confidence:'low'},profile:{organizationType:'Business organization',operatingModel:'General business operations',summary:'Organization that could benefit from data infrastructure and analytics'},sources:['CRM records','Transaction data','Web analytics','Customer feedback','Operational logs','Financial reports'],challenges:['Reporting relies on manual pulls consuming analyst hours weekly','No single source of truth for key metrics across departments','Data quality issues surface only after reports reach decision-makers','Forecasting models stuck in notebooks, never deployed to production'],architecture:{name:'Modern Analytics Stack',rationale:'Best-of-breed cloud data tools with automated ingestion and self-serve dashboards',stages:['Business Data Sources','EL Ingestion','Cloud Warehouse','dbt Models','BI Dashboards'],colors:['#00d4ff','#00ff88','#ff6b35','#c77dff','#00d4ff'],tooling:['Fivetran / Airbyte','BigQuery / Snowflake','dbt','Python','Looker / Power BI']},kpis:{groups:[{name:'Business',metrics:['Revenue growth','Customer retention','Operational efficiency','Profit margin']},{name:'Data',metrics:['Report turnaround','Data quality score','Dashboard adoption','Forecast accuracy']}]},useCases:['Automated KPI monitoring with threshold alerting','Self-serve analytics portal for stakeholders','Predictive demand forecasting from historical trends','Data quality monitoring for freshness and accuracy'],roadmap:{month1:['Audit data sources for schema, freshness, ownership','Identify top reporting bottlenecks','Define core business metrics with SLAs','Map data lineage to final reports'],month2:['Deploy automated ingestion pipelines','Build warehouse with tested dbt models','Implement validation at every stage','Create first self-serve dashboard'],month3:['Deploy production KPI dashboards','Build automated anomaly detection','Create self-serve analytics portal','Document architecture and train users']}},
 };
 
-// ============================================================
-// SECTOR DETECTION FOR UNKNOWN COMPANIES
-// ============================================================
 const SECTOR_KEYS={
   technology:['tech','software','app','platform','digital','ai','cloud','computing','data','cyber','saas'],
   retail:['retail','store','shop','market','grocery','fashion','supermarket','outlet','mall'],
@@ -807,9 +918,6 @@ function detectSector(name){
   return 'general';
 }
 
-// ============================================================
-// WIKIPEDIA ENRICHMENT (optional, silent fallback)
-// ============================================================
 async function tryWiki(term){
   try{
     const c=new AbortController();setTimeout(()=>c.abort(),3500);
@@ -827,9 +935,6 @@ function scoreSectorFromText(text){
   return best;
 }
 
-// ============================================================
-// IMPACT GENERATION
-// ============================================================
 function genImpact(){
   const p=a=>a[Math.floor(Math.random()*a.length)];
   const tl=p([40,45,50,55]),th=p([60,65,70,75]);
@@ -839,20 +944,15 @@ function genImpact(){
   return{reportingReduction:tl+'-'+th+'%',accuracyImprovement:'+'+al+'-'+ah+'%',cycleTimeCurrent:sp[0],cycleTimeTarget:sp[1],kpiCoverage:kl+'-'+kh,narrative:'This rollout shifts the organization from reactive reporting to operational intelligence with scalable KPI ownership across teams.'};
 }
 
-// ============================================================
-// MASTER PIPELINE
-// ============================================================
 async function runPipeline(rawName){
   const name=rawName.trim();
   const key=name.toLowerCase().replace(/[^a-z]/g,'');
 
-  // 1. Check built-in profiles
   if(PROFILES[key]){
     const p=PROFILES[key];
     return{...p,company:name,mode:'profile',impact:genImpact()};
   }
 
-  // 2. Try Wikipedia
   const wiki=await tryWiki(name);
   let sectorKey='general';
   let wikiDesc='';
@@ -864,15 +964,11 @@ async function runPipeline(rawName){
   }
 
   const tmpl=SECTORS[sectorKey]||SECTORS.general;
-  // Build report from sector template, override description if wiki found
   const report={...JSON.parse(JSON.stringify(tmpl)),company:name,mode:wiki?'web-enriched':'intelligence-engine',impact:genImpact()};
   if(wikiDesc) report.profile.summary=wikiDesc;
   return report;
 }
 
-// ============================================================
-// VALIDATION
-// ============================================================
 function validate(r){
   if(!r.challenges||r.challenges.length<4) r.challenges=(SECTORS.general.challenges||[]).slice(0,4);
   if(!r.useCases||r.useCases.length<4) r.useCases=(SECTORS.general.useCases||[]).slice(0,4);
@@ -883,9 +979,6 @@ function validate(r){
   return r;
 }
 
-// ============================================================
-// REASONING STEPS
-// ============================================================
 function buildSteps(name,d){
   const s=[];
   s.push({t:'Normalizing input: "'+name+'"',h:0});
@@ -909,9 +1002,6 @@ function buildSteps(name,d){
   return s;
 }
 
-// ============================================================
-// RENDERER - ALL SECTIONS, IN ORDER, NEVER SKIPPED
-// ============================================================
 let rn=false;
 async function go(){
   const inp=document.getElementById('ci'),btn=document.getElementById('ab'),name=inp.value.trim();
@@ -934,37 +1024,30 @@ async function go(){
   }
   await sl(300);
 
-  // ---- BUILD FULL HTML REPORT (every section, in order) ----
   let html='<div style="margin-top:16px">';
 
-  // SECTION 1: Classification + Profile
   html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap">';
   html+='<div class="lbl" style="margin:0;color:rgba(0,255,136,0.5)">COMPANY INTELLIGENCE REPORT</div>';
   d.classification.sectors.forEach(s=>{html+='<div style="font-family:var(--mn);font-size:9px;padding:3px 8px;border-radius:4px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);color:var(--c)">'+s+'</div>'});
   html+='</div>';
 
-  // SECTION 2: Organization Profile
   html+='<div style="padding:12px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.06);border-radius:8px;margin-bottom:16px">';
   html+='<div style="font-family:var(--mn);font-size:10px;color:var(--g);margin-bottom:6px;letter-spacing:1px">Organization Profile</div>';
   html+='<div style="font-family:var(--mn);font-size:12px;color:rgba(255,255,255,0.7);margin-bottom:4px">'+d.profile.organizationType+'</div>';
   html+='<div style="font-family:var(--bd);font-size:12px;color:var(--dm);line-height:1.6">'+d.profile.summary+'</div>';
   html+='</div>';
 
-  // SECTION 3: Data Sources
   html+='<div style="margin-bottom:16px"><div class="lbl" style="color:rgba(0,212,255,0.4)">likely data sources</div>';
   html+='<div style="display:flex;flex-wrap:wrap;gap:6px">'+d.sources.map(s=>'<div style="padding:5px 10px;border-radius:5px;font-family:var(--mn);font-size:9px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.08);color:rgba(0,212,255,0.6)">'+s+'</div>').join('')+'</div></div>';
 
-  // SECTION 4: Challenges
   html+='<div class="lbl" style="color:rgba(255,107,53,0.45)">observed data challenges</div>';
   d.challenges.forEach((c,i)=>{html+='<div class="sig" style="animation-delay:'+i*.08+'s"><span class="sd" style="color:var(--o)">!</span><span class="sc">'+c+'</span></div>'});
 
-  // SECTION 5: Architecture
   html+='<div style="margin-top:16px;padding:14px;background:rgba(0,212,255,0.02);border:1px solid rgba(0,212,255,0.06);border-radius:8px">';
   html+='<div class="lbl" style="color:rgba(0,212,255,0.45);margin-bottom:6px">recommended architecture: '+d.architecture.name+'</div>';
   html+='<div style="font-family:var(--mn);font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:8px;line-height:1.6">'+d.architecture.rationale+'</div>';
   html+='<div style="font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.25);margin-bottom:8px">Tooling: '+d.architecture.tooling.join(' / ')+'</div>';
 
-  // SECTION 6: Architecture Diagram
   html+='<div class="arch-viz">';
   d.architecture.stages.forEach((nd,i)=>{
     html+='<div class="arch-node" id="an'+i+'" style="background:'+d.architecture.colors[i]+'11;border:1px solid '+d.architecture.colors[i]+'33;color:'+d.architecture.colors[i]+'">'+nd+'</div>';
@@ -972,13 +1055,11 @@ async function go(){
   });
   html+='</div></div>';
 
-  // SECTION 7: Use Cases
   html+='<div style="margin-top:16px"><div class="lbl" style="color:rgba(199,125,255,0.45)">analytics use cases</div>';
   html+='<div style="display:flex;flex-direction:column;gap:8px">';
   d.useCases.forEach((u,i)=>{html+='<div style="display:flex;gap:10px;align-items:flex-start"><div style="font-family:var(--mn);font-size:11px;color:var(--p);flex-shrink:0;font-weight:700;min-width:20px">'+(i+1)+'.</div><div style="font-family:var(--mn);font-size:11px;color:rgba(255,255,255,0.55);line-height:1.6">'+u+'</div></div>'});
   html+='</div></div>';
 
-  // SECTION 8: KPI Framework
   html+='<div style="margin-top:16px"><div class="lbl" style="color:rgba(0,255,136,0.45)">key business kpis</div>';
   html+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">';
   d.kpis.groups.forEach(g=>{
@@ -989,14 +1070,12 @@ async function go(){
   });
   html+='</div></div>';
 
-  html+='</div>'; // close top div
+  html+='</div>'; 
 
-  // SECTION 9: Roadmap
   html+='<div class="prop" style="margin-top:20px">';
   html+='<h3>'+d.architecture.name+' for '+d.company+'</h3>';
   html+='<div class="ps">90-Day Analytics Implementation Roadmap by Yash Saini</div>';
 
-  // Impact tiles
   html+='<div class="mr">';
   html+='<div class="mx"><div class="v">'+d.impact.reportingReduction+'</div><div class="l">Reporting Reduction</div></div>';
   html+='<div class="mx"><div class="v">'+d.impact.accuracyImprovement+'</div><div class="l">Accuracy Gain</div></div>';
@@ -1004,7 +1083,6 @@ async function go(){
   html+='<div class="mx"><div class="v">'+d.impact.cycleTimeTarget+'</div><div class="l">Target Cycle</div></div>';
   html+='</div>';
 
-  // Roadmap phases
   const phases=[{key:'month1',label:'Month 1: Data Audit & Foundation',cls:'p1'},{key:'month2',label:'Month 2: Infrastructure & Pipeline Build',cls:'p2'},{key:'month3',label:'Month 3: Analytics Deployment & Optimization',cls:'p3'}];
   phases.forEach((ph,i)=>{
     const tasks=d.roadmap[ph.key]||[];
@@ -1013,7 +1091,6 @@ async function go(){
     html+='</div>';
   });
 
-  // SECTION 10: Impact
   html+='<div style="margin-top:16px;padding:14px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.06);border-radius:8px">';
   html+='<div class="lbl" style="color:rgba(0,255,136,0.4);margin-bottom:8px">projected business impact</div>';
   html+='<div style="font-family:var(--mn);font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7">';
@@ -1024,13 +1101,12 @@ async function go(){
   html+=d.impact.narrative;
   html+='</div></div>';
 
-  html+='</div>'; // close prop
+  html+='</div>'; 
 
   const r=document.getElementById('res');
   r.innerHTML=html;
   r.classList.add('show');
 
-  // Animate architecture nodes
   setTimeout(()=>{d.architecture.stages.forEach((_,i)=>{setTimeout(()=>{const n=document.getElementById('an'+i);if(n)n.classList.add('lit')},i*300)})},200);
 
   await sl(1800);document.getElementById('kick').classList.add('show');
@@ -1092,11 +1168,39 @@ window.addEventListener('scroll',()=>{
   navLinks.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+current?'#00ff88':''});
 },{passive:true});
 
-// ======== ENHANCED CANVAS (data particle field) ========
-// Upgrade: particles now pulse and connect based on scroll position
-const scrollFactor=()=>Math.min(window.scrollY/2000,1);
+// ======== CUNY ARCHITECTURE ANIMATIONS ========
+const dotGrid = document.getElementById('ig-dots');
+if(dotGrid) {
+  for(let i=0; i<26; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'ig-dot';
+    dot.style.animationDelay = `${Math.random() * 2}s`;
+    dotGrid.appendChild(dot);
+  }
+}
 
-// Fallback visibility
+const termObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains('typed')) {
+      entry.target.classList.add('typed');
+      const lines = entry.target.querySelectorAll('.tl');
+      let delay = 0;
+      lines.forEach((line, index) => {
+        if(line.classList.contains('t-err')) delay += 800; 
+        setTimeout(() => {
+          line.classList.add('show');
+        }, delay);
+        delay += 300 + Math.random() * 200; 
+      });
+    }
+  });
+}, { threshold: 0.5 });
+
+const termTrigger = document.getElementById('term-trigger');
+if(termTrigger) termObserver.observe(termTrigger);
+
+// ======== ENHANCED CANVAS ========
+const scrollFactor=()=>Math.min(window.scrollY/2000,1);
 setTimeout(()=>{document.querySelectorAll('.rv').forEach(el=>el.classList.add('vis'));document.querySelectorAll('.counter .num').forEach(el=>{el.textContent=el.dataset.target+el.dataset.suffix});document.querySelectorAll('.pipe-nd').forEach(n=>n.classList.add('lit'))},2500);
 </script>
 </body>
