@@ -8,44 +8,48 @@
 <meta name="keywords" content="data analyst, BI engineer, business analytics, SQL, BigQuery, Python, Power BI, ETL, data pipelines, Baruch College, New York">
 <meta name="author" content="Yash Saini">
 <meta name="robots" content="index, follow">
-<!-- Open Graph -->
 <meta property="og:title" content="Yash Saini - Data Analyst & BI Engineer">
 <meta property="og:description" content="I build analytics systems that turn messy data into decisions. Explore my interactive company intelligence engine and project case studies.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yashxsainix.github.io">
 <meta property="og:image" content="https://yashxsainix.github.io/photo.png">
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yash Saini - Data Analyst & BI Engineer">
 <meta name="twitter:description" content="I build analytics systems that turn messy data into decisions.">
-<!-- Structured Data -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yash Saini","jobTitle":"Data Analyst & BI Engineer","url":"https://yashxsainix.github.io","sameAs":["https://github.com/yashxsainix","https://www.linkedin.com/in/yash-saini-analyst/"],"alumniOf":{"@type":"EducationalOrganization","name":"Baruch College, Zicklin School of Business"},"knowsAbout":["SQL","Python","BigQuery","Power BI","ETL","Data Engineering","Business Intelligence"]}</script>
 <link rel="canonical" href="https://yashxsainix.github.io">
 <meta name="theme-color" content="#060608">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+
 <style>
 :root{--g:#00ff88;--c:#00d4ff;--o:#ff6b35;--p:#c77dff;--bg:#060608;--sf:#0c0c12;--tx:#e2e2e8;--dm:rgba(255,255,255,0.4);--mn:'JetBrains Mono',monospace;--dp:'Syne',sans-serif;--bd:'DM Sans',sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--tx);font-family:var(--bd);overflow-x:hidden}::selection{background:rgba(0,255,136,0.2);color:#fff}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(0,255,136,0.15);border-radius:3px}
 .grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,255,136,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,0.018) 1px,transparent 1px);background-size:80px 80px}
 .glow{position:fixed;width:600px;height:600px;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}.glow.a{top:-200px;left:-100px;background:rgba(0,255,136,0.06)}.glow.b{bottom:-200px;right:-100px;background:rgba(0,212,255,0.04)}
-#nc{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.2}
+
+/* Three.js Canvas Container */
+#canvas-container{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.45}
+
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;background:rgba(6,6,8,0.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.03)}
 .nav-n{font-family:var(--mn);font-size:12px;color:var(--g);letter-spacing:2px;font-weight:600;cursor:pointer;text-decoration:none}
 .nav-l{display:flex;gap:24px}.nav-l a{font-family:var(--mn);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dm);text-decoration:none;transition:color .3s}.nav-l a:hover{color:var(--g)}
-.nav-s{display:flex;align-items:center;gap:6px;font-family:var(--mn);font-size:10px;color:rgba(0,255,136,0.4)}.nav-s .dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse 2s ease-in-out infinite}
+.nav-s{display:flex;align-items:center;gap:6px;font-family:var(--mn);font-size:10px;color:rgba(0,255,136,0.4);cursor:pointer;padding:4px 8px;border-radius:4px;border:1px solid rgba(0,255,136,0.1);transition:all .3s}.nav-s:hover{background:rgba(0,255,136,0.05)}
+.nav-s .dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 4px var(--g)}50%{opacity:.4;box-shadow:none}}
 section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px}
 .lbl{font-family:var(--mn);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(0,255,136,0.3);margin-bottom:20px}
 .stl{font-family:var(--dp);font-size:clamp(24px,4vw,36px);font-weight:700;color:#fff;margin-bottom:8px}
 .ssub{font-family:var(--mn);font-size:12px;color:var(--dm);margin-bottom:32px;max-width:520px;line-height:1.7}
-.rv{opacity:1;transform:none}.rv.vis{opacity:1;transform:none}
-.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;padding-bottom:60px}
@@ -95,49 +99,52 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 .explore-stat .es-val{font-family:var(--mn);font-size:18px;font-weight:700;color:var(--c)}
 .explore-stat .es-lbl{font-family:var(--mn);font-size:9px;color:var(--dm);margin-top:2px}
 
-/* DEMO */
+/* SOLVE IT LIVE - SCENARIO ENGINE STYLES */
 .demo-s{padding-top:100px;padding-bottom:100px}
 .demo-box{background:var(--sf);border:1px solid rgba(0,255,136,0.08);border-radius:16px;overflow:hidden}
 .demo-h{display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04)}
 .dd{width:10px;height:10px;border-radius:50%}.dd.r{background:#ff5f57}.dd.y{background:#febc2e}.dd.g{background:#28c840}
 .demo-t{font-family:var(--mn);font-size:11px;color:var(--dm);margin-left:8px}
 .demo-bd{padding:28px}
-.inp-r{display:flex;gap:0;margin-bottom:20px}
-.inp-r input{flex:1;padding:14px 18px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,255,136,0.1);border-right:none;border-radius:8px 0 0 8px;color:var(--g);font-family:var(--mn);font-size:14px;outline:none;transition:border-color .3s}
-.inp-r input:focus{border-color:rgba(0,255,136,0.3)}.inp-r input::placeholder{color:rgba(0,255,136,0.18)}
-.inp-r button{padding:14px 24px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.1);border-radius:0 8px 8px 0;color:var(--g);font-family:var(--mn);font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s}
-.inp-r button:hover{background:rgba(0,255,136,0.15)}.inp-r button:disabled{opacity:.4;cursor:not-allowed}
 .pbar{height:2px;background:rgba(255,255,255,0.03);border-radius:1px;margin-bottom:16px;overflow:hidden}
 .pbar .fill{height:100%;width:0;border-radius:1px;background:linear-gradient(90deg,var(--g),var(--c));box-shadow:0 0 10px rgba(0,255,136,0.4);transition:width .4s ease}
 .sc-l{font-family:var(--mn);font-size:11px;margin-bottom:4px;animation:fsi .3s ease both}.sc-l .ix{color:rgba(0,255,136,0.2);margin-right:8px}.sc-l .tx{color:rgba(0,255,136,0.45)}.sc-l.ac .tx{color:var(--g)}
 @keyframes fsi{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
 .res{display:none}.res.show{display:block;animation:fsi .5s ease}
-.sig{display:flex;gap:12px;padding:10px 14px;margin-bottom:5px;background:rgba(0,212,255,0.03);border:1px solid rgba(0,212,255,0.06);border-radius:6px;animation:fsi .4s ease both}
-.sig .sd{color:var(--c);font-size:8px;margin-top:4px;flex-shrink:0}.sig .sc{font-family:var(--mn);font-size:11px;color:rgba(255,255,255,0.6);line-height:1.5}
-.prop{margin-top:18px;padding:22px;background:rgba(0,0,0,0.3);border:1px solid rgba(0,255,136,0.08);border-radius:10px}
-.prop h3{font-family:var(--dp);font-size:17px;color:#fff;font-weight:700;margin-bottom:4px}
-.prop .ps{font-family:var(--mn);font-size:10px;color:rgba(0,255,136,0.4);margin-bottom:18px}
-.mr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
-.mx{text-align:center;padding:10px 6px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.05);border-radius:6px}
-.mx .v{font-family:var(--mn);font-size:14px;font-weight:700;color:var(--g)}.mx .l{font-family:var(--mn);font-size:8px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-.ph{margin-bottom:14px}.phn{font-family:var(--mn);font-size:12px;font-weight:600;margin-bottom:5px;display:flex;align-items:center;gap:8px}
-.phn .n{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;border:1.5px solid}
-.p1 .phn{color:var(--g)}.p1 .n{border-color:var(--g)}.p2 .phn{color:var(--c)}.p2 .n{border-color:var(--c)}.p3 .phn{color:var(--p)}.p3 .n{border-color:var(--p)}
-.phi{font-family:var(--mn);font-size:10.5px;color:rgba(255,255,255,0.45);padding-left:28px;margin-bottom:3px;line-height:1.5}.phi::before{content:'-> ';color:rgba(255,255,255,0.12)}
-/* Architecture viz */
-.arch-viz{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:16px 0;padding:16px;background:rgba(0,0,0,0.2);border-radius:8px;border:1px solid rgba(0,255,136,0.05)}
-.arch-node{padding:8px 12px;border-radius:6px;font-family:var(--mn);font-size:9px;text-align:center;opacity:0;transform:scale(0.8);transition:all .4s ease}
-.arch-node.lit{opacity:1;transform:scale(1)}
-.arch-arrow{color:rgba(0,255,136,0.2);font-size:12px;flex-shrink:0}
-/* Use cases */
-.use-cases{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
-.use-case{padding:5px 10px;border-radius:5px;font-family:var(--mn);font-size:9px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.08);color:rgba(0,212,255,0.6)}
-.kick{display:none;margin-top:20px;padding:20px;text-align:center;background:rgba(0,255,136,0.015);border:1px solid rgba(0,255,136,0.08);border-radius:10px}
-.kick.show{display:block;animation:fsi .8s ease}
-.kick p{font-family:var(--mn);font-size:12px;color:rgba(255,255,255,0.5);line-height:1.8;max-width:480px;margin:0 auto}
-.kick .em{color:var(--g);font-weight:700;text-shadow:0 0 10px rgba(0,255,136,0.15)}
-.tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:14px}
-.tag{padding:4px 11px;border-radius:14px;font-family:var(--mn);font-size:9px;letter-spacing:.5px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.1);color:rgba(0,255,136,0.55)}
+.scen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:28px}
+.scen-card{padding:18px 14px;background:var(--sf);border:1px solid rgba(255,255,255,0.04);border-radius:12px;cursor:pointer;text-align:center;position:relative;overflow:hidden;transform-style:preserve-3d;transform:perspective(1000px);will-change:transform}
+.scen-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,255,136,0.06),transparent 70%);opacity:0;transition:opacity .35s}
+.scen-card:hover::before,.scen-card.active::before{opacity:1}
+.scen-card.active{border-color:rgba(0,255,136,0.4);background:rgba(0,255,136,0.03)}
+.scen-ico{font-size:24px;margin-bottom:8px;display:block}
+.scen-nm{font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.7);line-height:1.4;font-weight:600}
+.scen-output{display:none;animation:fsi .5s ease}
+.scen-output.show{display:block}
+.scen-question{font-family:var(--dp);font-size:clamp(16px,2.5vw,22px);font-weight:700;color:var(--tx);margin-bottom:8px;line-height:1.4}
+.scen-context{font-family:var(--bd);font-size:13px;color:var(--dm);line-height:1.7;margin-bottom:20px}
+.scen-sources{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.scen-src{padding:5px 11px;border-radius:5px;font-family:var(--mn);font-size:9px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.1);color:rgba(0,212,255,0.6)}
+.scen-code-wrap{background:#080810;border:1px solid rgba(0,255,136,0.08);border-radius:12px;overflow:hidden;margin-bottom:20px}
+.scen-code-head{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015)}
+.scen-code-head .dd{width:8px;height:8px;border-radius:50%}
+.scen-code-head .dd.r{background:#ff5f57}.scen-code-head .dd.y{background:#febc2e}.scen-code-head .dd.g{background:#28c840}
+.scen-code-file{font-family:var(--mn);font-size:10px;color:var(--dm);margin-left:6px}
+.scen-code{padding:18px 20px;font-family:var(--mn);font-size:11px;line-height:1.8;overflow-x:auto;color:rgba(255,255,255,0.55);white-space:pre}
+.scen-code .kw{color:var(--p)}.scen-code .fn{color:var(--c)}.scen-code .str{color:var(--g)}.scen-code .cm{color:rgba(255,255,255,0.2)}.scen-code .num{color:var(--o)}
+.scen-chart-wrap{background:var(--sf);border:1px solid rgba(0,255,136,0.06);border-radius:12px;padding:20px;margin-bottom:20px;height:320px}
+.scen-finding{padding:18px 20px;background:rgba(255,107,53,0.03);border:1px solid rgba(255,107,53,0.1);border-left:3px solid var(--o);border-radius:0 10px 10px 0;margin-bottom:16px}
+.scen-finding-label{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:var(--o);margin-bottom:6px;opacity:.7}
+.scen-finding-text{font-family:var(--bd);font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6}
+.scen-rec{padding:18px 20px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.08);border-left:3px solid var(--g);border-radius:0 10px 10px 0;margin-bottom:16px}
+.scen-rec-label{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:var(--g);margin-bottom:6px;opacity:.7}
+.scen-rec-text{font-family:var(--bd);font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6}
+.scen-divider{display:flex;align-items:center;gap:12px;margin:20px 0}
+.scen-divider::before,.scen-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.04)}
+.scen-divider span{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.15)}
+
+/* Telemetry Box */
+.telemetry{font-family:var(--mn);font-size:10px;color:var(--g);background:rgba(0,255,136,0.05);border:1px dashed rgba(0,255,136,0.2);padding:10px 14px;border-radius:6px;display:flex;justify-content:space-between;margin-bottom:16px;animation:fsi .5s ease}
+.tel-item span{color:var(--dm);margin-right:6px}
 
 /* CASE STUDY */
 .case-s{padding-top:100px;padding-bottom:100px}
@@ -158,17 +165,14 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 .cs1 .cs-lbl{color:var(--o)}.cs2 .cs-lbl{color:var(--c)}.cs3 .cs-lbl{color:var(--g)}.cs4 .cs-lbl{color:var(--p)}.cs5 .cs-lbl{color:var(--g)}
 .cs-txt{font-family:var(--bd);font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7}
 .cs-txt strong{color:rgba(255,255,255,0.85);font-weight:600}
-/* SQL snippet */
 .sql-block{margin:12px 0;padding:14px 16px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,255,136,0.06);border-radius:8px;font-family:var(--mn);font-size:11px;color:rgba(0,255,136,0.6);line-height:1.6;overflow-x:auto;white-space:pre}
 .sql-kw{color:var(--c)}.sql-fn{color:var(--o)}.sql-cm{color:rgba(255,255,255,0.2);font-style:italic}
-/* Pipeline viz */
 .pipe-viz{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:16px 0;padding:16px;background:rgba(0,0,0,0.2);border-radius:8px;border:1px solid rgba(0,255,136,0.05)}
 .pipe-nd{min-width:80px;text-align:center;padding:10px 8px;border-radius:8px;transition:all .6s ease;opacity:0.3}
 .pipe-nd.lit{opacity:1;box-shadow:0 0 12px rgba(0,255,136,0.1)}
 .pipe-ar{color:rgba(0,255,136,0.25);font-size:14px;flex-shrink:0}
 .pipe-ic{font-size:16px;margin-bottom:3px}
 .pipe-tx{font-family:var(--mn);font-size:8px}
-/* Case chart */
 .case-chart{margin:16px 0;height:180px;position:relative}
 
 /* PROJECTS */
@@ -301,8 +305,7 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 .flow-dot.purple{background:var(--p);box-shadow:0 0 10px rgba(199,125,255,0.4)}
 .flow-connector{position:absolute;left:5px;top:19px;width:2px;height:calc(100% - 5px);z-index:1}
 .flow-connector-line{stroke:rgba(0,255,136,0.2);stroke-width:2;stroke-dasharray:4 4;animation:dashFlow 1.5s linear infinite}
-.flow-data-dot{fill:var(--g);filter:drop-shadow(0 0 3px rgba(0,255,136,0.6))}
-.flow-data-dot{animation:dataPulse 2s ease-in-out infinite}
+.flow-data-dot{fill:var(--g);filter:drop-shadow(0 0 3px rgba(0,255,136,0.6));animation:dataPulse 2s ease-in-out infinite}
 @keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-16}}
 @keyframes dataPulse{0%{opacity:0;transform:translateY(0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateY(20px)}}
 .flow-stage:last-child .flow-connector{display:none}
@@ -314,12 +317,9 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 .tangle-line{stroke:rgba(255,60,60,0.3);stroke-width:1;fill:none;stroke-dasharray:3 5;animation:tangleShift 4s ease-in-out infinite alternate}
 @keyframes tangleShift{from{stroke-dashoffset:0}to{stroke-dashoffset:20}}
 
-/* Terminal cursor */
-.term-cursor{display:inline-block;width:7px;height:14px;background:var(--g);animation:cursorBlink 1s step-end infinite;vertical-align:middle;margin-left:2px}
-@keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
-
-/* ---- ANOMALY TERMINAL ---- */
-.anomaly-term{background:#0a0a0f;border:1px solid rgba(0,255,136,0.08);border-radius:14px;overflow:hidden;margin-bottom:48px}
+/* ---- ANOMALY TERMINAL (CRT SCANLINES) ---- */
+.anomaly-term{background:#0a0a0f;border:1px solid rgba(0,255,136,0.08);border-radius:14px;overflow:hidden;margin-bottom:48px;position:relative;text-shadow: 0.5px 0 1px rgba(255,0,0,0.4), -0.5px 0 1px rgba(0,255,255,0.4);}
+.anomaly-term::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,0.25) 50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06));background-size:100% 4px,3px 100%;pointer-events:none;z-index:10;opacity:0.6;}
 .term-header{display:flex;align-items:center;gap:8px;padding:12px 18px;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.04)}
 .term-dot{width:9px;height:9px;border-radius:50%}
 .term-dot.r{background:#ff5f57}.term-dot.y{background:#febc2e}.term-dot.g{background:#28c840}
@@ -330,11 +330,12 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 .term-cmd{color:rgba(255,255,255,0.7)}
 .term-log{color:rgba(255,255,255,0.3)}
 .term-warn{color:#ff4444;font-weight:700;text-shadow:0 0 10px rgba(255,50,50,0.3)}
-.term-alert{background:rgba(255,60,60,0.08);border:1px solid rgba(255,60,60,0.2);border-radius:6px;padding:8px 14px;margin:8px 0;color:#ff6666;animation:alertFlash 1.5s ease-in-out 2}
-@keyframes alertFlash{0%,100%{background:rgba(255,60,60,0.08)}50%{background:rgba(255,60,60,0.18)}}
+.term-alert{background:rgba(255,60,60,0.08);border:1px solid rgba(255,60,60,0.2);border-radius:6px;padding:8px 14px;margin:8px 0;color:#ff6666;}
 .term-success{color:var(--g);font-weight:600}
 .term-ok{background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.12);border-radius:6px;padding:8px 14px;margin:8px 0;color:var(--g)}
 @keyframes termFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.term-cursor{display:inline-block;width:7px;height:14px;background:var(--g);animation:cursorBlink 1s step-end infinite;vertical-align:middle;margin-left:2px}
+@keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
 
 /* ---- SCALE & IMPACT GRID ---- */
 .impact-grid-wrap{position:relative;padding:48px 32px;background:var(--sf);border:1px solid rgba(0,255,136,0.06);border-radius:16px;overflow:hidden}
@@ -394,7 +395,7 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 
 /* PRINT STYLES */
 @media print{
-  .nav,.grid-bg,.glow,#nc,.btt,.scroll-progress,.cmd-overlay,.hero-photo::after,.nav-s{display:none!important}
+  .nav,.grid-bg,.glow,#canvas-container,.btt,.scroll-progress,.cmd-overlay,.hero-photo::after,.nav-s{display:none!important}
   body{background:#fff!important;color:#000!important}
   *{color:#000!important;border-color:#ccc!important;background:transparent!important}
   .hero h1 .l1,.hero h1 .l2{-webkit-text-fill-color:#000!important}
@@ -411,11 +412,7 @@ body{animation:pageIn .8s ease}
 
 /* FOCUS VISIBLE (accessibility) */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--g);outline-offset:2px;border-radius:4px}
-
-/* ENHANCED LINK HOVER */
 .gh-l::after{content:' >';opacity:0;transition:opacity .2s}.gh-l:hover::after{opacity:1}
-
-/* SKIP NAV (accessibility) */
 .skip-nav{position:absolute;top:-100px;left:16px;padding:8px 16px;background:var(--g);color:var(--bg);font-family:var(--mn);font-size:12px;border-radius:4px;z-index:100;text-decoration:none;transition:top .3s}
 .skip-nav:focus{top:16px}
 
@@ -426,112 +423,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   .sk-grid{grid-template-columns:1fr 1fr}.pgrid{grid-template-columns:1fr}
   .case-step{flex-direction:column;gap:10px}.meth-step{min-width:100%;text-align:left;padding:14px 0}.meth-step::after{display:none}
   .arch-viz,.pipe-viz{justify-content:center}
+  .scen-grid{grid-template-columns:repeat(2,1fr)}.scen-grid .scen-card:last-child{grid-column:span 2}
 }
-/* ================================================================
-   SOLVE IT LIVE - SCENARIO ENGINE STYLES
-   ================================================================ */
-.scen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:28px}
-.scen-card{padding:18px 14px;background:var(--sf);border:1px solid rgba(255,255,255,0.04);border-radius:12px;cursor:pointer;transition:all .35s ease;text-align:center;position:relative;overflow:hidden}
-.scen-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,255,136,0.06),transparent 70%);opacity:0;transition:opacity .35s}
-.scen-card:hover::before,.scen-card.active::before{opacity:1}
-.scen-card:hover{border-color:rgba(0,255,136,0.2);transform:translateY(-3px)}
-.scen-card.active{border-color:rgba(0,255,136,0.4);background:rgba(0,255,136,0.03)}
-.scen-ico{font-size:24px;margin-bottom:8px;display:block}
-.scen-nm{font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.7);line-height:1.4;font-weight:600}
-.scen-output{display:none;animation:fsi .5s ease}
-.scen-output.show{display:block}
-.scen-question{font-family:var(--dp);font-size:clamp(16px,2.5vw,22px);font-weight:700;color:var(--tx);margin-bottom:8px;line-height:1.4}
-.scen-context{font-family:var(--bd);font-size:13px;color:var(--dm);line-height:1.7;margin-bottom:20px}
-.scen-sources{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-.scen-src{padding:5px 11px;border-radius:5px;font-family:var(--mn);font-size:9px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.1);color:rgba(0,212,255,0.6)}
-.scen-code-wrap{background:#080810;border:1px solid rgba(0,255,136,0.08);border-radius:12px;overflow:hidden;margin-bottom:20px}
-.scen-code-head{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015)}
-.scen-code-head .dd{width:8px;height:8px;border-radius:50%}
-.scen-code-head .dd.r{background:#ff5f57}.scen-code-head .dd.y{background:#febc2e}.scen-code-head .dd.g{background:#28c840}
-.scen-code-file{font-family:var(--mn);font-size:10px;color:var(--dm);margin-left:6px}
-.scen-code{padding:18px 20px;font-family:var(--mn);font-size:11px;line-height:1.8;overflow-x:auto;color:rgba(255,255,255,0.55);white-space:pre}
-.scen-code .kw{color:var(--p)}.scen-code .fn{color:var(--c)}.scen-code .str{color:var(--g)}.scen-code .cm{color:rgba(255,255,255,0.2)}.scen-code .num{color:var(--o)}
-.scen-chart-wrap{background:var(--sf);border:1px solid rgba(0,255,136,0.06);border-radius:12px;padding:20px;margin-bottom:20px;max-height:320px}
-.scen-chart-wrap canvas{max-height:260px}
-.scen-finding{padding:18px 20px;background:rgba(255,107,53,0.03);border:1px solid rgba(255,107,53,0.1);border-left:3px solid var(--o);border-radius:0 10px 10px 0;margin-bottom:16px}
-.scen-finding-label{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:var(--o);margin-bottom:6px;opacity:.7}
-.scen-finding-text{font-family:var(--bd);font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6}
-.scen-rec{padding:18px 20px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.08);border-left:3px solid var(--g);border-radius:0 10px 10px 0;margin-bottom:16px}
-.scen-rec-label{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:var(--g);margin-bottom:6px;opacity:.7}
-.scen-rec-text{font-family:var(--bd);font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6}
-.scen-divider{display:flex;align-items:center;gap:12px;margin:20px 0}
-.scen-divider::before,.scen-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.04)}
-.scen-divider span{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.15)}
-@media(max-width:700px){.scen-grid{grid-template-columns:repeat(2,1fr)}.scen-grid .scen-card:last-child{grid-column:span 2}}
-
-/* =========================
-   UPGRADE LAYER / 2026
-   ========================= */
-#nc{opacity:.88}
-.rv{opacity:1;transform:none;will-change:transform,opacity}
-.scen-card{transform-style:preserve-3d;will-change:transform;backface-visibility:hidden}
-.scen-card .scen-ico,.scen-card .scen-nm{transform:translateZ(16px)}
-.sound-toggle{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;border:1px solid rgba(0,255,136,0.14);background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.55);font-family:var(--mn);font-size:10px;letter-spacing:1px;cursor:pointer;transition:all .3s}
-.sound-toggle:hover{border-color:rgba(0,255,136,0.28);color:var(--g);transform:translateY(-1px)}
-.sound-toggle.active{background:rgba(0,255,136,0.08);color:var(--g);box-shadow:0 0 22px rgba(0,255,136,0.08)}
-.sound-toggle .sound-pill{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.22);transition:all .3s}
-.sound-toggle.active .sound-pill{background:var(--g);box-shadow:0 0 10px rgba(0,255,136,0.45)}
-.nav-s{gap:10px}
-.nav-s .cmd-trigger{display:inline-flex;align-items:center;justify-content:center;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.42);cursor:pointer;transition:all .25s}
-.nav-s .cmd-trigger:hover{color:var(--g);border-color:rgba(0,255,136,0.16)}
-.tangle-line,.frag-node,.flow-connector-line,.flow-data-dot{animation:none !important}
-.clean-flow{position:relative;overflow:visible;padding-left:0}
-.flow-spine{position:absolute;left:5px;top:8px;bottom:8px;width:2px;border-radius:999px;background:linear-gradient(180deg,rgba(0,255,136,0.12),rgba(0,212,255,0.16),rgba(199,125,255,0.08));box-shadow:0 0 16px rgba(0,255,136,0.05);pointer-events:none}
-.flow-particle{position:absolute;left:2px;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff, var(--g) 45%, rgba(0,255,136,0.4) 60%, transparent 75%);filter:drop-shadow(0 0 10px rgba(0,255,136,0.55));pointer-events:none;z-index:4;opacity:.9}
-.flow-stage{transform-origin:left center}
-.flow-stage .flow-label{transition:color .3s ease, opacity .3s ease}
-.flow-stage.is-live .flow-label{color:rgba(255,255,255,0.88)}
-.flow-stage.is-live .flow-label strong{color:#fff}
-.arch-pane.machine{box-shadow:inset 0 0 60px rgba(0,255,136,0.025)}
-.anomaly-term{position:relative;isolation:isolate;box-shadow:0 20px 60px rgba(0,0,0,0.3), inset 0 0 50px rgba(0,255,136,0.02)}
-.anomaly-term::before{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,0.045) 0,rgba(255,255,255,0.045) 1px,transparent 1px,transparent 3px);mix-blend-mode:soft-light;opacity:.18;animation:scanDrift 7s linear infinite;z-index:2}
-.anomaly-term::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,transparent 52%,rgba(0,0,0,0.35) 100%);z-index:2}
-@keyframes scanDrift{from{transform:translateY(-8px)}to{transform:translateY(8px)}}
-.term-body,.term-title{position:relative;z-index:1}
-.term-body{min-height:250px;text-shadow:-0.4px 0 rgba(255,0,70,0.18),0.4px 0 rgba(0,212,255,0.18),0 0 8px rgba(0,255,136,0.08)}
-.term-line{opacity:1}
-.term-alert,.term-ok{backdrop-filter:blur(3px)}
-.scen-chart-wrap{padding:16px}
-.scen-chart{width:100%;height:280px}
-.viz-surface{width:100%;height:100%;min-height:160px}
-.scen-viz-grid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:16px;align-items:stretch;margin-bottom:20px}
-.telemetry{background:linear-gradient(180deg,rgba(0,0,0,0.32),rgba(255,255,255,0.02));border:1px solid rgba(0,255,136,0.08);border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px}
-.telemetry-head{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:rgba(0,255,136,0.45);margin-bottom:12px}
-.telemetry-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
-.telemetry-row:last-child{border-bottom:none}
-.telemetry-key{font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.38)}
-.telemetry-val{font-family:var(--mn);font-size:11px;color:#fff;text-align:right}
-.telemetry-foot{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.04);font-family:var(--mn);font-size:10px;color:rgba(0,212,255,0.6)}
-.chart-shell{background:var(--sf);border:1px solid rgba(0,255,136,0.06);border-radius:12px;padding:10px}
-.case-chart,.proj-chart{position:relative}
-.case-chart .viz-surface,.proj-chart .viz-surface{height:100%}
-.d3-force text{font-family:var(--mn)}
-@media(max-width:900px){
-  .scen-viz-grid{grid-template-columns:1fr}
-  .telemetry{min-height:unset}
-}
-@media(max-width:700px){
-  .sound-toggle .sound-label{display:none}
-  .nav-s{gap:6px}
-}
-
 </style>
 </head>
 <body>
 <a href="#demo" class="skip-nav">Skip to main content</a>
 <div class="scroll-progress" id="scrollProg" aria-hidden="true"></div>
-<canvas id="nc" aria-hidden="true"></canvas>
+
+<div id="canvas-container"></div>
 <div class="grid-bg" aria-hidden="true"></div>
 <div class="glow a" aria-hidden="true"></div>
 <div class="glow b" aria-hidden="true"></div>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">^</button>
 
-<!-- Command Palette -->
 <div class="cmd-overlay" id="cmdOverlay" onclick="if(event.target===this)closeCmd()">
   <div class="cmd-box">
     <input class="cmd-input" id="cmdInput" placeholder="Search sections, projects, skills..." autocomplete="off">
@@ -550,10 +455,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="nav-s"><div class="dot"></div> Open to full-time<button class="sound-toggle" id="soundToggle" type="button" onclick="toggleSound()" aria-pressed="false"><span class="sound-pill"></span><span class="sound-label">Sound:</span><span id="soundStatus">Off</span></button><span class="cmd-trigger" onclick="openCmd()" title="Quick navigation (Ctrl+K)">Ctrl+K</span></div>
+  <div class="nav-s" id="soundToggle" onclick="toggleSound()" title="Enable audio for terminal and data processing effects">
+    <div class="dot"></div> <span id="soundToggleText">Sound: Off</span>
+  </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-text">
@@ -568,28 +474,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         I'm finishing my <span class="hl">MS in Business Analytics at Baruch</span> (Zicklin) and looking for a team where the data actually changes something.
       </p>
       <div class="counters">
-        <div class="counter rv"><div class="num" data-target="55" data-suffix="%">0</div><div class="ctx">faster reporting</div></div>
-        <div class="counter rv d1"><div class="num" data-target="26" data-suffix="">0</div><div class="ctx">institutions served</div></div>
-        <div class="counter rv d2"><div class="num" data-target="37" data-suffix="%">0</div><div class="ctx">accuracy gain</div></div>
-        <div class="counter rv d3"><div class="num" data-target="15" data-suffix="+">0</div><div class="ctx">KPI dashboards</div></div>
+        <div class="counter"><div class="num" data-target="55" data-suffix="%">0</div><div class="ctx">faster reporting</div></div>
+        <div class="counter"><div class="num" data-target="26" data-suffix="">0</div><div class="ctx">institutions served</div></div>
+        <div class="counter"><div class="num" data-target="37" data-suffix="%">0</div><div class="ctx">accuracy gain</div></div>
+        <div class="counter"><div class="num" data-target="15" data-suffix="+">0</div><div class="ctx">KPI dashboards</div></div>
       </div>
       <div class="hero-cta">
         <a href="#demo" class="btn btn-primary">Watch me solve a real business problem</a>
         <a href="./Yash_Saini_Resume.pdf" class="btn btn-ghost" download>Resume PDF</a>
       </div>
     </div>
-    <div class="hero-photo rv"><img src="./photo.png" alt="Yash Saini, Data Analyst and BI Engineer based in New York City" loading="lazy" /></div>
+    <div class="hero-photo"><img src="./photo.png" alt="Yash Saini, Data Analyst and BI Engineer based in New York City" loading="lazy" /></div>
   </div>
 </section>
 
-<!-- SOLVE IT LIVE -->
 <section class="demo-s" id="demo">
-  <div class="lbl rv">// solve_it_live</div>
-  <div class="stl rv">Pick a Business Problem. Watch Me Solve It.</div>
-  <div class="ssub rv">These aren't hypothetical. These are real problems I've solved across analytics, operations, and engineering roles. Click a scenario and watch the full analytical workflow: the question, the query, the chart, the recommendation.</div>
+  <div class="lbl">// solve_it_live</div>
+  <div class="stl">Pick a Business Problem. Watch Me Solve It.</div>
+  <div class="ssub">These aren't hypothetical. These simulate live BigQuery extraction processes. Click a scenario and watch the analytical workflow.</div>
 
-  <!-- SCENARIO SELECTOR -->
-  <div class="scen-grid rv" id="scenGrid">
+  <div class="scen-grid" id="scenGrid">
     <div class="scen-card" onclick="runScenario(0)"><span class="scen-ico">📉</span><div class="scen-nm">Customer Churn Analysis</div></div>
     <div class="scen-card" onclick="runScenario(1)"><span class="scen-ico">💰</span><div class="scen-nm">Revenue Drop Diagnosis</div></div>
     <div class="scen-card" onclick="runScenario(2)"><span class="scen-ico">⚙️</span><div class="scen-nm">Reporting Automation</div></div>
@@ -597,8 +501,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     <div class="scen-card" onclick="runScenario(4)"><span class="scen-ico">🎫</span><div class="scen-nm">Support Optimization</div></div>
   </div>
 
-  <!-- SCENARIO OUTPUT -->
-  <div class="demo-box rv" id="scenBox" style="display:none">
+  <div class="demo-box" id="scenBox" style="display:none">
     <div class="demo-h"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div class="demo-t" id="scenFile">analysis.sql</div></div>
     <div class="demo-bd">
       <div class="pbar"><div class="fill" id="scenPbar"></div></div>
@@ -615,17 +518,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </section>
 
 
-<!-- ================================================================
-     CUNY SYSTEM ARCHITECTURE - THE CROWN JEWEL
-     ================================================================ -->
 <section class="cuny-s" id="cuny-architecture">
-  <div class="lbl rv">// system_architecture</div>
-  <div class="stl rv">Engineering Impact: The 26-Institution Overhaul</div>
-  <div class="cuny-tag rv">Research Foundation of CUNY / Data Specialist / GCP + BigQuery + Python</div>
+  <div class="lbl">// system_architecture</div>
+  <div class="stl">Engineering Impact: The 26-Institution Overhaul</div>
+  <div class="cuny-tag">Research Foundation of CUNY / Data Specialist / GCP + BigQuery + Python</div>
 
-  <!-- VISUAL 1: MESS vs MACHINE -->
-  <div class="arch-split rv">
-    <!-- LEFT: The Mess -->
+  <div class="arch-split">
     <div class="arch-pane mess">
       <svg class="tangle-svg" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
         <path class="tangle-line" d="M30,20 Q80,90 150,50 T270,80" style="animation-delay:0s"/>
@@ -662,7 +560,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       </svg>
     </div>
 
-    <!-- RIGHT: The Machine -->
     <div class="arch-pane machine">
       <div class="arch-pane-label"><span class="pane-badge">After</span> Unified GCP Reporting Layer</div>
       <div class="clean-flow">
@@ -694,22 +591,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
     </div>
   </div>
 
-  <!-- VISUAL 2: ANOMALY CATCH TERMINAL -->
-  <div class="anomaly-term rv">
+  <div class="anomaly-term">
     <div class="term-header">
       <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
       <div class="term-title">validation_pipeline.py - CUNY Data Integrity Audit</div>
     </div>
     <div class="term-body" id="anomalyTerm">
-      <!-- Lines injected by JS with staggered animation -->
-    </div>
+      </div>
   </div>
 
-  <!-- VISUAL 3: SCALE & IMPACT GRID -->
-  <div class="impact-grid-wrap rv">
+  <div class="impact-grid-wrap">
     <div class="nodes-field" id="nodesField">
-      <!-- 26 institution nodes injected by JS -->
-    </div>
+      </div>
     <div style="text-align:center;margin-bottom:24px;font-family:var(--mn);font-size:9px;letter-spacing:2px;color:rgba(0,255,136,0.3)">26 CUNY INSTITUTIONS / HOVER TO IDENTIFY / UNIFIED DATA LAYER</div>
     <div class="impact-metrics">
       <div class="impact-metric">
@@ -738,13 +631,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- FEATURED CASE STUDY -->
 <section class="case-s" id="case">
-  <div class="lbl rv">// featured_case_study</div>
-  <div class="stl rv">MTA Turnstile Data Engineering</div>
-  <div class="ssub rv">The full story of how I turned millions of messy transit records into a queryable, automated analytics system on Google Cloud.</div>
+  <div class="lbl">// featured_case_study</div>
+  <div class="stl">MTA Turnstile Data Engineering</div>
+  <div class="ssub">The full story of how I turned millions of messy transit records into a queryable, automated analytics system on Google Cloud.</div>
 
-  <div class="case-box rv">
+  <div class="case-box">
     <div class="case-hdr">
       <div class="case-ttl">From Raw MTA Files to Real-Time Transit Intelligence</div>
       <div class="case-badge">END-TO-END PROJECT</div>
@@ -809,21 +701,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         <div class="case-num">5</div>
         <div>
           <div class="cs-lbl">Impact & Insights</div>
-          <div class="cs-txt">What used to take hours of manual Excel work now runs <strong>automatically in under 5 seconds</strong>. The pipeline processes millions of records end-to-end without intervention. Ridership patterns became instantly queryable: peak hours, seasonal trends, station comparisons, all accessible through simple SQL against a clean warehouse. The project demonstrates the full data engineering lifecycle: ingestion, streaming, warehousing, transformation, orchestration, and analytics.</div>
-          <div class="case-chart"><div id="mtaChart" class="viz-surface" aria-label="MTA chart"></div></div>
+          <div class="cs-txt">What used to take hours of manual Excel work now runs <strong>automatically in under 5 seconds</strong>. The pipeline processes millions of records end-to-end without intervention. Ridership patterns became instantly queryable: peak hours, seasonal trends, station comparisons, all accessible through simple SQL against a clean warehouse.</div>
+          <div class="case-chart" id="mtaChart"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MTA RIDERSHIP EXPLORER -->
 <section class="explore-s" id="explorer">
-  <div class="lbl rv">// interactive_data_explorer</div>
-  <div class="stl rv">NYC Subway Ridership Explorer</div>
-  <div class="ssub rv">Pick a station and day of week. Explore ridership patterns across all 24 hours. This is live data visualization built from the MTA pipeline above.</div>
+  <div class="lbl">// interactive_data_explorer</div>
+  <div class="stl">NYC Subway Ridership Explorer</div>
+  <div class="ssub">Pick a station and day of week. Explore ridership patterns across all 24 hours. This is live data visualization built from the MTA pipeline above.</div>
 
-  <div class="explore-box rv">
+  <div class="explore-box">
     <div class="explore-hdr">
       <div class="explore-ttl">Ridership Heatmap</div>
       <div class="explore-badge">INTERACTIVE DEMO</div>
@@ -857,13 +748,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="proj-s" id="projects">
-  <div class="lbl rv">// selected_work</div>
-  <div class="stl rv">Projects That Prove It</div>
-  <div class="ssub rv">Click any project to see findings, interactive charts, and results explained for anyone to follow.</div>
+  <div class="lbl">// selected_work</div>
+  <div class="stl">Projects That Prove It</div>
+  <div class="ssub">Click any project to see findings, interactive charts, and results explained for anyone to follow.</div>
   <div class="pgrid">
-    <div class="pc rv" onclick="togP(this)">
+    <div class="pc" onclick="togP(this)">
       <div class="pc-sum"><div class="ico">📊</div><div class="nm">Customer Churn Prediction</div><div class="ds">Built a model that flags customers about to cancel with 84% accuracy. Connected it to a live dashboard so retention teams can act the same day, not the same quarter.</div><div class="pt"><span>Python</span><span>Scikit-learn</span><span>SQL</span><span>Power BI</span></div><div class="ch">Click for findings & charts</div></div>
       <div class="pc-det"><div class="det-in">
         <div class="det-lbl gr">// in plain english</div>
@@ -875,12 +765,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
           <div class="find"><div class="find-i">⏱️</div><div class="find-t"><strong>62% of all churn</strong> happens within the first 6 months</div></div>
           <div class="find"><div class="find-i">💰</div><div class="find-t">Estimated <strong>$140K annual savings</strong> if retention team acts on predictions</div></div>
         </div>
-        <div class="det-lbl or">// feature importance</div>
-        <div class="proj-chart"><div id="churnChart" class="viz-surface" aria-label="Customer churn force graph"></div></div>
+        <div class="det-lbl or">// feature importance (D3.js Force Simulation)</div>
+        <div class="proj-chart" id="churnChartContainer"></div>
         <a href="https://github.com/yashxsainix/Customer_Churn_Analysis" target="_blank" class="gh-l">View code on GitHub</a>
       </div></div>
     </div>
-    <div class="pc rv d1" onclick="togP(this)">
+    <div class="pc" onclick="togP(this)">
       <div class="pc-sum"><div class="ico">🏙️</div><div class="nm">NYC Housing Equity Analysis</div><div class="ds">Used data from 4 city agencies to test whether low-income neighborhoods get slower responses to housing complaints. The answer: yes, measurably and consistently.</div><div class="pt"><span>R</span><span>Quarto</span><span>Random Forest</span><span>Spatial Joins</span></div><div class="ch">Click for findings & charts</div></div>
       <div class="pc-det"><div class="det-in">
         <div class="det-lbl gr">// in plain english</div>
@@ -893,11 +783,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
           <div class="find"><div class="find-i">🔬</div><div class="find-t">Pattern is <strong>statistically significant</strong> even after adjusting for complaint type and volume</div></div>
         </div>
         <div class="det-lbl or">// income vs resolution time</div>
-        <div class="proj-chart"><div id="housingChart" class="viz-surface" aria-label="Housing chart"></div></div>
+        <div class="proj-chart" id="housingChartContainer"></div>
         <a href="https://github.com/yashxsainix/STA9750-2025-FALL" target="_blank" class="gh-l">View code on GitHub</a>
       </div></div>
     </div>
-    <div class="pc rv d2" onclick="togP(this)">
+    <div class="pc" onclick="togP(this)">
       <div class="pc-sum"><div class="ico">🛒</div><div class="nm">Retail Analytics Pipeline</div><div class="ds">Took chaotic Excel sales data and turned it into a clean, queryable database with interactive dashboards. The full journey from raw mess to business insight.</div><div class="pt"><span>Python</span><span>SQL</span><span>SQLite</span><span>Power BI</span></div><div class="ch">Click for findings & charts</div></div>
       <div class="pc-det"><div class="det-in">
         <div class="det-lbl gr">// in plain english</div>
@@ -909,19 +799,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
           <div class="find"><div class="find-i">📈</div><div class="find-t"><strong>Interactive Power BI dashboard</strong> tracking sales trends, top products, and customer segments</div></div>
         </div>
         <div class="det-lbl or">// monthly revenue trend</div>
-        <div class="proj-chart"><div id="retailChart" class="viz-surface" aria-label="Retail chart"></div></div>
+        <div class="proj-chart" id="retailChartContainer"></div>
         <a href="https://github.com/yashxsainix/Online-Retail-Data-Analytics-Project-with-Python-SQL-and-Power-BI" target="_blank" class="gh-l">View code on GitHub</a>
       </div></div>
     </div>
   </div>
 </section>
 
-<!-- HOW I APPROACH DATA PROBLEMS -->
 <section class="meth-s" id="method">
-  <div class="lbl rv">// methodology</div>
-  <div class="stl rv">How I Approach Data Problems</div>
-  <div class="ssub rv">Every project follows the same discipline. The tools change, the thinking doesn't.</div>
-  <div class="meth-grid rv">
+  <div class="lbl">// methodology</div>
+  <div class="stl">How I Approach Data Problems</div>
+  <div class="ssub">Every project follows the same discipline. The tools change, the thinking doesn't.</div>
+  <div class="meth-grid">
     <div class="meth-step"><div class="meth-icon">🎯</div><div class="meth-num">01</div><div class="meth-name">Understand the Decision</div><div class="meth-desc">What action will this analysis inform? Who needs it, and when? I start with the business question, not the data.</div></div>
     <div class="meth-step"><div class="meth-icon">🔍</div><div class="meth-num">02</div><div class="meth-name">Investigate the Sources</div><div class="meth-desc">Map every data source end-to-end. Where does it break? What's missing? What's inconsistent? This step saves weeks later.</div></div>
     <div class="meth-step"><div class="meth-icon">🔧</div><div class="meth-num">03</div><div class="meth-name">Build Reproducible Pipelines</div><div class="meth-desc">No one-off scripts. Automated, validated, version-controlled pipelines that run without me babysitting them.</div></div>
@@ -930,63 +819,59 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section class="exp-s" id="experience">
-  <div class="lbl rv">// where_ive_built</div>
-  <div class="stl rv">Work Experience</div>
-  <div class="exp-card current rv">
+  <div class="lbl">// where_ive_built</div>
+  <div class="stl">Work Experience</div>
+  <div class="exp-card current">
     <div class="exp-top"><div><div class="exp-role">Data Specialist Intern</div><div class="exp-co">Research Foundation of CUNY, New York</div></div><div class="exp-date">Aug 2025 - Present</div></div>
     <div class="exp-impact"><div class="exp-metric"><span class="mv">55%</span><span class="ml">faster reporting</span></div><div class="exp-metric"><span class="mv">37%</span><span class="ml">accuracy gain</span></div><div class="exp-metric"><span class="mv">26</span><span class="ml">institutions</span></div><div class="exp-metric"><span class="mv">7+</span><span class="ml">sources unified</span></div></div>
     <div class="exp-desc">Built the SQL and BigQuery pipelines that consolidated fragmented reporting across all 26 CUNY institutions. Designed validation frameworks that caught data integrity issues two cycles before a major deadline. Automated ETL that gave operations teams self-serve dashboards for the first time.</div>
   </div>
-  <div class="exp-card rv d1">
+  <div class="exp-card">
     <div class="exp-top"><div><div class="exp-role">Founder & Growth Analyst</div><div class="exp-co">Gharstuff, E-commerce</div></div><div class="exp-date">Feb 2020 - Present</div></div>
     <div class="exp-impact"><div class="exp-metric"><span class="mv">65%</span><span class="ml">reach growth</span></div><div class="exp-metric"><span class="mv">55%</span><span class="ml">signups up</span></div><div class="exp-metric"><span class="mv">45%</span><span class="ml">conversion lift</span></div></div>
     <div class="exp-desc">Built a category-based e-commerce platform from zero and ran it as a one-person data operation. Designed customer acquisition cohorts to track which referral channels produced repeat buyers vs. one-time visitors. A/B tested every paid and organic campaign, iterating weekly on messaging based on behavioral data. Built referral funnel analytics that identified drop-off points, then restructured the flow to increase sign-ups 55%. Improved conversion rates 45% through audience segmentation. Every decision was tied to a number because there was no budget for guessing.</div>
   </div>
-  <div class="exp-card rv d3">
+  <div class="exp-card">
     <div class="exp-top"><div><div class="exp-role">Data Analyst</div><div class="exp-co">i3 Infosoft Pvt. Ltd., Noida, India</div></div><div class="exp-date">Sep 2022 - Jul 2024</div></div>
     <div class="exp-impact"><div class="exp-metric"><span class="mv">1M+</span><span class="ml">CRM records</span></div><div class="exp-metric"><span class="mv">18%</span><span class="ml">engagement lift</span></div><div class="exp-metric"><span class="mv">20%</span><span class="ml">forecast accuracy</span></div><div class="exp-metric"><span class="mv">15+</span><span class="ml">KPI dashboards</span></div></div>
     <div class="exp-desc">Ran A/B experiments and built Python segmentation models across the entire CRM. The 18% engagement lift became the basis for the next quarter's channel strategy. Replaced manual reporting with automated SQL pipelines. Built time-series forecasting that improved inventory planning by 20%.</div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="sk-s" id="skills">
-  <div class="lbl rv">// how_i_work</div>
-  <div class="stl rv">Skills, With Receipts</div>
-  <div class="ssub rv">No percentages. Here's what I've actually shipped with each tool.</div>
+  <div class="lbl">// how_i_work</div>
+  <div class="stl">Skills, With Receipts</div>
+  <div class="ssub">No percentages. Here's what I've actually shipped with each tool.</div>
   <div class="sk-grid">
-    <div class="sk-card rv"><div class="sk-name">SQL & BigQuery</div><div class="sk-proof">Built pipelines serving <strong>26 institutions</strong>. Migrated 7+ fragmented sources into normalized structures. Cut query runtimes 25%.</div></div>
-    <div class="sk-card rv d1"><div class="sk-name">Python</div><div class="sk-proof">Segmented <strong>1M+ CRM records</strong>. Built time-series forecasting. Automated ETL replacing hours of manual work.</div></div>
-    <div class="sk-card rv d2"><div class="sk-name">Power BI & Tableau</div><div class="sk-proof">Designed dashboards tracking <strong>15+ KPIs</strong> that moved ops from weekly reports to same-day visibility.</div></div>
-    <div class="sk-card rv d3"><div class="sk-name">GCP & Cloud</div><div class="sk-proof">Deployed unified reporting layer on <strong>Google Cloud</strong>. Built BigQuery warehouse for MTA analytics.</div></div>
-    <div class="sk-card rv d1"><div class="sk-name">R Programming</div><div class="sk-proof">Spatial analysis across <strong>100K+ NYC records</strong> from 4 public APIs. Random Forest with R-squared 0.54.</div></div>
-    <div class="sk-card rv d2"><div class="sk-name">A/B Testing</div><div class="sk-proof">Designed experiments producing <strong>18% engagement lift</strong>. Ran campaign optimization across organic and paid.</div></div>
-    <div class="sk-card rv d3"><div class="sk-name">ETL & dbt</div><div class="sk-proof">Orchestrated pipelines with <strong>Prefect and dbt</strong>. Kafka streaming for real-time ingestion.</div></div>
-    <div class="sk-card rv d4"><div class="sk-name">Data Governance</div><div class="sk-proof">Built <strong>validation frameworks</strong> catching integrity issues before deadlines. Standardized metrics across 26 institutions.</div></div>
+    <div class="sk-card"><div class="sk-name">SQL & BigQuery</div><div class="sk-proof">Built pipelines serving <strong>26 institutions</strong>. Migrated 7+ fragmented sources into normalized structures. Cut query runtimes 25%.</div></div>
+    <div class="sk-card"><div class="sk-name">Python</div><div class="sk-proof">Segmented <strong>1M+ CRM records</strong>. Built time-series forecasting. Automated ETL replacing hours of manual work.</div></div>
+    <div class="sk-card"><div class="sk-name">Power BI & Tableau</div><div class="sk-proof">Designed dashboards tracking <strong>15+ KPIs</strong> that moved ops from weekly reports to same-day visibility.</div></div>
+    <div class="sk-card"><div class="sk-name">GCP & Cloud</div><div class="sk-proof">Deployed unified reporting layer on <strong>Google Cloud</strong>. Built BigQuery warehouse for MTA analytics.</div></div>
+    <div class="sk-card"><div class="sk-name">R Programming</div><div class="sk-proof">Spatial analysis across <strong>100K+ NYC records</strong> from 4 public APIs. Random Forest with R-squared 0.54.</div></div>
+    <div class="sk-card"><div class="sk-name">A/B Testing</div><div class="sk-proof">Designed experiments producing <strong>18% engagement lift</strong>. Ran campaign optimization across organic and paid.</div></div>
+    <div class="sk-card"><div class="sk-name">ETL & dbt</div><div class="sk-proof">Orchestrated pipelines with <strong>Prefect and dbt</strong>. Kafka streaming for real-time ingestion.</div></div>
+    <div class="sk-card"><div class="sk-name">Data Governance</div><div class="sk-proof">Built <strong>validation frameworks</strong> catching integrity issues before deadlines. Standardized metrics across 26 institutions.</div></div>
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section class="edu-s" id="education">
-  <div class="lbl rv">// education</div>
-  <div class="stl rv">Where I Studied</div>
-  <div class="edu-main rv">
+  <div class="lbl">// education</div>
+  <div class="stl">Where I Studied</div>
+  <div class="edu-main">
     <div class="edu-badge">PLINER BLOOM SCHOLAR</div>
     <div class="edu-sch">Baruch College, Zicklin School of Business</div>
     <div class="edu-deg">M.S. in Business Analytics - Expected May 2026</div>
     <div class="edu-det">GPA 3.6/4.0. The Pliner Bloom Scholarship is awarded to select graduate students for academic merit. Coursework includes Data Mining, Database Management, Applied NLP, Statistical Modeling, and R Programming.</div>
   </div>
-  <div class="edu-sm rv d1"><div class="edu-sch">Amity University</div><div class="edu-deg">M.Com in Marketing, 2020-2022</div></div>
-  <div class="edu-sm rv d2"><div class="edu-sch">Kurukshetra University</div><div class="edu-deg">B.Com, 2016-2019</div></div>
+  <div class="edu-sm"><div class="edu-sch">Amity University</div><div class="edu-deg">M.Com in Marketing, 2020-2022</div></div>
+  <div class="edu-sm"><div class="edu-sch">Kurukshetra University</div><div class="edu-deg">B.Com, 2016-2019</div></div>
 </section>
 
-<!-- CURRENTLY EXPLORING -->
 <section class="now-s" id="now">
-  <div class="lbl rv">// currently_exploring</div>
-  <div class="stl rv">What I'm Building & Learning Right Now</div>
-  <div class="now-grid rv">
+  <div class="lbl">// currently_exploring</div>
+  <div class="stl">What I'm Building & Learning Right Now</div>
+  <div class="now-grid">
     <div class="now-item"><div class="now-dot"></div> dbt testing frameworks for data quality at scale</div>
     <div class="now-item"><div class="now-dot"></div> Airflow orchestration for production ML pipelines</div>
     <div class="now-item"><div class="now-dot"></div> Streaming analytics with Kafka + Flink</div>
@@ -996,13 +881,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="ct-s" id="contact">
-  <div class="lbl rv">// let's_talk</div>
-  <h2 class="rv">I'd rather show you than tell you.</h2>
-  <p class="ct-p rv">Open to <strong style="color:var(--g)">Data Analyst, BI Analyst, and Analytics Engineer</strong> roles beginning May 2026. If you've scrolled this far, you already know how I think, what I build, and what I care about. Let's talk about what I can do for your team.</p>
-  <div class="ct-avail rv">Graduating Baruch College MSBA, May 2026 | Based in New York City</div>
-  <div class="cls rv">
+  <div class="lbl">// let's_talk</div>
+  <h2>I'd rather show you than tell you.</h2>
+  <p class="ct-p">Open to <strong style="color:var(--g)">Data Analyst, BI Analyst, and Analytics Engineer</strong> roles beginning May 2026. If you've scrolled this far, you already know how I think, what I build, and what I care about. Let's talk about what I can do for your team.</p>
+  <div class="ct-avail">Graduating Baruch College MSBA, May 2026 | Based in New York City</div>
+  <div class="cls">
     <a href="mailto:yashsaini30668@gmail.com" class="cl">Email</a>
     <a href="https://github.com/yashxsainix" class="cl" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/yash-saini-analyst/" class="cl" target="_blank">LinkedIn</a>
@@ -1013,1100 +897,571 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="footer" role="contentinfo">If you've read this far, let's have a conversation about how I can help your organization turn data into decisions.<br><br>BUILT FROM SCRATCH. DEPLOYED WITH CONFIDENCE.<br><span style="opacity:0.5">Last updated: March 2026</span></div>
 
 <script>
+// ======== THREE.JS BACKGROUND (Phase 4) ========
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-(() => {
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-  }
-
-  const $ = (sel, root=document) => root.querySelector(sel);
-  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-  // -----------------------------
-  // Web Audio / subtle soundscape
-  // -----------------------------
-  const Sound = {
-    enabled: false,
-    ctx: null,
-    ensure() {
-      if (!this.ctx) {
-        const Ctx = window.AudioContext || window.webkitAudioContext;
-        if (!Ctx) return null;
-        this.ctx = new Ctx();
-      }
-      if (this.ctx.state === 'suspended') this.ctx.resume();
-      return this.ctx;
-    },
-    noiseBuffer() {
-      const ctx = this.ensure();
-      if (!ctx) return null;
-      const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.08, ctx.sampleRate);
-      const data = buffer.getChannelData(0);
-      for (let i = 0; i < data.length; i++) {
-        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 2);
-      }
-      return buffer;
-    },
-    keyClick() {
-      if (!this.enabled) return;
-      const ctx = this.ensure();
-      if (!ctx) return;
-      const src = ctx.createBufferSource();
-      const filter = ctx.createBiquadFilter();
-      const gain = ctx.createGain();
-      src.buffer = this.noiseBuffer();
-      filter.type = 'bandpass';
-      filter.frequency.value = 1800 + Math.random() * 600;
-      filter.Q.value = 1.8;
-      gain.gain.value = 0.0001;
-      src.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-      const t = ctx.currentTime;
-      gain.gain.exponentialRampToValueAtTime(0.008, t + 0.003);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.055);
-      src.start(t);
-      src.stop(t + 0.06);
-    },
-    processingPulse() {
-      if (!this.enabled) return;
-      const ctx = this.ensure();
-      if (!ctx) return;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      const filter = ctx.createBiquadFilter();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(54, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(92, ctx.currentTime + 0.24);
-      filter.type = 'lowpass';
-      filter.frequency.value = 280;
-      gain.gain.value = 0.0001;
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-      const t = ctx.currentTime;
-      gain.gain.exponentialRampToValueAtTime(0.02, t + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.42);
-      osc.start(t);
-      osc.stop(t + 0.45);
-    }
-  };
-
-  function syncSoundUi() {
-    const btn = $('#soundToggle');
-    if (!btn) return;
-    btn.classList.toggle('active', Sound.enabled);
-    const status = $('#soundStatus');
-    if (status) status.textContent = Sound.enabled ? 'On' : 'Off';
-    btn.setAttribute('aria-pressed', String(Sound.enabled));
-  }
-
-  window.toggleSound = async function toggleSound() {
-    Sound.enabled = !Sound.enabled;
-    if (Sound.enabled) Sound.ensure();
-    syncSoundUi();
-  };
-
-  // -----------------------------
-  // Three.js background
-  // -----------------------------
-  function initThreeBackground() {
-    const canvas = document.getElementById('nc');
-    if (!canvas || !window.THREE) return;
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-    renderer.setSize(window.innerWidth, window.innerHeight, false);
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0, 6.4);
-
-    const globeGroup = new THREE.Group();
-    scene.add(globeGroup);
-
-    const pointsCount = 1300;
-    const globePositions = new Float32Array(pointsCount * 3);
-    for (let i = 0; i < pointsCount; i++) {
-      const r = 2.1;
-      const u = Math.random();
-      const v = Math.random();
-      const theta = 2 * Math.PI * u;
-      const phi = Math.acos(2 * v - 1);
-      globePositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      globePositions[i * 3 + 1] = r * Math.cos(phi);
-      globePositions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
-    }
-    const globeGeom = new THREE.BufferGeometry();
-    globeGeom.setAttribute('position', new THREE.BufferAttribute(globePositions, 3));
-    const globeMat = new THREE.PointsMaterial({
-      size: 0.03,
-      transparent: true,
-      opacity: 0.72,
-      color: 0x5ce6ff
-    });
-    const globe = new THREE.Points(globeGeom, globeMat);
-    globeGroup.add(globe);
-
-    const orbitGeom = new THREE.TorusGeometry(2.35, 0.006, 8, 120);
-    const orbitMat = new THREE.MeshBasicMaterial({ color: 0x00ff88, transparent: true, opacity: 0.14 });
-    const orbit = new THREE.Mesh(orbitGeom, orbitMat);
-    orbit.rotation.x = Math.PI / 2.4;
-    globeGroup.add(orbit);
-
-    const starCount = 250;
-    const fieldPositions = new Float32Array(starCount * 3);
-    for (let i = 0; i < starCount; i++) {
-      fieldPositions[i * 3] = (Math.random() - 0.5) * 18;
-      fieldPositions[i * 3 + 1] = (Math.random() - 0.5) * 12;
-      fieldPositions[i * 3 + 2] = (Math.random() - 0.5) * 14 - 2;
-    }
-    const fieldGeom = new THREE.BufferGeometry();
-    fieldGeom.setAttribute('position', new THREE.BufferAttribute(fieldPositions, 3));
-    const fieldMat = new THREE.PointsMaterial({ size: 0.016, color: 0x00ff88, transparent: true, opacity: 0.18 });
-    const field = new THREE.Points(fieldGeom, fieldMat);
-    scene.add(field);
-
-    const mouse = { x: 0, y: 0 };
-    let scrollDepth = 0;
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
-      mouse.y = (e.clientY / window.innerHeight - 0.5) * 2;
-    }, { passive: true });
-    window.addEventListener('scroll', () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      scrollDepth = max > 0 ? window.scrollY / max : 0;
-    }, { passive: true });
-
-    const onResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight, false);
-    };
-    window.addEventListener('resize', onResize);
-
-    const tick = () => {
-      const t = performance.now() * 0.00018;
-      globeGroup.rotation.y += 0.0013;
-      globeGroup.rotation.x = Math.sin(t * 1.3) * 0.07 + mouse.y * 0.1;
-      globeGroup.rotation.z = mouse.x * 0.07 + scrollDepth * 0.2;
-      field.rotation.y -= 0.0002;
-      camera.position.x += ((mouse.x * 0.4) - camera.position.x) * 0.04;
-      camera.position.y += ((-mouse.y * 0.28) - camera.position.y) * 0.04;
-      camera.position.z = 6.4 - scrollDepth * 0.8;
-      camera.lookAt(0, 0, 0);
-      renderer.render(scene, camera);
-      requestAnimationFrame(tick);
-    };
-    tick();
-  }
-
-  // -----------------------------
-  // Scroll progress / nav / misc
-  // -----------------------------
-  function initBasicUi() {
-    const scrollProg = document.getElementById('scrollProg');
-    const bttBtn = document.getElementById('btt');
-    const navLinks = $$('.nav-l a');
-    const sections = $$('section[id]');
-    const greetEl = document.getElementById('greeting');
-
-    if (greetEl) {
-      const h = new Date().getHours();
-      const g = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : h < 21 ? 'Good evening' : 'Late night browsing?';
-      greetEl.textContent = g + ' // Welcome to my portfolio';
-    }
-
-    window.addEventListener('scroll', () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollProg) scrollProg.style.width = (max > 0 ? (window.scrollY / max * 100) : 0) + '%';
-      if (bttBtn) bttBtn.classList.toggle('show', window.scrollY > 500);
-      let current = '';
-      const scrollY = window.scrollY + 200;
-      sections.forEach(s => { if (scrollY >= s.offsetTop) current = s.id; });
-      navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === '#' + current ? '#00ff88' : '';
-      });
-    }, { passive: true });
-  }
-
-  // -----------------------------
-  // GSAP reveals + counters
-  // -----------------------------
-  function initRevealSystem() {
-    const countersStarted = new WeakSet();
-
-    const animateCounter = (counterEl) => {
-      if (!counterEl || countersStarted.has(counterEl)) return;
-      countersStarted.add(counterEl);
-      const num = counterEl.querySelector('.num');
-      if (!num) return;
-      const target = Number(num.dataset.target || 0);
-      const suffix = num.dataset.suffix || '';
-      gsap.fromTo(num, { innerText: 0 }, {
-        innerText: target,
-        duration: 1.8,
-        ease: 'power3.out',
-        snap: { innerText: 1 },
-        onUpdate: () => {
-          num.textContent = Math.round(Number(num.innerText)) + suffix;
-        }
-      });
-    };
-
-    if (!window.gsap || !window.ScrollTrigger || reducedMotion) {
-      $$('.rv').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
-      $$('.counter').forEach(animateCounter);
-      $$('.pipe-nd').forEach(n => n.classList.add('lit'));
-      return;
-    }
-
-    gsap.set('.rv', { autoAlpha: 0, y: 28 });
-    ScrollTrigger.batch('.rv', {
-      start: 'top 88%',
-      onEnter: (batch) => {
-        gsap.to(batch, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.09,
-          ease: 'power3.out'
-        });
-        batch.forEach(el => {
-          if (el.classList.contains('counter')) animateCounter(el);
-        });
-      },
-      once: true
-    });
-
-    $$('.pipe-viz').forEach(pipe => {
-      const nodes = $$('.pipe-nd', pipe);
-      ScrollTrigger.create({
-        trigger: pipe,
-        start: 'top 80%',
-        once: true,
-        onEnter: () => {
-          gsap.to(nodes, {
-            opacity: 1,
-            y: 0,
-            boxShadow: '0 0 20px rgba(0,255,136,0.12)',
-            stagger: 0.18,
-            duration: 0.8,
-            ease: 'back.out(1.3)',
-            onStart: () => nodes.forEach(n => n.classList.add('lit'))
-          });
-        }
-      });
-    });
-  }
-
-  // -----------------------------
-  // Scenario card 3D hover physics
-  // -----------------------------
-  function initScenarioCardPhysics() {
-    $$('.scen-card').forEach(card => {
-      const rotX = gsap.quickTo(card, 'rotationX', { duration: 0.55, ease: 'power3.out' });
-      const rotY = gsap.quickTo(card, 'rotationY', { duration: 0.55, ease: 'power3.out' });
-      const xTo = gsap.quickTo(card, 'x', { duration: 0.55, ease: 'power3.out' });
-      const yTo = gsap.quickTo(card, 'y', { duration: 0.55, ease: 'power3.out' });
-
-      card.addEventListener('mousemove', (e) => {
-        const r = card.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width;
-        const py = (e.clientY - r.top) / r.height;
-        rotY((px - 0.5) * 18);
-        rotX((0.5 - py) * 16);
-        xTo((px - 0.5) * 6);
-        yTo((py - 0.5) * 4);
-      });
-
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-          rotationX: 0, rotationY: 0, x: 0, y: 0,
-          duration: 0.95, ease: 'elastic.out(1, 0.5)'
-        });
-      });
-
-      card.addEventListener('mouseenter', () => {
-        gsap.to(card, { z: 18, duration: 0.4, ease: 'power2.out' });
-      });
-    });
-  }
-
-  // -----------------------------
-  // CUNY architecture scrub
-  // -----------------------------
-  function initArchitectureScrub() {
-    const flow = $('.clean-flow');
-    const split = $('.arch-split');
-    if (!flow || !split || !window.gsap || !window.ScrollTrigger) return;
-
-    if (!flow.querySelector('.flow-spine')) {
-      const spine = document.createElement('div');
-      spine.className = 'flow-spine';
-      flow.prepend(spine);
-      for (let i = 0; i < 3; i++) {
-        const p = document.createElement('div');
-        p.className = 'flow-particle';
-        p.style.opacity = String(0.75 - i * 0.18);
-        flow.appendChild(p);
-      }
-    }
-
-    const stages = $$('.flow-stage', flow);
-    const particles = $$('.flow-particle', flow);
-    const tangleLines = $$('.tangle-line');
-    const fragNodes = $$('.frag-node');
-    const arrow = $('.arch-mega-arrow');
-    const stageYs = () => stages.map(stage => stage.offsetTop + 6);
-
-    gsap.set(stages, { opacity: 0.36, x: -12 });
-    gsap.set(fragNodes, { x: 0, y: 0, rotate: 0 });
-
-    ScrollTrigger.create({
-      trigger: split,
-      start: 'top 72%',
-      end: 'bottom 32%',
-      scrub: 1.2,
-      onUpdate: self => {
-        const p = self.progress;
-        stages.forEach((stage, i) => {
-          const local = gsap.utils.clamp(0, 1, (p - i * 0.12) / 0.28);
-          gsap.set(stage, {
-            opacity: 0.36 + local * 0.64,
-            x: -12 + local * 12
-          });
-          stage.classList.toggle('is-live', local > 0.4);
-        });
-
-        const ys = stageYs();
-        const totalTravel = (flow.offsetHeight || 320) - 16;
-        particles.forEach((particle, i) => {
-          const offset = (p + i * 0.12) % 1;
-          const y = 6 + offset * totalTravel;
-          gsap.set(particle, { y });
-        });
-
-        tangleLines.forEach((line, i) => {
-          gsap.set(line, {
-            opacity: 0.18 + p * 0.45,
-            strokeDashoffset: p * (50 + i * 14)
-          });
-        });
-
-        fragNodes.forEach((node, i) => {
-          const s = Math.sin(p * Math.PI * 2 + i * 0.8);
-          gsap.set(node, {
-            x: s * 4,
-            y: Math.cos(p * Math.PI * 2 + i) * 3,
-            rotate: s * 2,
-            opacity: 0.55 + (1 - p) * 0.3
-          });
-        });
-
-        if (arrow) {
-          gsap.set(arrow, {
-            x: p * 16,
-            scale: 0.92 + p * 0.16,
-            opacity: 0.35 + p * 0.65
-          });
-        }
-      }
-    });
-  }
-
-  // -----------------------------
-  // Project cards + charts
-  // -----------------------------
-  const chartRegistry = new Map();
-
-  function observeChartResize(el, chart) {
-    if (!window.ResizeObserver || !chart) return;
-    const ro = new ResizeObserver(() => {
-      if (chart.resize) chart.resize();
-    });
-    ro.observe(el);
-  }
-
-  function echartsBase(title, extra = {}) {
-    return Object.assign({
-      animationDuration: 900,
-      backgroundColor: 'transparent',
-      grid: { left: 36, right: 18, top: 42, bottom: 32, containLabel: true },
-      title: {
-        text: title,
-        left: 0,
-        textStyle: {
-          color: 'rgba(255,255,255,0.38)',
-          fontFamily: 'JetBrains Mono',
-          fontSize: 10,
-          fontWeight: 500
-        }
-      },
-      tooltip: {
-        trigger: 'axis',
-        backgroundColor: 'rgba(6,6,8,0.96)',
-        borderColor: 'rgba(0,255,136,0.14)',
-        textStyle: { color: '#e2e2e8', fontFamily: 'JetBrains Mono', fontSize: 10 }
-      },
-      xAxis: {
-        axisLine: { lineStyle: { color: 'rgba(255,255,255,0.08)' } },
-        axisLabel: { color: 'rgba(255,255,255,0.38)', fontFamily: 'JetBrains Mono', fontSize: 9 },
-        splitLine: { show: false }
-      },
-      yAxis: {
-        axisLine: { show: false },
-        axisLabel: { color: 'rgba(255,255,255,0.38)', fontFamily: 'JetBrains Mono', fontSize: 9 },
-        splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
-      }
-    }, extra);
-  }
-
-  function renderForceChurn(el) {
-    if (!el || el.dataset.done) return;
-    el.dataset.done = '1';
-    el.innerHTML = '';
-    el.classList.add('d3-force');
-
-    const width = el.clientWidth || 320;
-    const height = el.clientHeight || 160;
-    const svg = d3.select(el).append('svg')
-      .attr('width', width)
-      .attr('height', height)
-      .attr('viewBox', `0 0 ${width} ${height}`);
-
-    const defs = svg.append('defs');
-    const grad = defs.append('linearGradient').attr('id', 'churnGrad').attr('x1', '0%').attr('x2', '100%');
-    grad.append('stop').attr('offset', '0%').attr('stop-color', '#00ff88');
-    grad.append('stop').attr('offset', '100%').attr('stop-color', '#ff6b35');
-
-    const groups = [
-      { key: 'retained', color: '#00ff88', x: width * 0.3, y: height * 0.48 },
-      { key: 'engaged', color: '#00d4ff', x: width * 0.48, y: height * 0.42 },
-      { key: 'churned', color: '#ff6b35', x: width * 0.74, y: height * 0.5 }
-    ];
-
-    const nodes = [];
-    groups.forEach(group => {
-      const count = group.key === 'churned' ? 11 : 13;
-      for (let i = 0; i < count; i++) {
-        nodes.push({
-          id: `${group.key}-${i}`,
-          group: group.key,
-          color: group.color,
-          clusterX: group.x,
-          clusterY: group.y,
-          r: group.key === 'engaged' ? 5 : 4.5
-        });
-      }
-    });
-
-    const links = [];
-    nodes.forEach((node, i) => {
-      if (node.group !== 'churned') {
-        const peer = nodes[(i + 3) % nodes.length];
-        if (peer && peer.group !== 'churned') links.push({ source: node.id, target: peer.id });
-      }
-    });
-
-    svg.append('text')
-      .attr('x', 10)
-      .attr('y', 18)
-      .attr('fill', 'rgba(255,255,255,0.35)')
-      .attr('font-size', 9)
-      .text('Activation clusters vs breakaway churn');
-
-    const link = svg.append('g')
-      .attr('stroke', 'rgba(255,255,255,0.08)')
-      .selectAll('line')
-      .data(links)
-      .join('line')
-      .attr('stroke-width', 1);
-
-    const node = svg.append('g')
-      .selectAll('circle')
-      .data(nodes)
-      .join('circle')
-      .attr('r', d => d.r)
-      .attr('fill', d => d.color)
-      .attr('opacity', 0.9);
-
-    node.append('title').text(d => d.group);
-
-    const sim = d3.forceSimulation(nodes)
-      .force('link', d3.forceLink(links).id(d => d.id).distance(18).strength(0.08))
-      .force('charge', d3.forceManyBody().strength(-16))
-      .force('collision', d3.forceCollide().radius(d => d.r + 2))
-      .force('x', d3.forceX(d => d.clusterX).strength(0.09))
-      .force('y', d3.forceY(d => d.clusterY).strength(0.12))
-      .on('tick', () => {
-        link
-          .attr('x1', d => d.source.x)
-          .attr('y1', d => d.source.y)
-          .attr('x2', d => d.target.x)
-          .attr('y2', d => d.target.y);
-
-        node
-          .attr('cx', d => d.x)
-          .attr('cy', d => d.y);
-      });
-
-    setTimeout(() => {
-      nodes.forEach(n => {
-        if (n.group === 'churned') {
-          n.clusterX = width * 0.86;
-          n.clusterY = height * 0.62 + (Math.random() - 0.5) * 38;
-        }
-      });
-      sim.alpha(1).restart();
-      svg.append('path')
-        .attr('d', `M${width*0.58},${height*0.54} C${width*0.66},${height*0.45} ${width*0.75},${height*0.72} ${width*0.86},${height*0.63}`)
-        .attr('fill', 'none')
-        .attr('stroke', 'url(#churnGrad)')
-        .attr('stroke-width', 1.2)
-        .attr('stroke-dasharray', '4 5')
-        .attr('opacity', 0.55);
-    }, 1300);
-  }
-
-  function renderSimpleEChart(el, optionBuilder) {
-    if (!el || el.dataset.done) return;
-    el.dataset.done = '1';
-    const chart = echarts.init(el, null, { renderer: 'canvas' });
-    chart.setOption(optionBuilder());
-    chartRegistry.set(el.id || Math.random().toString(36), chart);
-    observeChartResize(el, chart);
-  }
-
-  window.togP = function togP(card) {
-    const was = card.classList.contains('exp');
-    $$('.pc.exp').forEach(x => x.classList.remove('exp'));
-    if (!was) {
-      card.classList.add('exp');
-      setTimeout(() => renderProjectVisuals(card), 420);
-      setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 180);
-    }
-  };
-
-  function renderProjectVisuals(card) {
-    const churn = card.querySelector('#churnChart');
-    if (churn) renderForceChurn(churn);
-
-    const housing = card.querySelector('#housingChart');
-    if (housing) {
-      renderSimpleEChart(housing, () => echartsBase('Median Income ($K) vs Avg Resolution (Days)', {
-        xAxis: {
-          type: 'value',
-          name: 'Median Income ($K)',
-          nameTextStyle: { color: 'rgba(255,255,255,0.24)', fontSize: 9 },
-          axisLabel: { color: 'rgba(255,255,255,0.38)', fontFamily: 'JetBrains Mono', fontSize: 9 },
-          splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
-        },
-        yAxis: {
-          type: 'value',
-          name: 'Days to Resolve',
-          nameTextStyle: { color: 'rgba(255,255,255,0.24)', fontSize: 9 },
-          axisLabel: { color: 'rgba(255,255,255,0.38)', fontFamily: 'JetBrains Mono', fontSize: 9 },
-          splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
-        },
-        series: [{
-          type: 'scatter',
-          symbolSize: 10,
-          data: [[25,38],[32,35],[41,30],[48,28],[55,26],[62,23],[70,21],[78,19],[85,18],[95,16]],
-          itemStyle: { color: '#00ff88' }
-        }]
-      }));
-    }
-
-    const retail = card.querySelector('#retailChart');
-    if (retail) {
-      renderSimpleEChart(retail, () => echartsBase('Monthly Revenue Trend (Cleaned Data)', {
-        xAxis: { type: 'category', data: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] },
-        yAxis: { type: 'value' },
-        series: [{
-          type: 'line',
-          smooth: true,
-          symbolSize: 7,
-          data: [42,38,45,51,48,55,62,58,67,72,85,110],
-          lineStyle: { color: '#00ff88', width: 2 },
-          itemStyle: { color: '#00ff88' },
-          areaStyle: {
-            color: new echarts.graphic.LinearGradient(0,0,0,1,[
-              { offset: 0, color: 'rgba(0,255,136,0.24)' },
-              { offset: 1, color: 'rgba(0,255,136,0.02)' }
-            ])
-          }
-        }]
-      }));
-    }
-  }
-
-  function initCaseStudyChart() {
-    const wrap = $('.case-chart');
-    const host = $('#mtaChart');
-    if (!wrap || !host || !window.gsap || !window.ScrollTrigger) return;
-    ScrollTrigger.create({
-      trigger: wrap,
-      start: 'top 80%',
-      once: true,
-      onEnter: () => {
-        if (host.dataset.done) return;
-        renderSimpleEChart(host, () => echartsBase('Top 10 Stations by Avg Daily Entries (Thousands)', {
-          xAxis: {
-            type: 'category',
-            data: ['Times Sq','Grand Central','Herald Sq','Union Sq','Fulton St','Penn Station','14 St','59 St','Jay St','Atlantic'],
-            axisLabel: { interval: 0, rotate: 28, color: 'rgba(255,255,255,0.38)', fontFamily: 'JetBrains Mono', fontSize: 8 }
-          },
-          yAxis: { type: 'value' },
-          series: [{
-            type: 'bar',
-            data: [215,198,172,155,148,142,131,118,105,98],
-            barWidth: '56%',
-            itemStyle: {
-              color: new echarts.graphic.LinearGradient(0,0,0,1,[
-                { offset: 0, color: 'rgba(0,255,136,0.85)' },
-                { offset: 1, color: 'rgba(0,212,255,0.42)' }
-              ]),
-              borderRadius: [5,5,0,0]
-            }
-          }]
-        }));
-      }
-    });
-  }
-
-  // -----------------------------
-  // Solve It Live / API stubs
-  // -----------------------------
-  const SCENARIOS=[
-{
-  file:'churn_cohort_analysis.sql',
-  question:'Why are we losing customers after Month 3?',
-  context:'Subscription business seeing elevated churn. Leadership wants to know where in the lifecycle customers are dropping off and what distinguishes churned users from retained ones.',
-  sources:['Subscription Events','User Activity Logs','Feature Usage Telemetry','Payment History','Support Ticket Records'],
-  steps:['Framing the business question...','Identifying relevant data sources...','Building cohort retention query...','Computing monthly retention curves...','Isolating the drop-off inflection point...','Correlating churn with feature adoption...','Generating retention visualization...','Synthesizing recommendation...'],
-  code:"<span class=\"kw\">WITH</span> cohorts <span class=\"kw\">AS</span> (
-  <span class=\"kw\">SELECT</span>
-    user_id,
-    <span class=\"fn\">DATE_TRUNC</span>(signup_date, <span class=\"str\">MONTH</span>) <span class=\"kw\">AS</span> cohort,
-    <span class=\"fn\">DATE_DIFF</span>(activity_date, signup_date, <span class=\"str\">MONTH</span>) <span class=\"kw\">AS</span> month_n
-  <span class=\"kw\">FROM</span> analytics.user_activity
-  <span class=\"kw\">WHERE</span> signup_date >= <span class=\"str\">'2024-01-01'</span>
-),
-retention <span class=\"kw\">AS</span> (
-  <span class=\"kw\">SELECT</span>
-    cohort,
-    month_n,
-    <span class=\"fn\">COUNT</span>(<span class=\"kw\">DISTINCT</span> user_id) <span class=\"kw\">AS</span> active_users,
-    <span class=\"fn\">ROUND</span>(
-      <span class=\"fn\">COUNT</span>(<span class=\"kw\">DISTINCT</span> user_id) * <span class=\"num\">100.0</span>
-      / <span class=\"fn\">FIRST_VALUE</span>(<span class=\"fn\">COUNT</span>(<span class=\"kw\">DISTINCT</span> user_id))
-        <span class=\"kw\">OVER</span> (<span class=\"kw\">PARTITION BY</span> cohort <span class=\"kw\">ORDER BY</span> month_n), <span class=\"num\">1</span>
-    ) <span class=\"kw\">AS</span> retention_pct
-  <span class=\"kw\">FROM</span> cohorts
-  <span class=\"kw\">GROUP BY</span> cohort, month_n
-)
-<span class=\"kw\">SELECT</span> * <span class=\"kw\">FROM</span> retention
-<span class=\"kw\">ORDER BY</span> cohort, month_n
-<span class=\"cm\">-- Result: retention drops from 68% to 41% between Month 2 and Month 3</span>
-<span class=\"cm\">-- Users who never activated Feature X churn at 2.4x the rate</span>",
-  chartType:'line',
-  chartData:{labels:['M0','M1','M2','M3','M4','M5','M6'],datasets:[{label:'Jan Cohort',data:[100,82,68,41,36,33,31],borderColor:'#00ff88',backgroundColor:'rgba(0,255,136,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00ff88'},{label:'Feb Cohort',data:[100,79,65,39,35,31,29],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00d4ff'},{label:'Mar Cohort',data:[100,84,70,43,38,34,32],borderColor:'#c77dff',backgroundColor:'rgba(199,125,255,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#c77dff'}]},
-  chartTitle:'Monthly Retention Rate by Signup Cohort (%)',
-  finding:'Retention collapses between Month 2 and Month 3 across all cohorts, dropping from ~68% to ~41%. Users who never activated the core workflow feature churn at 2.4x the rate of activated users. This is not a pricing problem. It is an onboarding problem.',
-  recommendation:'Deploy a triggered onboarding sequence at Day 14 targeting users who have not completed core workflow activation. Based on the feature-churn correlation, expect a 15-20% reduction in Month 3 churn within 2 cohort cycles. Track activation rate as a leading indicator, not just renewal rate.'
-},
-{
-  file:'revenue_decomposition.sql',
-  question:'Revenue dropped 15% this quarter. What happened?',
-  context:'CFO flagged a Q4 revenue miss. The drop was not expected by the forecast model. Leadership wants a root cause decomposition before the board meeting.',
-  sources:['Revenue Ledger','Customer Segments Table','Contract & Renewal Data','Sales Pipeline CRM','Product Usage Metrics'],
-  steps:['Decomposing revenue by segment...','Comparing Q3 vs Q4 by customer tier...','Isolating contraction vs churn vs new logo...','Checking expansion revenue pipeline...','Identifying the top contributing accounts...','Cross-referencing with usage drop signals...','Rendering decomposition chart...','Building executive summary...'],
-  code:"<span class=\"kw\">SELECT</span>
-  segment,
-  <span class=\"fn\">SUM</span>(<span class=\"kw\">CASE WHEN</span> quarter = <span class=\"str\">'Q3'</span> <span class=\"kw\">THEN</span> mrr <span class=\"kw\">END</span>) <span class=\"kw\">AS</span> q3_mrr,
-  <span class=\"fn\">SUM</span>(<span class=\"kw\">CASE WHEN</span> quarter = <span class=\"str\">'Q4'</span> <span class=\"kw\">THEN</span> mrr <span class=\"kw\">END</span>) <span class=\"kw\">AS</span> q4_mrr,
-  <span class=\"fn\">ROUND</span>(
-    (<span class=\"fn\">SUM</span>(<span class=\"kw\">CASE WHEN</span> quarter=<span class=\"str\">'Q4'</span> <span class=\"kw\">THEN</span> mrr <span class=\"kw\">END</span>)
-     - <span class=\"fn\">SUM</span>(<span class=\"kw\">CASE WHEN</span> quarter=<span class=\"str\">'Q3'</span> <span class=\"kw\">THEN</span> mrr <span class=\"kw\">END</span>))
-    / <span class=\"fn\">NULLIF</span>(<span class=\"fn\">SUM</span>(<span class=\"kw\">CASE WHEN</span> quarter=<span class=\"str\">'Q3'</span> <span class=\"kw\">THEN</span> mrr <span class=\"kw\">END</span>),<span class=\"num\">0</span>)
-    * <span class=\"num\">100</span>, <span class=\"num\">1</span>
-  ) <span class=\"kw\">AS</span> pct_change
-<span class=\"kw\">FROM</span> finance.monthly_recurring_revenue
-<span class=\"kw\">WHERE</span> quarter <span class=\"kw\">IN</span> (<span class=\"str\">'Q3'</span>, <span class=\"str\">'Q4'</span>)
-<span class=\"kw\">GROUP BY</span> segment
-<span class=\"kw\">ORDER BY</span> pct_change <span class=\"kw\">ASC</span>
-<span class=\"cm\">-- Enterprise: -28% | Mid-Market: -8% | SMB: +3%</span>
-<span class=\"cm\">-- 72% of the total miss is Enterprise segment</span>",
-  chartType:'bar',
-  chartData:{labels:['Enterprise','Mid-Market','SMB','Self-Serve'],datasets:[{label:'Q3 MRR ($K)',data:[820,340,180,95],backgroundColor:'rgba(0,212,255,0.3)',borderColor:'#00d4ff',borderWidth:1,borderRadius:4},{label:'Q4 MRR ($K)',data:[590,312,186,98],backgroundColor:'rgba(0,255,136,0.3)',borderColor:'#00ff88',borderWidth:1,borderRadius:4}]},
-  chartTitle:'Quarterly MRR by Segment ($K)',
-  finding:'72% of the revenue miss is concentrated in the Enterprise segment, driven by 3 large accounts that churned in October. These accounts had declining product usage for 4+ months before cancellation. The forecast model did not incorporate usage signals, only contract dates.',
-  recommendation:'Implement account health scoring using product usage velocity as a leading indicator. Flag accounts with 30%+ usage decline for proactive outreach. Rebuild the forecast model to weight usage signals alongside contract renewal dates. Expected recovery: recapture $120K ARR within 2 quarters through early intervention.'
-},
-{
-  file:'automate_reporting.py',
-  question:'The ops team spends 40 hours/week on manual reports. How do we fix this?',
-  context:'Operations analysts spend most of their time pulling data from 5 systems, pasting into Excel, and formatting slides. They have no time for actual analysis. Leadership wants a 60% reduction in manual reporting effort.',
-  sources:['Report Request Tracker','Data Source Catalog','Analyst Time Logs','Stakeholder Survey Results','Current ETL Documentation'],
-  steps:['Auditing current manual report inventory...','Measuring analyst hours per report...','Classifying reports by automation potential...','Identifying top 8 candidates for automation...','Designing pipeline architecture...','Estimating effort vs impact tradeoff...','Rendering before vs after comparison...','Drafting implementation roadmap...'],
-  code:"<span class=\"cm\"># automate_reporting.py - Report Automation Assessment</span>
-<span class=\"kw\">import</span> pandas <span class=\"kw\">as</span> pd
-
-reports = pd.<span class=\"fn\">read_csv</span>(<span class=\"str\">'report_inventory.csv'</span>)
-
-<span class=\"cm\"># Score each report: hours * frequency * data_source_count</span>
-reports[<span class=\"str\">'automation_score'</span>] = (
-    reports[<span class=\"str\">'hours_per_run'</span>]
-    * reports[<span class=\"str\">'runs_per_week'</span>]
-    * reports[<span class=\"str\">'source_count'</span>]
-)
-
-<span class=\"cm\"># Rank and select top candidates</span>
-top = reports.<span class=\"fn\">nlargest</span>(<span class=\"num\">8</span>, <span class=\"str\">'automation_score'</span>)
-
-<span class=\"fn\">print</span>(<span class=\"str\">f\"Total manual hours/week: {reports.hours_per_run.sum():.0f}\"</span>)
-<span class=\"fn\">print</span>(<span class=\"str\">f\"Automatable hours/week:  {top.hours_per_run.sum():.0f}\"</span>)
-<span class=\"fn\">print</span>(<span class=\"str\">f\"Reduction potential:     {top.hours_per_run.sum()/reports.hours_per_run.sum()*100:.0f}%\"</span>)
-
-<span class=\"cm\"># Output: 40 hrs total, 32 hrs automatable = 80% reduction</span>
-<span class=\"cm\"># Top 3: Weekly KPI deck (8h), Finance reconciliation (6h),</span>
-<span class=\"cm\">#         Regional performance summary (5h)</span>",
-  chartType:'bar',
-  chartData:{labels:['KPI Deck','Finance Recon','Regional Summary','Inventory Report','Sales Pipeline','HR Headcount','Compliance Log','Customer Health'],datasets:[{label:'Before: Manual Hours/Week',data:[8,6,5,4.5,4,3.5,3,2.5],backgroundColor:'rgba(255,107,53,0.35)',borderColor:'#ff6b35',borderWidth:1,borderRadius:4},{label:'After: Automated',data:[0.5,0.5,0.5,0.5,0.5,0.5,1,0.5],backgroundColor:'rgba(0,255,136,0.35)',borderColor:'#00ff88',borderWidth:1,borderRadius:4}]},
-  chartTitle:'Hours/Week Per Report: Before vs After Automation',
-  finding:'8 of 12 reports are fully automatable. The top 3 alone consume 19 hours/week. All 8 follow the same pattern: pull from known sources, apply fixed transformations, output to a template. No judgment required. Currently, senior analysts do this work instead of actual analysis.',
-  recommendation:'Deploy automated pipelines for the top 8 reports using scheduled SQL + dbt + BI tool distribution. Expected reduction: 32 of 40 weekly hours eliminated (80%). Analysts redirect recovered time to ad-hoc analysis and stakeholder support. Full rollout achievable in 6 weeks with 2 analysts.'
-},
-{
-  file:'channel_attribution.sql',
-  question:'Marketing spend is up 40% but conversions are flat. Where is the leak?',
-  context:'Marketing budget increased significantly this quarter but conversion volume and revenue have not followed. CMO needs a channel-level breakdown with acquisition cost and conversion data to decide where to reallocate.',
-  sources:['Ad Platform Spend Data','Web Analytics Sessions','Conversion Events Table','Attribution Model Logs','Revenue by First-Touch Source'],
-  steps:['Pulling spend data by channel...','Joining with conversion events...','Computing CAC by acquisition source...','Calculating revenue-to-spend ratio...','Identifying the underperforming channel...','Comparing organic vs paid efficiency...','Rendering channel performance chart...','Building reallocation recommendation...'],
-  code:"<span class=\"kw\">WITH</span> channel_metrics <span class=\"kw\">AS</span> (
-  <span class=\"kw\">SELECT</span>
-    utm_source <span class=\"kw\">AS</span> channel,
-    <span class=\"fn\">SUM</span>(spend) <span class=\"kw\">AS</span> total_spend,
-    <span class=\"fn\">COUNT</span>(<span class=\"kw\">DISTINCT</span> converted_user_id) <span class=\"kw\">AS</span> conversions,
-    <span class=\"fn\">SUM</span>(attributed_revenue) <span class=\"kw\">AS</span> revenue
-  <span class=\"kw\">FROM</span> marketing.attribution_events
-  <span class=\"kw\">WHERE</span> event_date >= <span class=\"str\">'2024-10-01'</span>
-  <span class=\"kw\">GROUP BY</span> channel
-)
-<span class=\"kw\">SELECT</span>
-  channel,
-  total_spend,
-  conversions,
-  <span class=\"fn\">ROUND</span>(total_spend / <span class=\"fn\">NULLIF</span>(conversions,<span class=\"num\">0</span>), <span class=\"num\">2</span>) <span class=\"kw\">AS</span> cac,
-  <span class=\"fn\">ROUND</span>(revenue / <span class=\"fn\">NULLIF</span>(total_spend,<span class=\"num\">0</span>), <span class=\"num\">2</span>) <span class=\"kw\">AS</span> roas
-<span class=\"kw\">FROM</span> channel_metrics
-<span class=\"kw\">ORDER BY</span> roas <span class=\"kw\">DESC</span>
-<span class=\"cm\">-- Organic Search: ROAS 8.2x | Paid Social: ROAS 0.9x</span>
-<span class=\"cm\">-- 62% of budget increase went to the lowest ROAS channel</span>",
-  chartType:'bar',
-  chartData:{labels:['Organic Search','Email','Referral','Paid Search','Direct','Paid Social'],datasets:[{label:'CAC ($)',data:[18,24,31,52,45,142],backgroundColor:['rgba(0,255,136,0.4)','rgba(0,255,136,0.3)','rgba(0,212,255,0.3)','rgba(0,212,255,0.25)','rgba(199,125,255,0.25)','rgba(255,107,53,0.5)'],borderColor:['#00ff88','#00ff88','#00d4ff','#00d4ff','#c77dff','#ff6b35'],borderWidth:1,borderRadius:4}]},
-  chartTitle:'Customer Acquisition Cost by Channel ($)',
-  finding:'Paid social received 62% of the budget increase but delivers a 0.9x ROAS, meaning every dollar spent returns less than a dollar. Meanwhile, organic search delivers 8.2x ROAS at $18 CAC. The budget increase was allocated to the most expensive, lowest-return channel.',
-  recommendation:'Reallocate 50% of paid social budget to SEO/content and email nurture campaigns. These channels show 4-8x better ROAS with lower CAC. Maintain paid social for top-of-funnel awareness only at reduced spend. Expected impact: 30% improvement in blended CAC within one quarter.'
-},
-{
-  file:'ticket_resolution_analysis.sql',
-  question:'Support resolution time is getting worse. What is driving it?',
-  context:'Average ticket resolution time increased from 4 hours to 11 hours over the past quarter. Customer satisfaction scores are dropping. VP of Support needs to know what category is driving the slowdown and how to fix it.',
-  sources:['Support Ticket System','Agent Activity Logs','Ticket Category Taxonomy','SLA Configuration Table','Customer Tier Data'],
-  steps:['Pulling resolution time by ticket category...','Computing weekly trend by category...','Identifying the category with steepest increase...','Analyzing agent workload distribution...','Checking SLA breach rates...','Correlating with ticket volume spike...','Rendering resolution trend chart...','Drafting operational fix...'],
-  code:"<span class=\"kw\">SELECT</span>
-  <span class=\"fn\">DATE_TRUNC</span>(created_at, <span class=\"str\">WEEK</span>) <span class=\"kw\">AS</span> week,
-  category,
-  <span class=\"fn\">AVG</span>(<span class=\"fn\">TIMESTAMP_DIFF</span>(resolved_at, created_at, <span class=\"str\">HOUR</span>)) <span class=\"kw\">AS</span> avg_hours,
-  <span class=\"fn\">COUNT</span>(*) <span class=\"kw\">AS</span> ticket_count,
-  <span class=\"fn\">COUNTIF</span>(
-    <span class=\"fn\">TIMESTAMP_DIFF</span>(resolved_at, created_at, <span class=\"str\">HOUR</span>) > sla_hours
-  ) * <span class=\"num\">100.0</span> / <span class=\"fn\">COUNT</span>(*) <span class=\"kw\">AS</span> sla_breach_pct
-<span class=\"kw\">FROM</span> support.tickets t
-<span class=\"kw\">JOIN</span> support.sla_config s <span class=\"kw\">ON</span> t.category = s.category
-<span class=\"kw\">WHERE</span> created_at >= <span class=\"str\">'2024-07-01'</span>
-<span class=\"kw\">GROUP BY</span> week, category
-<span class=\"kw\">ORDER BY</span> week, avg_hours <span class=\"kw\">DESC</span>
-<span class=\"cm\">-- Billing: 4h -> 18h (+350%) | Technical: 3h -> 5h (+67%)</span>
-<span class=\"cm\">-- Billing tickets volume up 120%, agent count unchanged</span>",
-  chartType:'line',
-  chartData:{labels:['Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Billing',data:[4.2,5.8,8.1,12.4,15.2,18.1],borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#ff6b35',borderWidth:2},{label:'Technical',data:[3.1,3.4,3.8,4.2,4.6,5.1],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00d4ff',borderWidth:2},{label:'Account',data:[2.4,2.5,2.7,2.8,3.0,3.2],borderColor:'#00ff88',backgroundColor:'rgba(0,255,136,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00ff88',borderWidth:2}]},
-  chartTitle:'Avg Resolution Time by Category (Hours)',
-  finding:'Billing tickets are the sole driver. Resolution time increased 350% (4h to 18h) while ticket volume surged 120%. Technical and account tickets remained stable. The billing team has not scaled, and a pricing change in August generated a wave of confused customers that is still compounding.',
-  recommendation:'Immediate: Deploy automated FAQ and self-serve billing portal to deflect 40% of billing tickets. Short-term: Add 2 dedicated billing support agents. Medium-term: Build proactive billing communication triggered by pricing changes. Expected resolution time reduction: back to sub-6h within 8 weeks.'
+const geom = new THREE.BufferGeometry();
+const verts = [];
+for(let i=0; i<3000; i++){
+  const r = 50, theta = 2*Math.PI*Math.random(), phi = Math.acos(2*Math.random()-1);
+  verts.push( r*Math.sin(phi)*Math.cos(theta), r*Math.sin(phi)*Math.sin(theta), r*Math.cos(phi) );
 }
+geom.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+const mat = new THREE.PointsMaterial({color: 0x00ff88, size: 0.15, transparent:true, opacity:0.3});
+const globe = new THREE.Points(geom, mat);
+scene.add(globe);
+camera.position.z = 80;
+
+let mouseX=0, mouseY=0;
+document.addEventListener('mousemove', e => {
+  mouseX = (e.clientX - window.innerWidth/2) * 0.03;
+  mouseY = (e.clientY - window.innerHeight/2) * 0.03;
+});
+
+window.addEventListener('scroll', () => {
+  globe.rotation.x = window.scrollY * 0.001;
+});
+
+function anim3D() {
+  requestAnimationFrame(anim3D);
+  globe.rotation.y += 0.0005;
+  camera.position.x += (mouseX - camera.position.x) * 0.05;
+  camera.position.y += (-mouseY - camera.position.y) * 0.05;
+  camera.lookAt(scene.position);
+  renderer.render(scene, camera);
+}
+anim3D();
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ======== WEB AUDIO API (Phase 3) ========
+let soundEnabled = false;
+let actx;
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  document.getElementById('soundToggleText').textContent = soundEnabled ? 'Sound: On' : 'Sound: Off';
+  document.getElementById('soundToggle').style.borderColor = soundEnabled ? 'var(--g)' : 'rgba(0,255,136,0.1)';
+  if(soundEnabled && !actx) {
+    actx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+}
+
+function playKeystroke() {
+  if(!soundEnabled || !actx) return;
+  let osc = actx.createOscillator(), gain = actx.createGain();
+  osc.type = 'square';
+  osc.frequency.setValueAtTime(100 + Math.random()*100, actx.currentTime);
+  gain.gain.setValueAtTime(0.01, actx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + 0.05);
+  osc.connect(gain); gain.connect(actx.destination);
+  osc.start(); osc.stop(actx.currentTime + 0.05);
+}
+
+function playProcessingHum() {
+  if(!soundEnabled || !actx) return null;
+  let osc = actx.createOscillator(), gain = actx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(50, actx.currentTime);
+  gain.gain.setValueAtTime(0.03, actx.currentTime);
+  osc.connect(gain); gain.connect(actx.destination);
+  osc.start();
+  return { osc, gain };
+}
+
+
+// ======== GSAP ORCHESTRATION (Phase 1) ========
+gsap.registerPlugin(ScrollTrigger);
+
+const revealElements = gsap.utils.toArray('.lbl, .stl, .ssub, .pc, .exp-card, .sk-card, .case-box, .explore-box, .meth-step, .edu-main, .edu-sm, .hero-photo');
+revealElements.forEach(el => {
+  gsap.fromTo(el, 
+    { y: 40, opacity: 0 },
+    {
+      y: 0, opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }
+    }
+  );
+});
+
+gsap.utils.toArray('.counter').forEach(counter => {
+  const numEl = counter.querySelector('.num');
+  ScrollTrigger.create({
+    trigger: counter, start: "top 85%", once: true,
+    onEnter: () => {
+      let obj = { val: 0 };
+      gsap.to(obj, {
+        val: +numEl.dataset.target, duration: 1.5, ease: "power3.out",
+        onUpdate: () => { numEl.textContent = Math.round(obj.val) + numEl.dataset.suffix; }
+      });
+    }
+  });
+});
+
+const archTimeline = gsap.timeline({ scrollTrigger: { trigger: ".arch-split", start: "top 75%", end: "bottom 45%", scrub: 1.5 } });
+archTimeline.fromTo(".mess .frag-node", { x: -20, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.1, duration: 1 }, 0)
+.fromTo(".arch-mega-arrow", { scale: 0.8, opacity: 0, x: -30 }, { scale: 1, opacity: 1, x: 0, duration: 1 }, 0.5)
+.fromTo(".clean-flow .flow-stage", { x: 30, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.2, duration: 1.5 }, 0.5);
+
+document.querySelectorAll('.scen-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    gsap.to(card, { rotationX: ((e.clientY-rect.top - rect.height/2)/rect.height/2) * -12, rotationY: ((e.clientX-rect.left - rect.width/2)/rect.width/2) * 12, transformPerspective: 1000, duration: 0.4, borderColor: "rgba(0,255,136,0.3)" });
+  });
+  card.addEventListener('mouseleave', () => { gsap.to(card, { rotationX: 0, rotationY: 0, ease: "elastic.out(1, 0.4)", duration: 1.2, borderColor: "rgba(255,255,255,0.04)" }); });
+});
+
+const pipeObs = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.pipe-nd').forEach((n,i)=>{setTimeout(()=>n.classList.add('lit'),i*400)})}})},{threshold:.3});
+document.querySelectorAll('.pipe-viz').forEach(el=>pipeObs.observe(el));
+
+
+// ======== TERMINAL ANIMATION (Phase 3) ========
+const TERM_LINES=[
+  {type:'prompt',text:'$ python run_validation.py'},
+  {type:'log',text:'[INFO] Loading workforce and leave datasets across 26 institutions...'},
+  {type:'log',text:'[INFO] Running completeness checks... 142 tables, 3,847 columns'},
+  {type:'log',text:'[INFO] Institution 1-23: PASS'},
+  {type:'warn',text:'[!] Institution 24: MISMATCH DETECTED'},
+  {type:'alert',text:'ANOMALY DETECTED: 2-Cycle Data Integrity Gap. Headcount diverges by 340+.'},
+  {type:'success',text:'[OK] Resolution: Data reconciled via GCP staging layer.'}
+];
+const termObs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting && !e.target.dataset.done){
+  e.target.dataset.done='1';
+  const body = document.getElementById('anomalyTerm');
+  TERM_LINES.forEach((line, i) => {
+    setTimeout(() => {
+      playKeystroke();
+      const el = document.createElement('div'); el.className='term-line';
+      if(line.type==='prompt') el.innerHTML=`<span class="term-prompt">yash@cuny</span>:<span style="color:var(--c)">~/validation</span>$ <span class="term-cmd">${line.text.replace(/^\$ /,'')}</span>`;
+      else if(line.type==='alert') el.innerHTML=`<div class="term-alert">${line.text}</div>`;
+      else el.innerHTML=`<span class="term-${line.type}">${line.text}</span>`;
+      body.appendChild(el);
+    }, i * 300);
+  });
+}})}, {threshold:.2});
+const termEl = document.querySelector('.anomaly-term');
+if(termEl) termObs.observe(termEl);
+
+
+// ======== SOLVE IT LIVE - API STUB & ECHARTS (Phase 2 & 5) ========
+const SCENARIOS = [
+  {
+    name: "Churn Analysis",
+    query: "WITH cohorts AS (\n  SELECT user_id, DATE_TRUNC(signup_date, MONTH) AS cohort, DATE_DIFF(activity_date, signup_date, MONTH) AS month_n\n  FROM analytics.user_activity\n)\nSELECT cohort, month_n, COUNT(DISTINCT user_id) / FIRST_VALUE(COUNT(DISTINCT user_id)) OVER(PARTITION BY cohort ORDER BY month_n) AS retention_pct\nFROM cohorts GROUP BY cohort, month_n",
+    finding: "Retention collapses between Month 2 and Month 3 across all cohorts, dropping from ~68% to ~41%. Users who never activated the core workflow feature churn at 2.4x the rate of activated users. This is not a pricing problem. It is an onboarding problem.",
+    rec: "Deploy a triggered onboarding sequence at Day 14 targeting users who have not completed core workflow activation. Based on the feature-churn correlation, expect a 15-20% reduction in Month 3 churn within 2 cohort cycles.",
+    chartType: "line",
+    eOpts: {
+      tooltip: {trigger:'axis'},
+      xAxis: {type:'category', data:['M0','M1','M2','M3','M4','M5'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+      yAxis: {type:'value', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
+      series: [{name:'Cohort 1', data:[100,82,68,41,36,33], type:'line', smooth:true, itemStyle:{color:'#00ff88'}, areaStyle:{color:'rgba(0,255,136,0.1)'}}]
+    }
+  },
+  {
+    name: "Revenue Drop",
+    query: "SELECT segment, SUM(CASE WHEN quarter = 'Q3' THEN mrr END) AS q3_mrr, SUM(CASE WHEN quarter = 'Q4' THEN mrr END) AS q4_mrr, ROUND((SUM(CASE WHEN quarter='Q4' THEN mrr END) - SUM(CASE WHEN quarter='Q3' THEN mrr END)) / SUM(CASE WHEN quarter='Q3' THEN mrr END) * 100, 1) AS pct_change\nFROM finance.monthly_recurring_revenue\nGROUP BY segment ORDER BY pct_change ASC",
+    finding: "72% of the revenue miss is concentrated in the Enterprise segment, driven by 3 large accounts that churned in October. These accounts had declining product usage for 4+ months before cancellation. The forecast model did not incorporate usage signals, only contract dates.",
+    rec: "Implement account health scoring using product usage velocity as a leading indicator. Flag accounts with 30%+ usage decline for proactive outreach. Rebuild the forecast model to weight usage signals alongside contract renewal dates.",
+    chartType: "bar",
+    eOpts: {
+      tooltip: {trigger:'axis'},
+      legend: {data:['Q3 MRR','Q4 MRR'], textStyle:{color:'rgba(255,255,255,0.5)'}},
+      xAxis: {type:'category', data:['Enterprise','Mid-Market','SMB'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+      yAxis: {type:'value', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
+      series: [{name:'Q3 MRR', data:[820, 340, 180], type:'bar', itemStyle:{color:'#00d4ff'}}, {name:'Q4 MRR', data:[590, 312, 186], type:'bar', itemStyle:{color:'#00ff88'}}]
+    }
+  },
+  {
+    name: "Automation",
+    query: "import pandas as pd\nreports = pd.read_csv('report_inventory.csv')\nreports['automation_score'] = reports['hours_per_run'] * reports['runs_per_week'] * reports['source_count']\ntop = reports.nlargest(8, 'automation_score')\nprint(f'Reduction potential: {top.hours_per_run.sum()/reports.hours_per_run.sum()*100:.0f}%')",
+    finding: "8 of 12 reports are fully automatable. The top 3 alone consume 19 hours/week. All 8 follow the same pattern: pull from known sources, apply fixed transformations, output to a template. No judgment required.",
+    rec: "Deploy automated pipelines for the top 8 reports using scheduled SQL + dbt + BI tool distribution. Expected reduction: 32 of 40 weekly hours eliminated (80%). Analysts redirect recovered time to ad-hoc analysis and stakeholder support.",
+    chartType: "bar",
+    eOpts: {
+      tooltip: {trigger:'axis'},
+      legend: {data:['Manual Hours','Automated Hours'], textStyle:{color:'rgba(255,255,255,0.5)'}},
+      xAxis: {type:'category', data:['KPI Deck','Finance Recon','Regional'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+      yAxis: {type:'value', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
+      series: [{name:'Manual Hours', data:[8, 6, 5], type:'bar', itemStyle:{color:'#ff6b35'}}, {name:'Automated Hours', data:[0.5, 0.5, 0.5], type:'bar', itemStyle:{color:'#00ff88'}}]
+    }
+  },
+  {
+    name: "Attribution",
+    query: "WITH channel_metrics AS (\n  SELECT utm_source AS channel, SUM(spend) AS total_spend, COUNT(DISTINCT converted_user_id) AS conversions, SUM(attributed_revenue) AS revenue\n  FROM marketing.attribution_events GROUP BY channel\n)\nSELECT channel, total_spend, conversions, ROUND(total_spend/NULLIF(conversions,0), 2) AS cac, ROUND(revenue/NULLIF(total_spend,0), 2) AS roas\nFROM channel_metrics ORDER BY roas DESC",
+    finding: "Paid social received 62% of the budget increase but delivers a 0.9x ROAS, meaning every dollar spent returns less than a dollar. Meanwhile, organic search delivers 8.2x ROAS at $18 CAC. The budget increase was allocated to the most expensive, lowest-return channel.",
+    rec: "Reallocate 50% of paid social budget to SEO/content and email nurture campaigns. These channels show 4-8x better ROAS with lower CAC. Maintain paid social for top-of-funnel awareness only at reduced spend.",
+    chartType: "sankey", // ECharts Sankey (Phase 2)
+    eOpts: {
+      tooltip: {trigger: 'item', triggerOn: 'mousemove'},
+      series: {
+        type: 'sankey', layout: 'none',
+        emphasis: {focus: 'adjacency'},
+        lineStyle: {color: 'source', curveness: 0.5},
+        label: {color:'#fff', fontFamily:'JetBrains Mono', fontSize:10},
+        data: [{name:'Budget'}, {name:'Organic'}, {name:'Paid Social'}, {name:'Email'}, {name:'Conversions'}, {name:'Dropoff'}],
+        links: [
+          {source:'Budget', target:'Organic', value:20}, {source:'Budget', target:'Paid Social', value:60}, {source:'Budget', target:'Email', value:20},
+          {source:'Organic', target:'Conversions', value:18}, {source:'Organic', target:'Dropoff', value:2},
+          {source:'Paid Social', target:'Conversions', value:5}, {source:'Paid Social', target:'Dropoff', value:55},
+          {source:'Email', target:'Conversions', value:15}, {source:'Email', target:'Dropoff', value:5}
+        ]
+      }
+    }
+  },
+  {
+    name: "Support SLA",
+    query: "SELECT DATE_TRUNC(created_at, WEEK) AS week, category, AVG(TIMESTAMP_DIFF(resolved_at, created_at, HOUR)) AS avg_hours, COUNTIF(TIMESTAMP_DIFF(resolved_at, created_at, HOUR) > sla_hours) * 100.0 / COUNT(*) AS sla_breach_pct\nFROM support.tickets JOIN support.sla_config ON t.category = s.category\nGROUP BY week, category ORDER BY week, avg_hours DESC",
+    finding: "Billing tickets are the sole driver. Resolution time increased 350% (4h to 18h) while ticket volume surged 120%. Technical and account tickets remained stable. The billing team has not scaled, and a pricing change in August generated a wave of confused customers.",
+    rec: "Immediate: Deploy automated FAQ and self-serve billing portal to deflect 40% of billing tickets. Short-term: Add 2 dedicated billing support agents. Expected resolution time reduction: back to sub-6h within 8 weeks.",
+    chartType: "line",
+    eOpts: {
+      tooltip: {trigger:'axis'},
+      legend: {data:['Billing','Technical','Account'], textStyle:{color:'rgba(255,255,255,0.5)'}},
+      xAxis: {type:'category', data:['Jul','Aug','Sep','Oct','Nov','Dec'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+      yAxis: {type:'value', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
+      series: [{name:'Billing', data:[4.2, 5.8, 8.1, 12.4, 15.2, 18.1], type:'line', itemStyle:{color:'#ff6b35'}}, {name:'Technical', data:[3.1, 3.4, 3.8, 4.2, 4.6, 5.1], type:'line', itemStyle:{color:'#00d4ff'}}, {name:'Account', data:[2.4, 2.5, 2.7, 2.8, 3.0, 3.2], type:'line', itemStyle:{color:'#00ff88'}}]
+    }
+  }
 ];
 
-  function telemetryFor(idx) {
-    const presets = [
-      { latency: 412, processed: '2.4MB', cache: 'Warm', shards: '3/3', engine: 'BigQuery' },
-      { latency: 367, processed: '8.1MB', cache: 'Cold', shards: '8/8', engine: 'BigQuery' },
-      { latency: 298, processed: '1.7MB', cache: 'Warm', shards: '5/5', engine: 'Cloud Functions + BigQuery' },
-      { latency: 441, processed: '6.6MB', cache: 'Warm', shards: '6/6', engine: 'BigQuery Attribution Model' },
-      { latency: 389, processed: '4.2MB', cache: 'Warm', shards: '4/4', engine: 'BigQuery + SLA Model' }
-    ];
-    return Object.assign({
-      region: 'us-east4',
-      traceId: 'BQ-' + (9300 + idx * 143),
-      status: '200 OK'
-    }, presets[idx] || presets[0]);
-  }
+let activeEChart = null;
 
-  function stubFetch(endpoint, payload) {
-    const delay = 180 + Math.random() * 280;
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve({
-          ok: true,
-          json: async () => ({
-            endpoint,
-            payload,
-            timestamp: new Date().toISOString()
-          })
-        });
-      }, delay);
-    });
-  }
-
-  async function hydrateScenario(idx, scenario) {
-    const telemetry = telemetryFor(idx);
-    const [planRes, queryRes, vizRes] = await Promise.all([
-      stubFetch('/cloud/functions/planScenario', { idx, question: scenario.question }),
-      stubFetch('/bigquery/query', { file: scenario.file, sources: scenario.sources.length }),
-      stubFetch('/cloud/functions/renderVisualization', { idx, chartType: scenario.chartType })
-    ]);
-    return {
-      plan: await planRes.json(),
-      query: await queryRes.json(),
-      viz: await vizRes.json(),
-      telemetry
-    };
-  }
-
-  function renderTelemetry(metrics) {
-    return `
-      <aside class="telemetry">
-        <div>
-          <div class="telemetry-head">TELEMETRY</div>
-          <div class="telemetry-row"><div class="telemetry-key">Query Executed</div><div class="telemetry-val">${metrics.latency}ms</div></div>
-          <div class="telemetry-row"><div class="telemetry-key">Engine</div><div class="telemetry-val">${metrics.engine}</div></div>
-          <div class="telemetry-row"><div class="telemetry-key">Processed</div><div class="telemetry-val">${metrics.processed}</div></div>
-          <div class="telemetry-row"><div class="telemetry-key">Cache</div><div class="telemetry-val">${metrics.cache}</div></div>
-          <div class="telemetry-row"><div class="telemetry-key">Shards</div><div class="telemetry-val">${metrics.shards}</div></div>
-          <div class="telemetry-row"><div class="telemetry-key">Status</div><div class="telemetry-val">${metrics.status}</div></div>
-        </div>
-        <div class="telemetry-foot">Trace ID: ${metrics.traceId} · Region: ${metrics.region}</div>
-      </aside>
-    `;
-  }
-
-  function renderScenarioChart(host, idx, scenario) {
-    if (!host) return;
-    const chart = echarts.init(host, null, { renderer: 'canvas' });
-    observeChartResize(host, chart);
-    chartRegistry.set('scenario', chart);
-
-    if (idx === 3) {
-      chart.setOption({
-        animationDuration: 1200,
-        animationEasing: 'cubicOut',
-        backgroundColor: 'transparent',
-        title: {
-          text: 'Spend Flow -> Channel -> Outcome',
-          left: 0,
-          textStyle: { color: 'rgba(255,255,255,0.38)', fontFamily: 'JetBrains Mono', fontSize: 10, fontWeight: 500 }
-        },
-        tooltip: {
-          trigger: 'item',
-          backgroundColor: 'rgba(6,6,8,0.96)',
-          borderColor: 'rgba(0,255,136,0.14)',
-          textStyle: { color: '#e2e2e8', fontFamily: 'JetBrains Mono', fontSize: 10 }
-        },
-        series: [{
-          type: 'sankey',
-          emphasis: { focus: 'adjacency' },
-          lineStyle: { color: 'gradient', curveness: 0.45, opacity: 0.42 },
-          nodeGap: 14,
-          label: { color: 'rgba(255,255,255,0.72)', fontFamily: 'JetBrains Mono', fontSize: 9 },
-          data: [
-            { name: 'Budget' }, { name: 'Organic Search' }, { name: 'Email' }, { name: 'Referral' },
-            { name: 'Paid Search' }, { name: 'Direct' }, { name: 'Paid Social' },
-            { name: 'Converted' }, { name: 'Dropped' }
-          ],
-          links: [
-            { source: 'Budget', target: 'Organic Search', value: 42 },
-            { source: 'Budget', target: 'Email', value: 26 },
-            { source: 'Budget', target: 'Referral', value: 18 },
-            { source: 'Budget', target: 'Paid Search', value: 48 },
-            { source: 'Budget', target: 'Direct', value: 20 },
-            { source: 'Budget', target: 'Paid Social', value: 86 },
-            { source: 'Organic Search', target: 'Converted', value: 34 },
-            { source: 'Organic Search', target: 'Dropped', value: 8 },
-            { source: 'Email', target: 'Converted', value: 18 },
-            { source: 'Email', target: 'Dropped', value: 8 },
-            { source: 'Referral', target: 'Converted', value: 12 },
-            { source: 'Referral', target: 'Dropped', value: 6 },
-            { source: 'Paid Search', target: 'Converted', value: 17 },
-            { source: 'Paid Search', target: 'Dropped', value: 31 },
-            { source: 'Direct', target: 'Converted', value: 10 },
-            { source: 'Direct', target: 'Dropped', value: 10 },
-            { source: 'Paid Social', target: 'Converted', value: 12 },
-            { source: 'Paid Social', target: 'Dropped', value: 74 }
-          ]
-        }]
+// Mock API Call (Phase 5)
+const mockApiCall = async () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({
+        time: Math.floor(Math.random() * 300 + 150),
+        bytes: (Math.random() * 5 + 1).toFixed(2),
+        engine: "Google BigQuery"
       });
-      return;
-    }
+    }, 800 + Math.random()*500);
+  });
+};
 
-    const option = echartsBase(scenario.chartTitle, {
-      legend: {
-        top: 18,
-        right: 0,
-        textStyle: { color: 'rgba(255,255,255,0.42)', fontFamily: 'JetBrains Mono', fontSize: 9 }
-      },
-      xAxis: {
-        type: 'category',
-        data: scenario.chartData.labels,
-        axisLabel: { color: 'rgba(255,255,255,0.38)', fontFamily: 'JetBrains Mono', fontSize: 9 }
-      },
-      yAxis: { type: 'value' },
-      series: (scenario.chartData.datasets || []).map(ds => {
-        const base = {
-          name: ds.label,
-          type: scenario.chartType === 'line' ? 'line' : 'bar',
-          data: ds.data,
-          itemStyle: { color: ds.borderColor || '#00ff88' },
-          lineStyle: { color: ds.borderColor || '#00ff88', width: 2 },
-          symbolSize: 7
-        };
-        if (scenario.chartType === 'line') {
-          base.smooth = true;
-          base.areaStyle = {
-            color: new echarts.graphic.LinearGradient(0,0,0,1,[
-              { offset: 0, color: (ds.borderColor || '#00ff88') + '33' },
-              { offset: 1, color: 'rgba(0,0,0,0)' }
-            ])
-          };
-        } else {
-          base.barWidth = ds.label && ds.label.includes('Before') ? '34%' : '28%';
-          base.itemStyle = {
-            color: ds.borderColor || '#00ff88',
-            borderRadius: [5,5,0,0],
-            opacity: ds.label && ds.label.includes('Before') ? 0.72 : 0.92
-          };
-        }
-        return base;
-      })
-    });
-    chart.setOption(option);
+async function runScenario(idx) {
+  const s = SCENARIOS[idx];
+  document.querySelectorAll('.scen-card').forEach((c,i)=>c.classList.toggle('active',i===idx));
+  
+  const box = document.getElementById('scenBox'); box.style.display='block';
+  document.getElementById('scenSteps').innerHTML = '';
+  document.getElementById('scenResult').innerHTML = '';
+  document.getElementById('scenResult').classList.remove('show');
+  document.getElementById('scenKick').style.display='none';
+  box.scrollIntoView({behavior:'smooth', block:'start'});
+
+  if(activeEChart) { activeEChart.dispose(); activeEChart = null; }
+
+  // Processing Hum
+  const audioContext = playProcessingHum();
+
+  // Async API Simulation
+  const steps = ['Authenticating IAM roles...', `Executing pipeline query...`, 'Awaiting cluster response...', 'Aggregating results...'];
+  for(let i=0; i<steps.length; i++) {
+    await new Promise(r=>setTimeout(r, 300));
+    document.getElementById('scenSteps').innerHTML += `<div class="sc-l"><span class="tx">${steps[i]}</span></div>`;
+    document.getElementById('scenPbar').style.width = ((i+1)/steps.length*100)+'%';
   }
 
-  let scenRunning = false;
-  window.runScenario = async function runScenario(idx) {
-    if (scenRunning) return;
-    scenRunning = true;
-    const scenario = SCENARIOS[idx];
-    $$('.scen-card').forEach((c, i) => c.classList.toggle('active', i === idx));
+  const telemetry = await mockApiCall();
+  if(audioContext) {
+    audioContext.gain.gain.exponentialRampToValueAtTime(0.001, actx.currentTime + 0.5);
+    setTimeout(() => audioContext.osc.stop(), 500);
+  }
 
-    const box = $('#scenBox');
-    const stepsEl = $('#scenSteps');
-    const resultEl = $('#scenResult');
-    const pbar = $('#scenPbar');
-    const kick = $('#scenKick');
+  const r = document.getElementById('scenResult');
+  r.innerHTML = `
+    <div class="telemetry">
+      <div class="tel-item"><span>Engine:</span> ${telemetry.engine}</div>
+      <div class="tel-item"><span>Exec Time:</span> ${telemetry.time}ms</div>
+      <div class="tel-item"><span>Processed:</span> ${telemetry.bytes}MB</div>
+      <div class="tel-item"><span>Status:</span> 200 OK</div>
+    </div>
+    <div class="scen-code-wrap"><div class="scen-code-head"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div class="scen-code-file">query_execution.sql</div></div><div class="scen-code">${s.query.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div></div>
+    <div class="scen-divider"><span>THE VISUALIZATION</span></div>
+    <div class="scen-chart-wrap" id="liveChartWrap"></div>
+    <div class="scen-divider"><span>THE FINDING</span></div>
+    <div class="scen-finding"><div class="scen-finding-label">KEY FINDING</div><div class="scen-finding-text">${s.finding}</div></div>
+    <div class="scen-divider"><span>THE RECOMMENDATION</span></div>
+    <div class="scen-rec"><div class="scen-rec-label">RECOMMENDATION</div><div class="scen-rec-text">${s.rec}</div></div>
+  `;
+  r.classList.add('show');
 
-    box.style.display = 'block';
-    $('#scenFile').textContent = scenario.file;
-    stepsEl.innerHTML = '';
-    resultEl.innerHTML = '';
-    resultEl.classList.remove('show');
-    pbar.style.width = '0%';
-    kick.style.display = 'none';
+  // Render ECharts
+  setTimeout(() => {
+    const chartDom = document.getElementById('liveChartWrap');
+    activeEChart = echarts.init(chartDom, 'dark', {renderer: 'canvas'});
+    const opts = s.eOpts;
+    opts.backgroundColor = 'transparent';
+    activeEChart.setOption(opts);
+  }, 100);
 
-    const prev = chartRegistry.get('scenario');
-    if (prev) {
-      prev.dispose();
-      chartRegistry.delete('scenario');
-    }
+  setTimeout(()=> document.getElementById('scenKick').style.display='block', 800);
+}
 
-    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    const hydration = hydrateScenario(idx, scenario);
-    for (let i = 0; i < scenario.steps.length; i++) {
-      await sleep(180 + Math.random() * 120);
-      const line = document.createElement('div');
-      line.className = 'sc-l';
-      const isKey = /Rendering|Synthesizing|Building|Drafting/.test(scenario.steps[i]);
-      line.innerHTML = `<span class="ix">[${String(i + 1).padStart(2, '0')}]</span><span class="tx" style="${isKey ? 'color:#00ff88' : ''}">${scenario.steps[i]}</span>`;
-      stepsEl.appendChild(line);
-      stepsEl.scrollTop = stepsEl.scrollHeight;
-      pbar.style.width = (((i + 1) / scenario.steps.length) * 100) + '%';
-      if (i % 2 === 0) Sound.keyClick();
-    }
+// ======== PROJECT CHARTS (D3 Force & ECharts) ========
+function togP(c){
+  const was = c.classList.contains('exp');
+  document.querySelectorAll('.pc.exp').forEach(x=>x.classList.remove('exp'));
+  if(!was){
+    c.classList.add('exp');
+    setTimeout(() => {
+      renderD3Churn();
+      renderEchartsHousing();
+      renderEchartsRetail();
+    }, 400);
+    setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'nearest'}),150);
+  }
+}
 
-    const hydrated = await hydration;
-    await sleep(120);
+// D3 Force-Directed Graph (Phase 2)
+function renderD3Churn() {
+  const container = document.getElementById('churnChartContainer');
+  if(!container || container.dataset.done) return;
+  container.dataset.done = '1';
+  container.innerHTML = ''; 
+  const width = container.clientWidth, height = container.clientHeight;
+  
+  const svg = d3.select(container).append('svg').attr('width', width).attr('height', height);
+  const nodes = [{id: 'prod', group: 0}];
+  for(let i=0; i<40; i++) nodes.push({id: 'r'+i, group: 1}); // Retained
+  for(let i=0; i<15; i++) nodes.push({id: 'c'+i, group: 2}); // Churned
 
-    const chartId = `scenChart${idx}`;
-    resultEl.innerHTML =
-      `<div class="scen-question">${scenario.question}</div>` +
-      `<div class="scen-context">${scenario.context}</div>` +
-      `<div class="scen-divider"><span>DATA SOURCES</span></div>` +
-      `<div class="scen-sources">${scenario.sources.map(src => `<div class="scen-src">${src}</div>`).join('')}</div>` +
-      `<div class="scen-divider"><span>THE QUERY</span></div>` +
-      `<div class="scen-code-wrap"><div class="scen-code-head"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div class="scen-code-file">${scenario.file}</div></div><div class="scen-code">${scenario.code}</div></div>` +
-      `<div class="scen-divider"><span>THE VISUALIZATION</span></div>` +
-      `<div class="scen-viz-grid"><div class="chart-shell"><div id="${chartId}" class="scen-chart"></div></div>${renderTelemetry(hydrated.telemetry)}</div>` +
-      `<div class="scen-divider"><span>THE FINDING</span></div>` +
-      `<div class="scen-finding"><div class="scen-finding-label">KEY FINDING</div><div class="scen-finding-text">${scenario.finding}</div></div>` +
-      `<div class="scen-divider"><span>THE RECOMMENDATION</span></div>` +
-      `<div class="scen-rec"><div class="scen-rec-label">RECOMMENDATION TO STAKEHOLDERS</div><div class="scen-rec-text">${scenario.recommendation}</div></div>`;
-    resultEl.classList.add('show');
+  const sim = d3.forceSimulation(nodes)
+    .force('charge', d3.forceManyBody().strength(d => d.group===0 ? -120 : -15))
+    .force('collide', d3.forceCollide().radius(6))
+    .force('x', d3.forceX(width/2).strength(d => d.group===2 ? -0.08 : 0.05)) // Churn pushes left
+    .force('y', d3.forceY(height/2).strength(d => d.group===2 ? 0.08 : 0.05));
 
-    const host = document.getElementById(chartId);
-    if (host) {
-      Sound.processingPulse();
-      renderScenarioChart(host, idx, scenario);
-    }
+  const node = svg.append('g').selectAll('circle').data(nodes).enter().append('circle')
+    .attr('r', d => d.group===0 ? 10 : 5)
+    .attr('fill', d => d.group===0 ? '#fff' : (d.group===1 ? '#00ff88' : '#ff4444'))
+    .attr('opacity', 0.8);
 
-    await sleep(900);
-    kick.style.display = 'block';
-    scenRunning = false;
-  };
+  sim.on('tick', () => {
+    node.attr('cx', d => d.x).attr('cy', d => d.y);
+  });
+}
 
-  // -----------------------------
-  // Easter egg analyzer
-  // -----------------------------
-  window.openAnalyzerEgg = function openAnalyzerEgg() {
-    let m = document.getElementById('eggModal');
-    if (!m) {
-      m = document.createElement('div');
-      m.id = 'eggModal';
-      m.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:250;display:flex;align-items:center;justify-content:center;padding:20px';
-      m.onclick = e => { if (e.target === m) m.style.display = 'none'; };
-      m.innerHTML = '<div style="width:90%;max-width:600px;background:#0c0c12;border:1px solid rgba(0,255,136,0.15);border-radius:14px;overflow:hidden;max-height:85vh;overflow-y:auto">'+
-        '<div style="display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04)"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div style="font-family:var(--mn);font-size:11px;color:var(--dm);margin-left:8px">company_intelligence.py (classic)</div><div style="margin-left:auto;font-family:var(--mn);font-size:9px;color:rgba(255,255,255,0.15);cursor:pointer" onclick="document.getElementById(\'eggModal\').style.display=\'none\'">ESC to close</div></div>'+
-        '<div style="padding:24px"><div style="display:flex;gap:0;margin-bottom:16px"><input type="text" id="eggInput" placeholder="Type any company name..." style="flex:1;padding:12px 16px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,255,136,0.1);border-right:none;border-radius:8px 0 0 8px;color:var(--g);font-family:var(--mn);font-size:13px;outline:none"><button onclick="runEggAnalyzer()" style="padding:12px 20px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.1);border-radius:0 8px 8px 0;color:var(--g);font-family:var(--mn);font-size:10px;letter-spacing:2px;cursor:pointer">ANALYZE</button></div><div id="eggOutput" style="font-family:var(--mn);font-size:11px;color:var(--dm);line-height:1.8"></div></div></div>';
-      document.body.appendChild(m);
-      document.getElementById('eggInput').addEventListener('keydown', e => { if (e.key === 'Enter') runEggAnalyzer(); });
-    }
-    m.style.display = 'flex';
-    setTimeout(() => document.getElementById('eggInput').focus(), 100);
-  };
+function renderEchartsHousing() {
+  const container = document.getElementById('housingChartContainer');
+  if(!container || container.dataset.done) return;
+  container.dataset.done = '1';
+  let chart = echarts.init(container, 'dark');
+  chart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {trigger: 'item', formatter: 'Income: ${c}K <br/> Wait: {c1} Days'},
+    xAxis: {type: 'value', name: 'Income ($K)', splitLine:{show:false}, axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+    yAxis: {type: 'value', name: 'Wait (Days)', splitLine:{show:false}, axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+    series: [{
+      type: 'scatter', symbolSize: 10, itemStyle: {color: '#00d4ff'},
+      data: [[25, 38], [32, 35], [41, 30], [48, 28], [55, 26], [70, 21], [85, 18], [95, 16]]
+    }]
+  });
+}
 
-  window.runEggAnalyzer = function runEggAnalyzer() {
-    const name = document.getElementById('eggInput').value.trim();
-    if (!name) return;
-    const o = document.getElementById('eggOutput');
-    o.innerHTML = '<div style="color:var(--g)">Analyzing "' + name + '"...</div><br><div style="color:rgba(255,255,255,0.3)">The full Company Intelligence System has evolved into the Solve It Live engine above. This classic mode is preserved as an easter egg for those who found it.<br><br>Try the 5 interactive scenarios in the main section — they demonstrate the same analytical skills with real SQL, live telemetry, and executive-ready recommendations.</div>';
-  };
+function renderEchartsRetail() {
+  const container = document.getElementById('retailChartContainer');
+  if(!container || container.dataset.done) return;
+  container.dataset.done = '1';
+  let chart = echarts.init(container, 'dark');
+  chart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {trigger: 'axis'},
+    xAxis: {type: 'category', data: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+    yAxis: {type: 'value', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
+    series: [{
+      type: 'line', smooth:true, symbolSize: 6, itemStyle: {color: '#00ff88'}, areaStyle: {color: 'rgba(0,255,136,0.1)'},
+      data: [42,38,45,51,48,55,62,58,67,72,85,110]
+    }]
+  });
+}
 
-  // -----------------------------
-  // MTA explorer
-  // -----------------------------
-  const STATIONS_DATA={
+// MTA Case Study ECharts (Converting from Chart.js)
+const mtaObs = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){
+  e.target.dataset.done='1';
+  let chart = echarts.init(document.getElementById('mtaChart'), 'dark');
+  chart.setOption({
+    backgroundColor: 'transparent', tooltip: {trigger: 'axis'},
+    title: {text: 'Top 10 Stations by Avg Daily Entries (Thousands)', textStyle:{fontSize: 10, fontFamily: 'JetBrains Mono', color: 'rgba(255,255,255,0.5)'}},
+    xAxis: {type: 'category', data: ['Times Sq','Grand Central','Herald Sq','Union Sq','Fulton St','Penn Station','14 St','59 St','Jay St','Atlantic'], axisLabel: {rotate: 45, fontSize: 9}, axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+    yAxis: {type: 'value', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
+    series: [{type: 'bar', data: [215,198,172,155,148,142,131,118,105,98], itemStyle: {color: '#00ff88'}}]
+  });
+}})},{threshold:.3});
+const mtaChartEl = document.getElementById('mtaChart');
+if (mtaChartEl) mtaObs.observe(mtaChartEl);
+
+
+// Instantiate Institution Nodes Impact Matrix (Phase 1/5 Polish)
+const INST_NAMES=['Baruch','Brooklyn','City','Hunter','John Jay','Lehman','Queens','York','CSI','BMCC','Hostos CC','Kingsborough','LaGuardia','Queensborough','NYCCT','Guttman','Macaulay','Craig Newmark','CUNY Law','SPH','SPS','Grad Center','CUNY Central','Research Found.'];
+const nodesField=document.getElementById('nodesField');
+if(nodesField){
+  INST_NAMES.forEach(name=>{
+    const node=document.createElement('div'); node.className='inst-node'; node.dataset.label=name; nodesField.appendChild(node);
+  });
+  new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting && !e.target.dataset.done){
+    e.target.dataset.done='1';
+    e.target.querySelectorAll('.inst-node').forEach((n,i)=>{
+      setTimeout(()=>{ n.classList.add('lit'); n.style.animationDelay=(Math.random()*2)+'s'; }, i*60);
+    });
+  }})},{threshold:.3}).observe(nodesField);
+}
+
+// ======== CUNY ARCHITECTURE: IMPACT COUNTERS ========
+const impactObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){
+  e.target.dataset.done='1';
+  animateImpact('impVal1',55,'-%');
+  animateImpact('impVal2',37,'+%');
+  animateImpact('impVal3',50,'-%');
+}})},{threshold:.3});
+const impactWrap=document.querySelector('.impact-grid-wrap');
+if(impactWrap) impactObs.observe(impactWrap);
+
+function animateImpact(id,target,suffix){
+  const el=document.getElementById(id);if(!el)return;
+  const start=Date.now(),dur=2200;
+  const ease=t=>t<0.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1;
+  !function tick(){
+    const t=Math.min((Date.now()-start)/dur,1);
+    const v=Math.round(target*ease(t));
+    el.textContent=(suffix.startsWith('+')?'+':'-')+v+'%';
+    if(t<1)requestAnimationFrame(tick);
+  }();
+}
+
+// ======== SCROLL PROGRESS BAR ========
+const scrollProg=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  scrollProg.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+},{passive:true});
+
+// ======== BACK TO TOP BUTTON ========
+const bttBtn=document.getElementById('btt');
+window.addEventListener('scroll',()=>{bttBtn.classList.toggle('show',window.scrollY>500)},{passive:true});
+
+// ======== ACTIVE NAV HIGHLIGHT ========
+const navLinks=document.querySelectorAll('.nav-l a');
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let current='';const scrollY=window.scrollY+200;
+  sections.forEach(s=>{if(scrollY>=s.offsetTop)current=s.getAttribute('id')});
+  navLinks.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+current?'#00ff88':''});
+},{passive:true});
+
+// ======== TIME-OF-DAY GREETING ========
+const greetEl=document.getElementById('greeting');
+if(greetEl){
+  const h=new Date().getHours();
+  const g=h<12?'Good morning':h<17?'Good afternoon':h<21?'Good evening':'Late night browsing?';
+  greetEl.textContent=g+' // Welcome to my portfolio';
+}
+
+// ======== COMMAND PALETTE (Ctrl+K) ========
+const CMD_ITEMS=[
+  {icon:'🧠',label:'Solve It Live',section:'#demo'},
+  {icon:'🏗️',label:'CUNY Architecture',section:'#cuny-architecture'},
+  {icon:'🚇',label:'MTA Case Study',section:'#case'},
+  {icon:'📊',label:'Ridership Explorer',section:'#explorer'},
+  {icon:'💼',label:'Projects',section:'#projects'},
+  {icon:'🔧',label:'Methodology',section:'#method'},
+  {icon:'📈',label:'Work Experience',section:'#experience'},
+  {icon:'🛠️',label:'Skills',section:'#skills'},
+  {icon:'🎓',label:'Education',section:'#education'},
+  {icon:'🔬',label:'Currently Exploring',section:'#now'},
+  {icon:'📧',label:'Contact',section:'#contact'},
+  {icon:'📄',label:'Download Resume',section:'resume'},
+  {icon:'🥚',label:'Company Analyzer (Easter Egg)',section:'easter-egg'},
+  {icon:'⬆️',label:'Back to Top',section:'#top'},
+];
+let cmdActive=-1;
+
+function openCmd(){
+  document.getElementById('cmdOverlay').classList.add('open');
+  const inp=document.getElementById('cmdInput');
+  inp.value='';inp.focus();
+  renderCmdResults('');
+  cmdActive=-1;
+}
+function closeCmd(){
+  document.getElementById('cmdOverlay').classList.remove('open');
+  cmdActive=-1;
+}
+function renderCmdResults(query){
+  const q=query.toLowerCase();
+  const filtered=q?CMD_ITEMS.filter(i=>i.label.toLowerCase().includes(q)):CMD_ITEMS;
+  const container=document.getElementById('cmdResults');
+  container.innerHTML=filtered.map((item,i)=>
+    '<div class="cmd-item'+(i===cmdActive?' active':'')+'" data-idx="'+i+'" onclick="navigateCmd(\''+item.section+'\')">'+
+    '<span class="cmd-icon">'+item.icon+'</span>'+item.label+'</div>'
+  ).join('');
+}
+function navigateCmd(section){
+  closeCmd();
+  if(section==='resume'){
+    const a=document.createElement('a');a.href='./Yash_Saini_Resume.pdf';a.download='';a.click();return;
+  }
+  if(section==='easter-egg'){
+    if(typeof openAnalyzerEgg==='function')openAnalyzerEgg();return;
+  }
+  const el=document.querySelector(section);
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
+
+document.getElementById('cmdInput').addEventListener('input',e=>{ cmdActive=-1; renderCmdResults(e.target.value); });
+document.getElementById('cmdInput').addEventListener('keydown',e=>{
+  const items=document.querySelectorAll('.cmd-item');
+  if(e.key==='Escape'){closeCmd();return;}
+  if(e.key==='ArrowDown'){e.preventDefault();cmdActive=Math.min(cmdActive+1,items.length-1);items.forEach((it,i)=>it.classList.toggle('active',i===cmdActive));}
+  if(e.key==='ArrowUp'){e.preventDefault();cmdActive=Math.max(cmdActive-1,0);items.forEach((it,i)=>it.classList.toggle('active',i===cmdActive));}
+  if(e.key==='Enter'&&cmdActive>=0&&items[cmdActive]){items[cmdActive].click();}
+});
+document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openCmd();}
+  if(e.key==='Escape')closeCmd();
+});
+
+// ---- EASTER EGG: HIDDEN COMPANY ANALYZER ----
+function openAnalyzerEgg(){
+  let m=document.getElementById('eggModal');
+  if(!m){
+    m=document.createElement('div');m.id='eggModal';
+    m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:250;display:flex;align-items:center;justify-content:center;padding:20px';
+    m.onclick=e=>{if(e.target===m)m.style.display='none'};
+    m.innerHTML='<div style="width:90%;max-width:600px;background:#0c0c12;border:1px solid rgba(0,255,136,0.15);border-radius:14px;overflow:hidden;max-height:85vh;overflow-y:auto">'+
+      '<div style="display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04)"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div style="font-family:var(--mn);font-size:11px;color:var(--dm);margin-left:8px">company_intelligence.py (classic)</div><div style="margin-left:auto;font-family:var(--mn);font-size:9px;color:rgba(255,255,255,0.15);cursor:pointer" onclick="document.getElementById(\'eggModal\').style.display=\'none\'">ESC to close</div></div>'+
+      '<div style="padding:24px"><div style="display:flex;gap:0;margin-bottom:16px"><input type="text" id="eggInput" placeholder="Type any company name..." style="flex:1;padding:12px 16px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,255,136,0.1);border-right:none;border-radius:8px 0 0 8px;color:var(--g);font-family:var(--mn);font-size:13px;outline:none"><button onclick="runEggAnalyzer()" style="padding:12px 20px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.1);border-radius:0 8px 8px 0;color:var(--g);font-family:var(--mn);font-size:10px;letter-spacing:2px;cursor:pointer">ANALYZE</button></div><div id="eggOutput" style="font-family:var(--mn);font-size:11px;color:var(--dm);line-height:1.8"></div></div></div>';
+    document.body.appendChild(m);
+    document.getElementById('eggInput').addEventListener('keydown',e=>{if(e.key==='Enter')runEggAnalyzer()});
+  }
+  m.style.display='flex';
+  setTimeout(()=>document.getElementById('eggInput').focus(),100);
+}
+function runEggAnalyzer(){
+  const name=document.getElementById('eggInput').value.trim();
+  if(!name)return;
+  const o=document.getElementById('eggOutput');
+  o.innerHTML='<div style="color:var(--g)">Analyzing "'+name+'"...</div><br><div style="color:rgba(255,255,255,0.3)">The full Company Intelligence System has evolved into the Solve It Live engine above. This classic mode is preserved as an easter egg for those who found it.<br><br>Try the 5 interactive scenarios in the main section -- they demonstrate the same analytical skills with real SQL, real charts, and real recommendations.</div>';
+}
+
+// ======== MTA RIDERSHIP EXPLORER ========
+const STATIONS_DATA={
   times_sq:{name:'Times Sq - 42 St',peak:215,base:[8,5,4,3,3,5,12,28,42,38,35,40,45,42,38,40,48,55,50,42,35,28,20,12]},
   grand_central:{name:'Grand Central',peak:198,base:[6,4,3,2,3,6,15,35,48,40,32,35,38,36,34,38,50,52,45,38,30,22,14,8]},
   herald_sq:{name:'34 St - Herald Sq',peak:172,base:[7,5,4,3,3,5,10,25,38,35,32,36,40,38,35,37,42,48,42,35,28,22,15,9]},
@@ -2144,255 +1499,6 @@ function updateHeatmap(){
   document.getElementById('exploreStats').innerHTML='<div class="explore-stat"><div class="es-val">'+st.peak+'K</div><div class="es-lbl">Peak daily entries</div></div><div class="explore-stat"><div class="es-val">'+Math.round(tot/7)+'K</div><div class="es-lbl">Avg daily (this view)</div></div><div class="explore-stat"><div class="es-val">'+pD+' '+pH+':00</div><div class="es-lbl">Busiest time slot</div></div><div class="explore-stat"><div class="es-val">'+pV+'K</div><div class="es-lbl">Peak hour entries</div></div>';
 }
 updateHeatmap();
-
-  // -----------------------------
-  // Command palette
-  // -----------------------------
-  const CMD_ITEMS = [
-    {icon:'🧠',label:'Solve It Live',section:'#demo'},
-    {icon:'🏗️',label:'CUNY Architecture',section:'#cuny-architecture'},
-    {icon:'🚇',label:'MTA Case Study',section:'#case'},
-    {icon:'📊',label:'Ridership Explorer',section:'#explorer'},
-    {icon:'💼',label:'Projects',section:'#projects'},
-    {icon:'🔧',label:'Methodology',section:'#method'},
-    {icon:'📈',label:'Work Experience',section:'#experience'},
-    {icon:'🛠️',label:'Skills',section:'#skills'},
-    {icon:'🎓',label:'Education',section:'#education'},
-    {icon:'🔬',label:'Currently Exploring',section:'#now'},
-    {icon:'📧',label:'Contact',section:'#contact'},
-    {icon:'📄',label:'Download Resume',section:'resume'},
-    {icon:'🥚',label:'Company Analyzer (Classic)',section:'easter-egg'},
-    {icon:'⬆️',label:'Back to Top',section:'#top'}
-  ];
-  let cmdActive = -1;
-
-  window.openCmd = function openCmd() {
-    $('#cmdOverlay').classList.add('open');
-    const inp = $('#cmdInput');
-    inp.value = '';
-    inp.focus();
-    renderCmdResults('');
-    cmdActive = -1;
-  };
-
-  window.closeCmd = function closeCmd() {
-    $('#cmdOverlay').classList.remove('open');
-    cmdActive = -1;
-  };
-
-  function renderCmdResults(query) {
-    const q = query.toLowerCase();
-    const filtered = q ? CMD_ITEMS.filter(i => i.label.toLowerCase().includes(q)) : CMD_ITEMS;
-    $('#cmdResults').innerHTML = filtered.map((item, i) =>
-      `<div class="cmd-item${i === cmdActive ? ' active' : ''}" data-idx="${i}" onclick="navigateCmd('${item.section}')"><span class="cmd-icon">${item.icon}</span>${item.label}</div>`
-    ).join('');
-  }
-
-  window.navigateCmd = function navigateCmd(section) {
-    closeCmd();
-    if (section === 'resume') {
-      const a = document.createElement('a');
-      a.href = './Yash_Saini_Resume.pdf';
-      a.download = '';
-      a.click();
-      return;
-    }
-    if (section === 'easter-egg') {
-      openAnalyzerEgg();
-      return;
-    }
-    const el = document.querySelector(section);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  $('#cmdInput').addEventListener('input', e => {
-    cmdActive = -1;
-    renderCmdResults(e.target.value);
-  });
-
-  $('#cmdInput').addEventListener('keydown', e => {
-    const items = $$('.cmd-item');
-    if (e.key === 'Escape') { closeCmd(); return; }
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      cmdActive = Math.min(cmdActive + 1, items.length - 1);
-      items.forEach((it, i) => it.classList.toggle('active', i === cmdActive));
-    }
-    if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      cmdActive = Math.max(cmdActive - 1, 0);
-      items.forEach((it, i) => it.classList.toggle('active', i === cmdActive));
-    }
-    if (e.key === 'Enter' && cmdActive >= 0 && items[cmdActive]) items[cmdActive].click();
-  });
-
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-      e.preventDefault();
-      openCmd();
-    }
-    if (e.key === 'Escape') closeCmd();
-  });
-
-  // -----------------------------
-  // Terminal realism
-  // -----------------------------
-  const TERM_LINES = [
-    {type:'prompt',text:'$ python run_validation_eda.py --scope=all_institutions'},
-    {type:'log',text:'[INFO] Loading workforce and leave datasets across 26 institutions...'},
-    {type:'log',text:'[INFO] Schema normalization: reconciling column names across 7 sources...'},
-    {type:'log',text:'[INFO] Running completeness checks... 142 tables, 3,847 columns'},
-    {type:'log',text:'[INFO] Running consistency validation across reporting periods...'},
-    {type:'warn',text:'[!] Institution 24 (Borough of Manhattan CC): MISMATCH DETECTED'},
-    {type:'warn',text:'[!] Institution 25 (Bronx CC): RECONCILIATION FAILURE'},
-    {type:'warn',text:'[!] Institution 26 (Hostos CC): INTEGRITY GAP - 2 REPORTING CYCLES'},
-    {type:'alert',text:'ANOMALY DETECTED: 2-cycle data integrity gap found across 3 institutions. Headcount diverges from leave records by 340+ entries.'},
-    {type:'log',text:'[INFO] Root cause isolated: legacy migration left orphaned leave records'},
-    {type:'success',text:'[OK] Resolution: Data reconciled and validated before reporting deadline'},
-    {type:'ok',text:'RESULT: Validation now executes automatically before every reporting cycle. Zero manual intervention required.'}
-  ];
-
-  async function typeTerminalLine(line, body) {
-    const el = document.createElement('div');
-    el.className = 'term-line';
-    if (line.type === 'prompt') {
-      el.innerHTML = '<span class="term-prompt">yash@cuny</span>:<span style="color:var(--c)">~/validation</span>$ <span class="term-cmd"></span>';
-    } else if (line.type === 'alert') {
-      el.innerHTML = '<div class="term-alert"></div>';
-    } else if (line.type === 'ok') {
-      el.innerHTML = '<div class="term-ok"></div>';
-    } else {
-      el.innerHTML = `<span class="term-${line.type === 'success' ? 'success' : line.type === 'warn' ? 'warn' : 'log'}"></span>`;
-    }
-    body.appendChild(el);
-    const target = el.querySelector('.term-cmd, .term-alert, .term-ok, .term-success, .term-warn, .term-log');
-    const txt = line.type === 'prompt' ? line.text.replace(/^\$ /, '') : line.text;
-    let out = '';
-    for (let i = 0; i < txt.length; i++) {
-      out += txt[i];
-      target.textContent = out;
-      if (i % 3 === 0) Sound.keyClick();
-      await sleep(line.type === 'alert' ? 10 : 8);
-    }
-    body.scrollTop = body.scrollHeight;
-    await sleep(40);
-  }
-
-  function initTerminal() {
-    const termEl = $('.anomaly-term');
-    const body = $('#anomalyTerm');
-    if (!termEl || !body || !window.ScrollTrigger) return;
-    ScrollTrigger.create({
-      trigger: termEl,
-      start: 'top 78%',
-      once: true,
-      onEnter: async () => {
-        for (const line of TERM_LINES) {
-          await typeTerminalLine(line, body);
-        }
-        const cur = document.createElement('div');
-        cur.className = 'term-line';
-        cur.innerHTML = '<span class="term-prompt">yash@cuny</span>:<span style="color:var(--c)">~/validation</span>$ <span class="term-cursor"></span>';
-        body.appendChild(cur);
-      }
-    });
-  }
-
-  // -----------------------------
-  // Institution nodes
-  // -----------------------------
-  function initInstitutionNodes() {
-    const INST_NAMES = ['Baruch','Brooklyn','City','Hunter','John Jay','Lehman','Medgar Evers','Queens','York','CSI','BMCC','Bronx CC','Hostos CC','Kingsborough','LaGuardia','Queensborough','NYCCT','Guttman','Macaulay','Craig Newmark','CUNY Law','SPH','SPS','Grad Center','CUNY Central','Research Found.'];
-    const nodesField = $('#nodesField');
-    if (!nodesField) return;
-    if (!nodesField.children.length) {
-      INST_NAMES.forEach(name => {
-        const node = document.createElement('div');
-        node.className = 'inst-node';
-        node.dataset.label = name;
-        nodesField.appendChild(node);
-      });
-    }
-
-    if (!window.ScrollTrigger) return;
-    ScrollTrigger.create({
-      trigger: nodesField,
-      start: 'top 82%',
-      once: true,
-      onEnter: () => {
-        const nodes = $$('.inst-node', nodesField);
-        gsap.to(nodes, {
-          opacity: 1,
-          scale: 1,
-          stagger: 0.05,
-          duration: 0.7,
-          ease: 'back.out(1.4)',
-          onStart: () => nodes.forEach(n => n.classList.add('lit'))
-        });
-      }
-    });
-
-    const impactWrap = $('.impact-grid-wrap');
-    if (impactWrap && window.ScrollTrigger) {
-      ScrollTrigger.create({
-        trigger: impactWrap,
-        start: 'top 78%',
-        once: true,
-        onEnter: () => {
-          animateImpact('impVal1', 55, '-');
-          animateImpact('impVal2', 37, '+');
-          animateImpact('impVal3', 50, '-');
-        }
-      });
-    }
-  }
-
-  function animateImpact(id, target, sign) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    gsap.fromTo(el, { innerText: 0 }, {
-      innerText: target,
-      duration: 1.8,
-      ease: 'power3.out',
-      snap: { innerText: 1 },
-      onUpdate: () => {
-        el.textContent = `${sign}${Math.round(Number(el.innerText))}%`;
-      }
-    });
-  }
-
-  // -----------------------------
-  // Boot
-  // -----------------------------
-  function init() {
-    initThreeBackground();
-    initBasicUi();
-    initRevealSystem();
-    initScenarioCardPhysics();
-    initArchitectureScrub();
-    initCaseStudyChart();
-    initTerminal();
-    initInstitutionNodes();
-    syncSoundUi();
-
-    // Default renderers for opened charts
-    const firstExpanded = $('.pc.exp');
-    if (firstExpanded) renderProjectVisuals(firstExpanded);
-
-    // Bind select changes for MTA explorer
-    const stationSelect = $('#stationSelect');
-    const dayFilter = $('#dayFilter');
-    if (stationSelect) stationSelect.addEventListener('change', updateHeatmap);
-    if (dayFilter) dayFilter.addEventListener('change', updateHeatmap);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-
 </script>
 </body>
 </html>
