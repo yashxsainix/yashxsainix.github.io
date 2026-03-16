@@ -8,14 +8,17 @@
 <meta name="keywords" content="data analyst, BI engineer, business analytics, SQL, BigQuery, Python, Power BI, ETL, data pipelines, Baruch College, New York">
 <meta name="author" content="Yash Saini">
 <meta name="robots" content="index, follow">
+<!-- Open Graph -->
 <meta property="og:title" content="Yash Saini - Data Analyst & BI Engineer">
 <meta property="og:description" content="I build analytics systems that turn messy data into decisions. Explore my interactive company intelligence engine and project case studies.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yashxsainix.github.io">
 <meta property="og:image" content="https://yashxsainix.github.io/photo.png">
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yash Saini - Data Analyst & BI Engineer">
 <meta name="twitter:description" content="I build analytics systems that turn messy data into decisions.">
+<!-- Structured Data -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yash Saini","jobTitle":"Data Analyst & BI Engineer","url":"https://yashxsainix.github.io","sameAs":["https://github.com/yashxsainix","https://www.linkedin.com/in/yash-saini-analyst/"],"alumniOf":{"@type":"EducationalOrganization","name":"Baruch College, Zicklin School of Business"},"knowsAbout":["SQL","Python","BigQuery","Power BI","ETL","Data Engineering","Business Intelligence"]}</script>
 <link rel="canonical" href="https://yashxsainix.github.io">
 <meta name="theme-color" content="#060608">
@@ -252,79 +255,151 @@ section{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px
 .cl.res-btn{background:rgba(0,255,136,0.1);font-weight:600}
 .footer{text-align:center;padding:40px 24px;font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:1px;line-height:1.8;max-width:500px;margin:0 auto}
 
-/* ======================================================== */
-/* CUNY ARCHITECTURE CASE STUDY (ENTERPRISE SCALE)          */
-/* ======================================================== */
-.cuny-s { padding-top: 100px; padding-bottom: 100px; }
-.cuny-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 32px; }
+/* ================================================================
+   CUNY ARCHITECTURE SECTION - THE CROWN JEWEL
+   ================================================================ */
+.cuny-s{padding-top:120px;padding-bottom:120px}
+.cuny-s .stl{font-size:clamp(26px,4.5vw,42px);margin-bottom:4px}
+.cuny-tag{font-family:var(--mn);font-size:10px;letter-spacing:2px;color:var(--c);opacity:.6;margin-bottom:28px}
 
-/* 1. Mess vs Machine Architecture */
-.arch-compare { display: flex; background: var(--sf); border: 1px solid rgba(0,255,136,0.1); border-radius: 14px; overflow: hidden; position: relative; }
-.arch-compare > div { flex: 1; padding: 32px; position: relative; }
-.arch-mess { background: rgba(255, 95, 87, 0.03); border-right: 1px dashed rgba(255,255,255,0.05); }
-.arch-machine { background: rgba(0, 255, 136, 0.02); }
-.arch-lbl { font-family: var(--mn); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
-.m-title { color: #ff5f57; }
-.mac-title { color: var(--g); }
+/* ---- MESS vs MACHINE ---- */
+.arch-split{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:48px;align-items:stretch}
+.arch-pane{padding:28px;border-radius:14px;position:relative;overflow:hidden}
+.arch-pane.mess{background:rgba(255,60,60,0.03);border:1px solid rgba(255,60,60,0.12)}
+.arch-pane.machine{background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.1)}
+.arch-pane-label{font-family:var(--dp);font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.mess .arch-pane-label{color:#ff4444}
+.machine .arch-pane-label{color:var(--g)}
+.arch-pane-label .pane-badge{font-family:var(--mn);font-size:8px;padding:2px 7px;border-radius:3px;letter-spacing:1px;text-transform:uppercase}
+.mess .pane-badge{background:rgba(255,60,60,0.1);border:1px solid rgba(255,60,60,0.2);color:#ff6666}
+.machine .pane-badge{background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.15);color:var(--g)}
 
-/* The Mess Nodes */
-.mess-nodes { height: 160px; position: relative; }
-.m-node { position: absolute; padding: 6px 10px; background: rgba(255, 95, 87, 0.1); border: 1px solid rgba(255, 95, 87, 0.3); border-radius: 4px; font-family: var(--mn); font-size: 9px; color: #ff5f57; box-shadow: 0 0 10px rgba(255, 95, 87, 0.1); }
-.m-node:nth-child(1) { top: 10px; left: 10%; transform: rotate(-10deg); }
-.m-node:nth-child(2) { top: 40px; right: 20%; transform: rotate(15deg); }
-.m-node:nth-child(3) { bottom: 30px; left: 30%; transform: rotate(-5deg); }
-.m-node:nth-child(4) { top: 80px; left: 5%; transform: rotate(20deg); opacity: 0.6; }
-.m-node:nth-child(5) { bottom: 10px; right: 10%; transform: rotate(-15deg); opacity: 0.8; }
-.m-node:nth-child(6) { top: 60px; right: 40%; transform: rotate(8deg); }
-.m-warning { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); padding: 8px 12px; border: 1px solid #ff5f57; border-radius: 6px; color: #ff5f57; font-family: var(--mn); font-size: 10px; z-index: 2; white-space: nowrap; box-shadow: 0 0 20px rgba(255, 95, 87, 0.2); animation: pulse-red 2s infinite; }
+/* Fragmented sources */
+.frag-grid{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.frag-node{padding:8px 12px;border-radius:6px;font-family:var(--mn);font-size:9px;background:rgba(255,60,60,0.06);border:1px solid rgba(255,60,60,0.15);color:rgba(255,100,100,0.7);position:relative;animation:fragPulse 3s ease-in-out infinite}
+.frag-node:nth-child(2){animation-delay:.4s}.frag-node:nth-child(3){animation-delay:.8s}.frag-node:nth-child(4){animation-delay:1.2s}.frag-node:nth-child(5){animation-delay:1.6s}.frag-node:nth-child(6){animation-delay:2s}.frag-node:nth-child(7){animation-delay:2.4s}
+@keyframes fragPulse{0%,100%{opacity:.6;transform:translate(0,0)}25%{opacity:.9;transform:translate(1px,-1px)}75%{opacity:.5;transform:translate(-1px,1px)}}
+.frag-tangle{font-family:var(--mn);font-size:10px;color:rgba(255,80,80,0.4);margin-top:8px;line-height:1.6;font-style:italic}
 
-/* The Machine Flow */
-.mac-flow { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; height: 160px; position: relative; }
-.mac-node { padding: 10px 24px; background: rgba(0, 0, 0, 0.5); border: 1px solid var(--g); border-radius: 6px; font-family: var(--mn); font-size: 11px; color: var(--g); text-align: center; width: 100%; max-width: 240px; box-shadow: 0 0 15px rgba(0, 255, 136, 0.1); z-index: 2; }
-.mac-node.gcp { border-color: var(--c); color: var(--c); box-shadow: 0 0 15px rgba(0, 212, 255, 0.1); }
-.data-stream { width: 2px; height: 20px; background: linear-gradient(to bottom, transparent, var(--g), transparent); animation: data-flow 1.5s linear infinite; }
-.data-stream.cyan { background: linear-gradient(to bottom, transparent, var(--c), transparent); }
+/* Arrow divider */
+.arch-arrow-col{display:flex;align-items:center;justify-content:center;position:relative}
+.arch-arrow-col::before{content:'';position:absolute;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,0.04)}
+.arch-mega-arrow{font-size:28px;color:var(--g);animation:arrowPulse 2s ease-in-out infinite;z-index:1}
+@keyframes arrowPulse{0%,100%{opacity:.4;transform:translateX(0)}50%{opacity:1;transform:translateX(4px)}}
 
-/* 2. Anomaly Catch Terminal */
-.cuny-term { background: #0c0c12; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.term-h { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); background: #060608; }
-.term-h .dot { width: 10px; height: 10px; border-radius: 50%; }
-.term-path { font-family: var(--mn); font-size: 11px; color: var(--dm); margin-left: auto; }
-.term-b { padding: 20px; font-family: var(--mn); font-size: 12px; line-height: 1.6; min-height: 180px; }
-.tl { opacity: 0; display: none; }
-.tl.show { display: block; animation: term-fade 0.1s forwards; }
-.t-cmd { color: var(--g); margin-bottom: 8px; }
-.t-info { color: rgba(255,255,255,0.6); }
-.t-err { color: #ff5f57; font-weight: 700; background: rgba(255, 95, 87, 0.1); padding: 4px 8px; border-left: 3px solid #ff5f57; margin: 8px 0; text-shadow: 0 0 8px rgba(255, 95, 87, 0.4); }
-.t-succ { color: var(--g); font-weight: 700; margin-top: 8px; }
+/* Clean pipeline with animated flow */
+.clean-flow{display:flex;flex-direction:column;gap:0;position:relative}
+.flow-stage{display:flex;align-items:center;gap:12px;padding:7px 0;position:relative}
+.flow-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;position:relative;z-index:2}
+.flow-dot.green{background:var(--g);box-shadow:0 0 10px rgba(0,255,136,0.4)}
+.flow-dot.cyan{background:var(--c);box-shadow:0 0 10px rgba(0,212,255,0.4)}
+.flow-dot.orange{background:var(--o);box-shadow:0 0 10px rgba(255,107,53,0.4)}
+.flow-dot.purple{background:var(--p);box-shadow:0 0 10px rgba(199,125,255,0.4)}
+.flow-connector{position:absolute;left:5px;top:19px;width:2px;height:calc(100% - 5px);z-index:1}
+.flow-connector-line{stroke:rgba(0,255,136,0.2);stroke-width:2;stroke-dasharray:4 4;animation:dashFlow 1.5s linear infinite}
+.flow-data-dot{fill:var(--g);filter:drop-shadow(0 0 3px rgba(0,255,136,0.6))}
+.flow-data-dot{animation:dataPulse 2s ease-in-out infinite}
+@keyframes dashFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-16}}
+@keyframes dataPulse{0%{opacity:0;transform:translateY(0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateY(20px)}}
+.flow-stage:last-child .flow-connector{display:none}
+.flow-label{font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.55)}
+.flow-label strong{color:rgba(255,255,255,0.8)}
 
-/* 3. Scale & Impact Grid */
-.impact-grid { position: relative; background: var(--sf); border: 1px solid rgba(0,212,255,0.1); border-radius: 14px; padding: 40px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; min-height: 240px; }
-.ig-bg { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(13, 1fr); gap: 10px; padding: 20px; opacity: 0.3; }
-.ig-dot { width: 6px; height: 6px; background: var(--c); border-radius: 50%; justify-self: center; align-self: center; animation: pulse-dot 3s infinite alternate; }
-.ig-content { position: relative; z-index: 2; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 24px; text-align: center; }
-.ig-stat { background: rgba(6, 6, 8, 0.85); border: 1px solid rgba(0, 212, 255, 0.2); padding: 20px 30px; border-radius: 12px; backdrop-filter: blur(10px); flex: 1; min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(20px); opacity: 0; transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
-.ig-stat.vis { transform: translateY(0); opacity: 1; }
-.ig-val { font-family: var(--mn); font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0 15px rgba(0,212,255,0.4); margin-bottom: 4px; }
-.ig-val span { color: var(--c); font-size: 24px; }
-.ig-lbl { font-family: var(--mn); font-size: 10px; color: var(--dm); letter-spacing: 1px; text-transform: uppercase; }
+/* Mess side tangle lines */
+.tangle-svg{position:absolute;inset:0;pointer-events:none;opacity:.3;overflow:visible}
+.tangle-line{stroke:rgba(255,60,60,0.3);stroke-width:1;fill:none;stroke-dasharray:3 5;animation:tangleShift 4s ease-in-out infinite alternate}
+@keyframes tangleShift{from{stroke-dashoffset:0}to{stroke-dashoffset:20}}
 
-/* Animations */
-@keyframes pulse-red { 0%, 100% { box-shadow: 0 0 15px rgba(255, 95, 87, 0.2); } 50% { box-shadow: 0 0 25px rgba(255, 95, 87, 0.5); } }
-@keyframes data-flow { 0% { transform: translateY(-100%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(100%); opacity: 0; } }
-@keyframes term-fade { to { opacity: 1; } }
-@keyframes pulse-dot { 0% { opacity: 0.2; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 8px var(--c); } }
+/* Terminal cursor */
+.term-cursor{display:inline-block;width:7px;height:14px;background:var(--g);animation:cursorBlink 1s step-end infinite;vertical-align:middle;margin-left:2px}
+@keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
 
-@media(max-width: 768px) {
-  .arch-compare { flex-direction: column; }
-  .arch-mess { border-right: none; border-bottom: 1px dashed rgba(255,255,255,0.05); }
-  .ig-content { flex-direction: column; }
+/* ---- ANOMALY TERMINAL ---- */
+.anomaly-term{background:#0a0a0f;border:1px solid rgba(0,255,136,0.08);border-radius:14px;overflow:hidden;margin-bottom:48px}
+.term-header{display:flex;align-items:center;gap:8px;padding:12px 18px;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.04)}
+.term-dot{width:9px;height:9px;border-radius:50%}
+.term-dot.r{background:#ff5f57}.term-dot.y{background:#febc2e}.term-dot.g{background:#28c840}
+.term-title{font-family:var(--mn);font-size:10px;color:var(--dm);margin-left:6px}
+.term-body{padding:20px 22px;font-family:var(--mn);font-size:11px;line-height:2;overflow-x:auto}
+.term-line{opacity:0;animation:termFade .4s ease forwards}
+.term-prompt{color:var(--g)}
+.term-cmd{color:rgba(255,255,255,0.7)}
+.term-log{color:rgba(255,255,255,0.3)}
+.term-warn{color:#ff4444;font-weight:700;text-shadow:0 0 10px rgba(255,50,50,0.3)}
+.term-alert{background:rgba(255,60,60,0.08);border:1px solid rgba(255,60,60,0.2);border-radius:6px;padding:8px 14px;margin:8px 0;color:#ff6666;animation:alertFlash 1.5s ease-in-out 2}
+@keyframes alertFlash{0%,100%{background:rgba(255,60,60,0.08)}50%{background:rgba(255,60,60,0.18)}}
+.term-success{color:var(--g);font-weight:600}
+.term-ok{background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.12);border-radius:6px;padding:8px 14px;margin:8px 0;color:var(--g)}
+@keyframes termFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- SCALE & IMPACT GRID ---- */
+.impact-grid-wrap{position:relative;padding:48px 32px;background:var(--sf);border:1px solid rgba(0,255,136,0.06);border-radius:16px;overflow:hidden}
+.impact-grid-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,255,136,0.03) 0%,transparent 70%);pointer-events:none}
+.nodes-field{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px;position:relative;z-index:1}
+.inst-node{width:18px;height:18px;border-radius:50%;background:rgba(0,255,136,0.15);border:1px solid rgba(0,255,136,0.25);position:relative;transition:all .4s;cursor:default}
+.inst-node:hover{background:rgba(0,255,136,0.4);transform:scale(1.4);box-shadow:0 0 16px rgba(0,255,136,0.3)}
+.inst-node::after{content:attr(data-label);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);font-family:var(--mn);font-size:8px;color:var(--g);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+.inst-node:hover::after{opacity:1}
+.inst-node.lit{animation:nodePing 2s ease-in-out infinite}
+@keyframes nodePing{0%,100%{box-shadow:0 0 4px rgba(0,255,136,0.2)}50%{box-shadow:0 0 12px rgba(0,255,136,0.4)}}
+
+.impact-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;z-index:1}
+.impact-metric{text-align:center;padding:24px 16px;background:rgba(0,0,0,0.3);border:1px solid rgba(0,255,136,0.06);border-radius:12px;transition:all .4s}
+.impact-metric:hover{border-color:rgba(0,255,136,0.2);transform:translateY(-4px)}
+.im-val{font-family:var(--dp);font-size:clamp(32px,5vw,48px);font-weight:800;line-height:1;margin-bottom:8px}
+.im-val.green{color:var(--g);text-shadow:0 0 30px rgba(0,255,136,0.2)}
+.im-val.cyan{color:var(--c);text-shadow:0 0 30px rgba(0,212,255,0.2)}
+.im-val.orange{color:var(--o);text-shadow:0 0 30px rgba(255,107,53,0.2)}
+.im-label{font-family:var(--mn);font-size:10px;color:var(--dm);letter-spacing:1px}
+.im-sub{font-family:var(--bd);font-size:11px;color:rgba(255,255,255,0.25);margin-top:6px}
+
+.cuny-footnote{margin-top:32px;padding:16px 20px;background:rgba(0,255,136,0.015);border-left:3px solid var(--g);border-radius:0 8px 8px 0;font-family:var(--bd);font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7}
+.cuny-footnote strong{color:rgba(255,255,255,0.75)}
+
+@media(max-width:700px){
+  .arch-split{grid-template-columns:1fr;gap:16px}
+  .arch-arrow-col{display:none}
+  .impact-metrics{grid-template-columns:1fr}
+  .im-val{font-size:36px}
 }
 
 /* BACK TO TOP */
 .btt{position:fixed;bottom:32px;right:32px;width:44px;height:44px;border-radius:50%;background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.2);color:var(--g);font-size:18px;cursor:pointer;z-index:40;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all .3s ease;backdrop-filter:blur(10px)}
 .btt.show{opacity:1;pointer-events:auto}
 .btt:hover{background:rgba(0,255,136,0.2);transform:translateY(-2px);box-shadow:0 0 20px rgba(0,255,136,0.15)}
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--g),var(--c));z-index:60;width:0;transition:none;pointer-events:none}
+
+/* TIME-OF-DAY GREETING */
+.greeting{font-family:var(--mn);font-size:10px;color:var(--dm);margin-bottom:8px;opacity:0.6}
+
+/* COMMAND PALETTE */
+.cmd-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding-top:20vh}
+.cmd-overlay.open{display:flex}
+.cmd-box{width:90%;max-width:500px;background:var(--sf);border:1px solid rgba(0,255,136,0.15);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.cmd-input{width:100%;padding:16px 20px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--g);font-family:var(--mn);font-size:14px;outline:none}
+.cmd-input::placeholder{color:rgba(0,255,136,0.2)}
+.cmd-results{max-height:300px;overflow-y:auto}
+.cmd-item{padding:12px 20px;cursor:pointer;font-family:var(--mn);font-size:12px;color:var(--dm);display:flex;align-items:center;gap:10px;transition:background .15s}
+.cmd-item:hover,.cmd-item.active{background:rgba(0,255,136,0.06);color:var(--g)}
+.cmd-item .cmd-icon{font-size:14px;width:20px;text-align:center}
+.cmd-hint{padding:10px 20px;font-family:var(--mn);font-size:9px;color:rgba(255,255,255,0.15);border-top:1px solid rgba(255,255,255,0.03);text-align:center}
+.cmd-trigger{font-family:var(--mn);font-size:9px;padding:3px 8px;border:1px solid rgba(255,255,255,0.08);border-radius:4px;color:rgba(255,255,255,0.2);cursor:pointer;transition:all .3s;margin-left:12px}
+.cmd-trigger:hover{border-color:rgba(0,255,136,0.2);color:var(--g)}
+
+/* PRINT STYLES */
+@media print{
+  .nav,.grid-bg,.glow,#nc,.btt,.scroll-progress,.cmd-overlay,.hero-photo::after,.nav-s{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  *{color:#000!important;border-color:#ccc!important;background:transparent!important}
+  .hero h1 .l1,.hero h1 .l2{-webkit-text-fill-color:#000!important}
+  section{max-width:100%!important;padding:0 16px!important}
+  .pc,.exp-card,.sk-card,.edu-main,.edu-sm{break-inside:avoid;border:1px solid #ddd!important;margin-bottom:12px!important}
+  .hero{min-height:auto!important;padding:20px 0!important}
+  a{text-decoration:underline!important}
+  a::after{content:' (' attr(href) ')';font-size:9px;color:#666!important}
+}
 
 /* PAGE LOAD */
 body{animation:pageIn .8s ease}
@@ -348,32 +423,80 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   .case-step{flex-direction:column;gap:10px}.meth-step{min-width:100%;text-align:left;padding:14px 0}.meth-step::after{display:none}
   .arch-viz,.pipe-viz{justify-content:center}
 }
+/* ================================================================
+   SOLVE IT LIVE - SCENARIO ENGINE STYLES
+   ================================================================ */
+.scen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:28px}
+.scen-card{padding:18px 14px;background:var(--sf);border:1px solid rgba(255,255,255,0.04);border-radius:12px;cursor:pointer;transition:all .35s ease;text-align:center;position:relative;overflow:hidden}
+.scen-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,255,136,0.06),transparent 70%);opacity:0;transition:opacity .35s}
+.scen-card:hover::before,.scen-card.active::before{opacity:1}
+.scen-card:hover{border-color:rgba(0,255,136,0.2);transform:translateY(-3px)}
+.scen-card.active{border-color:rgba(0,255,136,0.4);background:rgba(0,255,136,0.03)}
+.scen-ico{font-size:24px;margin-bottom:8px;display:block}
+.scen-nm{font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.7);line-height:1.4;font-weight:600}
+.scen-output{display:none;animation:fsi .5s ease}
+.scen-output.show{display:block}
+.scen-question{font-family:var(--dp);font-size:clamp(16px,2.5vw,22px);font-weight:700;color:var(--tx);margin-bottom:8px;line-height:1.4}
+.scen-context{font-family:var(--bd);font-size:13px;color:var(--dm);line-height:1.7;margin-bottom:20px}
+.scen-sources{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.scen-src{padding:5px 11px;border-radius:5px;font-family:var(--mn);font-size:9px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.1);color:rgba(0,212,255,0.6)}
+.scen-code-wrap{background:#080810;border:1px solid rgba(0,255,136,0.08);border-radius:12px;overflow:hidden;margin-bottom:20px}
+.scen-code-head{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015)}
+.scen-code-head .dd{width:8px;height:8px;border-radius:50%}
+.scen-code-head .dd.r{background:#ff5f57}.scen-code-head .dd.y{background:#febc2e}.scen-code-head .dd.g{background:#28c840}
+.scen-code-file{font-family:var(--mn);font-size:10px;color:var(--dm);margin-left:6px}
+.scen-code{padding:18px 20px;font-family:var(--mn);font-size:11px;line-height:1.8;overflow-x:auto;color:rgba(255,255,255,0.55);white-space:pre}
+.scen-code .kw{color:var(--p)}.scen-code .fn{color:var(--c)}.scen-code .str{color:var(--g)}.scen-code .cm{color:rgba(255,255,255,0.2)}.scen-code .num{color:var(--o)}
+.scen-chart-wrap{background:var(--sf);border:1px solid rgba(0,255,136,0.06);border-radius:12px;padding:20px;margin-bottom:20px;max-height:320px}
+.scen-chart-wrap canvas{max-height:260px}
+.scen-finding{padding:18px 20px;background:rgba(255,107,53,0.03);border:1px solid rgba(255,107,53,0.1);border-left:3px solid var(--o);border-radius:0 10px 10px 0;margin-bottom:16px}
+.scen-finding-label{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:var(--o);margin-bottom:6px;opacity:.7}
+.scen-finding-text{font-family:var(--bd);font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6}
+.scen-rec{padding:18px 20px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.08);border-left:3px solid var(--g);border-radius:0 10px 10px 0;margin-bottom:16px}
+.scen-rec-label{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:var(--g);margin-bottom:6px;opacity:.7}
+.scen-rec-text{font-family:var(--bd);font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6}
+.scen-divider{display:flex;align-items:center;gap:12px;margin:20px 0}
+.scen-divider::before,.scen-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.04)}
+.scen-divider span{font-family:var(--mn);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.15)}
+@media(max-width:700px){.scen-grid{grid-template-columns:repeat(2,1fr)}.scen-grid .scen-card:last-child{grid-column:span 2}}
 </style>
 </head>
 <body>
 <a href="#demo" class="skip-nav">Skip to main content</a>
+<div class="scroll-progress" id="scrollProg" aria-hidden="true"></div>
 <canvas id="nc" aria-hidden="true"></canvas>
 <div class="grid-bg" aria-hidden="true"></div>
 <div class="glow a" aria-hidden="true"></div>
 <div class="glow b" aria-hidden="true"></div>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">^</button>
 
+<!-- Command Palette -->
+<div class="cmd-overlay" id="cmdOverlay" onclick="if(event.target===this)closeCmd()">
+  <div class="cmd-box">
+    <input class="cmd-input" id="cmdInput" placeholder="Search sections, projects, skills..." autocomplete="off">
+    <div class="cmd-results" id="cmdResults"></div>
+    <div class="cmd-hint">ESC to close / Arrow keys to navigate / Enter to go</div>
+  </div>
+</div>
+
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <a class="nav-n" href="#top">YASH SAINI</a>
   <div class="nav-l">
-    <a href="#demo">Live Demo</a>
-    <a href="#case">MTA Case Study</a>
+    <a href="#demo">Solve It Live</a>
     <a href="#cuny-architecture">Architecture</a>
+    <a href="#case">Case Study</a>
     <a href="#explorer">Explorer</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="nav-s"><div class="dot"></div> Open to full-time</div>
+  <div class="nav-s"><div class="dot"></div> Open to full-time<span class="cmd-trigger" onclick="openCmd()" title="Quick navigation (Ctrl+K)">Ctrl+K</span></div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-text">
+      <div class="greeting" id="greeting"></div>
       <div class="hero-pre">~/yash-saini <span class="blink">|</span></div>
       <h1><span class="l1">I build analytics systems</span><span class="l2">that turn messy data into decisions.</span></h1>
       <div class="hero-id">Data Analyst | BI Engineer | Building pipelines, analytics systems, and dashboards that drive decisions</div>
@@ -390,34 +513,171 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         <div class="counter rv d3"><div class="num" data-target="15" data-suffix="+">0</div><div class="ctx">KPI dashboards</div></div>
       </div>
       <div class="hero-cta">
-        <a href="#demo" class="btn btn-primary">See what I'd build for your company</a>
+        <a href="#demo" class="btn btn-primary">Watch me solve a real business problem</a>
         <a href="./Yash_Saini_Resume.pdf" class="btn btn-ghost" download>Resume PDF</a>
       </div>
     </div>
-    <div class="hero-photo rv"><img src="./photo.png" alt="Yash Saini, Data Analyst and BI Engineer based in New York City" /></div>
+    <div class="hero-photo rv"><img src="./photo.png" alt="Yash Saini, Data Analyst and BI Engineer based in New York City" loading="lazy" /></div>
   </div>
 </section>
 
+<!-- SOLVE IT LIVE -->
 <section class="demo-s" id="demo">
-  <div class="lbl rv">// live_demonstration</div>
-  <div class="stl rv">What I'd Build At Your Company</div>
-  <div class="ssub rv">Type any company name. I'll detect your industry, map data challenges, design an architecture, and draft a 90-day implementation plan. Every output is different. Try it twice.</div>
-  <div class="demo-box rv">
-    <div class="demo-h"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div class="demo-t">company_intelligence.py</div></div>
+  <div class="lbl rv">// solve_it_live</div>
+  <div class="stl rv">Pick a Business Problem. Watch Me Solve It.</div>
+  <div class="ssub rv">These aren't hypothetical. These are real problems I've solved across analytics, operations, and engineering roles. Click a scenario and watch the full analytical workflow: the question, the query, the chart, the recommendation.</div>
+
+  <!-- SCENARIO SELECTOR -->
+  <div class="scen-grid rv" id="scenGrid">
+    <div class="scen-card" onclick="runScenario(0)"><span class="scen-ico">📉</span><div class="scen-nm">Customer Churn Analysis</div></div>
+    <div class="scen-card" onclick="runScenario(1)"><span class="scen-ico">💰</span><div class="scen-nm">Revenue Drop Diagnosis</div></div>
+    <div class="scen-card" onclick="runScenario(2)"><span class="scen-ico">⚙️</span><div class="scen-nm">Reporting Automation</div></div>
+    <div class="scen-card" onclick="runScenario(3)"><span class="scen-ico">📣</span><div class="scen-nm">Marketing Attribution</div></div>
+    <div class="scen-card" onclick="runScenario(4)"><span class="scen-ico">🎫</span><div class="scen-nm">Support Optimization</div></div>
+  </div>
+
+  <!-- SCENARIO OUTPUT -->
+  <div class="demo-box rv" id="scenBox" style="display:none">
+    <div class="demo-h"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div class="demo-t" id="scenFile">analysis.sql</div></div>
     <div class="demo-bd">
-      <div class="inp-r"><input type="text" id="ci" placeholder="Try any company: Spotify, Stripe, Walmart, Pfizer..." aria-label="Enter company name for analysis" /><button id="ab" onclick="go()" aria-label="Run company analysis">Analyze</button></div>
-      <div class="pbar"><div class="fill" id="pf"></div></div>
-      <div id="out" style="max-height:180px;overflow:auto;"></div>
-      <div class="res" id="res"></div>
-      <div class="kick" id="kick">
-        <div class="lbl" style="margin-bottom:12px">// the_point</div>
-        <p>Everything you just experienced was <span class="em">designed and built by me</span>. The industry detection, the architecture generation, the tailored proposals. Each company gets a different output because the logic adapts, not because I memorized answers.<br><br><span style="color:var(--dm)">The platform is the proof. You just experienced my skills.</span></p>
-        <div class="tags"><span class="tag">SQL & BigQuery</span><span class="tag">Python</span><span class="tag">ETL Pipelines</span><span class="tag">Data Modeling</span><span class="tag">BI Dashboards</span><span class="tag">A/B Testing</span><span class="tag">Forecasting</span><span class="tag">Web Development</span></div>
+      <div class="pbar"><div class="fill" id="scenPbar"></div></div>
+      <div id="scenSteps" style="max-height:180px;overflow:auto;margin-bottom:16px"></div>
+      <div id="scenResult" class="scen-output"></div>
+    </div>
+  </div>
+
+  <div class="kick" id="scenKick" style="display:none">
+    <div class="lbl" style="margin-bottom:12px">// the_method</div>
+    <p>Every scenario follows the same discipline: <span class="em">frame the question, pull the data, interrogate it, visualize the finding, recommend the action</span>. No hand-waving. No "it depends." The analysis is the answer.<br><br><span style="color:var(--dm)">This is how I work. Pick another scenario, or keep scrolling to see the proof.</span></p>
+    <div class="tags"><span class="tag">SQL & BigQuery</span><span class="tag">Python & Pandas</span><span class="tag">ETL Pipelines</span><span class="tag">Data Modeling</span><span class="tag">BI Dashboards</span><span class="tag">A/B Testing</span><span class="tag">Forecasting</span></div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     CUNY SYSTEM ARCHITECTURE - THE CROWN JEWEL
+     ================================================================ -->
+<section class="cuny-s" id="cuny-architecture">
+  <div class="lbl rv">// system_architecture</div>
+  <div class="stl rv">Engineering Impact: The 26-Institution Overhaul</div>
+  <div class="cuny-tag rv">Research Foundation of CUNY / Data Specialist / GCP + BigQuery + Python</div>
+
+  <!-- VISUAL 1: MESS vs MACHINE -->
+  <div class="arch-split rv">
+    <!-- LEFT: The Mess -->
+    <div class="arch-pane mess">
+      <svg class="tangle-svg" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+        <path class="tangle-line" d="M30,20 Q80,90 150,50 T270,80" style="animation-delay:0s"/>
+        <path class="tangle-line" d="M50,40 Q120,10 180,90 T260,30" style="animation-delay:.5s"/>
+        <path class="tangle-line" d="M20,80 Q90,120 160,60 T280,120" style="animation-delay:1s"/>
+        <path class="tangle-line" d="M40,100 Q100,40 200,130 T290,60" style="animation-delay:1.5s"/>
+        <path class="tangle-line" d="M60,60 Q140,150 220,40 T250,150" style="animation-delay:2s"/>
+      </svg>
+      <div class="arch-pane-label"><span class="pane-badge">Before</span> The 26-Institution Mess</div>
+      <div class="frag-grid">
+        <div class="frag-node">Excel Reports</div>
+        <div class="frag-node">Manual CSVs</div>
+        <div class="frag-node">Legacy Access DBs</div>
+        <div class="frag-node">Email Attachments</div>
+        <div class="frag-node">Shared Drives</div>
+        <div class="frag-node">Disconnected ERPs</div>
+        <div class="frag-node">Paper-Based Logs</div>
       </div>
+      <div class="frag-tangle">
+        7+ fragmented data sources. Inconsistent schemas. No validation layer. 
+        Metric discrepancies across institutions went undetected for multiple reporting cycles.
+        Operations teams spent days assembling reports nobody trusted.
+      </div>
+    </div>
+
+    <div class="arch-arrow-col">
+      <svg width="40" height="40" viewBox="0 0 40 40" class="arch-mega-arrow" aria-hidden="true">
+        <line x1="4" y1="20" x2="30" y2="20" stroke="var(--g)" stroke-width="2" stroke-dasharray="3 3">
+          <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1s" repeatCount="indefinite"/>
+        </line>
+        <polygon points="28,14 38,20 28,26" fill="var(--g)" opacity="0.8">
+          <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+        </polygon>
+      </svg>
+    </div>
+
+    <!-- RIGHT: The Machine -->
+    <div class="arch-pane machine">
+      <div class="arch-pane-label"><span class="pane-badge">After</span> Unified GCP Reporting Layer</div>
+      <div class="clean-flow">
+        <div class="flow-stage">
+          <div class="flow-dot green"></div>
+          <div class="flow-label"><strong>26 Source Systems</strong> - cross-institutional schema normalization</div>
+          <svg class="flow-connector" height="30" width="12"><line class="flow-connector-line" x1="6" y1="0" x2="6" y2="30"/><circle class="flow-data-dot" cx="6" cy="6" r="2"/></svg>
+        </div>
+        <div class="flow-stage">
+          <div class="flow-dot cyan"></div>
+          <div class="flow-label"><strong>Python ETL Pipelines</strong> - automated ingestion with validation gates</div>
+          <svg class="flow-connector" height="30" width="12"><line class="flow-connector-line" x1="6" y1="0" x2="6" y2="30"/><circle class="flow-data-dot" cx="6" cy="6" r="2"/></svg>
+        </div>
+        <div class="flow-stage">
+          <div class="flow-dot orange"></div>
+          <div class="flow-label"><strong>BigQuery Warehouse</strong> - unified GCP reporting layer</div>
+          <svg class="flow-connector" height="30" width="12"><line class="flow-connector-line" x1="6" y1="0" x2="6" y2="30"/><circle class="flow-data-dot" cx="6" cy="6" r="2"/></svg>
+        </div>
+        <div class="flow-stage">
+          <div class="flow-dot purple"></div>
+          <div class="flow-label"><strong>Programmatic Validation</strong> - data governance and reconciliation framework</div>
+          <svg class="flow-connector" height="30" width="12"><line class="flow-connector-line" x1="6" y1="0" x2="6" y2="30"/><circle class="flow-data-dot" cx="6" cy="6" r="2"/></svg>
+        </div>
+        <div class="flow-stage">
+          <div class="flow-dot green"></div>
+          <div class="flow-label"><strong>Self-Serve Dashboards</strong> - operations teams pull insights without tickets</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISUAL 2: ANOMALY CATCH TERMINAL -->
+  <div class="anomaly-term rv">
+    <div class="term-header">
+      <div class="term-dot r"></div><div class="term-dot y"></div><div class="term-dot g"></div>
+      <div class="term-title">validation_pipeline.py - CUNY Data Integrity Audit</div>
+    </div>
+    <div class="term-body" id="anomalyTerm">
+      <!-- Lines injected by JS with staggered animation -->
+    </div>
+  </div>
+
+  <!-- VISUAL 3: SCALE & IMPACT GRID -->
+  <div class="impact-grid-wrap rv">
+    <div class="nodes-field" id="nodesField">
+      <!-- 26 institution nodes injected by JS -->
+    </div>
+    <div style="text-align:center;margin-bottom:24px;font-family:var(--mn);font-size:9px;letter-spacing:2px;color:rgba(0,255,136,0.3)">26 CUNY INSTITUTIONS / HOVER TO IDENTIFY / UNIFIED DATA LAYER</div>
+    <div class="impact-metrics">
+      <div class="impact-metric">
+        <div class="im-val green" id="impVal1">0%</div>
+        <div class="im-label">Reporting Latency Reduction</div>
+        <div class="im-sub">From days of manual assembly to minutes</div>
+      </div>
+      <div class="impact-metric">
+        <div class="im-val cyan" id="impVal2">0%</div>
+        <div class="im-label">Data Accuracy Gain</div>
+        <div class="im-sub">Validation frameworks catching issues pre-deadline</div>
+      </div>
+      <div class="impact-metric">
+        <div class="im-val orange" id="impVal3">0%</div>
+        <div class="im-label">Manual ETL Workload Eliminated</div>
+        <div class="im-sub">Pipeline orchestration replacing hand-built processes</div>
+      </div>
+    </div>
+
+    <div class="cuny-footnote">
+      <strong>What changed:</strong> Operations teams stopped asking "is this number right?" and started asking "what should we do about it?" 
+      The unified GCP reporting layer replaced 7 fragmented data sources with a single governed warehouse. 
+      Programmatic validation frameworks now catch integrity issues before deadlines, not after audits.
+      Pipeline orchestration runs on schedule. Nobody babysits it. Nobody emails spreadsheets. The system ships.
     </div>
   </div>
 </section>
 
+<!-- FEATURED CASE STUDY -->
 <section class="case-s" id="case">
   <div class="lbl rv">// featured_case_study</div>
   <div class="stl rv">MTA Turnstile Data Engineering</div>
@@ -455,7 +715,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
             <div class="pipe-ar">-></div>
             <div class="pipe-nd" style="background:rgba(255,107,53,0.04);border:1px solid rgba(255,107,53,0.12)"><div class="pipe-ic">☁️</div><div class="pipe-tx" style="color:var(--o)">BigQuery</div></div>
             <div class="pipe-ar">-></div>
-            <div class="pipe-nd" style="background:rgba(199,125,255,0.04);border:1px solid rgba(199,125,255,0.12)"><div class="pipeic">⚙️</div><div class="pipe-tx" style="color:var(--p)">dbt Models</div></div>
+            <div class="pipe-nd" style="background:rgba(199,125,255,0.04);border:1px solid rgba(199,125,255,0.12)"><div class="pipe-ic">⚙️</div><div class="pipe-tx" style="color:var(--p)">dbt Models</div></div>
             <div class="pipe-ar">-></div>
             <div class="pipe-nd" style="background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.12)"><div class="pipe-ic">📊</div><div class="pipe-tx" style="color:var(--g)">Analytics</div></div>
           </div>
@@ -496,6 +756,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<!-- MTA RIDERSHIP EXPLORER -->
 <section class="explore-s" id="explorer">
   <div class="lbl rv">// interactive_data_explorer</div>
   <div class="stl rv">NYC Subway Ridership Explorer</div>
@@ -535,76 +796,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
-<section class="cuny-s" id="cuny-architecture">
-  <div class="lbl rv">// enterprise_scale_architecture</div>
-  <div class="stl rv">Architecting a Unified GCP Data Layer</div>
-  <div class="ssub rv" style="max-width: 650px;">
-    To solve a massive reporting crisis at the CUNY Research Foundation, I designed and orchestrated a centralized data warehouse, replacing 7+ fragmented systems across 26 institutions with a programmatic validation framework.
-  </div>
-
-  <div class="cuny-grid">
-    <div class="arch-compare rv">
-      <div class="arch-mess">
-        <div class="arch-lbl m-title">The 26-Institution Mess</div>
-        <div class="mess-nodes">
-          <div class="m-node">Legacy Excel</div>
-          <div class="m-node">Fragmented CSVs</div>
-          <div class="m-node">Local DB (Inst. 12)</div>
-          <div class="m-node">Mismatched Schemas</div>
-          <div class="m-node">Manual Exports</div>
-          <div class="m-node">Untracked Edits</div>
-          <div class="m-warning">Data Integrity Compromised</div>
-        </div>
-      </div>
-      <div class="arch-machine">
-        <div class="arch-lbl mac-title">Unified Reporting Engine</div>
-        <div class="mac-flow">
-          <div class="mac-node gcp">☁️ Google Cloud Ingestion</div>
-          <div class="data-stream cyan"></div>
-          <div class="mac-node gcp">BigQuery Unified Layer + dbt</div>
-          <div class="data-stream"></div>
-          <div class="mac-node">📊 Self-Serve Operations Dashboard</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cuny-term rv" id="term-trigger">
-      <div class="term-h">
-        <div class="dd r"></div><div class="dd y"></div><div class="dd g"></div>
-        <div class="term-path">~/cuny/orchestration/run_validation_eda.py</div>
-      </div>
-      <div class="term-b" id="term-out">
-        <div class="tl t-cmd">$ python run_validation_eda.py --env=production</div>
-        <div class="tl t-info">[INFO] Connecting to BigQuery unified_layer... OK</div>
-        <div class="tl t-info">[INFO] Executing cross-institutional schema normalization... OK</div>
-        <div class="tl t-info">[INFO] Running temporal cross-checks across 26 sub-entities...</div>
-        <div class="tl t-info">... scanning workforce allocations ...</div>
-        <div class="tl t-err">[!] ANOMALY DETECTED: 2-Cycle Integrity Gap found across 3 institutions.</div>
-        <div class="tl t-info">[INFO] Cross-referencing timestamp logs to isolate variance...</div>
-        <div class="tl t-succ">[✓] Resolution: Schema patched and data reconciled 48 hours before reporting deadline.</div>
-      </div>
-    </div>
-
-    <div class="impact-grid rv">
-      <div class="ig-bg" id="ig-dots"></div>
-      <div class="ig-content">
-        <div class="ig-stat rv d1">
-          <div class="ig-val"><span>-</span>55<span>%</span></div>
-          <div class="ig-lbl">Reporting Latency</div>
-        </div>
-        <div class="ig-stat rv d2">
-          <div class="ig-val"><span>+</span>37<span>%</span></div>
-          <div class="ig-lbl">Data Accuracy Gain</div>
-        </div>
-        <div class="ig-stat rv d3">
-          <div class="ig-val"><span>-</span>50<span>%</span></div>
-          <div class="ig-lbl">Manual ETL Workload</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- PROJECTS -->
 <section class="proj-s" id="projects">
   <div class="lbl rv">// selected_work</div>
   <div class="stl rv">Projects That Prove It</div>
@@ -663,6 +855,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<!-- HOW I APPROACH DATA PROBLEMS -->
 <section class="meth-s" id="method">
   <div class="lbl rv">// methodology</div>
   <div class="stl rv">How I Approach Data Problems</div>
@@ -676,6 +869,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section class="exp-s" id="experience">
   <div class="lbl rv">// where_ive_built</div>
   <div class="stl rv">Work Experience</div>
@@ -696,6 +890,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<!-- SKILLS -->
 <section class="sk-s" id="skills">
   <div class="lbl rv">// how_i_work</div>
   <div class="stl rv">Skills, With Receipts</div>
@@ -712,6 +907,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<!-- EDUCATION -->
 <section class="edu-s" id="education">
   <div class="lbl rv">// education</div>
   <div class="stl rv">Where I Studied</div>
@@ -725,6 +921,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <div class="edu-sm rv d2"><div class="edu-sch">Kurukshetra University</div><div class="edu-deg">B.Com, 2016-2019</div></div>
 </section>
 
+<!-- CURRENTLY EXPLORING -->
 <section class="now-s" id="now">
   <div class="lbl rv">// currently_exploring</div>
   <div class="stl rv">What I'm Building & Learning Right Now</div>
@@ -738,6 +935,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="ct-s" id="contact">
   <div class="lbl rv">// let's_talk</div>
   <h2 class="rv">I'd rather show you than tell you.</h2>
@@ -771,6 +969,9 @@ document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
 const pipeObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const nodes=e.target.querySelectorAll('.pipe-nd');nodes.forEach((n,i)=>{setTimeout(()=>n.classList.add('lit'),i*400)})}})},{threshold:.3});
 document.querySelectorAll('.pipe-viz').forEach(el=>pipeObs.observe(el));
 
+// Fallback
+setTimeout(()=>{document.querySelectorAll('.rv').forEach(el=>el.classList.add('vis'));document.querySelectorAll('.counter .num').forEach(el=>{el.textContent=el.dataset.target+el.dataset.suffix});document.querySelectorAll('.pipe-nd').forEach(n=>n.classList.add('lit'))},2500);
+
 // ======== PROJECT TOGGLE + CHARTS ========
 function togP(c){const was=c.classList.contains('exp');document.querySelectorAll('.pc.exp').forEach(x=>x.classList.remove('exp'));if(!was){c.classList.add('exp');setTimeout(()=>renderProjectCharts(c),400);setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'nearest'}),150)}}
 
@@ -789,331 +990,180 @@ function renderProjectCharts(card){
 const mtaObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done='1';new Chart(document.getElementById('mtaChart'),{type:'bar',data:{labels:['Times Sq','Grand Central','Herald Sq','Union Sq','Fulton St','Penn Station','14 St','59 St','Jay St','Atlantic'],datasets:[{label:'Avg Daily Ridership',data:[215,198,172,155,148,142,131,118,105,98],backgroundColor:'rgba(0,255,136,0.3)',borderColor:'#00ff88',borderWidth:1,borderRadius:4}]},options:{...chartOpts,plugins:{legend:{display:false},title:{display:true,text:'Top 10 Stations by Avg Daily Entries (Thousands)',color:'rgba(255,255,255,0.3)',font:{family:'JetBrains Mono',size:10}}}}})}})},{threshold:.3});
 document.querySelectorAll('.case-chart').forEach(el=>mtaObs.observe(el));
 
+
+
+
+
+
+
 // ================================================================
-// COMPANY INTELLIGENCE SYSTEM v7.0
-// Strict typed pipeline | No field contamination | Full render
-// Profile-driven | Wikipedia-enhanced | Visual wow-factor
+// SOLVE IT LIVE - SCENARIO ENGINE v1.0
+// 5 Business Problem Scenarios | SQL + Python | Chart.js Viz
 // ================================================================
 
-function pick(a,n){const s=[...a];for(let i=s.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[s[i],s[j]]=[s[j],s[i]]}return s.slice(0,n)}
-
-// COMPANY PROFILES
-const PROFILES={
-nvidia:{
-  classification:{sectors:['Semiconductors','AI Computing','Cloud Infrastructure'],confidence:'high'},
-  profile:{organizationType:'Fabless semiconductor and AI platform company',operatingModel:'Hardware platform + software ecosystem + enterprise infrastructure',summary:'Designs GPUs, AI accelerators, and computing platforms for gaming, data centers, and autonomous vehicles'},
-  sources:['GPU performance telemetry','Driver installation and usage logs','CUDA developer ecosystem activity','Enterprise GPU cluster utilization','Chip production and supply chain data','Cloud partner workload metrics'],
-  challenges:['GPU demand forecasting across enterprise, cloud, and consumer segments with different adoption cycles','Fragmented hardware telemetry across GPU generations, driver versions, and partner deployments','Limited visibility into developer adoption and retention across the CUDA software ecosystem','AI workload capacity planning complicated by unpredictable training job spikes across data center customers'],
-  architecture:{name:'AI Infrastructure Intelligence Platform',rationale:'Hybrid batch + streaming pipeline for hardware telemetry, developer signals, and supply chain analytics',stages:['GPU Telemetry + Supply Data','Stream + Batch Ingestion','AI Hardware Warehouse','Demand + Utilization Models','Product & Ops Dashboards'],colors:['#00ff88','#00d4ff','#ff6b35','#c77dff','#00ff88'],tooling:['Kafka / Custom Collectors','Snowflake / BigQuery','dbt','Python / PyTorch','Looker / Internal']},
-  kpis:{groups:[{name:'Infrastructure Metrics',metrics:['GPU utilization rate by cluster','Compute throughput per watt','Capacity saturation index','Data center deployment velocity']},{name:'Product & Ecosystem',metrics:['CUDA developer adoption rate','Driver version migration speed','SDK download trends','Partner integration count']},{name:'Business Metrics',metrics:['Revenue per GPU generation','Cloud partner usage growth','Supply chain lead time','Market share by segment']}]},
-  useCases:['GPU demand forecasting across cloud, enterprise, and consumer segments using order pipeline and utilization signals','Driver telemetry analysis identifying performance degradation patterns across hardware generations and workloads','Developer ecosystem adoption tracking measuring CUDA toolkit engagement, retention, and migration patterns','Capacity planning for AI training workload spikes across partner cloud environments using real-time cluster utilization'],
-  roadmap:{month1:['Inventory GPU telemetry and driver usage data sources across all product lines','Map developer ecosystem feeds from CUDA toolkit, SDK downloads, and partner platforms','Define utilization, adoption, and supply chain KPIs with product and operations teams','Baseline demand patterns by customer segment: enterprise, cloud, consumer, automotive'],month2:['Deploy unified telemetry ingestion pipeline spanning multiple hardware generations','Build product analytics warehouse connecting usage, sales, and supply chain data','Implement demand forecasting models segmented by customer type and geography','Create CUDA developer ecosystem tracking with adoption and retention dashboards'],month3:['Launch GPU demand forecasting dashboards for supply chain and enterprise sales','Deploy capacity planning models for cloud partner workload management','Build developer ecosystem health dashboard tracking engagement and migration','Implement supply chain early warning system for component and foundry availability']}
+const SCENARIOS=[
+{
+  file:'churn_cohort_analysis.sql',
+  question:'Why are we losing customers after Month 3?',
+  context:'Subscription business seeing elevated churn. Leadership wants to know where in the lifecycle customers are dropping off and what distinguishes churned users from retained ones.',
+  sources:['Subscription Events','User Activity Logs','Feature Usage Telemetry','Payment History','Support Ticket Records'],
+  steps:['Framing the business question...','Identifying relevant data sources...','Building cohort retention query...','Computing monthly retention curves...','Isolating the drop-off inflection point...','Correlating churn with feature adoption...','Generating retention visualization...','Synthesizing recommendation...'],
+  code:'<span class="kw">WITH</span> cohorts <span class="kw">AS</span> (\n  <span class="kw">SELECT</span>\n    user_id,\n    <span class="fn">DATE_TRUNC</span>(signup_date, <span class="str">MONTH</span>) <span class="kw">AS</span> cohort,\n    <span class="fn">DATE_DIFF</span>(activity_date, signup_date, <span class="str">MONTH</span>) <span class="kw">AS</span> month_n\n  <span class="kw">FROM</span> analytics.user_activity\n  <span class="kw">WHERE</span> signup_date >= <span class="str">\'2024-01-01\'</span>\n),\nretention <span class="kw">AS</span> (\n  <span class="kw">SELECT</span>\n    cohort,\n    month_n,\n    <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> user_id) <span class="kw">AS</span> active_users,\n    <span class="fn">ROUND</span>(\n      <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> user_id) * <span class="num">100.0</span>\n      / <span class="fn">FIRST_VALUE</span>(<span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> user_id))\n        <span class="kw">OVER</span> (<span class="kw">PARTITION BY</span> cohort <span class="kw">ORDER BY</span> month_n), <span class="num">1</span>\n    ) <span class="kw">AS</span> retention_pct\n  <span class="kw">FROM</span> cohorts\n  <span class="kw">GROUP BY</span> cohort, month_n\n)\n<span class="kw">SELECT</span> * <span class="kw">FROM</span> retention\n<span class="kw">ORDER BY</span> cohort, month_n\n<span class="cm">-- Result: retention drops from 68% to 41% between Month 2 and Month 3</span>\n<span class="cm">-- Users who never activated Feature X churn at 2.4x the rate</span>',
+  chartType:'line',
+  chartData:{labels:['M0','M1','M2','M3','M4','M5','M6'],datasets:[{label:'Jan Cohort',data:[100,82,68,41,36,33,31],borderColor:'#00ff88',backgroundColor:'rgba(0,255,136,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00ff88'},{label:'Feb Cohort',data:[100,79,65,39,35,31,29],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00d4ff'},{label:'Mar Cohort',data:[100,84,70,43,38,34,32],borderColor:'#c77dff',backgroundColor:'rgba(199,125,255,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#c77dff'}]},
+  chartTitle:'Monthly Retention Rate by Signup Cohort (%)',
+  finding:'Retention collapses between Month 2 and Month 3 across all cohorts, dropping from ~68% to ~41%. Users who never activated the core workflow feature churn at 2.4x the rate of activated users. This is not a pricing problem. It is an onboarding problem.',
+  recommendation:'Deploy a triggered onboarding sequence at Day 14 targeting users who have not completed core workflow activation. Based on the feature-churn correlation, expect a 15-20% reduction in Month 3 churn within 2 cohort cycles. Track activation rate as a leading indicator, not just renewal rate.'
 },
-mta:{
-  classification:{sectors:['Public Transit','Transportation','Public Infrastructure'],confidence:'high'},
-  profile:{organizationType:'Public benefit corporation operating subway, bus, and commuter rail',operatingModel:'Government agency operating mass transit infrastructure across NYC metropolitan area',summary:'Operates NYC subway, bus, commuter rail, and bridges/tunnels serving millions of daily riders'},
-  sources:['Fare collection and OMNY tap data','Turnstile entry/exit counts by station','Train and bus GPS telemetry','GTFS schedule and real-time feeds','Maintenance work order systems','Service disruption and incident logs'],
-  challenges:['Ridership demand volatility across routes, stations, and time windows makes capacity planning reactive','Operational data fragmented across fare, vehicle tracking, maintenance, and scheduling with no unified view','Delay root-cause analysis requires manual cross-referencing of incident reports, signal data, and crew logs','Station congestion forecasting nonexistent, forcing crowd management to be purely reactive during events'],
-  architecture:{name:'Transit Operations Intelligence Platform',rationale:'Streaming + batch hybrid for real-time vehicle tracking combined with historical ridership analytics',stages:['Fare + GPS + GTFS Data','Streaming + Batch Ingestion','Transit Operations Warehouse','Ridership + Delay Models','Operations Dashboards'],colors:['#00ff88','#00d4ff','#ff6b35','#c77dff','#00ff88'],tooling:['Kafka / MQTT','BigQuery / TimescaleDB','dbt','Python / Prophet','Grafana / Looker']},
-  kpis:{groups:[{name:'Ridership Metrics',metrics:['Daily ridership by line and station','Peak hour load factor','Fare revenue per passenger-mile','Transfer rate between services']},{name:'Operations Metrics',metrics:['On-time performance rate','Mean distance between failures','Headway adherence by line','Disruption recovery time']},{name:'Infrastructure Metrics',metrics:['Station capacity utilization','Maintenance schedule compliance','Fleet availability rate','Capital project timeline adherence']}]},
-  useCases:['Ridership demand forecasting by station, line, and time-of-day for service frequency and capacity planning','Real-time disruption detection with automated passenger rerouting and communications triggers','Station congestion prediction using turnstile flows, event schedules, and weather data for proactive management','Predictive maintenance scheduling for rolling stock based on mileage, sensor data, and historical failure patterns'],
-  roadmap:{month1:['Audit fare collection, turnstile, GPS, and scheduling data for coverage and quality','Reconcile station and route identifiers across subway, bus, and commuter rail systems','Define ridership, reliability, and maintenance KPIs with transit operations leadership','Baseline ridership patterns and delay metrics across all lines and time periods'],month2:['Deploy real-time ingestion for turnstile counts and vehicle GPS telemetry','Build unified transit warehouse connecting fare, schedule, and incident data','Implement ridership aggregation with station, line, time, and weather dimensions','Create service reliability tracking with automated delay cause classification'],month3:['Launch ridership demand forecasting for capacity and frequency planning','Deploy real-time operations dashboards for dispatchers and service managers','Build predictive maintenance using vehicle telemetry and failure history','Implement station congestion alerting connected to event and disruption feeds']}
+{
+  file:'revenue_decomposition.sql',
+  question:'Revenue dropped 15% this quarter. What happened?',
+  context:'CFO flagged a Q4 revenue miss. The drop was not expected by the forecast model. Leadership wants a root cause decomposition before the board meeting.',
+  sources:['Revenue Ledger','Customer Segments Table','Contract & Renewal Data','Sales Pipeline CRM','Product Usage Metrics'],
+  steps:['Decomposing revenue by segment...','Comparing Q3 vs Q4 by customer tier...','Isolating contraction vs churn vs new logo...','Checking expansion revenue pipeline...','Identifying the top contributing accounts...','Cross-referencing with usage drop signals...','Rendering decomposition chart...','Building executive summary...'],
+  code:'<span class="kw">SELECT</span>\n  segment,\n  <span class="fn">SUM</span>(<span class="kw">CASE WHEN</span> quarter = <span class="str">\'Q3\'</span> <span class="kw">THEN</span> mrr <span class="kw">END</span>) <span class="kw">AS</span> q3_mrr,\n  <span class="fn">SUM</span>(<span class="kw">CASE WHEN</span> quarter = <span class="str">\'Q4\'</span> <span class="kw">THEN</span> mrr <span class="kw">END</span>) <span class="kw">AS</span> q4_mrr,\n  <span class="fn">ROUND</span>(\n    (<span class="fn">SUM</span>(<span class="kw">CASE WHEN</span> quarter=<span class="str">\'Q4\'</span> <span class="kw">THEN</span> mrr <span class="kw">END</span>)\n     - <span class="fn">SUM</span>(<span class="kw">CASE WHEN</span> quarter=<span class="str">\'Q3\'</span> <span class="kw">THEN</span> mrr <span class="kw">END</span>))\n    / <span class="fn">NULLIF</span>(<span class="fn">SUM</span>(<span class="kw">CASE WHEN</span> quarter=<span class="str">\'Q3\'</span> <span class="kw">THEN</span> mrr <span class="kw">END</span>),<span class="num">0</span>)\n    * <span class="num">100</span>, <span class="num">1</span>\n  ) <span class="kw">AS</span> pct_change\n<span class="kw">FROM</span> finance.monthly_recurring_revenue\n<span class="kw">WHERE</span> quarter <span class="kw">IN</span> (<span class="str">\'Q3\'</span>, <span class="str">\'Q4\'</span>)\n<span class="kw">GROUP BY</span> segment\n<span class="kw">ORDER BY</span> pct_change <span class="kw">ASC</span>\n<span class="cm">-- Enterprise: -28% | Mid-Market: -8% | SMB: +3%</span>\n<span class="cm">-- 72% of the total miss is Enterprise segment</span>',
+  chartType:'bar',
+  chartData:{labels:['Enterprise','Mid-Market','SMB','Self-Serve'],datasets:[{label:'Q3 MRR ($K)',data:[820,340,180,95],backgroundColor:'rgba(0,212,255,0.3)',borderColor:'#00d4ff',borderWidth:1,borderRadius:4},{label:'Q4 MRR ($K)',data:[590,312,186,98],backgroundColor:'rgba(0,255,136,0.3)',borderColor:'#00ff88',borderWidth:1,borderRadius:4}]},
+  chartTitle:'Quarterly MRR by Segment ($K)',
+  finding:'72% of the revenue miss is concentrated in the Enterprise segment, driven by 3 large accounts that churned in October. These accounts had declining product usage for 4+ months before cancellation. The forecast model did not incorporate usage signals, only contract dates.',
+  recommendation:'Implement account health scoring using product usage velocity as a leading indicator. Flag accounts with 30%+ usage decline for proactive outreach. Rebuild the forecast model to weight usage signals alongside contract renewal dates. Expected recovery: recapture $120K ARR within 2 quarters through early intervention.'
 },
-walmart:{
-  classification:{sectors:['Retail','Ecommerce','Supply Chain'],confidence:'high'},
-  profile:{organizationType:'Multinational retail corporation',operatingModel:'Omnichannel retail with hypermarkets, grocery, ecommerce, and pickup/delivery',summary:'Operates 4,700+ US stores plus Walmart.com, connecting physical retail with digital commerce'},
-  sources:['Store POS transaction records','Walmart.com and app clickstream','Inventory and warehouse systems','Supplier and vendor management feeds','Customer loyalty and Walmart+ data','Store foot traffic and workforce scheduling'],
-  challenges:['Promotional demand spikes destabilize forecasting across 4,700+ stores with different product mixes','Customer identity fragmented between in-store, Walmart.com, pickup, and Walmart+ channels','Store-level replenishment timing varies significantly, causing both stockouts and overstock across regions','Product catalog and search quality issues on Walmart.com impacting conversion and product discovery'],
-  architecture:{name:'Omnichannel Retail Intelligence Platform',rationale:'Event-driven pipeline unifying POS, digital, and supply chain for demand forecasting and customer intelligence',stages:['POS + Ecommerce + Inventory','Event Streaming Layer','Unified Retail Warehouse','Forecasting + Segmentation','Store & Merch Dashboards'],colors:['#00ff88','#00d4ff','#ff6b35','#c77dff','#00ff88'],tooling:['Kafka / Debezium','Snowflake / BigQuery','dbt','Prophet / XGBoost','Looker / Power BI']},
-  kpis:{groups:[{name:'Customer Metrics',metrics:['Average basket size','Customer lifetime value','Walmart+ engagement rate','Cross-channel purchase ratio']},{name:'Operations Metrics',metrics:['Inventory turnover by store','Stockout rate by category','Shrinkage rate trend','Fulfillment cycle time']},{name:'Merchandising Metrics',metrics:['Promotion ROI by category','Online conversion rate','Foot traffic to sales ratio','Supplier on-time delivery rate']}]},
-  useCases:['Real-time inventory demand forecasting by store, category, and SKU for automated replenishment triggers','Unified customer profile connecting in-store loyalty, online accounts, and Walmart+ for personalized offers','Promotion effectiveness measurement with incrementality analysis separating genuine lift from cannibalization','Supplier performance scoring with automated alerts on delivery delays, quality issues, and cost variance'],
-  roadmap:{month1:['Unify POS and ecommerce order streams into single customer transaction schema','Audit inventory and supplier data quality across distribution centers and stores','Define demand forecasting model with store, category, and SKU granularity','Map customer identity across loyalty, Walmart.com, and Walmart+ memberships'],month2:['Deploy event streaming for inventory movements, orders, and replenishment signals','Build centralized product warehouse with automated daily refresh from all channels','Implement store-level sales aggregation with promotional and seasonal adjustment','Create unified customer profile joining in-store, online, pickup, and delivery'],month3:['Deploy demand forecasting models for top categories across highest-volume stores','Build replenishment dashboards for store managers and regional merchandising','Implement stockout and overstock anomaly detection with procurement alerts','Launch promotion ROI dashboard with incrementality and cannibalization measurement']}
+{
+  file:'automate_reporting.py',
+  question:'The ops team spends 40 hours/week on manual reports. How do we fix this?',
+  context:'Operations analysts spend most of their time pulling data from 5 systems, pasting into Excel, and formatting slides. They have no time for actual analysis. Leadership wants a 60% reduction in manual reporting effort.',
+  sources:['Report Request Tracker','Data Source Catalog','Analyst Time Logs','Stakeholder Survey Results','Current ETL Documentation'],
+  steps:['Auditing current manual report inventory...','Measuring analyst hours per report...','Classifying reports by automation potential...','Identifying top 8 candidates for automation...','Designing pipeline architecture...','Estimating effort vs impact tradeoff...','Rendering before vs after comparison...','Drafting implementation roadmap...'],
+  code:'<span class="cm"># automate_reporting.py - Report Automation Assessment</span>\n<span class="kw">import</span> pandas <span class="kw">as</span> pd\n\nreports = pd.<span class="fn">read_csv</span>(<span class="str">\'report_inventory.csv\'</span>)\n\n<span class="cm"># Score each report: hours * frequency * data_source_count</span>\nreports[<span class="str">\'automation_score\'</span>] = (\n    reports[<span class="str">\'hours_per_run\'</span>]\n    * reports[<span class="str">\'runs_per_week\'</span>]\n    * reports[<span class="str">\'source_count\'</span>]\n)\n\n<span class="cm"># Rank and select top candidates</span>\ntop = reports.<span class="fn">nlargest</span>(<span class="num">8</span>, <span class="str">\'automation_score\'</span>)\n\n<span class="fn">print</span>(<span class="str">f"Total manual hours/week: {reports.hours_per_run.sum():.0f}"</span>)\n<span class="fn">print</span>(<span class="str">f"Automatable hours/week:  {top.hours_per_run.sum():.0f}"</span>)\n<span class="fn">print</span>(<span class="str">f"Reduction potential:     {top.hours_per_run.sum()/reports.hours_per_run.sum()*100:.0f}%"</span>)\n\n<span class="cm"># Output: 40 hrs total, 32 hrs automatable = 80% reduction</span>\n<span class="cm"># Top 3: Weekly KPI deck (8h), Finance reconciliation (6h),</span>\n<span class="cm">#         Regional performance summary (5h)</span>',
+  chartType:'bar',
+  chartData:{labels:['KPI Deck','Finance Recon','Regional Summary','Inventory Report','Sales Pipeline','HR Headcount','Compliance Log','Customer Health'],datasets:[{label:'Before: Manual Hours/Week',data:[8,6,5,4.5,4,3.5,3,2.5],backgroundColor:'rgba(255,107,53,0.35)',borderColor:'#ff6b35',borderWidth:1,borderRadius:4},{label:'After: Automated',data:[0.5,0.5,0.5,0.5,0.5,0.5,1,0.5],backgroundColor:'rgba(0,255,136,0.35)',borderColor:'#00ff88',borderWidth:1,borderRadius:4}]},
+  chartTitle:'Hours/Week Per Report: Before vs After Automation',
+  finding:'8 of 12 reports are fully automatable. The top 3 alone consume 19 hours/week. All 8 follow the same pattern: pull from known sources, apply fixed transformations, output to a template. No judgment required. Currently, senior analysts do this work instead of actual analysis.',
+  recommendation:'Deploy automated pipelines for the top 8 reports using scheduled SQL + dbt + BI tool distribution. Expected reduction: 32 of 40 weekly hours eliminated (80%). Analysts redirect recovered time to ad-hoc analysis and stakeholder support. Full rollout achievable in 6 weeks with 2 analysts.'
 },
-netflix:{
-  classification:{sectors:['Streaming Media','Subscription Platform','Consumer Technology'],confidence:'high'},
-  profile:{organizationType:'Subscription streaming entertainment service',operatingModel:'Content licensing + original production with personalization-driven distribution',summary:'Global streaming platform with 200M+ subscribers, investing $17B+ annually in content'},
-  sources:['Viewing and engagement event streams','Subscriber account and billing data','Content metadata and licensing catalog','A/B experiment logs','Recommendation engine interactions','Regional content performance feeds'],
-  challenges:['Content ROI measurement relies on viewing proxies rather than direct attribution to subscriber retention','Churn signals detected after cancellation, not during the consideration window when intervention works','A/B test analysis backlog means experiments wait days for review, slowing personalization velocity','Regional content dashboards use inconsistent metrics across 190+ markets, blocking global strategy alignment'],
-  architecture:{name:'Content & Subscriber Intelligence Platform',rationale:'Event streaming pipeline processing billions of viewing signals for real-time personalization and content analytics',stages:['Viewing + Subscriber Events','Stream Processing Layer','Content Analytics Warehouse','Retention + Recommendation Models','Programming Dashboards'],colors:['#c77dff','#00ff88','#00d4ff','#ff6b35','#c77dff'],tooling:['Kafka / Flink','Snowflake / BigQuery','dbt','Python / TensorFlow','Looker / Internal']},
-  kpis:{groups:[{name:'Engagement Metrics',metrics:['Average viewing hours per subscriber','Content completion rate','Recommendation click-through rate','Cross-title discovery rate']},{name:'Subscriber Metrics',metrics:['Monthly churn rate by cohort','Subscriber acquisition cost','Lifetime value by plan tier','Reactivation rate']},{name:'Content Metrics',metrics:['Content ROI (spend vs engagement)','First-week viewing performance','Library utilization %','Regional content-market fit score']}]},
-  useCases:['Subscriber churn prediction connected to retention campaigns based on engagement decay patterns and billing signals','Content ROI modeling connecting licensing spend to viewing hours, completion rates, and subscriber retention impact','A/B test analysis automation with statistical rigor checks to accelerate experiment review and personalization velocity','Regional content demand forecasting to inform acquisition and original programming investment by market'],
-  roadmap:{month1:['Audit content engagement tracking completeness across all devices and surfaces','Map subscriber lifecycle from acquisition through engagement to cancellation signals','Define content ROI metrics aligned with programming strategy and licensing economics','Profile viewing patterns and churn correlations across cohorts and plan tiers'],month2:['Deploy unified viewing event pipeline connecting all devices into single engagement model','Build subscriber behavior warehouse with retention modeling and engagement scoring','Implement content performance scoring with viewing hours, completion, and retention impact','Create A/B test analysis automation with statistical validation and guardrails'],month3:['Launch subscriber churn prediction with intervention timing and channel recommendations','Deploy content ROI dashboard for programming and content acquisition teams','Build regional content demand forecasting for market-specific programming decisions','Implement cross-device viewing journey analytics for discovery optimization']}
+{
+  file:'channel_attribution.sql',
+  question:'Marketing spend is up 40% but conversions are flat. Where is the leak?',
+  context:'Marketing budget increased significantly this quarter but conversion volume and revenue have not followed. CMO needs a channel-level breakdown with acquisition cost and conversion data to decide where to reallocate.',
+  sources:['Ad Platform Spend Data','Web Analytics Sessions','Conversion Events Table','Attribution Model Logs','Revenue by First-Touch Source'],
+  steps:['Pulling spend data by channel...','Joining with conversion events...','Computing CAC by acquisition source...','Calculating revenue-to-spend ratio...','Identifying the underperforming channel...','Comparing organic vs paid efficiency...','Rendering channel performance chart...','Building reallocation recommendation...'],
+  code:'<span class="kw">WITH</span> channel_metrics <span class="kw">AS</span> (\n  <span class="kw">SELECT</span>\n    utm_source <span class="kw">AS</span> channel,\n    <span class="fn">SUM</span>(spend) <span class="kw">AS</span> total_spend,\n    <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> converted_user_id) <span class="kw">AS</span> conversions,\n    <span class="fn">SUM</span>(attributed_revenue) <span class="kw">AS</span> revenue\n  <span class="kw">FROM</span> marketing.attribution_events\n  <span class="kw">WHERE</span> event_date >= <span class="str">\'2024-10-01\'</span>\n  <span class="kw">GROUP BY</span> channel\n)\n<span class="kw">SELECT</span>\n  channel,\n  total_spend,\n  conversions,\n  <span class="fn">ROUND</span>(total_spend / <span class="fn">NULLIF</span>(conversions,<span class="num">0</span>), <span class="num">2</span>) <span class="kw">AS</span> cac,\n  <span class="fn">ROUND</span>(revenue / <span class="fn">NULLIF</span>(total_spend,<span class="num">0</span>), <span class="num">2</span>) <span class="kw">AS</span> roas\n<span class="kw">FROM</span> channel_metrics\n<span class="kw">ORDER BY</span> roas <span class="kw">DESC</span>\n<span class="cm">-- Organic Search: ROAS 8.2x | Paid Social: ROAS 0.9x</span>\n<span class="cm">-- 62% of budget increase went to the lowest ROAS channel</span>',
+  chartType:'bar',
+  chartData:{labels:['Organic Search','Email','Referral','Paid Search','Direct','Paid Social'],datasets:[{label:'CAC ($)',data:[18,24,31,52,45,142],backgroundColor:['rgba(0,255,136,0.4)','rgba(0,255,136,0.3)','rgba(0,212,255,0.3)','rgba(0,212,255,0.25)','rgba(199,125,255,0.25)','rgba(255,107,53,0.5)'],borderColor:['#00ff88','#00ff88','#00d4ff','#00d4ff','#c77dff','#ff6b35'],borderWidth:1,borderRadius:4}]},
+  chartTitle:'Customer Acquisition Cost by Channel ($)',
+  finding:'Paid social received 62% of the budget increase but delivers a 0.9x ROAS, meaning every dollar spent returns less than a dollar. Meanwhile, organic search delivers 8.2x ROAS at $18 CAC. The budget increase was allocated to the most expensive, lowest-return channel.',
+  recommendation:'Reallocate 50% of paid social budget to SEO/content and email nurture campaigns. These channels show 4-8x better ROAS with lower CAC. Maintain paid social for top-of-funnel awareness only at reduced spend. Expected impact: 30% improvement in blended CAC within one quarter.'
 },
-uber:{
-  classification:{sectors:['Ride-Hailing','Logistics','Marketplace Platform'],confidence:'high'},
-  profile:{organizationType:'Technology platform for mobility and delivery',operatingModel:'Two-sided marketplace connecting riders/eaters with drivers/couriers across cities',summary:'Operates Rides, Eats, and Freight platforms in 70+ countries with real-time marketplace matching'},
-  sources:['Ride request and trip completion events','Driver GPS telemetry and availability','Uber Eats order and restaurant data','Surge pricing and demand signals','Payment and transaction logs','Driver and rider account activity'],
-  challenges:['Real-time demand-supply balancing across thousands of zones with volatile rider demand and fluctuating driver supply','Dynamic pricing requires sub-second recalculation using demand, supply, weather, events, and competitive signals','Cross-platform analytics between Rides, Eats, and Freight require stitching fundamentally different data models','ETA prediction accuracy degrades during unusual events, weather, and conditions not in historical patterns'],
-  architecture:{name:'Marketplace Intelligence Platform',rationale:'Real-time streaming architecture for sub-second pricing, matching, and ETA computation across marketplace surfaces',stages:['Trip + Driver + Order Events','Real-Time Stream Processing','Marketplace Warehouse','Pricing + ETA + Matching Models','Ops & Product Dashboards'],colors:['#00d4ff','#00ff88','#ff6b35','#c77dff','#00d4ff'],tooling:['Kafka / Flink','BigQuery / Hive','Spark / dbt','Python / TensorFlow','Internal Dashboards']},
-  kpis:{groups:[{name:'Marketplace Metrics',metrics:['Request-to-trip conversion','ETA accuracy','Surge frequency','Driver utilization rate']},{name:'Rider Metrics',metrics:['Retention by cohort','Trip frequency','Cross-platform usage','Satisfaction score']},{name:'Driver Metrics',metrics:['Driver churn rate','Earnings per active hour','Onboarding completion','Supply coverage by zone']}]},
-  useCases:['Real-time demand-supply forecasting by zone for dynamic driver positioning and surge pricing optimization','ETA prediction improvement using live traffic, weather, event, and historical trip completion patterns','Cross-platform behavior analysis connecting Rides and Eats usage for retention and cross-sell strategies','Driver churn prediction enabling proactive incentive targeting before drivers leave the platform'],
-  roadmap:{month1:['Audit trip, driver, and order event streams for completeness across all markets','Map demand-supply balancing flows from ride request through matching to completion','Define marketplace health KPIs including ETA accuracy, conversion, and utilization','Baseline surge patterns and driver churn rates across top markets'],month2:['Deploy real-time event processing for trip, driver, and order signals','Build unified marketplace warehouse connecting Rides, Eats, and Freight','Implement zone-level demand forecasting with weather, event, and temporal features','Create driver behavior analytics tracking engagement, earnings, and churn risk'],month3:['Launch dynamic pricing optimization with real-time demand-supply inputs','Deploy ETA prediction improvements with enhanced feature engineering','Build cross-platform user analytics dashboard for growth and retention teams','Implement driver churn early warning with targeted incentive recommendations']}
-},
-stripe:{
-  classification:{sectors:['Fintech','Payments Infrastructure','API Platform'],confidence:'high'},
-  profile:{organizationType:'Financial infrastructure platform',operatingModel:'API-first payments platform serving internet businesses with processing, billing, and fraud tools',summary:'Processes hundreds of billions in payments annually for millions of businesses via developer-first APIs'},
-  sources:['Payment transaction event logs','Merchant onboarding and account data','API usage and integration activity','Fraud and risk assessment signals','Revenue and billing reconciliation','Regulatory compliance feeds'],
-  challenges:['Fraud detection must adapt in real-time to evolving attacks across millions of merchants with different risk profiles','Cross-border analytics complicated by varying regulations, currencies, and settlement timelines across countries','Merchant risk scoring requires continuous reassessment as business patterns change, not just at onboarding','API reliability monitoring across hundreds of endpoints with varying SLA requirements and traffic patterns'],
-  architecture:{name:'Payments Intelligence & Risk Engine',rationale:'Real-time streaming pipeline for transaction fraud scoring, merchant monitoring, and financial analytics',stages:['Transaction + API Events','Real-Time Stream Processing','Financial Data Warehouse','Fraud + Risk Models','Merchant & Internal Dashboards'],colors:['#ff6b35','#00d4ff','#c77dff','#00ff88','#ff6b35'],tooling:['Kafka / Kinesis','BigQuery / Snowflake','dbt / Airflow','Python / TensorFlow','Looker / Internal']},
-  kpis:{groups:[{name:'Payment Metrics',metrics:['Transaction success rate','Processing latency (p99)','Cross-border settlement time','Dispute and chargeback rate']},{name:'Risk Metrics',metrics:['Fraud detection rate','False positive ratio','Merchant risk distribution','Compliance coverage']},{name:'Platform Metrics',metrics:['API uptime','Developer integration completion','SDK adoption by language','Revenue per merchant']}]},
-  useCases:['Real-time transaction fraud scoring with adaptive thresholds tuned per merchant risk profile and pattern','Merchant health monitoring combining transaction trends, dispute rates, and behavioral signals for risk assessment','API performance analytics tracking latency, errors, and usage patterns across all endpoints and integrations','Cross-border payment optimization analyzing settlement timing, conversion costs, and regulatory requirements'],
-  roadmap:{month1:['Audit transaction event streams and fraud signal sources across all payment products','Map merchant lifecycle data from onboarding through growth to risk monitoring','Define payment health, fraud, and developer ecosystem KPIs with product and risk teams','Baseline fraud rates and false positive ratios across merchant segments'],month2:['Deploy real-time transaction monitoring with streaming fraud scoring pipeline','Build unified financial warehouse connecting payments, billing, and compliance data','Implement merchant risk scoring using transaction patterns and behavioral signals','Create API health monitoring tracking latency, errors, and adoption metrics'],month3:['Launch adaptive fraud detection with per-merchant threshold optimization','Deploy merchant health dashboard for risk, sales, and support teams','Build developer ecosystem analytics tracking SDK adoption and integration completion','Implement cross-border payment optimization for settlement and conversion']}
-},
-ibm:{
-  classification:{sectors:['Enterprise Technology','Cloud Computing','IT Consulting'],confidence:'high'},
-  profile:{organizationType:'Multinational technology and consulting corporation',operatingModel:'Hybrid cloud infrastructure + enterprise software + consulting services',summary:'Provides enterprise cloud, AI, consulting, and infrastructure services to businesses globally'},
-  sources:['Cloud infrastructure usage and billing','Enterprise software licensing data','Consulting engagement and delivery metrics','Watson AI platform telemetry','Client account and contract records','Research and patent activity data'],
-  challenges:['Hybrid cloud adoption tracking across thousands of enterprise clients with complex multi-product deployments','Consulting engagement profitability requires stitching project delivery, resource allocation, and billing data','Client health scoring across hardware, software, cloud, and consulting lacks a unified relationship view','R&D investment impact measurement connecting patent activity and research to commercial product outcomes'],
-  architecture:{name:'Enterprise Client Intelligence Platform',rationale:'Batch warehouse architecture connecting cloud usage, consulting delivery, and product licensing for client analytics',stages:['Cloud + Consulting + Licensing','Governed Ingestion Layer','Enterprise Data Warehouse','Client Health + Revenue Models','Account & Product Dashboards'],colors:['#00d4ff','#00ff88','#ff6b35','#c77dff','#00d4ff'],tooling:['Kafka / Fivetran','Db2 / BigQuery','dbt / DataStage','Python / Watson','Cognos / Looker']},
-  kpis:{groups:[{name:'Cloud Metrics',metrics:['Hybrid cloud adoption rate','Cloud revenue per client','Workload migration completion','Infrastructure utilization']},{name:'Consulting Metrics',metrics:['Engagement profitability margin','Consultant utilization rate','Client NPS','Delivery on-time rate']},{name:'Business Metrics',metrics:['Revenue per account','Cross-sell conversion','Contract renewal rate','Patent-to-product conversion']}]},
-  useCases:['Client health scoring combining cloud usage, consulting engagement, support, and contract renewal patterns','Hybrid cloud adoption analytics tracking workload migration progress and utilization across enterprise accounts','Consulting engagement profitability analysis connecting resource allocation, milestones, and billing outcomes','Cross-portfolio expansion detection identifying upsell potential across cloud, software, and consulting products'],
-  roadmap:{month1:['Audit cloud usage, consulting delivery, and licensing data across business units','Map client account flows connecting CRM, billing, delivery, and support systems','Define client health and revenue KPIs aligned with account management strategy','Baseline cross-sell rates and retention metrics across product portfolio'],month2:['Deploy unified client pipeline connecting cloud, consulting, and product data','Build enterprise warehouse with client-level views across all IBM products','Implement client health scoring using multi-product engagement signals','Create consulting profitability analytics connecting resource and billing'],month3:['Launch client health dashboard for account teams with renewal and expansion signals','Deploy hybrid cloud adoption tracking for enterprise migration monitoring','Build cross-portfolio revenue forecasting for sales planning','Implement consulting utilization dashboards for practice leaders']}
-},
-cvs:{
-  classification:{sectors:['Healthcare','Retail Pharmacy','Health Insurance'],confidence:'high'},
-  profile:{organizationType:'Integrated healthcare company',operatingModel:'Pharmacy + clinic + insurance combining retail health with managed care',summary:'Operates 9,000+ pharmacies, MinuteClinic locations, and Aetna health insurance'},
-  sources:['Pharmacy prescription and dispensing records','MinuteClinic patient visit data','Aetna insurance claims and enrollment','CVS.com and app engagement data','Store POS and loyalty transactions','Pharmaceutical distribution feeds'],
-  challenges:['Patient journey fragmented across pharmacy, clinic, and insurance with no unified health profile','Prescription adherence prediction needs pharmacy fill data connected to clinical outcomes and coverage','Claims processing still heavily manual with multi-day prior authorization turnaround times','Cross-entity analytics between CVS Pharmacy, MinuteClinic, and Aetna blocked by data governance silos'],
-  architecture:{name:'Integrated Health Analytics Platform',rationale:'HIPAA-compliant pipeline unifying pharmacy, clinical, and insurance data for patient outcome optimization',stages:['Rx + Claims + Clinical + POS','HIPAA-Compliant Ingestion','Health Analytics Warehouse','Adherence + Utilization Models','Care & Ops Dashboards'],colors:['#00ff88','#ff6b35','#c77dff','#00d4ff','#00ff88'],tooling:['Fivetran / Custom ETL','Snowflake / BigQuery','dbt','Python / R','Tableau / Power BI']},
-  kpis:{groups:[{name:'Patient Metrics',metrics:['Prescription adherence rate','30-day refill rate','MinuteClinic satisfaction','Patient outcome improvement']},{name:'Operations Metrics',metrics:['Pharmacy fill time','Drug stockout rate','Claims processing cycle','Prior auth turnaround']},{name:'Business Metrics',metrics:['Revenue per patient relationship','Aetna member engagement','Cross-entity utilization','Pharmacy market share']}]},
-  useCases:['Prescription adherence prediction connecting pharmacy fill patterns with clinical outcomes and insurance coverage gaps','Patient health journey analytics unifying pharmacy, clinic, and insurance interactions into a longitudinal view','MinuteClinic demand forecasting by location using local health trends, seasonal patterns, and insurance coverage','Claims processing automation identifying prior authorization bottlenecks and reducing manual review turnaround'],
-  roadmap:{month1:['Audit pharmacy, clinical, and insurance data for completeness and patient linkability','Map patient identity across CVS loyalty, MinuteClinic, and Aetna with HIPAA compliance','Define patient health and operational KPIs aligned with integrated care strategy','Baseline adherence rates and clinical utilization patterns across regions'],month2:['Deploy HIPAA-compliant pipeline connecting pharmacy, clinic, and insurance records','Build integrated health warehouse with patient-level longitudinal views','Implement adherence scoring using fill patterns and clinical signals','Create MinuteClinic demand forecasting based on local health and seasonal data'],month3:['Launch adherence dashboard for pharmacists with intervention recommendations','Deploy claims analytics identifying authorization bottlenecks and manual steps','Build cross-entity patient journey dashboard for care coordination teams','Implement drug inventory optimization for shortage signals and expiration']}
-},
-panasonic:{
-  classification:{sectors:['Consumer Electronics','Industrial Manufacturing','Energy Systems'],confidence:'high'},
-  profile:{organizationType:'Multinational electronics and manufacturing conglomerate',operatingModel:'Diversified manufacturer of consumer electronics, industrial equipment, automotive components, and energy solutions',summary:'Produces batteries, home appliances, automotive systems, and industrial equipment across global factories'},
-  sources:['Factory production line sensor data','Product quality inspection logs','Supply chain and component orders','Channel sales and distributor feeds','Service and warranty claim records','Energy systems performance telemetry'],
-  challenges:['Fragmented production and quality data across product divisions and global factory locations','Demand forecasting weak across consumer, automotive, and industrial product lines with different cycles','Delayed visibility into product quality trends and warranty claim patterns across geographies','Disconnected supply chain and after-sales service analytics preventing holistic product lifecycle management'],
-  architecture:{name:'Manufacturing & Product Intelligence Platform',rationale:'Batch + IoT streaming pipeline connecting factory systems, channel data, and service records for product lifecycle analytics',stages:['Factory + Channel + Warranty Data','IoT + Batch Ingestion','Manufacturing Warehouse','Forecasting + Quality Models','Operations Dashboards'],colors:['#ff6b35','#00d4ff','#00ff88','#c77dff','#ff6b35'],tooling:['Kafka / MQTT','BigQuery / Snowflake','dbt','Python / Scikit-learn','Grafana / Power BI']},
-  kpis:{groups:[{name:'Operations Metrics',metrics:['Production yield rate','Inventory turnover by division','Demand forecast accuracy','Factory utilization rate']},{name:'Quality Metrics',metrics:['Defect rate per million','Warranty claim rate per 1,000 units','First-pass yield','Mean time to failure']},{name:'Commercial Metrics',metrics:['Sell-through rate by channel','Revenue by product family','Distributor performance score','Service cost per unit']}]},
-  useCases:['Demand forecasting by product line and region improving replenishment timing across consumer, automotive, and industrial divisions','Warranty trend detection linking rising service claims with specific product families, production batches, and factory lines','Production quality anomaly detection using real-time sensor patterns to flag defects before end-of-line inspection','Inventory and channel replenishment optimization balancing stock levels across distributors, retailers, and direct channels'],
-  roadmap:{month1:['Audit factory ERP, production sensor, and quality inspection data across divisions','Standardize product hierarchy and part numbering across consumer, automotive, and industrial lines','Define production yield, quality, and demand KPIs with operations leadership','Baseline warranty claim rates and defect patterns by product family and factory'],month2:['Deploy IoT sensor ingestion pipeline from key production lines into analytics warehouse','Build cross-division manufacturing warehouse with standardized quality and output schemas','Implement channel sales aggregation connecting distributor, retail, and direct sales data','Create warranty and service data pipeline linking claims to production batches and factories'],month3:['Launch demand forecasting models by product line for regional supply planning','Deploy factory quality dashboards with real-time yield and defect monitoring','Build warranty trend analytics connecting service claims to production root causes','Implement channel inventory optimization balancing stock across distribution network']}
-},
-};
-
-// SECTOR TEMPLATES 
-const SECTORS={
-technology:{classification:{sectors:['Technology','Software','Cloud Computing'],confidence:'medium'},profile:{organizationType:'Technology company',operatingModel:'Software/platform development and cloud services',summary:'Technology company building software products and platform services'},sources:['Application telemetry','Infrastructure metrics','User behavior events','CI/CD pipeline data','Cloud billing records','Experiment logs'],challenges:['Experiment analysis bottlenecks feature release velocity','Cross-product user journey analytics fragmented across silos','ML model monitoring lacks automated drift detection','Cloud cost attribution to teams is inaccurate'],architecture:{name:'Engineering Analytics Platform',rationale:'Centralized telemetry and experiment analytics for engineering productivity',stages:['App + Infra Telemetry','Stream Processing','Analytics Warehouse','ML Pipeline','Internal Dashboards'],colors:['#00ff88','#00d4ff','#ff6b35','#c77dff','#00ff88'],tooling:['Kafka / Datadog','BigQuery / Snowflake','dbt','MLflow / Vertex AI','Looker / Grafana']},kpis:{groups:[{name:'Engineering',metrics:['Deploy frequency','Incident MTTR','Experiment throughput','Review cycle time']},{name:'Infrastructure',metrics:['Cost per user','API latency (p95)','Pipeline SLA %','Error rate']},{name:'Product',metrics:['Feature adoption','User journey completion','A/B test velocity','Model accuracy']}]},useCases:['Experiment velocity dashboards for product and engineering teams','Infrastructure cost allocation by team and feature with optimization flags','ML model drift monitoring with automated retraining triggers','Developer productivity analytics across code, review, and deployment'],roadmap:{month1:['Audit telemetry and monitoring coverage','Map experiment infrastructure bottlenecks','Define engineering productivity metrics','Baseline cloud cost patterns'],month2:['Deploy unified telemetry pipeline','Build experiment analysis automation','Implement cost allocation model','Create ML model monitoring'],month3:['Launch experiment velocity dashboards','Deploy cost optimization tracking','Build productivity analytics','Implement user journey mapping']}},
-retail:{classification:{sectors:['Retail','Consumer','Commerce'],confidence:'medium'},profile:{organizationType:'Retail company',operatingModel:'Store-based and/or digital retail',summary:'Sells products to consumers through stores and/or online channels'},sources:['POS transactions','Customer loyalty data','Inventory systems','Supplier feeds','Store operations logs','Digital engagement data'],challenges:['Demand forecasting degrades during promotions and seasonal shifts','Customer identity fragmented across channels','Inventory replenishment timing inconsistent across locations','Supplier tracking relies on periodic reviews, not continuous monitoring'],architecture:{name:'Retail Analytics Platform',rationale:'Event-driven pipeline for transaction, inventory, and customer analytics',stages:['POS + Customer + Inventory','Event Processing','Retail Warehouse','Demand Models','Store Dashboards'],colors:['#00ff88','#00d4ff','#ff6b35','#c77dff','#00ff88'],tooling:['Kafka / Debezium','BigQuery / Snowflake','dbt','Prophet / XGBoost','Looker / Power BI']},kpis:{groups:[{name:'Customer',metrics:['Basket size','CLV','Loyalty engagement','Cross-channel ratio']},{name:'Operations',metrics:['Inventory turnover','Stockout rate','Shrinkage','Fulfillment time']},{name:'Marketing',metrics:['Promotion ROI','Conversion rate','Acquisition cost','Attribution']}]},useCases:['Demand forecasting by location and category for replenishment','Unified customer profile for personalized marketing','Promotion effectiveness with incrementality measurement','Supplier scoring with automated delivery and quality alerts'],roadmap:{month1:['Audit transaction and customer data','Map inventory and supplier flows','Define demand and customer KPIs','Baseline sales patterns'],month2:['Deploy unified transaction pipeline','Build retail warehouse','Implement demand models','Create customer identity resolution'],month3:['Launch replenishment dashboards','Deploy promotion analytics','Build supplier scorecards','Implement segmentation']}},
-finance:{classification:{sectors:['Financial Services','Fintech','Banking'],confidence:'medium'},profile:{organizationType:'Financial services company',operatingModel:'Financial products and transaction processing',summary:'Provides financial products, services, or infrastructure'},sources:['Transaction ledgers','Customer account records','Risk assessment feeds','Regulatory filing data','Market data','Compliance logs'],challenges:['Regulatory reports assembled manually across jurisdictions','Fraud detection adapts too slowly to new attack patterns','Cross-product customer view requires manual data stitching','Data lineage undocumented for audit-critical pipelines'],architecture:{name:'Financial Analytics & Risk Engine',rationale:'Governed pipeline for regulatory compliance, risk scoring, and customer analytics',stages:['Transactions + Accounts','Governed Ingestion','Regulated Warehouse','Risk Models','Compliance Dashboards'],colors:['#ff6b35','#00d4ff','#c77dff','#00ff88','#ff6b35'],tooling:['Fivetran / Airbyte','BigQuery / Snowflake','dbt','Python / TensorFlow','Looker / Power BI']},kpis:{groups:[{name:'Risk',metrics:['Fraud detection rate','False positive ratio','Default probability','Risk coverage']},{name:'Compliance',metrics:['Report accuracy','Audit completion','Lineage coverage','Filing timeliness']},{name:'Business',metrics:['Revenue per account','Acquisition cost','Cross-sell rate','Retention rate']}]},useCases:['Real-time fraud scoring with adaptive thresholds','Automated regulatory report generation with audit trail','Customer risk profiling from transaction patterns','Cross-product revenue attribution'],roadmap:{month1:['Audit transaction and compliance data','Map regulatory requirements and lineage','Define risk and compliance KPIs','Baseline fraud rates and report turnaround'],month2:['Deploy governed warehouse with audit trails','Build compliance reporting automation','Implement fraud scoring pipeline','Create customer risk profiles'],month3:['Launch fraud detection dashboards','Deploy compliance monitoring','Build revenue analytics','Implement risk early warning']}},
-healthcare:{classification:{sectors:['Healthcare','Clinical Services','Health Technology'],confidence:'medium'},profile:{organizationType:'Healthcare organization',operatingModel:'Patient care, clinical services, or health technology',summary:'Provides healthcare services or health technology solutions'},sources:['EHR patient records','Claims data','Scheduling systems','Lab results','Prescription data','Insurance records'],challenges:['Patient data spread across disconnected EHR, claims, and scheduling','Readmission risk models not integrated into care workflows','Claims processing relies on manual review with delays','Population health analytics lack real-time refresh'],architecture:{name:'Clinical Analytics Infrastructure',rationale:'HIPAA-compliant pipeline for patient outcomes, population health, and operational analytics',stages:['EHR + Claims + Clinical','HIPAA Ingestion','Health Warehouse','Outcome Models','Care Dashboards'],colors:['#00ff88','#ff6b35','#c77dff','#00d4ff','#00ff88'],tooling:['Fivetran / Custom ETL','BigQuery / Snowflake','dbt','Python / R','Tableau / Power BI']},kpis:{groups:[{name:'Clinical',metrics:['Readmission rate','Length of stay','Patient satisfaction','Outcomes improvement']},{name:'Operations',metrics:['Bed utilization','Claims cycle time','Provider efficiency','Schedule fill rate']},{name:'Financial',metrics:['Revenue per encounter','Denial rate','Cost per patient','Payer mix']}]},useCases:['Readmission risk prediction at discharge for care intervention','Claims anomaly detection for billing errors and fraud','Population health monitoring across demographics','Care pathway optimization using outcome data'],roadmap:{month1:['Audit patient data across systems','Map HIPAA requirements','Define clinical KPIs','Baseline readmission patterns'],month2:['Deploy HIPAA-compliant warehouse','Build patient unification pipeline','Implement claims processing','Create provider models'],month3:['Launch readmission dashboards','Deploy population health analytics','Build claims anomaly detection','Implement provider benchmarking']}},
-logistics:{classification:{sectors:['Logistics','Transportation','Supply Chain'],confidence:'medium'},profile:{organizationType:'Logistics or transportation company',operatingModel:'Fleet operations, delivery, or supply chain management',summary:'Provides transportation, delivery, or logistics services'},sources:['Fleet GPS telemetry','Shipment tracking','Warehouse data','Route planning systems','Driver logs','Delivery feedback'],challenges:['Route optimization uses stale demand data','Fleet telemetry processed in batch, missing real-time signals','Delivery prediction not updated with live conditions','Cross-regional benchmarking uses inconsistent metrics'],architecture:{name:'Operations Intelligence Platform',rationale:'Real-time fleet and order analytics for route optimization and operational monitoring',stages:['Fleet + Orders + Routes','Real-Time Ingestion','Logistics Warehouse','Optimization Models','Ops Dashboards'],colors:['#00d4ff','#00ff88','#ff6b35','#c77dff','#00d4ff'],tooling:['Kafka / MQTT','BigQuery / TimescaleDB','dbt','OR-Tools / Python','Grafana / Looker']},kpis:{groups:[{name:'Delivery',metrics:['On-time rate','Cost per delivery','Time variance','Damage rate']},{name:'Fleet',metrics:['Utilization','Fuel efficiency','Maintenance downtime','Driver productivity']},{name:'Planning',metrics:['Forecast accuracy','Route efficiency','Warehouse throughput','Cycle time']}]},useCases:['Real-time route optimization with live traffic and weather','Zone-based demand forecasting for fleet positioning','Predictive maintenance from vehicle telemetry','Last-mile cost optimization by route and vehicle'],roadmap:{month1:['Audit fleet and delivery data','Map delivery workflows','Define delivery KPIs','Baseline route efficiency'],month2:['Deploy telemetry pipeline','Build logistics warehouse','Implement demand forecasting','Create driver analytics'],month3:['Launch route optimization','Deploy ops dashboards','Build predictive maintenance','Implement demand-based positioning']}},
-media:{classification:{sectors:['Media','Entertainment','Content Platform'],confidence:'medium'},profile:{organizationType:'Media or entertainment company',operatingModel:'Content creation, distribution, or platform',summary:'Produces or distributes media content to audiences'},sources:['Engagement events','Subscriber data','Ad logs','Content catalog','Creator feeds','Recommendation data'],challenges:['Content ROI relies on proxy metrics','Churn detected after cancellation','Cross-platform data not unified','A/B test backlog limits velocity'],architecture:{name:'Content & Audience Analytics',rationale:'Engagement and subscription analytics for content ROI, retention, and audience intelligence',stages:['Engagement + Subscribers','Event Processing','Content Warehouse','Retention Models','Audience Dashboards'],colors:['#c77dff','#00ff88','#00d4ff','#ff6b35','#c77dff'],tooling:['Kafka / Kinesis','Snowflake / BigQuery','dbt','Python / TensorFlow','Looker / Superset']},kpis:{groups:[{name:'Engagement',metrics:['Watch/listen time','Completion rate','Recommendation CTR','Cross-platform DAU']},{name:'Subscribers',metrics:['Churn rate','Acquisition cost','Lifetime value','Upgrade rate']},{name:'Content',metrics:['Content ROI','Library utilization','Release performance','Creator retention']}]},useCases:['Subscriber retention modeling with intervention recommendations','Content ROI prediction before acquisition investment','A/B test automation with statistical rigor','Cross-platform audience unification'],roadmap:{month1:['Audit engagement tracking','Map subscriber lifecycle','Define content ROI metrics','Profile audience segments'],month2:['Deploy engagement pipeline','Build subscriber warehouse','Implement content scoring','Create test automation'],month3:['Launch churn prediction','Deploy content ROI dashboard','Build audience segmentation','Implement cross-platform analytics']}},
-manufacturing:{classification:{sectors:['Manufacturing','Industrial','Production'],confidence:'medium'},profile:{organizationType:'Manufacturing company',operatingModel:'Factory-based production and supply chain',summary:'Manufactures physical products through factory operations'},sources:['Production sensors','Quality inspection logs','Supply chain orders','Equipment telemetry','Energy meters','Supplier data'],challenges:['Quality metrics inconsistent across facilities','Supply chain visibility relies on manual tracking','Defect analysis requires custom investigation per incident','Predictive maintenance disconnected from work orders'],architecture:{name:'Factory Intelligence System',rationale:'IoT + batch pipeline for quality analytics, predictive maintenance, and supply chain visibility',stages:['Sensors + Quality Logs','IoT Ingestion','Production Warehouse','Predictive Models','Factory Dashboards'],colors:['#ff6b35','#00d4ff','#00ff88','#c77dff','#ff6b35'],tooling:['Kafka / MQTT','InfluxDB / BigQuery','dbt','Python / Scikit-learn','Grafana / Power BI']},kpis:{groups:[{name:'Quality',metrics:['Defect rate','First pass yield','Scrap rate','Return rate']},{name:'Equipment',metrics:['OEE','MTBF','Changeover time','Downtime %']},{name:'Supply Chain',metrics:['Lead time','On-time delivery','Inventory days','Cost ratio']}]},useCases:['Inline defect detection from sensor patterns','Predictive maintenance scheduling','Cross-plant quality benchmarking','Supply chain disruption early warning'],roadmap:{month1:['Audit sensor and quality data','Map inspection workflows','Define quality and OEE KPIs','Baseline defect and yield rates'],month2:['Deploy sensor ingestion','Build production warehouse','Implement quality tracking','Create supplier scorecards'],month3:['Launch predictive maintenance','Deploy factory dashboards','Build defect analytics','Implement supply chain alerts']}},
-general:{classification:{sectors:['Business Operations','Analytics','Data Intelligence'],confidence:'low'},profile:{organizationType:'Business organization',operatingModel:'General business operations',summary:'Organization that could benefit from data infrastructure and analytics'},sources:['CRM records','Transaction data','Web analytics','Customer feedback','Operational logs','Financial reports'],challenges:['Reporting relies on manual pulls consuming analyst hours weekly','No single source of truth for key metrics across departments','Data quality issues surface only after reports reach decision-makers','Forecasting models stuck in notebooks, never deployed to production'],architecture:{name:'Modern Analytics Stack',rationale:'Best-of-breed cloud data tools with automated ingestion and self-serve dashboards',stages:['Business Data Sources','EL Ingestion','Cloud Warehouse','dbt Models','BI Dashboards'],colors:['#00d4ff','#00ff88','#ff6b35','#c77dff','#00d4ff'],tooling:['Fivetran / Airbyte','BigQuery / Snowflake','dbt','Python','Looker / Power BI']},kpis:{groups:[{name:'Business',metrics:['Revenue growth','Customer retention','Operational efficiency','Profit margin']},{name:'Data',metrics:['Report turnaround','Data quality score','Dashboard adoption','Forecast accuracy']}]},useCases:['Automated KPI monitoring with threshold alerting','Self-serve analytics portal for stakeholders','Predictive demand forecasting from historical trends','Data quality monitoring for freshness and accuracy'],roadmap:{month1:['Audit data sources for schema, freshness, ownership','Identify top reporting bottlenecks','Define core business metrics with SLAs','Map data lineage to final reports'],month2:['Deploy automated ingestion pipelines','Build warehouse with tested dbt models','Implement validation at every stage','Create first self-serve dashboard'],month3:['Deploy production KPI dashboards','Build automated anomaly detection','Create self-serve analytics portal','Document architecture and train users']}},
-};
-
-const SECTOR_KEYS={
-  technology:['tech','software','app','platform','digital','ai','cloud','computing','data','cyber','saas'],
-  retail:['retail','store','shop','market','grocery','fashion','supermarket','outlet','mall'],
-  finance:['bank','financial','payment','credit','insurance','invest','capital','fund','trading','fintech','lending'],
-  healthcare:['health','medical','pharma','hospital','clinical','patient','drug','therapy','care','biotech'],
-  logistics:['logistics','shipping','freight','delivery','transport','fleet','cargo','transit','trucking','airline'],
-  media:['media','streaming','entertainment','content','broadcast','music','film','television','gaming','studio'],
-  manufacturing:['manufact','factory','production','auto','motor','industrial','steel','energy','electr','build','construct'],
-};
-function detectSector(name){
-  const k=name.toLowerCase().replace(/[^a-z]/g,'');
-  for(const[sec,kws] of Object.entries(SECTOR_KEYS)){if(kws.some(w=>k.includes(w)))return sec;}
-  return 'general';
+{
+  file:'ticket_resolution_analysis.sql',
+  question:'Support resolution time is getting worse. What is driving it?',
+  context:'Average ticket resolution time increased from 4 hours to 11 hours over the past quarter. Customer satisfaction scores are dropping. VP of Support needs to know what category is driving the slowdown and how to fix it.',
+  sources:['Support Ticket System','Agent Activity Logs','Ticket Category Taxonomy','SLA Configuration Table','Customer Tier Data'],
+  steps:['Pulling resolution time by ticket category...','Computing weekly trend by category...','Identifying the category with steepest increase...','Analyzing agent workload distribution...','Checking SLA breach rates...','Correlating with ticket volume spike...','Rendering resolution trend chart...','Drafting operational fix...'],
+  code:'<span class="kw">SELECT</span>\n  <span class="fn">DATE_TRUNC</span>(created_at, <span class="str">WEEK</span>) <span class="kw">AS</span> week,\n  category,\n  <span class="fn">AVG</span>(<span class="fn">TIMESTAMP_DIFF</span>(resolved_at, created_at, <span class="str">HOUR</span>)) <span class="kw">AS</span> avg_hours,\n  <span class="fn">COUNT</span>(*) <span class="kw">AS</span> ticket_count,\n  <span class="fn">COUNTIF</span>(\n    <span class="fn">TIMESTAMP_DIFF</span>(resolved_at, created_at, <span class="str">HOUR</span>) > sla_hours\n  ) * <span class="num">100.0</span> / <span class="fn">COUNT</span>(*) <span class="kw">AS</span> sla_breach_pct\n<span class="kw">FROM</span> support.tickets t\n<span class="kw">JOIN</span> support.sla_config s <span class="kw">ON</span> t.category = s.category\n<span class="kw">WHERE</span> created_at >= <span class="str">\'2024-07-01\'</span>\n<span class="kw">GROUP BY</span> week, category\n<span class="kw">ORDER BY</span> week, avg_hours <span class="kw">DESC</span>\n<span class="cm">-- Billing: 4h -> 18h (+350%) | Technical: 3h -> 5h (+67%)</span>\n<span class="cm">-- Billing tickets volume up 120%, agent count unchanged</span>',
+  chartType:'line',
+  chartData:{labels:['Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Billing',data:[4.2,5.8,8.1,12.4,15.2,18.1],borderColor:'#ff6b35',backgroundColor:'rgba(255,107,53,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#ff6b35',borderWidth:2},{label:'Technical',data:[3.1,3.4,3.8,4.2,4.6,5.1],borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00d4ff',borderWidth:2},{label:'Account',data:[2.4,2.5,2.7,2.8,3.0,3.2],borderColor:'#00ff88',backgroundColor:'rgba(0,255,136,0.05)',tension:.3,pointRadius:4,pointBackgroundColor:'#00ff88',borderWidth:2}]},
+  chartTitle:'Avg Resolution Time by Category (Hours)',
+  finding:'Billing tickets are the sole driver. Resolution time increased 350% (4h to 18h) while ticket volume surged 120%. Technical and account tickets remained stable. The billing team has not scaled, and a pricing change in August generated a wave of confused customers that is still compounding.',
+  recommendation:'Immediate: Deploy automated FAQ and self-serve billing portal to deflect 40% of billing tickets. Short-term: Add 2 dedicated billing support agents. Medium-term: Build proactive billing communication triggered by pricing changes. Expected resolution time reduction: back to sub-6h within 8 weeks.'
 }
+];
 
-async function tryWiki(term){
-  try{
-    const c=new AbortController();setTimeout(()=>c.abort(),3500);
-    const r=await fetch('https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch='+encodeURIComponent(term)+'&srlimit=3&format=json&origin=*',{signal:c.signal});
-    const d=await r.json();const res=d?.query?.search||[];if(!res.length)return null;
-    const s=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(res[0].title));
-    const sd=await s.json();
-    return{title:res[0].title,text:(sd?.extract||'').toLowerCase(),desc:sd?.description||''};
-  }catch(e){return null;}
-}
-function scoreSectorFromText(text){
-  const pats={technology:['technology','software','computing','semiconductor','artificial intelligence','data center','processor','gpu','chip','platform','developer','cloud','saas'],retail:['retail','store','supermarket','grocery','merchandise','consumer goods','department'],finance:['financial','banking','payment','credit','insurance','investment','fintech','brokerage','securities'],healthcare:['healthcare','medical','pharmaceutical','hospital','clinical','patient','biotech','prescription'],logistics:['transportation','logistics','shipping','freight','delivery','fleet','cargo','transit','railway','airline'],media:['media','streaming','entertainment','broadcast','music','film','television','content','gaming'],manufacturing:['manufacturing','factory','production','automotive','aerospace','industrial','electronics','appliance','equipment','battery','semiconductor']};
-  let best='general',bestS=0;
-  for(const[sec,kws] of Object.entries(pats)){let s=0;kws.forEach(k=>{s+=(text.match(new RegExp(k,'gi'))||[]).length*(k.length>10?3:2)});if(s>bestS){bestS=s;best=sec;}}
-  return best;
-}
+// ---- RUN SCENARIO ----
+let scenRunning=false;
+async function runScenario(idx){
+  if(scenRunning)return;scenRunning=true;
+  const s=SCENARIOS[idx];
 
-function genImpact(){
-  const p=a=>a[Math.floor(Math.random()*a.length)];
-  const tl=p([40,45,50,55]),th=p([60,65,70,75]);
-  const al=p([15,18,20,22]),ah=p([28,30,32,35]);
-  const sp=p([['3 days','4 hours'],['1 week','8 hours'],['6 hours','30 min'],['2 days','3 hours']]);
-  const kl=p([10,12,15]),kh=p([20,22,25]);
-  return{reportingReduction:tl+'-'+th+'%',accuracyImprovement:'+'+al+'-'+ah+'%',cycleTimeCurrent:sp[0],cycleTimeTarget:sp[1],kpiCoverage:kl+'-'+kh,narrative:'This rollout shifts the organization from reactive reporting to operational intelligence with scalable KPI ownership across teams.'};
-}
+  // Highlight active card
+  document.querySelectorAll('.scen-card').forEach((c,i)=>{c.classList.toggle('active',i===idx)});
 
-async function runPipeline(rawName){
-  const name=rawName.trim();
-  const key=name.toLowerCase().replace(/[^a-z]/g,'');
+  // Show terminal
+  const box=document.getElementById('scenBox');box.style.display='block';
+  document.getElementById('scenFile').textContent=s.file;
+  document.getElementById('scenPbar').style.width='0%';
+  document.getElementById('scenSteps').innerHTML='';
+  document.getElementById('scenResult').innerHTML='';
+  document.getElementById('scenResult').classList.remove('show');
+  document.getElementById('scenKick').style.display='none';
 
-  if(PROFILES[key]){
-    const p=PROFILES[key];
-    return{...p,company:name,mode:'profile',impact:genImpact()};
+  // Destroy previous chart
+  if(window._scenChart){window._scenChart.destroy();window._scenChart=null;}
+
+  box.scrollIntoView({behavior:'smooth',block:'start'});
+
+  // Animated reasoning steps
+  const stepsEl=document.getElementById('scenSteps');
+  for(let i=0;i<s.steps.length;i++){
+    await sl(260+Math.random()*140);
+    const l=document.createElement('div');l.className='sc-l';
+    const isKey=s.steps[i].includes('Rendering')||s.steps[i].includes('Synthesizing')||s.steps[i].includes('Building');
+    l.innerHTML='<span class="ix">['+String(i+1).padStart(2,'0')+']</span><span class="tx" style="'+(isKey?'color:#00ff88':'')+'">'+s.steps[i]+'</span>';
+    stepsEl.appendChild(l);stepsEl.scrollTop=stepsEl.scrollHeight;
+    document.getElementById('scenPbar').style.width=((i+1)/s.steps.length*100)+'%';
   }
+  await sl(400);
 
-  const wiki=await tryWiki(name);
-  let sectorKey='general';
-  let wikiDesc='';
-  if(wiki){
-    sectorKey=scoreSectorFromText(wiki.text+' '+wiki.desc);
-    wikiDesc=wiki.desc;
-  }else{
-    sectorKey=detectSector(name);
-  }
-
-  const tmpl=SECTORS[sectorKey]||SECTORS.general;
-  const report={...JSON.parse(JSON.stringify(tmpl)),company:name,mode:wiki?'web-enriched':'intelligence-engine',impact:genImpact()};
-  if(wikiDesc) report.profile.summary=wikiDesc;
-  return report;
-}
-
-function validate(r){
-  if(!r.challenges||r.challenges.length<4) r.challenges=(SECTORS.general.challenges||[]).slice(0,4);
-  if(!r.useCases||r.useCases.length<4) r.useCases=(SECTORS.general.useCases||[]).slice(0,4);
-  if(!r.kpis||!r.kpis.groups||r.kpis.groups.length<2) r.kpis=SECTORS.general.kpis;
-  if(!r.roadmap||!r.roadmap.month1) r.roadmap=SECTORS.general.roadmap;
-  if(!r.architecture||!r.architecture.stages) r.architecture=SECTORS.general.architecture;
-  if(!r.sources||r.sources.length<3) r.sources=SECTORS.general.sources;
-  return r;
-}
-
-function buildSteps(name,d){
-  const s=[];
-  s.push({t:'Normalizing input: "'+name+'"',h:0});
-  if(d.mode==='profile') s.push({t:'Company recognized. Loading dedicated intelligence profile.',h:1});
-  else if(d.mode==='web-enriched'){s.push({t:'Gathering web intelligence...',h:0});s.push({t:'Web context acquired. Classifying from evidence.',h:1});}
-  else s.push({t:'Analyzing company characteristics...',h:0});
-  s.push({t:'CLASSIFICATION: '+d.classification.sectors.join(' + '),h:1});
-  s.push({t:'Type: '+d.profile.organizationType,h:0});
-  s.push({t:'Summary: '+d.profile.summary,h:0});
-  s.push({t:'Data sources: '+d.sources.slice(0,3).join(', ')+'...',h:1});
-  s.push({t:'Diagnosing data challenges...',h:0});
-  s.push({t:d.challenges.length+' company-specific infrastructure gaps identified.',h:0});
-  s.push({t:'ARCHITECTURE: '+d.architecture.name,h:1});
-  s.push({t:'Tooling: '+d.architecture.tooling.join(', '),h:0});
-  const kc=d.kpis.groups.reduce((a,g)=>a+g.metrics.length,0);
-  s.push({t:'KPI Framework: '+d.kpis.groups.length+' groups, '+kc+' metrics.',h:1});
-  s.push({t:d.useCases.length+' analytics use cases generated.',h:0});
-  s.push({t:'Building 90-day roadmap...',h:0});
-  s.push({t:'Projecting business impact ranges...',h:0});
-  s.push({t:'Compiling Company Intelligence Report.',h:1});
-  return s;
-}
-
-let rn=false;
-async function go(){
-  const inp=document.getElementById('ci'),btn=document.getElementById('ab'),name=inp.value.trim();
-  if(!name||rn)return;rn=true;btn.disabled=true;btn.textContent='Analyzing...';
-  document.getElementById('out').innerHTML='';document.getElementById('res').innerHTML='';
-  document.getElementById('res').classList.remove('show');document.getElementById('kick').classList.remove('show');
-  document.getElementById('pf').style.width='0%';
-
-  let d=await runPipeline(name);
-  d=validate(d);
-  const steps=buildSteps(name,d);
-  const o=document.getElementById('out');
-
-  for(let i=0;i<steps.length;i++){
-    await sl(170+Math.random()*130);
-    const l=document.createElement('div');l.className='sc-l'+(i===steps.length-1?' ac':'');
-    l.innerHTML='<span class="ix">['+String(i+1).padStart(2,'0')+']</span><span class="tx" style="'+(steps[i].h?'color:#00ff88':'')+'">'+steps[i].t+'</span>';
-    o.appendChild(l);o.scrollTop=o.scrollHeight;
-    document.getElementById('pf').style.width=((i+1)/steps.length*100)+'%';
-  }
-  await sl(300);
-
-  let html='<div style="margin-top:16px">';
-
-  html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap">';
-  html+='<div class="lbl" style="margin:0;color:rgba(0,255,136,0.5)">COMPANY INTELLIGENCE REPORT</div>';
-  d.classification.sectors.forEach(s=>{html+='<div style="font-family:var(--mn);font-size:9px;padding:3px 8px;border-radius:4px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);color:var(--c)">'+s+'</div>'});
-  html+='</div>';
-
-  html+='<div style="padding:12px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.06);border-radius:8px;margin-bottom:16px">';
-  html+='<div style="font-family:var(--mn);font-size:10px;color:var(--g);margin-bottom:6px;letter-spacing:1px">Organization Profile</div>';
-  html+='<div style="font-family:var(--mn);font-size:12px;color:rgba(255,255,255,0.7);margin-bottom:4px">'+d.profile.organizationType+'</div>';
-  html+='<div style="font-family:var(--bd);font-size:12px;color:var(--dm);line-height:1.6">'+d.profile.summary+'</div>';
-  html+='</div>';
-
-  html+='<div style="margin-bottom:16px"><div class="lbl" style="color:rgba(0,212,255,0.4)">likely data sources</div>';
-  html+='<div style="display:flex;flex-wrap:wrap;gap:6px">'+d.sources.map(s=>'<div style="padding:5px 10px;border-radius:5px;font-family:var(--mn);font-size:9px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.08);color:rgba(0,212,255,0.6)">'+s+'</div>').join('')+'</div></div>';
-
-  html+='<div class="lbl" style="color:rgba(255,107,53,0.45)">observed data challenges</div>';
-  d.challenges.forEach((c,i)=>{html+='<div class="sig" style="animation-delay:'+i*.08+'s"><span class="sd" style="color:var(--o)">!</span><span class="sc">'+c+'</span></div>'});
-
-  html+='<div style="margin-top:16px;padding:14px;background:rgba(0,212,255,0.02);border:1px solid rgba(0,212,255,0.06);border-radius:8px">';
-  html+='<div class="lbl" style="color:rgba(0,212,255,0.45);margin-bottom:6px">recommended architecture: '+d.architecture.name+'</div>';
-  html+='<div style="font-family:var(--mn);font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:8px;line-height:1.6">'+d.architecture.rationale+'</div>';
-  html+='<div style="font-family:var(--mn);font-size:10px;color:rgba(255,255,255,0.25);margin-bottom:8px">Tooling: '+d.architecture.tooling.join(' / ')+'</div>';
-
-  html+='<div class="arch-viz">';
-  d.architecture.stages.forEach((nd,i)=>{
-    html+='<div class="arch-node" id="an'+i+'" style="background:'+d.architecture.colors[i]+'11;border:1px solid '+d.architecture.colors[i]+'33;color:'+d.architecture.colors[i]+'">'+nd+'</div>';
-    if(i<d.architecture.stages.length-1) html+='<div class="arch-arrow">-></div>';
-  });
-  html+='</div></div>';
-
-  html+='<div style="margin-top:16px"><div class="lbl" style="color:rgba(199,125,255,0.45)">analytics use cases</div>';
-  html+='<div style="display:flex;flex-direction:column;gap:8px">';
-  d.useCases.forEach((u,i)=>{html+='<div style="display:flex;gap:10px;align-items:flex-start"><div style="font-family:var(--mn);font-size:11px;color:var(--p);flex-shrink:0;font-weight:700;min-width:20px">'+(i+1)+'.</div><div style="font-family:var(--mn);font-size:11px;color:rgba(255,255,255,0.55);line-height:1.6">'+u+'</div></div>'});
-  html+='</div></div>';
-
-  html+='<div style="margin-top:16px"><div class="lbl" style="color:rgba(0,255,136,0.45)">key business kpis</div>';
-  html+='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">';
-  d.kpis.groups.forEach(g=>{
-    html+='<div style="padding:14px;background:rgba(0,255,136,0.015);border:1px solid rgba(0,255,136,0.06);border-radius:8px">';
-    html+='<div style="font-family:var(--mn);font-size:10px;color:var(--c);margin-bottom:8px;letter-spacing:1px;font-weight:600">'+g.name+'</div>';
-    g.metrics.forEach(m=>{html+='<div style="font-family:var(--mn);font-size:10px;color:rgba(0,255,136,0.55);margin-bottom:4px;padding-left:10px;position:relative"><span style="position:absolute;left:0;color:rgba(0,255,136,0.3)">-</span>'+m+'</div>'});
-    html+='</div>';
-  });
-  html+='</div></div>';
-
-  html+='</div>'; 
-
-  html+='<div class="prop" style="margin-top:20px">';
-  html+='<h3>'+d.architecture.name+' for '+d.company+'</h3>';
-  html+='<div class="ps">90-Day Analytics Implementation Roadmap by Yash Saini</div>';
-
-  html+='<div class="mr">';
-  html+='<div class="mx"><div class="v">'+d.impact.reportingReduction+'</div><div class="l">Reporting Reduction</div></div>';
-  html+='<div class="mx"><div class="v">'+d.impact.accuracyImprovement+'</div><div class="l">Accuracy Gain</div></div>';
-  html+='<div class="mx"><div class="v">'+d.impact.cycleTimeCurrent+'</div><div class="l">Current Cycle</div></div>';
-  html+='<div class="mx"><div class="v">'+d.impact.cycleTimeTarget+'</div><div class="l">Target Cycle</div></div>';
-  html+='</div>';
-
-  const phases=[{key:'month1',label:'Month 1: Data Audit & Foundation',cls:'p1'},{key:'month2',label:'Month 2: Infrastructure & Pipeline Build',cls:'p2'},{key:'month3',label:'Month 3: Analytics Deployment & Optimization',cls:'p3'}];
-  phases.forEach((ph,i)=>{
-    const tasks=d.roadmap[ph.key]||[];
-    html+='<div class="ph '+ph.cls+'"><div class="phn"><div class="n">'+(i+1)+'</div>'+ph.label+'</div>';
-    tasks.forEach(t=>{html+='<div class="phi">'+t+'</div>'});
-    html+='</div>';
-  });
-
-  html+='<div style="margin-top:16px;padding:14px;background:rgba(0,255,136,0.02);border:1px solid rgba(0,255,136,0.06);border-radius:8px">';
-  html+='<div class="lbl" style="color:rgba(0,255,136,0.4);margin-bottom:8px">projected business impact</div>';
-  html+='<div style="font-family:var(--mn);font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7">';
-  html+='Projected reporting turnaround reduction: <strong style="color:var(--g)">'+d.impact.reportingReduction+'</strong>. ';
-  html+='Estimated data accuracy improvement: <strong style="color:var(--g)">'+d.impact.accuracyImprovement+'</strong>. ';
-  html+='Target cycle time: <strong style="color:var(--g)">'+d.impact.cycleTimeCurrent+' to '+d.impact.cycleTimeTarget+'</strong>. ';
-  html+='Estimated analytics coverage: <strong style="color:var(--g)">'+d.impact.kpiCoverage+' production KPIs</strong>. ';
-  html+=d.impact.narrative;
-  html+='</div></div>';
-
-  html+='</div>'; 
-
-  const r=document.getElementById('res');
-  r.innerHTML=html;
+  // Build full output
+  const r=document.getElementById('scenResult');
+  const chartId='scenChart'+idx;
+  r.innerHTML=
+    '<div class="scen-question">'+s.question+'</div>'+
+    '<div class="scen-context">'+s.context+'</div>'+
+    '<div class="scen-divider"><span>DATA SOURCES</span></div>'+
+    '<div class="scen-sources">'+s.sources.map(src=>'<div class="scen-src">'+src+'</div>').join('')+'</div>'+
+    '<div class="scen-divider"><span>THE QUERY</span></div>'+
+    '<div class="scen-code-wrap"><div class="scen-code-head"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div class="scen-code-file">'+s.file+'</div></div><div class="scen-code">'+s.code+'</div></div>'+
+    '<div class="scen-divider"><span>THE VISUALIZATION</span></div>'+
+    '<div class="scen-chart-wrap"><canvas id="'+chartId+'"></canvas></div>'+
+    '<div class="scen-divider"><span>THE FINDING</span></div>'+
+    '<div class="scen-finding"><div class="scen-finding-label">KEY FINDING</div><div class="scen-finding-text">'+s.finding+'</div></div>'+
+    '<div class="scen-divider"><span>THE RECOMMENDATION</span></div>'+
+    '<div class="scen-rec"><div class="scen-rec-label">RECOMMENDATION TO STAKEHOLDERS</div><div class="scen-rec-text">'+s.recommendation+'</div></div>';
   r.classList.add('show');
 
-  setTimeout(()=>{d.architecture.stages.forEach((_,i)=>{setTimeout(()=>{const n=document.getElementById('an'+i);if(n)n.classList.add('lit')},i*300)})},200);
+  // Render chart
+  await sl(200);
+  const ctx=document.getElementById(chartId);
+  if(ctx){
+    window._scenChart=new Chart(ctx,{
+      type:s.chartType,
+      data:s.chartData,
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'rgba(255,255,255,0.4)',font:{family:'JetBrains Mono',size:10},boxWidth:12,padding:10}},title:{display:true,text:s.chartTitle,color:'rgba(255,255,255,0.3)',font:{family:'JetBrains Mono',size:10}}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'rgba(255,255,255,0.3)',font:{size:9}}},y:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'rgba(255,255,255,0.3)',font:{size:9}}}}}
+    });
+  }
 
-  await sl(1800);document.getElementById('kick').classList.add('show');
-  btn.disabled=false;btn.textContent='Analyze';rn=false;
+  await sl(1500);
+  document.getElementById('scenKick').style.display='block';
+  scenRunning=false;
 }
+
 function sl(ms){return new Promise(r=>setTimeout(r,ms))}
-document.getElementById('ci').addEventListener('keydown',e=>{if(e.key==='Enter')go()});
+
+// ---- EASTER EGG: HIDDEN COMPANY ANALYZER ----
+// Accessible via Ctrl+K command palette -> "Company Analyzer (Classic)"
+// Renders a modal overlay with the original analyzer
+function openAnalyzerEgg(){
+  let m=document.getElementById('eggModal');
+  if(!m){
+    m=document.createElement('div');m.id='eggModal';
+    m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:250;display:flex;align-items:center;justify-content:center;padding:20px';
+    m.onclick=e=>{if(e.target===m)m.style.display='none'};
+    m.innerHTML='<div style="width:90%;max-width:600px;background:#0c0c12;border:1px solid rgba(0,255,136,0.15);border-radius:14px;overflow:hidden;max-height:85vh;overflow-y:auto">'+
+      '<div style="display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04)"><div class="dd r"></div><div class="dd y"></div><div class="dd g"></div><div style="font-family:var(--mn);font-size:11px;color:var(--dm);margin-left:8px">company_intelligence.py (classic)</div><div style="margin-left:auto;font-family:var(--mn);font-size:9px;color:rgba(255,255,255,0.15);cursor:pointer" onclick="document.getElementById(\'eggModal\').style.display=\'none\'">ESC to close</div></div>'+
+      '<div style="padding:24px"><div style="display:flex;gap:0;margin-bottom:16px"><input type="text" id="eggInput" placeholder="Type any company name..." style="flex:1;padding:12px 16px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,255,136,0.1);border-right:none;border-radius:8px 0 0 8px;color:var(--g);font-family:var(--mn);font-size:13px;outline:none"><button onclick="runEggAnalyzer()" style="padding:12px 20px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.1);border-radius:0 8px 8px 0;color:var(--g);font-family:var(--mn);font-size:10px;letter-spacing:2px;cursor:pointer">ANALYZE</button></div><div id="eggOutput" style="font-family:var(--mn);font-size:11px;color:var(--dm);line-height:1.8"></div></div></div>';
+    document.body.appendChild(m);
+    document.getElementById('eggInput').addEventListener('keydown',e=>{if(e.key==='Enter')runEggAnalyzer()});
+  }
+  m.style.display='flex';
+  setTimeout(()=>document.getElementById('eggInput').focus(),100);
+}
+function runEggAnalyzer(){
+  const name=document.getElementById('eggInput').value.trim();
+  if(!name)return;
+  const o=document.getElementById('eggOutput');
+  o.innerHTML='<div style="color:var(--g)">Analyzing "'+name+'"...</div><br><div style="color:rgba(255,255,255,0.3)">The full Company Intelligence System has evolved into the Solve It Live engine above. This classic mode is preserved as an easter egg for those who found it.<br><br>Try the 5 interactive scenarios in the main section -- they demonstrate the same analytical skills with real SQL, real charts, and real recommendations.</div>';
+}
 
 // ======== MTA RIDERSHIP EXPLORER ========
 const STATIONS_DATA={
@@ -1155,6 +1205,13 @@ function updateHeatmap(){
 }
 updateHeatmap();
 
+// ======== SCROLL PROGRESS BAR ========
+const scrollProg=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  scrollProg.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+},{passive:true});
+
 // ======== BACK TO TOP BUTTON ========
 const bttBtn=document.getElementById('btt');
 window.addEventListener('scroll',()=>{bttBtn.classList.toggle('show',window.scrollY>500)},{passive:true});
@@ -1168,39 +1225,183 @@ window.addEventListener('scroll',()=>{
   navLinks.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+current?'#00ff88':''});
 },{passive:true});
 
-// ======== CUNY ARCHITECTURE ANIMATIONS ========
-const dotGrid = document.getElementById('ig-dots');
-if(dotGrid) {
-  for(let i=0; i<26; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'ig-dot';
-    dot.style.animationDelay = `${Math.random() * 2}s`;
-    dotGrid.appendChild(dot);
-  }
+// ======== ENHANCED CANVAS (data particle field) ========
+
+// ======== TIME-OF-DAY GREETING ========
+const greetEl=document.getElementById('greeting');
+if(greetEl){
+  const h=new Date().getHours();
+  const g=h<12?'Good morning':h<17?'Good afternoon':h<21?'Good evening':'Late night browsing?';
+  greetEl.textContent=g+' // Welcome to my portfolio';
 }
 
-const termObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains('typed')) {
-      entry.target.classList.add('typed');
-      const lines = entry.target.querySelectorAll('.tl');
-      let delay = 0;
-      lines.forEach((line, index) => {
-        if(line.classList.contains('t-err')) delay += 800; 
-        setTimeout(() => {
-          line.classList.add('show');
-        }, delay);
-        delay += 300 + Math.random() * 200; 
-      });
-    }
+// ======== COMMAND PALETTE (Ctrl+K) ========
+const CMD_ITEMS=[
+  {icon:'🧠',label:'Solve It Live',section:'#demo'},
+  {icon:'🏗️',label:'CUNY Architecture',section:'#cuny-architecture'},
+  {icon:'🚇',label:'MTA Case Study',section:'#case'},
+  {icon:'📊',label:'Ridership Explorer',section:'#explorer'},
+  {icon:'💼',label:'Projects',section:'#projects'},
+  {icon:'🔧',label:'Methodology',section:'#method'},
+  {icon:'📈',label:'Work Experience',section:'#experience'},
+  {icon:'🛠️',label:'Skills',section:'#skills'},
+  {icon:'🎓',label:'Education',section:'#education'},
+  {icon:'🔬',label:'Currently Exploring',section:'#now'},
+  {icon:'📧',label:'Contact',section:'#contact'},
+  {icon:'📄',label:'Download Resume',section:'resume'},
+  {icon:'🥚',label:'Company Analyzer (Easter Egg)',section:'easter-egg'},
+  {icon:'⬆️',label:'Back to Top',section:'#top'},
+];
+let cmdActive=-1;
+
+function openCmd(){
+  document.getElementById('cmdOverlay').classList.add('open');
+  const inp=document.getElementById('cmdInput');
+  inp.value='';inp.focus();
+  renderCmdResults('');
+  cmdActive=-1;
+}
+function closeCmd(){
+  document.getElementById('cmdOverlay').classList.remove('open');
+  cmdActive=-1;
+}
+function renderCmdResults(query){
+  const q=query.toLowerCase();
+  const filtered=q?CMD_ITEMS.filter(i=>i.label.toLowerCase().includes(q)):CMD_ITEMS;
+  const container=document.getElementById('cmdResults');
+  container.innerHTML=filtered.map((item,i)=>
+    '<div class="cmd-item'+(i===cmdActive?' active':'')+'" data-idx="'+i+'" onclick="navigateCmd(\''+item.section+'\')">'+
+    '<span class="cmd-icon">'+item.icon+'</span>'+item.label+'</div>'
+  ).join('');
+}
+function navigateCmd(section){
+  closeCmd();
+  if(section==='resume'){
+    const a=document.createElement('a');a.href='./Yash_Saini_Resume.pdf';a.download='';a.click();return;
+  }
+  if(section==='easter-egg'){
+    if(typeof openAnalyzerEgg==='function')openAnalyzerEgg();return;
+  }
+  const el=document.querySelector(section);
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
+
+document.getElementById('cmdInput').addEventListener('input',e=>{ cmdActive=-1; renderCmdResults(e.target.value); });
+document.getElementById('cmdInput').addEventListener('keydown',e=>{
+  const items=document.querySelectorAll('.cmd-item');
+  if(e.key==='Escape'){closeCmd();return;}
+  if(e.key==='ArrowDown'){e.preventDefault();cmdActive=Math.min(cmdActive+1,items.length-1);items.forEach((it,i)=>it.classList.toggle('active',i===cmdActive));}
+  if(e.key==='ArrowUp'){e.preventDefault();cmdActive=Math.max(cmdActive-1,0);items.forEach((it,i)=>it.classList.toggle('active',i===cmdActive));}
+  if(e.key==='Enter'&&cmdActive>=0&&items[cmdActive]){items[cmdActive].click();}
+});
+document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openCmd();}
+  if(e.key==='Escape')closeCmd();
+});
+
+// ======== LAZY LOAD CHART.JS (only init charts when scrolled to) ========
+
+// ======== CUNY ARCHITECTURE: TERMINAL ANIMATION ========
+const TERM_LINES=[
+  {type:'prompt',text:'$ python run_validation_eda.py --scope=all_institutions'},
+  {type:'log',text:'[INFO] Loading workforce and leave datasets across 26 institutions...'},
+  {type:'log',text:'[INFO] Schema normalization: reconciling column names across 7 sources...'},
+  {type:'log',text:'[INFO] Running completeness checks... 142 tables, 3,847 columns'},
+  {type:'log',text:'[INFO] Running consistency validation across reporting periods...'},
+  {type:'log',text:'[INFO] Cross-referencing headcount vs. leave balances...'},
+  {type:'log',text:'[INFO] Institution 1-23: PASS'},
+  {type:'warn',text:'[!] Institution 24 (Borough of Manhattan CC): MISMATCH DETECTED'},
+  {type:'warn',text:'[!] Institution 25 (Bronx CC): RECONCILIATION FAILURE'},
+  {type:'warn',text:'[!] Institution 26 (Hostos CC): INTEGRITY GAP - 2 REPORTING CYCLES'},
+  {type:'alert',text:'ANOMALY DETECTED: 2-Cycle Data Integrity Gap found across 3 institutions. Headcount records diverge from leave system by 340+ entries. Undetected in previous 2 reporting cycles.'},
+  {type:'log',text:'[INFO] Running root cause isolation...'},
+  {type:'log',text:'[INFO] Source identified: legacy migration left orphaned records in leave tables'},
+  {type:'success',text:'[OK] Resolution: Data reconciled and validated before major reporting deadline'},
+  {type:'ok',text:'RESULT: Integrity issue resolved. Validation framework now runs automatically before every reporting cycle. Zero manual intervention required.'},
+];
+
+const termObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){
+  e.target.dataset.done='1';
+  const body=document.getElementById('anomalyTerm');
+  TERM_LINES.forEach((line,i)=>{
+    setTimeout(()=>{
+      const el=document.createElement('div');
+      el.className='term-line';
+      if(line.type==='prompt') el.innerHTML='<span class="term-prompt">yash@cuny</span>:<span style="color:var(--c)">~/validation</span>$ <span class="term-cmd">'+line.text.replace(/^\$ /,'')+'</span>';
+      else if(line.type==='log') el.innerHTML='<span class="term-log">'+line.text+'</span>';
+      else if(line.type==='warn') el.innerHTML='<span class="term-warn">'+line.text+'</span>';
+      else if(line.type==='alert') el.innerHTML='<div class="term-alert">'+line.text+'</div>';
+      else if(line.type==='success') el.innerHTML='<span class="term-success">'+line.text+'</span>';
+      else if(line.type==='ok') el.innerHTML='<div class="term-ok">'+line.text+'</div>';
+      el.style.animation='termFade .4s ease '+(i*0.22)+'s forwards';
+      body.appendChild(el);
+      // Add blinking cursor after last line
+      if(i===TERM_LINES.length-1){
+        setTimeout(()=>{
+          const cur=document.createElement('div');
+          cur.className='term-line';
+          cur.style.opacity='1';
+          cur.innerHTML='<span class="term-prompt">yash@cuny</span>:<span style="color:var(--c)">~/validation</span>$ <span class="term-cursor"></span>';
+          body.appendChild(cur);
+        },400);
+      }
+    },i*220);
+    },i*220);
   });
-}, { threshold: 0.5 });
+}})},{threshold:.2});
+const termEl=document.querySelector('.anomaly-term');
+if(termEl) termObs.observe(termEl);
 
-const termTrigger = document.getElementById('term-trigger');
-if(termTrigger) termObserver.observe(termTrigger);
+// ======== CUNY ARCHITECTURE: INSTITUTION NODES ========
+const INST_NAMES=['Baruch','Brooklyn','City','Hunter','John Jay','Lehman','Medgar Evers','Queens','York','CSI','BMCC','Bronx CC','Hostos CC','Kingsborough','LaGuardia','Queensborough','NYCCT','Guttman','Macaulay','Craig Newmark','CUNY Law','SPH','SPS','Grad Center','CUNY Central','Research Found.'];
+const nodesField=document.getElementById('nodesField');
+if(nodesField){
+  INST_NAMES.forEach((name,i)=>{
+    const node=document.createElement('div');
+    node.className='inst-node';
+    node.dataset.label=name;
+    nodesField.appendChild(node);
+  });
+  // Light up nodes with staggered glow + random pulse delays
+  const nodesObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){
+    e.target.dataset.done='1';
+    const nodes=e.target.querySelectorAll('.inst-node');
+    nodes.forEach((n,i)=>{
+      setTimeout(()=>{
+        n.classList.add('lit');
+        n.style.background='rgba(0,255,136,0.25)';
+        n.style.animationDelay=(Math.random()*2).toFixed(1)+'s';
+      },i*60);
+    });
+  }})},{threshold:.3});
+  nodesObs.observe(nodesField);
+}
 
-// ======== ENHANCED CANVAS ========
+// ======== CUNY ARCHITECTURE: IMPACT COUNTERS ========
+const impactObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){
+  e.target.dataset.done='1';
+  animateImpact('impVal1',55,'-%');
+  animateImpact('impVal2',37,'+%');
+  animateImpact('impVal3',50,'-%');
+}})},{threshold:.3});
+const impactWrap=document.querySelector('.impact-grid-wrap');
+if(impactWrap) impactObs.observe(impactWrap);
+
+function animateImpact(id,target,suffix){
+  const el=document.getElementById(id);if(!el)return;
+  const start=Date.now(),dur=2200;
+  const ease=t=>t<0.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1;
+  !function tick(){
+    const t=Math.min((Date.now()-start)/dur,1);
+    const v=Math.round(target*ease(t));
+    el.textContent=(suffix.startsWith('+')?'+':'-')+v+'%';
+    if(t<1)requestAnimationFrame(tick);
+  }();
+}
+// Upgrade: particles now pulse and connect based on scroll position
 const scrollFactor=()=>Math.min(window.scrollY/2000,1);
+
+// Fallback visibility
 setTimeout(()=>{document.querySelectorAll('.rv').forEach(el=>el.classList.add('vis'));document.querySelectorAll('.counter .num').forEach(el=>{el.textContent=el.dataset.target+el.dataset.suffix});document.querySelectorAll('.pipe-nd').forEach(n=>n.classList.add('lit'))},2500);
 </script>
 </body>
