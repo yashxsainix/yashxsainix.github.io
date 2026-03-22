@@ -803,6 +803,58 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         <a href="https://github.com/yashxsainix/Online-Retail-Data-Analytics-Project-with-Python-SQL-and-Power-BI" target="_blank" class="gh-l">View code on GitHub</a>
       </div></div>
     </div>
+    <div class="pc" onclick="togP(this)">
+      <div class="pc-sum"><div class="ico">🧪</div><div class="nm">A/B Experiment Simulator (Enchanted AdLab)</div><div class="ds">Built a cinematic-grade A/B testing platform with Bayesian analysis, uplift modeling, and a DuckDB SQL lab. A full experiment lifecycle in the browser, from hypothesis to executive deck.</div><div class="pt"><span>Python</span><span>Streamlit</span><span>SciPy</span><span>DuckDB</span><span>Plotly</span></div><div class="ch">Click for findings & charts</div></div>
+      <div class="pc-det"><div class="det-in">
+        <div class="det-lbl gr">// in plain english</div>
+        <div class="plain">Before running an expensive ad campaign, you need to know: will this actually work? This platform simulates the entire A/B testing workflow - from designing the experiment to computing statistical significance to generating a revenue impact estimate a CFO would actually read.</div>
+        <div class="det-lbl cy">// key findings</div>
+        <div class="finds">
+          <div class="find"><div class="find-i">🔬</div><div class="find-t"><strong>Frequentist + Bayesian engine</strong>: auto-selects Z-test, T-test, or Chi-squared based on data type</div></div>
+          <div class="find"><div class="find-i">📊</div><div class="find-t"><strong>T-Learner uplift modeling</strong> reveals which segments actually respond to treatment</div></div>
+          <div class="find"><div class="find-i">💰</div><div class="find-t"><strong>$2.8M projected revenue impact</strong> calculated from simulated lift x ARPU x subscriber base</div></div>
+          <div class="find"><div class="find-i">🧪</div><div class="find-t"><strong>DuckDB SQL lab</strong> with 5 production-style queries running entirely in the browser</div></div>
+        </div>
+        <div class="det-lbl or">// experiment power curve</div>
+        <div class="proj-chart" id="ablabChartContainer"></div>
+        <a href="https://github.com/yashxsainix/enchanted-adlab" target="_blank" class="gh-l">View code on GitHub</a>
+        <a href="https://enchanted-adlab.streamlit.app" target="_blank" class="gh-l" style="margin-left:12px">Live Demo</a>
+      </div></div>
+    </div>
+    <div class="pc" onclick="togP(this)">
+      <div class="pc-sum"><div class="ico">&#10052;</div><div class="nm">Snowflake ETL: Pacific Retail</div><div class="ds">Designed a Bronze-Silver-Gold data lakehouse in Snowflake. Raw CSVs go in dirty; validated, governed, analytics-ready tables come out. Business logic baked into every transformation.</div><div class="pt"><span>Snowflake</span><span>SQL</span><span>ETL</span><span>Data Governance</span></div><div class="ch">Click for findings & charts</div></div>
+      <div class="pc-det"><div class="det-in">
+        <div class="det-lbl gr">// in plain english</div>
+        <div class="plain">Imagine getting three messy CSV files - customers with invalid emails, orders with bad amounts, products with ratings outside 0-5. This pipeline catches every issue, standardizes every field, and outputs a clean warehouse where analysts can run queries without worrying about data quality.</div>
+        <div class="det-lbl cy">// key findings</div>
+        <div class="finds">
+          <div class="find"><div class="find-i">🏗️</div><div class="find-t"><strong>3-layer architecture</strong>: Bronze (raw), Silver (validated), Gold (analytics-ready views)</div></div>
+          <div class="find"><div class="find-i">🔒</div><div class="find-t"><strong>7 validation rules</strong> enforced: email format, age range, gender standardization, price positivity, stock checks, rating bounds, transaction integrity</div></div>
+          <div class="find"><div class="find-i">📈</div><div class="find-t"><strong>Gold layer views</strong>: daily sales analysis and customer-product affinity with aggregated metrics</div></div>
+          <div class="find"><div class="find-i">⚡</div><div class="find-t"><strong>Zero manual steps</strong>: full pipeline from CSV upload to queryable analytics in SQL</div></div>
+        </div>
+        <div class="det-lbl or">// data quality: before vs after</div>
+        <div class="proj-chart" id="snowflakeChartContainer"></div>
+        <a href="https://github.com/yashxsainix/snowflake" target="_blank" class="gh-l">View code on GitHub</a>
+      </div></div>
+    </div>
+    <div class="pc" onclick="togP(this)">
+      <div class="pc-sum"><div class="ico">🏠</div><div class="nm">Dreamhouse CRM (Salesforce LWC)</div><div class="ds">Built a full-stack real estate CRM on Salesforce using Lightning Web Components, Apex, and Flows. Property listings, broker management, and geocoding - all wired to a production-grade data model.</div><div class="pt"><span>Salesforce</span><span>LWC</span><span>Apex</span><span>SOQL</span><span>Flows</span></div><div class="ch">Click for findings & charts</div></div>
+      <div class="pc-det"><div class="det-in">
+        <div class="det-lbl gr">// in plain english</div>
+        <div class="plain">Real estate brokers need a system to manage properties, match buyers to listings, and track the entire sales pipeline. This is that system - built on Salesforce with custom Lightning Web Components, automated workflows via Flows, and an Apex backend that handles geocoding, search, and data operations.</div>
+        <div class="det-lbl cy">// key findings</div>
+        <div class="finds">
+          <div class="find"><div class="find-i">⚡</div><div class="find-t"><strong>Lightning Web Components</strong>: modern reactive UI with real-time property search and filtering</div></div>
+          <div class="find"><div class="find-i">🔧</div><div class="find-t"><strong>Apex backend</strong>: custom classes for geocoding, property matching, and SOQL-optimized queries</div></div>
+          <div class="find"><div class="find-i">🔄</div><div class="find-t"><strong>Automated workflows</strong>: Salesforce Flows handle lead assignment, status updates, and notifications</div></div>
+          <div class="find"><div class="find-i">✅</div><div class="find-t"><strong>Full CI/CD</strong>: Jest tests, ESLint, Prettier, and scratch org deployment pipeline</div></div>
+        </div>
+        <div class="det-lbl or">// salesforce architecture</div>
+        <div class="proj-chart" id="dreamhouseChartContainer"></div>
+        <a href="https://github.com/yashxsainix/dreamhouse-salesforce" target="_blank" class="gh-l">View code on GitHub</a>
+      </div></div>
+    </div>
   </div>
 </section>
 
@@ -1224,6 +1276,9 @@ function togP(c){
       renderD3Churn();
       renderEchartsHousing();
       renderEchartsRetail();
+      renderAblabChart();
+      renderSnowflakeChart();
+      renderDreamhouseChart();
     }, 400);
     setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'nearest'}),150);
   }
@@ -1290,6 +1345,83 @@ function renderEchartsRetail() {
       data: [42,38,45,51,48,55,62,58,67,72,85,110]
     }]
   });
+}
+
+// ======== NEW PROJECT CHARTS ========
+
+function renderAblabChart() {
+  const container = document.getElementById('ablabChartContainer');
+  if(!container || container.dataset.done) return;
+  container.dataset.done = '1';
+  let chart = echarts.init(container, 'dark');
+  chart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {trigger: 'axis', formatter: '{b}<br/>Power: {c}%'},
+    title: {text: 'Statistical Power vs Sample Size', textStyle:{fontSize: 10, fontFamily: 'JetBrains Mono', color: 'rgba(255,255,255,0.4)'}},
+    xAxis: {type: 'category', name: 'Sample Size', data: ['500','1K','2K','5K','10K','20K','50K','100K'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}, axisLabel:{fontSize:9}},
+    yAxis: {type: 'value', name: 'Power (%)', min: 0, max: 100, splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}, axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
+    series: [
+      {name:'5% Effect', type:'line', smooth:true, symbolSize:6, data:[12,18,28,52,75,91,99,99], itemStyle:{color:'#c77dff'}, areaStyle:{color:'rgba(199,125,255,0.05)'}},
+      {name:'10% Effect', type:'line', smooth:true, symbolSize:6, data:[22,35,55,82,96,99,99,99], itemStyle:{color:'#00d4ff'}, areaStyle:{color:'rgba(0,212,255,0.05)'}},
+      {name:'20% Effect', type:'line', smooth:true, symbolSize:6, data:[48,68,88,99,99,99,99,99], itemStyle:{color:'#00ff88'}, areaStyle:{color:'rgba(0,255,136,0.05)'}}
+    ],
+    legend: {data:['5% Effect','10% Effect','20% Effect'], textStyle:{color:'rgba(255,255,255,0.4)', fontSize:9}, bottom:0}
+  });
+}
+
+function renderSnowflakeChart() {
+  const container = document.getElementById('snowflakeChartContainer');
+  if(!container || container.dataset.done) return;
+  container.dataset.done = '1';
+  let chart = echarts.init(container, 'dark');
+  chart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {trigger: 'axis'},
+    title: {text: 'Data Quality: Bronze (Raw) vs Silver (Validated)', textStyle:{fontSize: 10, fontFamily: 'JetBrains Mono', color: 'rgba(255,255,255,0.4)'}},
+    xAxis: {type: 'category', data: ['Invalid Emails','Bad Age Values','Unknown Gender','Negative Prices','Out-of-Range Ratings','Null Transactions','Bad Stock Qty'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}, axisLabel:{fontSize:8, rotate:25}},
+    yAxis: {type: 'value', name: 'Record Count', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
+    series: [
+      {name:'Bronze (Raw)', type:'bar', data:[47,23,31,12,18,8,15], itemStyle:{color:'rgba(255,107,53,0.6)'}, barGap:'20%'},
+      {name:'Silver (Clean)', type:'bar', data:[0,0,0,0,0,0,0], itemStyle:{color:'rgba(0,255,136,0.6)'}}
+    ],
+    legend: {data:['Bronze (Raw)','Silver (Clean)'], textStyle:{color:'rgba(255,255,255,0.4)', fontSize:9}, bottom:0}
+  });
+}
+
+function renderDreamhouseChart() {
+  const container = document.getElementById('dreamhouseChartContainer');
+  if(!container || container.dataset.done) return;
+  container.dataset.done = '1';
+  container.innerHTML = '';
+  const width = container.clientWidth || 400, height = container.clientHeight || 220;
+  
+  // SVG Architecture Diagram
+  const layers = [
+    {y:15, label:'Lightning Web Components', color:'#00d4ff', items:['Property Search','Broker Card','Map View','Property Detail']},
+    {y:70, label:'Apex Controllers', color:'#c77dff', items:['GeocodingService','PropertyController','BrokerController']},
+    {y:125, label:'Data Layer (SOQL)', color:'#00ff88', items:['Property__c','Broker__c','Contact','Opportunity']},
+    {y:175, label:'Automation', color:'#ff6b35', items:['Flows','Permission Sets','Message Channels']}
+  ];
+  
+  let svgHTML = '<svg width="'+width+'" height="210" viewBox="0 0 '+width+' 210" xmlns="http://www.w3.org/2000/svg">';
+  layers.forEach((layer,i) => {
+    // Layer bar
+    svgHTML += '<rect x="10" y="'+layer.y+'" width="'+(width-20)+'" height="42" rx="8" fill="'+layer.color+'" fill-opacity="0.06" stroke="'+layer.color+'" stroke-opacity="0.2"/>';
+    svgHTML += '<text x="18" y="'+(layer.y+16)+'" fill="'+layer.color+'" font-family="JetBrains Mono" font-size="9" opacity="0.8">'+layer.label+'</text>';
+    // Items
+    const itemW = (width-50)/layer.items.length;
+    layer.items.forEach((item,j) => {
+      svgHTML += '<text x="'+(22 + j*itemW)+'" y="'+(layer.y+34)+'" fill="rgba(255,255,255,0.45)" font-family="JetBrains Mono" font-size="8">'+item+'</text>';
+    });
+    // Arrow to next layer
+    if(i < layers.length-1){
+      const midX = width/2;
+      svgHTML += '<line x1="'+midX+'" y1="'+(layer.y+42)+'" x2="'+midX+'" y2="'+(layers[i+1].y)+'" stroke="rgba(255,255,255,0.1)" stroke-dasharray="3 3"/>';
+      svgHTML += '<polygon points="'+(midX-4)+','+(layers[i+1].y-2)+' '+(midX+4)+','+(layers[i+1].y-2)+' '+midX+','+(layers[i+1].y+3)+'" fill="rgba(255,255,255,0.15)"/>';
+    }
+  });
+  svgHTML += '</svg>';
+  container.innerHTML = svgHTML;
 }
 
 // MTA Case Study ECharts (Converting from Chart.js)
