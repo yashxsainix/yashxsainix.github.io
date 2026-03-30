@@ -425,9 +425,80 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   .arch-viz,.pipe-viz{justify-content:center}
   .scen-grid{grid-template-columns:repeat(2,1fr)}.scen-grid .scen-card:last-child{grid-column:span 2}
 }
+
+/* ================================================================
+   CUSTOM CURSOR
+   ================================================================ */
+.cur{position:fixed;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--g);pointer-events:none;z-index:999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border-color .25s;mix-blend-mode:difference}
+.cur-dot{position:fixed;width:4px;height:4px;border-radius:50%;background:var(--g);pointer-events:none;z-index:1000;transform:translate(-50%,-50%)}
+body.cur-hover .cur{width:50px;height:50px;background:rgba(0,255,136,0.08);border-color:transparent}
+@media(max-width:768px){.cur,.cur-dot{display:none}}
+
+/* ================================================================
+   LOADING SCREEN
+   ================================================================ */
+.loader-overlay{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+.loader-overlay.done{opacity:0;visibility:hidden;pointer-events:none}
+.loader-marquee{position:absolute;top:50%;left:0;transform:translateY(-50%);width:200%;font-family:var(--dp);font-size:clamp(60px,12vw,140px);font-weight:800;color:rgba(0,255,136,0.03);white-space:nowrap;animation:marqueeScroll 12s linear infinite;pointer-events:none;user-select:none}
+@keyframes marqueeScroll{0%{transform:translateY(-50%) translateX(0)}100%{transform:translateY(-50%) translateX(-50%)}}
+.loader-center{position:relative;z-index:2;text-align:center}
+.loader-name{font-family:var(--dp);font-size:clamp(20px,4vw,36px);font-weight:700;color:var(--tx);letter-spacing:3px;margin-bottom:24px}
+.loader-name span{color:var(--g)}
+.loader-bar-wrap{width:200px;height:2px;background:rgba(255,255,255,0.06);border-radius:2px;margin:0 auto 16px;overflow:hidden}
+.loader-bar{height:100%;width:0;background:linear-gradient(90deg,var(--g),var(--c));border-radius:2px;transition:width .3s ease}
+.loader-pct{font-family:var(--mn);font-size:11px;color:var(--g);letter-spacing:3px}
+.loader-sub{font-family:var(--mn);font-size:9px;color:var(--dm);margin-top:20px;letter-spacing:2px;opacity:0;transition:opacity .4s}
+.loader-sub.show{opacity:1}
+
+/* ================================================================
+   PROJECT CAROUSEL (replaces pgrid)
+   ================================================================ */
+.carousel-wrap{position:relative;overflow:hidden;margin:0 -24px}
+.carousel-track{display:flex;transition:transform .5s cubic-bezier(0.25,0.46,0.45,0.94)}
+.carousel-slide{min-width:100%;padding:0 24px;box-sizing:border-box}
+.carousel-card{background:var(--sf);border:1px solid rgba(255,255,255,0.04);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:340px}
+.cc-info{padding:32px 28px;display:flex;flex-direction:column;justify-content:center}
+.cc-num{font-family:var(--dp);font-size:64px;font-weight:800;color:rgba(0,255,136,0.08);line-height:1;margin-bottom:12px}
+.cc-title{font-family:var(--dp);font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--tx);margin-bottom:8px}
+.cc-desc{font-family:var(--bd);font-size:13px;color:var(--dm);line-height:1.7;margin-bottom:16px}
+.cc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.cc-tags span{padding:4px 10px;border-radius:5px;font-family:var(--mn);font-size:9px;background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.08);color:rgba(0,255,136,0.5)}
+.cc-links{display:flex;gap:12px;margin-top:auto}
+.cc-links a{font-family:var(--mn);font-size:10px;color:var(--c);text-decoration:none;transition:color .3s}.cc-links a:hover{color:var(--g)}
+.cc-visual{padding:28px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,0.03)}
+.cc-visual .det-lbl{font-family:var(--mn);font-size:9px;letter-spacing:3px;margin-bottom:10px}
+.cc-visual .finds{display:flex;flex-direction:column;gap:8px}
+.cc-visual .find{display:flex;gap:10px;align-items:flex-start}
+.cc-visual .find-i{font-size:14px;flex-shrink:0;margin-top:1px}
+.cc-visual .find-t{font-family:var(--bd);font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5}
+.cc-chart{margin-top:14px;height:180px}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
+.carousel-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,255,136,0.15);background:rgba(0,255,136,0.04);color:var(--g);cursor:pointer;font-size:16px;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.carousel-btn:hover{background:rgba(0,255,136,0.12);border-color:rgba(0,255,136,0.3)}
+.carousel-dots{display:flex;gap:8px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;cursor:pointer;transition:all .3s;padding:0}
+.carousel-dot.active{background:var(--g);box-shadow:0 0 8px rgba(0,255,136,0.3)}
+.carousel-counter{font-family:var(--mn);font-size:10px;color:var(--dm)}
+@media(max-width:768px){
+  .carousel-card{grid-template-columns:1fr}.cc-visual{border-left:none;border-top:1px solid rgba(255,255,255,0.03)}
+  .cc-num{font-size:40px}
+}
 </style>
 </head>
 <body>
+<!-- LOADING SCREEN -->
+<div class="loader-overlay" id="loader">
+  <div class="loader-marquee">DATA ANALYST & BI ENGINEER ---- DATA ANALYST & BI ENGINEER ---- DATA ANALYST & BI ENGINEER ---- DATA ANALYST & BI ENGINEER ---- </div>
+  <div class="loader-center">
+    <div class="loader-name">YASH <span>SAINI</span></div>
+    <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+    <div class="loader-sub" id="loaderSub">initializing portfolio...</div>
+  </div>
+</div>
+<!-- CUSTOM CURSOR -->
+<div class="cur" id="cursor"></div>
+<div class="cur-dot" id="cursorDot"></div>
 <a href="#demo" class="skip-nav">Skip to main content</a>
 <div class="scroll-progress" id="scrollProg" aria-hidden="true"></div>
 
@@ -751,110 +822,154 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="proj-s" id="projects">
   <div class="lbl">// selected_work</div>
   <div class="stl">Projects That Prove It</div>
-  <div class="ssub">Click any project to see findings, interactive charts, and results explained for anyone to follow.</div>
-  <div class="pgrid">
-    <div class="pc" onclick="togP(this)">
-      <div class="pc-sum"><div class="ico">📊</div><div class="nm">Customer Churn Prediction</div><div class="ds">Built a model that flags customers about to cancel with 84% accuracy. Connected it to a live dashboard so retention teams can act the same day, not the same quarter.</div><div class="pt"><span>Python</span><span>Scikit-learn</span><span>SQL</span><span>Power BI</span></div><div class="ch">Click for findings & charts</div></div>
-      <div class="pc-det"><div class="det-in">
-        <div class="det-lbl gr">// in plain english</div>
-        <div class="plain">Imagine running a subscription business where 1,000 customers are about to leave but you don't know which ones. This model identifies them before they cancel, so retention teams can reach out with the right offer at the right moment.</div>
-        <div class="det-lbl cy">// key findings</div>
-        <div class="finds">
-          <div class="find"><div class="find-i">🎯</div><div class="find-t"><strong>84% accuracy</strong> identifying at-risk customers before they cancel</div></div>
-          <div class="find"><div class="find-i">📉</div><div class="find-t"><strong>Month-to-month contracts</strong> churn at 3.5x the rate of annual subscribers</div></div>
-          <div class="find"><div class="find-i">⏱️</div><div class="find-t"><strong>62% of all churn</strong> happens within the first 6 months</div></div>
-          <div class="find"><div class="find-i">💰</div><div class="find-t">Estimated <strong>$140K annual savings</strong> if retention team acts on predictions</div></div>
+  <div class="ssub">Navigate through 6 real projects. Each one shows the problem, the approach, and the measurable result.</div>
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- SLIDE 1: Churn -->
+      <div class="carousel-slide">
+        <div class="carousel-card">
+          <div class="cc-info">
+            <div class="cc-num">01</div>
+            <div class="cc-title">Customer Churn Prediction</div>
+            <div class="cc-desc">Built a model that flags customers about to cancel with 84% accuracy. Connected it to a live dashboard so retention teams can act the same day, not the same quarter.</div>
+            <div class="cc-tags"><span>Python</span><span>Scikit-learn</span><span>SQL</span><span>Power BI</span></div>
+            <div class="cc-links"><a href="https://github.com/yashxsainix/Customer_Churn_Analysis" target="_blank">View on GitHub ></a></div>
+          </div>
+          <div class="cc-visual">
+            <div class="det-lbl cy">// key findings</div>
+            <div class="finds">
+              <div class="find"><div class="find-i">🎯</div><div class="find-t"><strong>84% accuracy</strong> identifying at-risk customers</div></div>
+              <div class="find"><div class="find-i">📉</div><div class="find-t"><strong>Month-to-month contracts</strong> churn at 3.5x the rate</div></div>
+              <div class="find"><div class="find-i">⏱️</div><div class="find-t"><strong>62% of all churn</strong> happens within first 6 months</div></div>
+              <div class="find"><div class="find-i">💰</div><div class="find-t">Estimated <strong>$140K annual savings</strong> from predictions</div></div>
+            </div>
+            <div class="cc-chart" id="churnChartContainer"></div>
+          </div>
         </div>
-        <div class="det-lbl or">// feature importance (D3.js Force Simulation)</div>
-        <div class="proj-chart" id="churnChartContainer"></div>
-        <a href="https://github.com/yashxsainix/Customer_Churn_Analysis" target="_blank" class="gh-l">View code on GitHub</a>
-      </div></div>
-    </div>
-    <div class="pc" onclick="togP(this)">
-      <div class="pc-sum"><div class="ico">🏙️</div><div class="nm">NYC Housing Equity Analysis</div><div class="ds">Used data from 4 city agencies to test whether low-income neighborhoods get slower responses to housing complaints. The answer: yes, measurably and consistently.</div><div class="pt"><span>R</span><span>Quarto</span><span>Random Forest</span><span>Spatial Joins</span></div><div class="ch">Click for findings & charts</div></div>
-      <div class="pc-det"><div class="det-in">
-        <div class="det-lbl gr">// in plain english</div>
-        <div class="plain">When you call 311 about broken heat or mold in NYC, how fast the city responds should not depend on your zip code's income level. This analysis found it does. Lower-income neighborhoods wait significantly longer, and the pattern holds even after controlling for complaint volume.</div>
-        <div class="det-lbl cy">// key findings</div>
-        <div class="finds">
-          <div class="find"><div class="find-i">📊</div><div class="find-t"><strong>R-squared = 0.54</strong>: income alone explains over half the variation in resolution time</div></div>
-          <div class="find"><div class="find-i">⏱️</div><div class="find-t">Low-income tracts wait <strong>40% longer</strong> on average for complaint resolution</div></div>
-          <div class="find"><div class="find-i">🗺️</div><div class="find-t"><strong>4 public APIs</strong> combined with spatial joins across 100K+ complaints</div></div>
-          <div class="find"><div class="find-i">🔬</div><div class="find-t">Pattern is <strong>statistically significant</strong> even after adjusting for complaint type and volume</div></div>
+      </div>
+
+      <!-- SLIDE 2: Housing -->
+      <div class="carousel-slide">
+        <div class="carousel-card">
+          <div class="cc-info">
+            <div class="cc-num">02</div>
+            <div class="cc-title">NYC Housing Equity Analysis</div>
+            <div class="cc-desc">Used data from 4 city agencies to test whether low-income neighborhoods get slower responses to housing complaints. The answer: yes, measurably and consistently.</div>
+            <div class="cc-tags"><span>R</span><span>Quarto</span><span>Random Forest</span><span>Spatial Joins</span></div>
+            <div class="cc-links"><a href="https://github.com/yashxsainix/STA9750-2025-FALL" target="_blank">View on GitHub ></a></div>
+          </div>
+          <div class="cc-visual">
+            <div class="det-lbl cy">// key findings</div>
+            <div class="finds">
+              <div class="find"><div class="find-i">📊</div><div class="find-t"><strong>R-squared = 0.54</strong>: income explains half the variation</div></div>
+              <div class="find"><div class="find-i">⏱️</div><div class="find-t">Low-income tracts wait <strong>40% longer</strong> for resolution</div></div>
+              <div class="find"><div class="find-i">🗺️</div><div class="find-t"><strong>4 public APIs</strong> combined with spatial joins</div></div>
+              <div class="find"><div class="find-i">🔬</div><div class="find-t"><strong>Statistically significant</strong> after adjusting for volume</div></div>
+            </div>
+            <div class="cc-chart" id="housingChartContainer"></div>
+          </div>
         </div>
-        <div class="det-lbl or">// income vs resolution time</div>
-        <div class="proj-chart" id="housingChartContainer"></div>
-        <a href="https://github.com/yashxsainix/STA9750-2025-FALL" target="_blank" class="gh-l">View code on GitHub</a>
-      </div></div>
-    </div>
-    <div class="pc" onclick="togP(this)">
-      <div class="pc-sum"><div class="ico">🛒</div><div class="nm">Retail Analytics Pipeline</div><div class="ds">Took chaotic Excel sales data and turned it into a clean, queryable database with interactive dashboards. The full journey from raw mess to business insight.</div><div class="pt"><span>Python</span><span>SQL</span><span>SQLite</span><span>Power BI</span></div><div class="ch">Click for findings & charts</div></div>
-      <div class="pc-det"><div class="det-in">
-        <div class="det-lbl gr">// in plain english</div>
-        <div class="plain">Most small businesses have sales data trapped in messy spreadsheets nobody can read. I built a system that cleans, organizes, and visualizes this data, turning chaotic files into clear dashboards where you can instantly see what sells, what doesn't, and where to focus.</div>
-        <div class="det-lbl cy">// key findings</div>
-        <div class="finds">
-          <div class="find"><div class="find-i">🧹</div><div class="find-t"><strong>Raw Excel to structured database</strong> with automated cleaning for nulls, duplicates, formatting</div></div>
-          <div class="find"><div class="find-i">🏗️</div><div class="find-t"><strong>Normalized relational model</strong> with proper fact and dimension tables in SQLite</div></div>
-          <div class="find"><div class="find-i">📈</div><div class="find-t"><strong>Interactive Power BI dashboard</strong> tracking sales trends, top products, and customer segments</div></div>
+      </div>
+
+      <!-- SLIDE 3: Retail -->
+      <div class="carousel-slide">
+        <div class="carousel-card">
+          <div class="cc-info">
+            <div class="cc-num">03</div>
+            <div class="cc-title">Retail Analytics Pipeline</div>
+            <div class="cc-desc">Took chaotic Excel sales data and turned it into a clean, queryable database with interactive dashboards. The full journey from raw mess to business insight.</div>
+            <div class="cc-tags"><span>Python</span><span>SQL</span><span>SQLite</span><span>Power BI</span></div>
+            <div class="cc-links"><a href="https://github.com/yashxsainix/Online-Retail-Data-Analytics-Project-with-Python-SQL-and-Power-BI" target="_blank">View on GitHub ></a></div>
+          </div>
+          <div class="cc-visual">
+            <div class="det-lbl cy">// key findings</div>
+            <div class="finds">
+              <div class="find"><div class="find-i">🧹</div><div class="find-t"><strong>Raw Excel to structured DB</strong> with automated cleaning</div></div>
+              <div class="find"><div class="find-i">🏗️</div><div class="find-t"><strong>Normalized relational model</strong> with fact and dimension tables</div></div>
+              <div class="find"><div class="find-i">📈</div><div class="find-t"><strong>Interactive Power BI dashboard</strong> tracking trends and segments</div></div>
+            </div>
+            <div class="cc-chart" id="retailChartContainer"></div>
+          </div>
         </div>
-        <div class="det-lbl or">// monthly revenue trend</div>
-        <div class="proj-chart" id="retailChartContainer"></div>
-        <a href="https://github.com/yashxsainix/Online-Retail-Data-Analytics-Project-with-Python-SQL-and-Power-BI" target="_blank" class="gh-l">View code on GitHub</a>
-      </div></div>
-    </div>
-    <div class="pc" onclick="togP(this)">
-      <div class="pc-sum"><div class="ico">🧪</div><div class="nm">A/B Experiment Simulator (Enchanted AdLab)</div><div class="ds">Built a cinematic-grade A/B testing platform with Bayesian analysis, uplift modeling, and a DuckDB SQL lab. A full experiment lifecycle in the browser, from hypothesis to executive deck.</div><div class="pt"><span>Python</span><span>Streamlit</span><span>SciPy</span><span>DuckDB</span><span>Plotly</span></div><div class="ch">Click for findings & charts</div></div>
-      <div class="pc-det"><div class="det-in">
-        <div class="det-lbl gr">// in plain english</div>
-        <div class="plain">Before running an expensive ad campaign, you need to know: will this actually work? This platform simulates the entire A/B testing workflow - from designing the experiment to computing statistical significance to generating a revenue impact estimate a CFO would actually read.</div>
-        <div class="det-lbl cy">// key findings</div>
-        <div class="finds">
-          <div class="find"><div class="find-i">🔬</div><div class="find-t"><strong>Frequentist + Bayesian engine</strong>: auto-selects Z-test, T-test, or Chi-squared based on data type</div></div>
-          <div class="find"><div class="find-i">📊</div><div class="find-t"><strong>T-Learner uplift modeling</strong> reveals which segments actually respond to treatment</div></div>
-          <div class="find"><div class="find-i">💰</div><div class="find-t"><strong>$2.8M projected revenue impact</strong> calculated from simulated lift x ARPU x subscriber base</div></div>
-          <div class="find"><div class="find-i">🧪</div><div class="find-t"><strong>DuckDB SQL lab</strong> with 5 production-style queries running entirely in the browser</div></div>
+      </div>
+
+      <!-- SLIDE 4: A/B Lab -->
+      <div class="carousel-slide">
+        <div class="carousel-card">
+          <div class="cc-info">
+            <div class="cc-num">04</div>
+            <div class="cc-title">A/B Experiment Simulator</div>
+            <div class="cc-desc">Built a cinematic-grade A/B testing platform with Bayesian analysis, uplift modeling, and a DuckDB SQL lab. A full experiment lifecycle in the browser.</div>
+            <div class="cc-tags"><span>Python</span><span>Streamlit</span><span>SciPy</span><span>DuckDB</span><span>Plotly</span></div>
+            <div class="cc-links"><a href="https://github.com/yashxsainix/enchanted-adlab" target="_blank">View on GitHub ></a><a href="https://enchanted-adlab.streamlit.app" target="_blank">Live Demo ></a></div>
+          </div>
+          <div class="cc-visual">
+            <div class="det-lbl cy">// key findings</div>
+            <div class="finds">
+              <div class="find"><div class="find-i">🔬</div><div class="find-t"><strong>Frequentist + Bayesian</strong>: auto-selects Z/T/Chi-squared</div></div>
+              <div class="find"><div class="find-i">📊</div><div class="find-t"><strong>T-Learner uplift</strong> reveals responding segments</div></div>
+              <div class="find"><div class="find-i">💰</div><div class="find-t"><strong>$2.8M projected impact</strong> from simulated lift</div></div>
+              <div class="find"><div class="find-i">🧪</div><div class="find-t"><strong>DuckDB SQL lab</strong> with 5 production queries</div></div>
+            </div>
+            <div class="cc-chart" id="ablabChartContainer"></div>
+          </div>
         </div>
-        <div class="det-lbl or">// experiment power curve</div>
-        <div class="proj-chart" id="ablabChartContainer"></div>
-        <a href="https://github.com/yashxsainix/enchanted-adlab" target="_blank" class="gh-l">View code on GitHub</a>
-        <a href="https://enchanted-adlab.streamlit.app" target="_blank" class="gh-l" style="margin-left:12px">Live Demo</a>
-      </div></div>
-    </div>
-    <div class="pc" onclick="togP(this)">
-      <div class="pc-sum"><div class="ico">&#10052;</div><div class="nm">Snowflake ETL: Pacific Retail</div><div class="ds">Designed a Bronze-Silver-Gold data lakehouse in Snowflake. Raw CSVs go in dirty; validated, governed, analytics-ready tables come out. Business logic baked into every transformation.</div><div class="pt"><span>Snowflake</span><span>SQL</span><span>ETL</span><span>Data Governance</span></div><div class="ch">Click for findings & charts</div></div>
-      <div class="pc-det"><div class="det-in">
-        <div class="det-lbl gr">// in plain english</div>
-        <div class="plain">Imagine getting three messy CSV files - customers with invalid emails, orders with bad amounts, products with ratings outside 0-5. This pipeline catches every issue, standardizes every field, and outputs a clean warehouse where analysts can run queries without worrying about data quality.</div>
-        <div class="det-lbl cy">// key findings</div>
-        <div class="finds">
-          <div class="find"><div class="find-i">🏗️</div><div class="find-t"><strong>3-layer architecture</strong>: Bronze (raw), Silver (validated), Gold (analytics-ready views)</div></div>
-          <div class="find"><div class="find-i">🔒</div><div class="find-t"><strong>7 validation rules</strong> enforced: email format, age range, gender standardization, price positivity, stock checks, rating bounds, transaction integrity</div></div>
-          <div class="find"><div class="find-i">📈</div><div class="find-t"><strong>Gold layer views</strong>: daily sales analysis and customer-product affinity with aggregated metrics</div></div>
-          <div class="find"><div class="find-i">⚡</div><div class="find-t"><strong>Zero manual steps</strong>: full pipeline from CSV upload to queryable analytics in SQL</div></div>
+      </div>
+
+      <!-- SLIDE 5: Snowflake -->
+      <div class="carousel-slide">
+        <div class="carousel-card">
+          <div class="cc-info">
+            <div class="cc-num">05</div>
+            <div class="cc-title">Snowflake ETL: Pacific Retail</div>
+            <div class="cc-desc">Designed a Bronze-Silver-Gold data lakehouse in Snowflake. Raw CSVs go in dirty; validated, governed, analytics-ready tables come out.</div>
+            <div class="cc-tags"><span>Snowflake</span><span>SQL</span><span>ETL</span><span>Data Governance</span></div>
+            <div class="cc-links"><a href="https://github.com/yashxsainix/snowflake" target="_blank">View on GitHub ></a></div>
+          </div>
+          <div class="cc-visual">
+            <div class="det-lbl cy">// key findings</div>
+            <div class="finds">
+              <div class="find"><div class="find-i">🏗️</div><div class="find-t"><strong>3-layer architecture</strong>: Bronze, Silver, Gold</div></div>
+              <div class="find"><div class="find-i">🔒</div><div class="find-t"><strong>7 validation rules</strong>: email, age, gender, price, stock, rating, transactions</div></div>
+              <div class="find"><div class="find-i">📈</div><div class="find-t"><strong>Gold layer views</strong>: daily sales + customer affinity</div></div>
+              <div class="find"><div class="find-i">⚡</div><div class="find-t"><strong>Zero manual steps</strong>: CSV to queryable analytics</div></div>
+            </div>
+            <div class="cc-chart" id="snowflakeChartContainer"></div>
+          </div>
         </div>
-        <div class="det-lbl or">// data quality: before vs after</div>
-        <div class="proj-chart" id="snowflakeChartContainer"></div>
-        <a href="https://github.com/yashxsainix/snowflake" target="_blank" class="gh-l">View code on GitHub</a>
-      </div></div>
-    </div>
-    <div class="pc" onclick="togP(this)">
-      <div class="pc-sum"><div class="ico">🏠</div><div class="nm">Dreamhouse CRM (Salesforce LWC)</div><div class="ds">Built a full-stack real estate CRM on Salesforce using Lightning Web Components, Apex, and Flows. Property listings, broker management, and geocoding - all wired to a production-grade data model.</div><div class="pt"><span>Salesforce</span><span>LWC</span><span>Apex</span><span>SOQL</span><span>Flows</span></div><div class="ch">Click for findings & charts</div></div>
-      <div class="pc-det"><div class="det-in">
-        <div class="det-lbl gr">// in plain english</div>
-        <div class="plain">Real estate brokers need a system to manage properties, match buyers to listings, and track the entire sales pipeline. This is that system - built on Salesforce with custom Lightning Web Components, automated workflows via Flows, and an Apex backend that handles geocoding, search, and data operations.</div>
-        <div class="det-lbl cy">// key findings</div>
-        <div class="finds">
-          <div class="find"><div class="find-i">⚡</div><div class="find-t"><strong>Lightning Web Components</strong>: modern reactive UI with real-time property search and filtering</div></div>
-          <div class="find"><div class="find-i">🔧</div><div class="find-t"><strong>Apex backend</strong>: custom classes for geocoding, property matching, and SOQL-optimized queries</div></div>
-          <div class="find"><div class="find-i">🔄</div><div class="find-t"><strong>Automated workflows</strong>: Salesforce Flows handle lead assignment, status updates, and notifications</div></div>
-          <div class="find"><div class="find-i">✅</div><div class="find-t"><strong>Full CI/CD</strong>: Jest tests, ESLint, Prettier, and scratch org deployment pipeline</div></div>
+      </div>
+
+      <!-- SLIDE 6: Dreamhouse -->
+      <div class="carousel-slide">
+        <div class="carousel-card">
+          <div class="cc-info">
+            <div class="cc-num">06</div>
+            <div class="cc-title">Dreamhouse CRM (Salesforce)</div>
+            <div class="cc-desc">Built a full-stack real estate CRM on Salesforce using Lightning Web Components, Apex, and Flows. Property listings, broker management, and geocoding.</div>
+            <div class="cc-tags"><span>Salesforce</span><span>LWC</span><span>Apex</span><span>SOQL</span><span>Flows</span></div>
+            <div class="cc-links"><a href="https://github.com/yashxsainix/dreamhouse-salesforce" target="_blank">View on GitHub ></a></div>
+          </div>
+          <div class="cc-visual">
+            <div class="det-lbl cy">// key findings</div>
+            <div class="finds">
+              <div class="find"><div class="find-i">⚡</div><div class="find-t"><strong>LWC</strong>: reactive UI with real-time search</div></div>
+              <div class="find"><div class="find-i">🔧</div><div class="find-t"><strong>Apex backend</strong>: geocoding and SOQL-optimized queries</div></div>
+              <div class="find"><div class="find-i">🔄</div><div class="find-t"><strong>Automated Flows</strong>: lead assignment and notifications</div></div>
+              <div class="find"><div class="find-i">✅</div><div class="find-t"><strong>Full CI/CD</strong>: Jest, ESLint, scratch org pipeline</div></div>
+            </div>
+            <div class="cc-chart" id="dreamhouseChartContainer"></div>
+          </div>
         </div>
-        <div class="det-lbl or">// salesforce architecture</div>
-        <div class="proj-chart" id="dreamhouseChartContainer"></div>
-        <a href="https://github.com/yashxsainix/dreamhouse-salesforce" target="_blank" class="gh-l">View code on GitHub</a>
-      </div></div>
+      </div>
+
     </div>
+  </div>
+  <div class="carousel-nav">
+    <button class="carousel-btn" onclick="moveCarousel(-1)" aria-label="Previous project">&lt;</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <div class="carousel-counter"><span id="carouselCurrent">1</span> / 6</div>
+    <button class="carousel-btn" onclick="moveCarousel(1)" aria-label="Next project">&gt;</button>
   </div>
 </section>
 
@@ -1266,161 +1381,58 @@ async function runScenario(idx) {
 }
 
 
-// ======== PROJECT CHARTS (D3 Force & ECharts) ========
-function togP(c){
-  const was = c.classList.contains('exp');
-  document.querySelectorAll('.pc.exp').forEach(x=>x.classList.remove('exp'));
-  if(!was){
-    c.classList.add('exp');
-    setTimeout(() => {
-      renderD3Churn();
-      renderEchartsHousing();
-      renderEchartsRetail();
-      renderAblabChart();
-      renderSnowflakeChart();
-      renderDreamhouseChart();
-    }, 400);
-    setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'nearest'}),150);
-  }
+
+// ================================================================
+// CAROUSEL ENGINE
+// ================================================================
+let carouselIdx=0;const TOTAL_SLIDES=6;
+function moveCarousel(dir){carouselIdx=Math.max(0,Math.min(TOTAL_SLIDES-1,carouselIdx+dir));updateCarousel()}
+function goToSlide(i){carouselIdx=i;updateCarousel()}
+function updateCarousel(){
+  document.getElementById('carouselTrack').style.transform='translateX(-'+carouselIdx*100+'%)';
+  document.getElementById('carouselCurrent').textContent=carouselIdx+1;
+  document.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===carouselIdx));
+  setTimeout(()=>renderSlideChart(carouselIdx),400);
 }
+(function(){const dots=document.getElementById('carouselDots');if(!dots)return;for(let i=0;i<TOTAL_SLIDES;i++){const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.onclick=()=>goToSlide(i);dots.appendChild(d)}})();
+(function(){const t=document.getElementById('carouselTrack');if(!t)return;let sx=0;t.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});t.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50){dx>0?moveCarousel(-1):moveCarousel(1)}},{passive:true})})();
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;if(e.key==='ArrowLeft')moveCarousel(-1);if(e.key==='ArrowRight')moveCarousel(1)});
 
-// D3 Force-Directed Graph (Phase 2)
-function renderD3Churn() {
-  const container = document.getElementById('churnChartContainer');
-  if(!container || container.dataset.done) return;
-  container.dataset.done = '1';
-  container.innerHTML = ''; 
-  const width = container.clientWidth, height = container.clientHeight;
-  
-  const svg = d3.select(container).append('svg').attr('width', width).attr('height', height);
-  const nodes = [{id: 'prod', group: 0}];
-  for(let i=0; i<40; i++) nodes.push({id: 'r'+i, group: 1}); // Retained
-  for(let i=0; i<15; i++) nodes.push({id: 'c'+i, group: 2}); // Churned
+// ================================================================
+// PROJECT CHART RENDERERS
+// ================================================================
+function renderSlideChart(idx){[renderD3Churn,renderEchartsHousing,renderEchartsRetail,renderAblabChart,renderSnowflakeChart,renderDreamhouseChart][idx]()}
+setTimeout(()=>renderSlideChart(0),800);
 
-  const sim = d3.forceSimulation(nodes)
-    .force('charge', d3.forceManyBody().strength(d => d.group===0 ? -120 : -15))
-    .force('collide', d3.forceCollide().radius(6))
-    .force('x', d3.forceX(width/2).strength(d => d.group===2 ? -0.08 : 0.05)) // Churn pushes left
-    .force('y', d3.forceY(height/2).strength(d => d.group===2 ? 0.08 : 0.05));
+function renderD3Churn(){const c=document.getElementById('churnChartContainer');if(!c||c.dataset.done)return;c.dataset.done='1';c.innerHTML='';const w=c.clientWidth||300,h=c.clientHeight||160;const svg=d3.select(c).append('svg').attr('width',w).attr('height',h);const nodes=[{id:'p',group:0}];for(let i=0;i<40;i++)nodes.push({id:'r'+i,group:1});for(let i=0;i<15;i++)nodes.push({id:'c'+i,group:2});const sim=d3.forceSimulation(nodes).force('charge',d3.forceManyBody().strength(d=>d.group===0?-120:-15)).force('collide',d3.forceCollide().radius(6)).force('x',d3.forceX(w/2).strength(d=>d.group===2?-0.08:0.05)).force('y',d3.forceY(h/2).strength(d=>d.group===2?0.08:0.05));const node=svg.append('g').selectAll('circle').data(nodes).enter().append('circle').attr('r',d=>d.group===0?10:5).attr('fill',d=>d.group===0?'#fff':(d.group===1?'#00ff88':'#ff4444')).attr('opacity',0.8);sim.on('tick',()=>{node.attr('cx',d=>d.x).attr('cy',d=>d.y)})}
+function renderEchartsHousing(){const c=document.getElementById('housingChartContainer');if(!c||c.dataset.done)return;c.dataset.done='1';c.style.height='170px';echarts.init(c,'dark').setOption({backgroundColor:'transparent',tooltip:{trigger:'item'},xAxis:{type:'value',name:'Income ($K)',splitLine:{show:false},axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},yAxis:{type:'value',name:'Wait (Days)',splitLine:{show:false},axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},series:[{type:'scatter',symbolSize:10,itemStyle:{color:'#00d4ff'},data:[[25,38],[32,35],[41,30],[48,28],[55,26],[70,21],[85,18],[95,16]]}]})}
+function renderEchartsRetail(){const c=document.getElementById('retailChartContainer');if(!c||c.dataset.done)return;c.dataset.done='1';c.style.height='170px';echarts.init(c,'dark').setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},xAxis:{type:'category',data:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},series:[{type:'line',smooth:true,symbolSize:6,itemStyle:{color:'#00ff88'},areaStyle:{color:'rgba(0,255,136,0.1)'},data:[42,38,45,51,48,55,62,58,67,72,85,110]}]})}
+function renderAblabChart(){const c=document.getElementById('ablabChartContainer');if(!c||c.dataset.done)return;c.dataset.done='1';c.style.height='170px';echarts.init(c,'dark').setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},title:{text:'Power vs Sample Size',textStyle:{fontSize:9,fontFamily:'JetBrains Mono',color:'rgba(255,255,255,0.4)'}},xAxis:{type:'category',data:['500','1K','2K','5K','10K','20K','50K','100K'],axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}},axisLabel:{fontSize:8}},yAxis:{type:'value',min:0,max:100,splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},series:[{name:'5%',type:'line',smooth:true,symbolSize:4,data:[12,18,28,52,75,91,99,99],itemStyle:{color:'#c77dff'}},{name:'10%',type:'line',smooth:true,symbolSize:4,data:[22,35,55,82,96,99,99,99],itemStyle:{color:'#00d4ff'}},{name:'20%',type:'line',smooth:true,symbolSize:4,data:[48,68,88,99,99,99,99,99],itemStyle:{color:'#00ff88'}}],legend:{data:['5%','10%','20%'],textStyle:{color:'rgba(255,255,255,0.3)',fontSize:8},bottom:0}})}
+function renderSnowflakeChart(){const c=document.getElementById('snowflakeChartContainer');if(!c||c.dataset.done)return;c.dataset.done='1';c.style.height='170px';echarts.init(c,'dark').setOption({backgroundColor:'transparent',tooltip:{trigger:'axis'},title:{text:'Bronze vs Silver Quality',textStyle:{fontSize:9,fontFamily:'JetBrains Mono',color:'rgba(255,255,255,0.4)'}},xAxis:{type:'category',data:['Emails','Ages','Gender','Prices','Ratings','Nulls','Stock'],axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}},axisLabel:{fontSize:8}},yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},series:[{name:'Bronze',type:'bar',data:[47,23,31,12,18,8,15],itemStyle:{color:'rgba(255,107,53,0.6)'}},{name:'Silver',type:'bar',data:[0,0,0,0,0,0,0],itemStyle:{color:'rgba(0,255,136,0.6)'}}],legend:{data:['Bronze','Silver'],textStyle:{color:'rgba(255,255,255,0.3)',fontSize:8},bottom:0}})}
+function renderDreamhouseChart(){const c=document.getElementById('dreamhouseChartContainer');if(!c||c.dataset.done)return;c.dataset.done='1';c.innerHTML='';const L=[{l:'Lightning Web Components',c:'#00d4ff',i:['Property Search','Broker Card','Map View']},{l:'Apex Controllers',c:'#c77dff',i:['GeocodingService','PropertyController','BrokerController']},{l:'Data Layer',c:'#00ff88',i:['Property__c','Broker__c','Contact']},{l:'Automation',c:'#ff6b35',i:['Flows','Permissions','Channels']}];let h='<div style="display:flex;flex-direction:column;gap:4px;padding:4px 0">';L.forEach((l,i)=>{h+='<div style="padding:8px 12px;border-radius:6px;background:'+l.c+'08;border:1px solid '+l.c+'22"><div style="font-family:var(--mn);font-size:9px;color:'+l.c+';margin-bottom:3px;font-weight:600">'+l.l+'</div><div style="display:flex;flex-wrap:wrap;gap:3px">';l.i.forEach(it=>{h+='<span style="font-family:var(--mn);font-size:8px;color:rgba(255,255,255,0.4);padding:2px 6px;background:rgba(255,255,255,0.03);border-radius:3px">'+it+'</span>'});h+='</div></div>';if(i<L.length-1)h+='<div style="text-align:center;color:rgba(255,255,255,0.1);font-size:9px">&#9660;</div>'});h+='</div>';c.innerHTML=h}
 
-  const node = svg.append('g').selectAll('circle').data(nodes).enter().append('circle')
-    .attr('r', d => d.group===0 ? 10 : 5)
-    .attr('fill', d => d.group===0 ? '#fff' : (d.group===1 ? '#00ff88' : '#ff4444'))
-    .attr('opacity', 0.8);
+// ================================================================
+// CUSTOM CURSOR
+// ================================================================
+(function(){if(window.innerWidth<769)return;const cur=document.getElementById('cursor'),dot=document.getElementById('cursorDot');if(!cur||!dot)return;let mx=0,my=0,cx=0,cy=0,dx=0,dy=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});function tick(){cx+=(mx-cx)*0.12;cy+=(my-cy)*0.12;dx+=(mx-dx)*0.45;dy+=(my-dy)*0.45;cur.style.left=cx+'px';cur.style.top=cy+'px';dot.style.left=dx+'px';dot.style.top=dy+'px';requestAnimationFrame(tick)}tick();document.querySelectorAll('a,button,.scen-card,.carousel-btn,.nav-l a,.btn,.cc-links a').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'))})})();
 
-  sim.on('tick', () => {
-    node.attr('cx', d => d.x).attr('cy', d => d.y);
-  });
-}
+// ================================================================
+// LOADING SCREEN
+// ================================================================
+(function(){const bar=document.getElementById('loaderBar'),pct=document.getElementById('loaderPct'),sub=document.getElementById('loaderSub'),ov=document.getElementById('loader');if(!bar||!ov)return;let p=0;const msgs=['loading assets...','initializing charts...','preparing data...','building experience...','ready.'];const iv=setInterval(()=>{p+=Math.floor(Math.random()*8)+3;if(p>100)p=100;bar.style.width=p+'%';pct.textContent=p+'%';if(p>20&&sub)sub.classList.add('show');if(p>30&&sub)sub.textContent=msgs[Math.min(Math.floor(p/20),msgs.length-1)];if(p>=100){clearInterval(iv);setTimeout(()=>ov.classList.add('done'),600)}},120)})();
 
-function renderEchartsHousing() {
-  const container = document.getElementById('housingChartContainer');
-  if(!container || container.dataset.done) return;
-  container.dataset.done = '1';
-  container.style.height = '200px';
-  let chart = echarts.init(container, 'dark');
-  chart.setOption({
-    backgroundColor: 'transparent',
-    tooltip: {trigger: 'item', formatter: 'Income: ${c}K <br/> Wait: {c1} Days'},
-    xAxis: {type: 'value', name: 'Income ($K)', splitLine:{show:false}, axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
-    yAxis: {type: 'value', name: 'Wait (Days)', splitLine:{show:false}, axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
-    series: [{
-      type: 'scatter', symbolSize: 10, itemStyle: {color: '#00d4ff'},
-      data: [[25, 38], [32, 35], [41, 30], [48, 28], [55, 26], [70, 21], [85, 18], [95, 16]]
-    }]
-  });
-}
-
-function renderEchartsRetail() {
-  const container = document.getElementById('retailChartContainer');
-  if(!container || container.dataset.done) return;
-  container.dataset.done = '1';
-  container.style.height = '200px';
-  let chart = echarts.init(container, 'dark');
-  chart.setOption({
-    backgroundColor: 'transparent',
-    tooltip: {trigger: 'axis'},
-    xAxis: {type: 'category', data: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
-    yAxis: {type: 'value', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
-    series: [{
-      type: 'line', smooth:true, symbolSize: 6, itemStyle: {color: '#00ff88'}, areaStyle: {color: 'rgba(0,255,136,0.1)'},
-      data: [42,38,45,51,48,55,62,58,67,72,85,110]
-    }]
-  });
-}
-
-// ======== NEW PROJECT CHARTS ========
-
-function renderAblabChart() {
-  const container = document.getElementById('ablabChartContainer');
-  if(!container || container.dataset.done) return;
-  container.dataset.done = '1';
-  container.style.height = '220px';
-  let chart = echarts.init(container, 'dark');
-  chart.setOption({
-    backgroundColor: 'transparent',
-    tooltip: {trigger: 'axis', formatter: '{b}<br/>Power: {c}%'},
-    title: {text: 'Statistical Power vs Sample Size', textStyle:{fontSize: 10, fontFamily: 'JetBrains Mono', color: 'rgba(255,255,255,0.4)'}},
-    xAxis: {type: 'category', name: 'Sample Size', data: ['500','1K','2K','5K','10K','20K','50K','100K'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}, axisLabel:{fontSize:9}},
-    yAxis: {type: 'value', name: 'Power (%)', min: 0, max: 100, splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}, axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}},
-    series: [
-      {name:'5% Effect', type:'line', smooth:true, symbolSize:6, data:[12,18,28,52,75,91,99,99], itemStyle:{color:'#c77dff'}, areaStyle:{color:'rgba(199,125,255,0.05)'}},
-      {name:'10% Effect', type:'line', smooth:true, symbolSize:6, data:[22,35,55,82,96,99,99,99], itemStyle:{color:'#00d4ff'}, areaStyle:{color:'rgba(0,212,255,0.05)'}},
-      {name:'20% Effect', type:'line', smooth:true, symbolSize:6, data:[48,68,88,99,99,99,99,99], itemStyle:{color:'#00ff88'}, areaStyle:{color:'rgba(0,255,136,0.05)'}}
-    ],
-    legend: {data:['5% Effect','10% Effect','20% Effect'], textStyle:{color:'rgba(255,255,255,0.4)', fontSize:9}, bottom:0}
-  });
-}
-
-function renderSnowflakeChart() {
-  const container = document.getElementById('snowflakeChartContainer');
-  if(!container || container.dataset.done) return;
-  container.dataset.done = '1';
-  container.style.height = '220px';
-  let chart = echarts.init(container, 'dark');
-  chart.setOption({
-    backgroundColor: 'transparent',
-    tooltip: {trigger: 'axis'},
-    title: {text: 'Data Quality: Bronze (Raw) vs Silver (Validated)', textStyle:{fontSize: 10, fontFamily: 'JetBrains Mono', color: 'rgba(255,255,255,0.4)'}},
-    xAxis: {type: 'category', data: ['Invalid Emails','Bad Age Values','Unknown Gender','Negative Prices','Out-of-Range Ratings','Null Transactions','Bad Stock Qty'], axisLine:{lineStyle:{color:'rgba(255,255,255,0.2)'}}, axisLabel:{fontSize:8, rotate:25}},
-    yAxis: {type: 'value', name: 'Record Count', splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
-    series: [
-      {name:'Bronze (Raw)', type:'bar', data:[47,23,31,12,18,8,15], itemStyle:{color:'rgba(255,107,53,0.6)'}, barGap:'20%'},
-      {name:'Silver (Clean)', type:'bar', data:[0,0,0,0,0,0,0], itemStyle:{color:'rgba(0,255,136,0.6)'}}
-    ],
-    legend: {data:['Bronze (Raw)','Silver (Clean)'], textStyle:{color:'rgba(255,255,255,0.4)', fontSize:9}, bottom:0}
-  });
-}
-
-function renderDreamhouseChart() {
-  const container = document.getElementById('dreamhouseChartContainer');
-  if(!container || container.dataset.done) return;
-  container.dataset.done = '1';
-  container.innerHTML = '';
-  
-  const layers = [
-    {label:'Lightning Web Components', color:'#00d4ff', items:['Property Search','Broker Card','Map View','Property Detail']},
-    {label:'Apex Controllers', color:'#c77dff', items:['GeocodingService','PropertyController','BrokerController']},
-    {label:'Data Layer (SOQL)', color:'#00ff88', items:['Property__c','Broker__c','Contact','Opportunity']},
-    {label:'Automation', color:'#ff6b35', items:['Flows','Permission Sets','Message Channels']}
-  ];
-  
-  let html = '<div style="display:flex;flex-direction:column;gap:6px;padding:8px 0">';
-  layers.forEach((layer, i) => {
-    html += '<div style="padding:12px 16px;border-radius:8px;background:'+layer.color+'08;border:1px solid '+layer.color+'22">';
-    html += '<div style="font-family:var(--mn);font-size:10px;color:'+layer.color+';margin-bottom:6px;font-weight:600">'+layer.label+'</div>';
-    html += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-    layer.items.forEach(item => {
-      html += '<span style="font-family:var(--mn);font-size:9px;color:rgba(255,255,255,0.45);padding:3px 8px;background:rgba(255,255,255,0.03);border-radius:4px">'+item+'</span>';
-    });
-    html += '</div></div>';
-    if(i < layers.length - 1) {
-      html += '<div style="text-align:center;color:rgba(255,255,255,0.15);font-size:12px;line-height:1">&#9660;</div>';
-    }
-  });
-  html += '</div>';
-  container.innerHTML = html;
-}
+// ================================================================
+// GSAP SCROLL ANIMATIONS
+// ================================================================
+gsap.registerPlugin(ScrollTrigger);
+document.querySelectorAll('section').forEach(sec=>{
+  const els=sec.querySelectorAll('.lbl,.stl,.ssub,.demo-box,.carousel-card,.case-step,.exp-card,.sk-card,.meth-step,.edu-main,.edu-sm,.explore-controls,.scen-grid,.impact-grid-wrap,.arch-split,.anomaly-term,.cuny-tag,.carousel-wrap,.carousel-nav');
+  if(els.length)gsap.from(els,{y:40,opacity:0,duration:0.8,stagger:0.1,ease:'power2.out',scrollTrigger:{trigger:sec,start:'top 82%',toggleActions:'play none none none'}});
+});
+document.querySelectorAll('.counter').forEach(c=>{
+  ScrollTrigger.create({trigger:c,start:'top 85%',once:true,onEnter:()=>{const n=c.querySelector('.num');if(n&&!n.dataset.anim){n.dataset.anim='1';const t=parseInt(n.dataset.target)||0,s=n.dataset.suffix||'';gsap.to({v:0},{v:t,duration:2,ease:'power2.out',onUpdate:function(){n.textContent=Math.round(this.targets()[0].v)+s}})}}});
+});
+gsap.to('.hero',{yPercent:-15,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
 
 // MTA Case Study ECharts (Converting from Chart.js)
 const mtaObs = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){
