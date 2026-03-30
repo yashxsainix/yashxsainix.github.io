@@ -902,7 +902,7 @@ body.cur-hover .cur{width:50px;height:50px;background:rgba(0,255,136,0.08);borde
             <div class="cc-title">A/B Experiment Simulator</div>
             <div class="cc-desc">Built a cinematic-grade A/B testing platform with Bayesian analysis, uplift modeling, and a DuckDB SQL lab. A full experiment lifecycle in the browser.</div>
             <div class="cc-tags"><span>Python</span><span>Streamlit</span><span>SciPy</span><span>DuckDB</span><span>Plotly</span></div>
-            <div class="cc-links"><a href="https://github.com/yashxsainix/enchanted-adlab" target="_blank">View on GitHub ></a><a href="https://enchanted-adlab.streamlit.app" target="_blank">Live Demo ></a></div>
+            <div class="cc-links"><a href="https://github.com/yashxsainix/enchanted-adlab" target="_blank">View on GitHub ></a><a href="https://yashpal-adlab.streamlit.app/" target="_blank">Live Demo ></a></div>
           </div>
           <div class="cc-visual">
             <div class="det-lbl cy">// key findings</div>
@@ -1030,6 +1030,10 @@ body.cur-hover .cur{width:50px;height:50px;background:rgba(0,255,136,0.08);borde
     <div class="edu-sch">Baruch College, Zicklin School of Business</div>
     <div class="edu-deg">M.S. in Business Analytics - Expected May 2026</div>
     <div class="edu-det">GPA 3.6/4.0. The Pliner Bloom Scholarship is awarded to select graduate students for academic merit. Coursework includes Data Mining, Database Management, Applied NLP, Statistical Modeling, and R Programming.</div>
+    <div style="margin-top:10px;padding:10px 14px;background:rgba(0,255,136,0.03);border:1px solid rgba(0,255,136,0.08);border-radius:8px;display:flex;align-items:flex-start;gap:10px">
+      <div style="font-size:14px;flex-shrink:0;margin-top:1px">💼</div>
+      <div style="font-family:var(--bd);font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6"><strong style="color:var(--g)">Assistant Budget Director</strong> - Undergraduate Student Government. Managing and allocating budgets across <strong style="color:var(--tx)">140+ student clubs and organizations</strong>. Overseeing funding requests, expense tracking, and financial reporting for the entire student activities portfolio.</div>
+    </div>
   </div>
   <div class="edu-sm"><div class="edu-sch">Amity University</div><div class="edu-deg">M.Com in Marketing, 2020-2022</div></div>
   <div class="edu-sm"><div class="edu-sch">Kurukshetra University</div><div class="edu-deg">B.Com, 2016-2019</div></div>
@@ -1147,18 +1151,18 @@ function playProcessingHum() {
 // ======== GSAP ORCHESTRATION (Phase 1) ========
 gsap.registerPlugin(ScrollTrigger);
 
-const revealElements = gsap.utils.toArray('.lbl, .stl, .ssub, .pc, .exp-card, .sk-card, .case-box, .explore-box, .meth-step, .edu-main, .edu-sm, .hero-photo');
+const revealElements = gsap.utils.toArray('.lbl, .stl, .ssub, .exp-card, .sk-card, .case-box, .explore-box, .meth-step, .edu-main, .edu-sm, .hero-photo');
 revealElements.forEach(el => {
   gsap.fromTo(el, 
-    { y: 40, opacity: 0 },
+    { y: 20, opacity: 0 },
     {
       y: 0, opacity: 1,
-      duration: 1,
-      ease: "power3.out",
+      duration: 0.5,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 85%",
-        toggleActions: "play none none reverse"
+        start: "top 90%",
+        toggleActions: "play none none none"
       }
     }
   );
@@ -1178,10 +1182,10 @@ gsap.utils.toArray('.counter').forEach(counter => {
   });
 });
 
-const archTimeline = gsap.timeline({ scrollTrigger: { trigger: ".arch-split", start: "top 75%", end: "bottom 45%", scrub: 1.5 } });
-archTimeline.fromTo(".mess .frag-node", { x: -20, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.1, duration: 1 }, 0)
-.fromTo(".arch-mega-arrow", { scale: 0.8, opacity: 0, x: -30 }, { scale: 1, opacity: 1, x: 0, duration: 1 }, 0.5)
-.fromTo(".clean-flow .flow-stage", { x: 30, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.2, duration: 1.5 }, 0.5);
+const archTimeline = gsap.timeline({ scrollTrigger: { trigger: ".arch-split", start: "top 80%", end: "bottom 60%", scrub: 0.8 } });
+archTimeline.fromTo(".mess .frag-node", { x: -15, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.08, duration: 0.6 }, 0)
+.fromTo(".arch-mega-arrow", { scale: 0.8, opacity: 0, x: -20 }, { scale: 1, opacity: 1, x: 0, duration: 0.6 }, 0.3)
+.fromTo(".clean-flow .flow-stage", { x: 20, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.12, duration: 0.8 }, 0.3);
 
 document.querySelectorAll('.scen-card').forEach(card => {
   card.addEventListener('mousemove', e => {
@@ -1422,17 +1426,11 @@ function renderDreamhouseChart(){const c=document.getElementById('dreamhouseChar
 (function(){const bar=document.getElementById('loaderBar'),pct=document.getElementById('loaderPct'),sub=document.getElementById('loaderSub'),ov=document.getElementById('loader');if(!bar||!ov)return;let p=0;const msgs=['loading assets...','initializing charts...','preparing data...','building experience...','ready.'];const iv=setInterval(()=>{p+=Math.floor(Math.random()*8)+3;if(p>100)p=100;bar.style.width=p+'%';pct.textContent=p+'%';if(p>20&&sub)sub.classList.add('show');if(p>30&&sub)sub.textContent=msgs[Math.min(Math.floor(p/20),msgs.length-1)];if(p>=100){clearInterval(iv);setTimeout(()=>ov.classList.add('done'),600)}},120)})();
 
 // ================================================================
-// GSAP SCROLL ANIMATIONS
-// ================================================================
-gsap.registerPlugin(ScrollTrigger);
-document.querySelectorAll('section').forEach(sec=>{
-  const els=sec.querySelectorAll('.lbl,.stl,.ssub,.demo-box,.carousel-card,.case-step,.exp-card,.sk-card,.meth-step,.edu-main,.edu-sm,.explore-controls,.scen-grid,.impact-grid-wrap,.arch-split,.anomaly-term,.cuny-tag,.carousel-wrap,.carousel-nav');
-  if(els.length)gsap.from(els,{y:40,opacity:0,duration:0.8,stagger:0.1,ease:'power2.out',scrollTrigger:{trigger:sec,start:'top 82%',toggleActions:'play none none none'}});
-});
-document.querySelectorAll('.counter').forEach(c=>{
-  ScrollTrigger.create({trigger:c,start:'top 85%',once:true,onEnter:()=>{const n=c.querySelector('.num');if(n&&!n.dataset.anim){n.dataset.anim='1';const t=parseInt(n.dataset.target)||0,s=n.dataset.suffix||'';gsap.to({v:0},{v:t,duration:2,ease:'power2.out',onUpdate:function(){n.textContent=Math.round(this.targets()[0].v)+s}})}}});
-});
+// GSAP SCROLL - hero parallax only (section reveals handled above)
 gsap.to('.hero',{yPercent:-15,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+// Force-show all content after 3s as safety net
+setTimeout(()=>{document.querySelectorAll('.lbl,.stl,.ssub,.exp-card,.sk-card,.case-box,.explore-box,.meth-step,.edu-main,.edu-sm,.hero-photo,.carousel-wrap,.carousel-nav,.carousel-card').forEach(el=>{el.style.opacity='1';el.style.transform='none'})},3000);
 
 // MTA Case Study ECharts (Converting from Chart.js)
 const mtaObs = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){
